@@ -1,65 +1,82 @@
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
+import EditorialHero from "@/components/hero/EditorialHero";
+import ProjectShowcase from "@/components/editorial/ProjectShowcase";
+import SpitfireInterlude from "@/components/editorial/SpitfireInterlude";
+import { About } from "@/components/About";
+import { Footer } from "@/components/Footer";
+import { ThemeToggle } from "@/components/ThemeToggle";
+
+// Placeholder images
+const PLACEHOLDERS = {
+  mobileApp: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=1974", // High quality mobile app placeholder
+  webApp: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2426",
+  abstract3d: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=2564",
+  office: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2301",
+};
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="bg-[#050505] min-h-screen text-[#ededed] selection:bg-white/20">
+      <div className="fixed top-6 right-6 z-50 mix-blend-difference text-white">
+        <ThemeToggle />
+      </div>
+
+      {/* 1. HERO SECTION */}
+      <EditorialHero />
+
+      {/* 2. BOODY AI SHOWCASE */}
+      <ProjectShowcase
+        number="01"
+        category="Mobil Uygulama & AI"
+        title="Boody AI"
+        tags={["UI/UX", "Mobil Tasarım", "Yapay Zeka"]}
+        image={PLACEHOLDERS.mobileApp}
+        href="/projects/boody-ai"
+        reverse={false}
+      />
+
+      {/* 3. CAR2GATHER SHOWCASE */}
+      <ProjectShowcase
+        number="02"
+        category="Web Platformu"
+        title="car2gather"
+        tags={["Web Tasarım", "Kullanıcı Akışı", "SaaS"]}
+        image={PLACEHOLDERS.webApp}
+        href="/projects/car2gather"
+        reverse={true}
+      />
+
+      {/* 4. TEDX SHOWCASE */}
+      <ProjectShowcase
+        number="03"
+        category="Görsel Kimlik & Etkinlik"
+        title="TEDx YTU"
+        tags={["3D Tasarım", "Blender", "Marka Kimliği", "Hareketli Grafik"]}
+        image="/tedx/tedx-poster.png"
+        video="/tedx/tedx-intro_1.mp4"
+        href="/projects/tedx"
+        reverse={false}
+      />
+
+      {/* 5. PROMETEON SHOWCASE */}
+      <ProjectShowcase
+        number="04"
+        category="Strateji & İçerik"
+        title="Prometeon"
+        tags={["Staj", "Kullanıcı Araştırması", "İçerik Stratejisi"]}
+        image={PLACEHOLDERS.office}
+        href="/projects/prometeon"
+        reverse={true}
+      />
+
+      {/* 6. SPITFIRE INTERLUDE */}
+      <SpitfireInterlude />
+
+      {/* 7. ABOUT & FOOTER */}
+      <About />
+      <Footer />
+    </main>
   );
 }
