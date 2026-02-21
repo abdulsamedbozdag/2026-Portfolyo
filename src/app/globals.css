@@ -13,6 +13,7 @@
   --font-sans: var(--font-outfit);
   --font-serif: var(--font-playfair);
   --font-friendly: var(--font-jakarta);
+  --font-rem: var(--font-rem);
   --font-mono: monospace;
 }
 

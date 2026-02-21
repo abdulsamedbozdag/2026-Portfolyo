@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 interface ProjectShowcaseProps {
     number: string;
@@ -15,6 +16,7 @@ interface ProjectShowcaseProps {
     href: string;
     reverse?: boolean; // If true, image is on the left
     comingSoon?: boolean;
+    objectContain?: boolean; // New: To prevent cropping
 }
 
 export default function ProjectShowcase({
@@ -27,6 +29,7 @@ export default function ProjectShowcase({
     href,
     reverse = false,
     comingSoon = false,
+    objectContain = false,
 }: ProjectShowcaseProps) {
     return (
         <section className="min-h-screen flex items-center justify-center py-24 px-6 md:px-12 relative overflow-hidden bg-[#050505] text-[#ededed]">
@@ -107,14 +110,20 @@ export default function ProjectShowcase({
                                 muted
                                 loop
                                 playsInline
-                                className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-105"
+                                className={cn(
+                                    "w-full h-full transform transition-transform duration-700 group-hover:scale-105",
+                                    objectContain ? "object-contain" : "object-cover"
+                                )}
                             />
                         ) : (
                             <Image
                                 src={image}
                                 alt={title}
                                 fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                className={cn(
+                                    "transition-transform duration-700 group-hover:scale-105",
+                                    objectContain ? "object-contain" : "object-cover"
+                                )}
                             />
                         )}
                     </Link>

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit, Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
+import { Outfit, Playfair_Display, Plus_Jakarta_Sans, REM } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -11,6 +11,11 @@ const outfit = Outfit({
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-jakarta",
+});
+
+const rem = REM({
+  subsets: ["latin"],
+  variable: "--font-rem",
 });
 
 const playfair = Playfair_Display({
@@ -58,7 +63,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" suppressHydrationWarning>
-      <body className={`${outfit.variable} ${playfair.variable} ${jakarta.variable} font-sans antialiased`}>
+      <body className={`${outfit.variable} ${playfair.variable} ${jakarta.variable} ${rem.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -80,6 +85,6 @@ export default function RootLayout({
           </SmoothScroll>
         </ThemeProvider>
       </body>
-    </html>
+    </html >
   );
 }

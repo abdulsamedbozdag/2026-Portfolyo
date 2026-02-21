@@ -60,15 +60,15 @@ export default function Home() {
         reverse={false}
       />
 
-      {/* 5. PROMETEON SHOWCASE */}
       <ProjectShowcase
         number="04"
-        category="Strateji & İçerik"
+        category="Marka ve İletişim"
         title="Prometeon"
-        tags={["Staj", "Kullanıcı Araştırması", "İçerik Stratejisi"]}
-        image={PLACEHOLDERS.office}
+        tags={["Staj", "Grafik Tasarım", "İçerik Stratejisi"]}
+        image="/prometeon/dagvelastik.jpeg"
         href="/projects/prometeon"
         reverse={true}
+        objectContain={true}
       />
 
       {/* 6. SPITFIRE INTERLUDE */}

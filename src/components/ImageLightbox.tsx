@@ -50,7 +50,7 @@ export function LightboxImage({ src, alt, className, fill, width, height, priori
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 0.3 }}
-                            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-md cursor-zoom-out"
+                            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-2xl cursor-zoom-out"
                             onClick={close}
                         >
                             {/* Close Button */}
@@ -67,7 +67,7 @@ export function LightboxImage({ src, alt, className, fill, width, height, priori
                                 animate={{ scale: 1, opacity: 1 }}
                                 exit={{ scale: 0.8, opacity: 0 }}
                                 transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                                className="relative w-[90vw] h-[85vh]"
+                                className="relative w-[95vw] h-[95vh]"
                                 onClick={(e) => e.stopPropagation()}
                             >
                                 <Image
@@ -75,7 +75,7 @@ export function LightboxImage({ src, alt, className, fill, width, height, priori
                                     alt={alt}
                                     fill
                                     className="object-contain"
-                                    sizes="90vw"
+                                    sizes="95vw"
                                     quality={95}
                                 />
                             </motion.div>
