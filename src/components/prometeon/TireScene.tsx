@@ -8,22 +8,20 @@ import {
     Center,
     useProgress,
     Html,
-    ContactShadows,
-    PerspectiveCamera
+    ContactShadows
 } from "@react-three/drei";
-import { Suspense, useRef, useState, useEffect } from "react";
+import { Suspense, useRef, useState, useEffect, useMemo } from "react";
 import * as THREE from "three";
 
 // Optimization: Common decoders for optimized GLB files
 const DRACO_URL = "https://www.gstatic.com/draco/versioned/decoders/1.5.5/";
 
 function TireModel({ url }: { url: string }) {
-    // Attempting to load with Draco support
     const { scene } = useGLTF(url, DRACO_URL);
 
     useEffect(() => {
         if (scene) {
-            console.log("3D Model Render: Model loaded from GitHub Raw storage.");
+            console.log("3D Model Render: Model loaded successfully.");
             scene.traverse((child) => {
                 if ((child as THREE.Mesh).isMesh) {
                     const mesh = child as THREE.Mesh;
@@ -31,8 +29,9 @@ function TireModel({ url }: { url: string }) {
                     mesh.receiveShadow = true;
                     if (mesh.material) {
                         const mat = mesh.material as THREE.MeshStandardMaterial;
-                        if (mat.emissiveIntensity) mat.emissiveIntensity = 0.4;
+                        // Performance: Ensure materials aren't overly complex for mobile
                         mat.side = THREE.DoubleSide;
+                        if (mat.map) mat.map.anisotropy = 4;
                     }
                 }
             });
@@ -62,7 +61,7 @@ function Loader() {
                         %{progress.toFixed(0)}
                     </span>
                     <span className="text-[8px] text-white/20 uppercase tracking-widest">
-                        GitHub üzerinden yukleniyor
+                        Model Yukleniyor
                     </span>
                 </div>
             </div>
@@ -71,15 +70,45 @@ function Loader() {
 }
 
 export function TireScene() {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [isVisible, setIsVisible] = useState(false);
     const [hasError, setHasError] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
-    // GitHub RAW content URL for consistent delivery
-    // Note: We use raw.githubusercontent.com for binary files
+    // Responsive camera logic
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 1024);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+
+        // Performance: Only render when in view
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (containerRef.current) observer.observe(containerRef.current);
+
+        return () => {
+            window.removeEventListener('resize', checkMobile);
+            observer.disconnect();
+        };
+    }, []);
+
     const modelUrl = "https://raw.githubusercontent.com/abdulsamedbozdag/2026-Portfolyo/main/public/prometeon/lastikler/R02_PRO_TRAILER_M1.glb";
 
     return (
-        <div className="w-full h-full min-h-[450px] bg-[#050505] flex items-center justify-center relative overflow-hidden rounded-2xl border border-white/5">
-            {!hasError ? (
+        <div
+            ref={containerRef}
+            className="w-full h-full min-h-[400px] lg:min-h-[500px] bg-[#050505] flex items-center justify-center relative overflow-hidden rounded-2xl border border-white/5 shadow-2xl"
+        >
+            {isVisible && !hasError ? (
                 <Canvas
                     shadows={false}
                     dpr={1}
@@ -88,29 +117,28 @@ export function TireScene() {
                         alpha: false,
                         powerPreference: "high-performance",
                     }}
+                    camera={{
+                        position: isMobile ? [0, 4, 18] : [0, 5, 14], // Move camera back on mobile
+                        fov: isMobile ? 45 : 35 // Increase FOV on mobile
+                    }}
                     onCreated={({ gl }) => {
                         gl.setClearColor(new THREE.Color('#050505'), 1);
                     }}
-                    onError={(err) => {
-                        console.error("3D Canvas Error:", err);
-                        setHasError(true);
-                    }}
+                    onError={() => setHasError(true)}
                 >
-                    <PerspectiveCamera makeDefault position={[0, 4, 14]} fov={35} />
-
                     <ambientLight intensity={0.6} />
                     <directionalLight position={[10, 10, 10]} intensity={1.5} />
                     <directionalLight position={[-10, 5, -5]} intensity={0.8} color="#00AEEF" />
 
                     <Suspense fallback={<Loader />}>
-                        <Float speed={1.2} rotationIntensity={0.25} floatIntensity={0.4}>
+                        <Float speed={1.2} rotationIntensity={0.2} floatIntensity={0.3}>
                             <TireModel url={modelUrl} />
                         </Float>
                         <ContactShadows
                             position={[0, -2.8, 0]}
                             opacity={0.4}
-                            scale={12}
-                            blur={2.4}
+                            scale={14}
+                            blur={2.5}
                             far={5}
                         />
                     </Suspense>
@@ -121,16 +149,20 @@ export function TireScene() {
                         autoRotate={true}
                         autoRotateSpeed={0.5}
                         enablePan={false}
-                        minDistance={7}
-                        maxDistance={22}
+                        minDistance={isMobile ? 10 : 7}
+                        maxDistance={30}
                     />
                 </Canvas>
-            ) : (
+            ) : hasError ? (
                 <div className="text-center px-10">
-                    <p className="text-white/30 text-xs uppercase tracking-widest leading-relaxed">
-                        3D Yukleme Hatasi.<br />
-                        Lutfen internet baglantinizi kontrol edin.
+                    <p className="text-white/30 text-[10px] uppercase tracking-widest leading-relaxed">
+                        3D Yukleme Hatasi
                     </p>
+                </div>
+            ) : (
+                <div className="flex flex-col items-center gap-3">
+                    <div className="w-8 h-8 rounded-full border-2 border-white/5 border-t-[#00AEEF] animate-spin" />
+                    <span className="text-[9px] text-white/20 uppercase tracking-widest">Baslatiliyor...</span>
                 </div>
             )}
 
@@ -139,5 +171,5 @@ export function TireScene() {
     );
 }
 
-// Preload from GitHub
+// Preload using the shared URL
 useGLTF.preload("https://raw.githubusercontent.com/abdulsamedbozdag/2026-Portfolyo/main/public/prometeon/lastikler/R02_PRO_TRAILER_M1.glb", DRACO_URL);
