@@ -95,6 +95,46 @@ export default function BoodyAiPage() {
                         />
                     </div>
 
+                    {/* Wireframe & Lo-Fi Section */}
+                    <div className="py-20 border-y border-neutral-100 dark:border-white/5 my-12">
+                        <div className="max-w-2xl mx-auto text-center mb-16">
+                            <h2 className="text-3xl font-bold mb-6">Wireframe & Lo-Fi</h2>
+                            <p className="text-neutral-500 dark:text-neutral-400">
+                                Kullanıcı yolculuğunu ve temel etkileşimleri doğrulamak için hazırlanan düşük sadakatli taslaklar.
+                                Karmaşık AI akışlarını en basit haliyle kurgulayarak kullanıcı deneyimini optimize ettik.
+                            </p>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div className="aspect-[3/4] relative bg-neutral-100 dark:bg-neutral-900 rounded-3xl overflow-hidden p-8 flex items-center justify-center border border-white/5">
+                                <div className="w-full h-full relative border-2 border-dashed border-white/10 rounded-xl flex flex-col gap-4 p-6">
+                                    <div className="w-1/2 h-4 bg-white/5 rounded" />
+                                    <div className="w-full h-32 bg-white/5 rounded-lg" />
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="h-20 bg-white/5 rounded-lg" />
+                                        <div className="h-20 bg-white/5 rounded-lg" />
+                                    </div>
+                                    <div className="w-full h-10 bg-blue-500/20 rounded-full mt-auto" />
+                                </div>
+                                <span className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-widest text-neutral-500">Lo-Fi Sketch 01</span>
+                            </div>
+                            <div className="aspect-[3/4] relative bg-neutral-100 dark:bg-neutral-900 rounded-3xl overflow-hidden p-8 flex items-center justify-center border border-white/5">
+                                <div className="w-full h-full relative border-2 border-dashed border-white/10 rounded-xl flex flex-col gap-4 p-6">
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <div className="w-12 h-12 rounded-full bg-white/5" />
+                                        <div className="flex-1 space-y-2">
+                                            <div className="w-1/2 h-2 bg-white/5 rounded" />
+                                            <div className="w-1/3 h-2 bg-white/5 rounded" />
+                                        </div>
+                                    </div>
+                                    <div className="w-full h-2 bg-white/5 rounded" />
+                                    <div className="w-3/4 h-2 bg-white/5 rounded" />
+                                    <div className="w-full h-48 bg-white/5 rounded-lg mt-4" />
+                                </div>
+                                <span className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-widest text-neutral-500">Wireframe 02</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <div className="bg-neutral-100 dark:bg-neutral-900 rounded-2xl p-12 text-center text-neutral-500">
                         <p>Diğer proje detay görselleri buraya eklenecek.</p>
                     </div>

@@ -272,15 +272,14 @@ const TireCrossSection = () => {
 
                     {/* Tire Visual */}
                     <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="relative flex-1 flex items-center justify-center min-h-[400px]"
+                        className="relative flex-1 flex items-center justify-center min-h-[500px] md:min-h-[600px]"
                     >
-                        <div className="relative w-full h-[400px] md:h-[500px]">
+                        <div className="relative w-full h-full">
                             <TireScene />
                         </div>
-                        <div className="absolute inset-0 rounded-full pointer-events-none" style={{ background: isDark ? "radial-gradient(circle, rgba(15,32,75,0.12) 0%, transparent 70%)" : "radial-gradient(circle, rgba(15,32,75,0.05) 0%, transparent 70%)" }} />
                     </motion.div>
                 </div>
             </div>
@@ -463,10 +462,6 @@ export default function PrometeonPage() {
                 {/* ═══════════════════════════════════════════════════════ */}
                 <DraggableMarquee />
 
-                {/* ═══════════════════════════════════════════════════════ */}
-                {/* SECTION 3: Tire Cross-Section (Dedicated)              */}
-                {/* ═══════════════════════════════════════════════════════ */}
-                <TireCrossSection />
 
                 {/* ═══════════════════════════════════════════════════════ */}
                 {/* SECTION 4: Creative Showcase Gallery                   */}

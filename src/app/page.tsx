@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import EditorialHero from "@/components/hero/EditorialHero";
 import ProjectShowcase from "@/components/editorial/ProjectShowcase";
 import SpitfireInterlude from "@/components/editorial/SpitfireInterlude";
+import PrometeonInterlude from "@/components/editorial/PrometeonInterlude";
 import { About } from "@/components/About";
 import { Footer } from "@/components/Footer";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -28,31 +29,12 @@ export default function Home() {
       {/* 1. HERO SECTION */}
       <EditorialHero />
 
-      {/* 2. BOODY AI SHOWCASE */}
-      <ProjectShowcase
-        number="01"
-        category={t("common.mobileApp")}
-        title="Boody AI"
-        tags={["UI/UX", "Mobil Tasarım", "Yapay Zeka"]}
-        image={PLACEHOLDERS.mobileApp}
-        href="/projects/boody-ai"
-        reverse={false}
-      />
+      {/* 1. PROMETEON INTERLUDE (01) */}
+      <PrometeonInterlude />
 
-      {/* 3. CAR2GATHER SHOWCASE */}
+      {/* 2. TEDX SHOWCASE (02) */}
       <ProjectShowcase
         number="02"
-        category={t("common.webPlatform")}
-        title="car2gather"
-        tags={["Web Tasarım", "Kullanıcı Akışı", "SaaS"]}
-        image={PLACEHOLDERS.webApp}
-        href="/projects/car2gather"
-        reverse={true}
-      />
-
-      {/* 4. TEDX SHOWCASE */}
-      <ProjectShowcase
-        number="03"
         category={t("common.visualIdentity")}
         title="TEDx YTU"
         tags={["3D Tasarım", "Blender", "Marka Kimliği", "Hareketli Grafik"]}
@@ -62,19 +44,41 @@ export default function Home() {
         reverse={false}
       />
 
+      {/* 3. SOCIAL MEDIA SHOWCASE (03) */}
       <ProjectShowcase
-        number="04"
+        number="03"
         category={t("common.brandComm")}
-        title="Prometeon"
-        tags={["Staj", "Grafik Tasarım", "İçerik Stratejisi"]}
-        image="/prometeon/dagvelastik.jpeg"
-        href="/projects/prometeon"
+        title="Social Media"
+        tags={["Art Direction", "Kampanya Tasarımı", "İçerik Stratejisi"]}
+        image="/Social Media/kfc Billboardcopy.jpg"
+        href="/projects/social-media"
         reverse={true}
-        objectContain={true}
       />
 
-      {/* 6. SPITFIRE INTERLUDE */}
+      {/* 4. SPITFIRE INTERLUDE (04) */}
       <SpitfireInterlude />
+
+      {/* 5. CAR2GATHER SHOWCASE (05) */}
+      <ProjectShowcase
+        number="05"
+        category={t("common.webPlatform")}
+        title="car2gather"
+        tags={["Web Tasarım", "Kullanıcı Akışı", "SaaS"]}
+        image={PLACEHOLDERS.webApp}
+        href="/projects/car2gather"
+        reverse={false}
+      />
+
+      {/* 6. BOODY AI SHOWCASE (06) */}
+      <ProjectShowcase
+        number="06"
+        category={t("common.mobileApp")}
+        title="Boody AI"
+        tags={["UI/UX", "Mobil Tasarım", "Yapay Zeka"]}
+        image={PLACEHOLDERS.mobileApp}
+        href="/projects/boody-ai"
+        reverse={true}
+      />
 
       {/* 7. ABOUT & FOOTER */}
       <About />
