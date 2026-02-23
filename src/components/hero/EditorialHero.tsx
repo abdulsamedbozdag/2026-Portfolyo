@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ArrowDown, MapPin, Globe } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 // ---------------------------------------------------------------------------
 // Atmospheric Grain Overlay
@@ -58,6 +59,12 @@ function LiveClock() {
 // Editorial Hero Component
 // ---------------------------------------------------------------------------
 export default function EditorialHero() {
+    const { language, setLanguage, t } = useLanguage();
+
+    const toggleLanguage = () => {
+        setLanguage(language === "tr" ? "en" : "tr");
+    };
+
     return (
         <section className="relative h-screen w-full overflow-hidden bg-[#050505] text-[#ededed] font-friendly">
 
@@ -75,15 +82,20 @@ export default function EditorialHero() {
                     </motion.div>
 
                     <div className="flex items-center gap-6">
-                        {/* Language Toggle Placeholder */}
-                        <button className="flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 hover:bg-white/5 transition-colors">
+                        {/* Language Toggle */}
+                        <button
+                            onClick={toggleLanguage}
+                            className="flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 hover:bg-white/5 transition-colors"
+                        >
                             <Globe size={14} />
-                            <span className="font-medium text-xs">TR / EN</span>
+                            <span className="font-medium text-xs">
+                                {language === "tr" ? "EN" : "TR"}
+                            </span>
                         </button>
 
                         <div className="hidden md:flex items-center gap-2">
                             <MapPin size={14} className="text-white/40" />
-                            <span>İstanbul, Türkiye</span>
+                            <span>{t("common.location")}</span>
                         </div>
                         <div className="flex items-center gap-3">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
@@ -102,16 +114,16 @@ export default function EditorialHero() {
                     >
                         <div className="inline-flex items-center gap-3 text-emerald-400 font-medium tracking-wide">
                             <span className="h-0.5 w-10 bg-emerald-400/30"></span>
-                            <span>İletişim Tasarımcısı</span>
+                            <span>{t("hero.title")}</span>
                         </div>
 
                         <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-[1.15] tracking-tight">
-                            <span className="opacity-60 font-normal italic">Selamlar!</span><br />
-                            Ben Abdul Samed Bozdağ.
+                            <span className="opacity-60 font-normal italic">{t("common.hello")}</span><br />
+                            {t("common.im")}
                         </h1>
 
                         <p className="text-lg md:text-xl text-white/50 leading-relaxed font-normal max-w-lg">
-                            Tasarım ve anlatıyı birleştirerek insani, işlevsel ve estetik dijital deneyimler inşa ediyorum.
+                            {t("hero.description")}
                         </p>
 
                         <motion.div
@@ -121,7 +133,7 @@ export default function EditorialHero() {
                             className="mt-4"
                         >
                             <button className="px-8 py-3.5 rounded-full bg-white text-black font-semibold hover:bg-emerald-400 transition-colors duration-300">
-                                Projelerimi Gör
+                                {t("common.projects")}
                             </button>
                         </motion.div>
                     </motion.div>
@@ -138,7 +150,7 @@ export default function EditorialHero() {
                         <div className="animate-bounce">
                             <ArrowDown size={14} />
                         </div>
-                        <span>Aşağı Kaydır</span>
+                        <span>{t("common.scrollDown")}</span>
                     </motion.div>
                 </div>
             </div>

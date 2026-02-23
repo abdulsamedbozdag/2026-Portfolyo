@@ -7,6 +7,7 @@ import SpitfireInterlude from "@/components/editorial/SpitfireInterlude";
 import { About } from "@/components/About";
 import { Footer } from "@/components/Footer";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { useLanguage } from "@/context/LanguageContext";
 
 // Placeholder images
 const PLACEHOLDERS = {
@@ -17,6 +18,7 @@ const PLACEHOLDERS = {
 };
 
 export default function Home() {
+  const { t } = useLanguage();
   return (
     <main className="bg-[#050505] min-h-screen text-[#ededed] selection:bg-white/20">
       <div className="fixed top-6 right-6 z-50 mix-blend-difference text-white">
@@ -29,7 +31,7 @@ export default function Home() {
       {/* 2. BOODY AI SHOWCASE */}
       <ProjectShowcase
         number="01"
-        category="Mobil Uygulama & AI"
+        category={t("common.mobileApp")}
         title="Boody AI"
         tags={["UI/UX", "Mobil Tasarım", "Yapay Zeka"]}
         image={PLACEHOLDERS.mobileApp}
@@ -40,7 +42,7 @@ export default function Home() {
       {/* 3. CAR2GATHER SHOWCASE */}
       <ProjectShowcase
         number="02"
-        category="Web Platformu"
+        category={t("common.webPlatform")}
         title="car2gather"
         tags={["Web Tasarım", "Kullanıcı Akışı", "SaaS"]}
         image={PLACEHOLDERS.webApp}
@@ -51,7 +53,7 @@ export default function Home() {
       {/* 4. TEDX SHOWCASE */}
       <ProjectShowcase
         number="03"
-        category="Görsel Kimlik & Etkinlik"
+        category={t("common.visualIdentity")}
         title="TEDx YTU"
         tags={["3D Tasarım", "Blender", "Marka Kimliği", "Hareketli Grafik"]}
         image="/tedx/tedx-poster.png"
@@ -62,7 +64,7 @@ export default function Home() {
 
       <ProjectShowcase
         number="04"
-        category="Marka ve İletişim"
+        category={t("common.brandComm")}
         title="Prometeon"
         tags={["Staj", "Grafik Tasarım", "İçerik Stratejisi"]}
         image="/prometeon/dagvelastik.jpeg"

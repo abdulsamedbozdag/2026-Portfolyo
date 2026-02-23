@@ -1,0 +1,70 @@
+export const translations = {
+    tr: {
+        common: {
+            projects: "Projelerimi Gör",
+            scrollDown: "Aşağı Kaydır",
+            contact: "İletişime Geç",
+            location: "İstanbul, Türkiye",
+            rights: "Tüm hakları saklıdır.",
+            workTogether: "Birlikte çalışalım",
+            hello: "Selamlar!",
+            im: "Ben Abdul Samed Bozdağ.",
+            aboutMe: "Hakkımda",
+            journey: "Yolculuğum",
+            skills: "Yetenekler & Araçlar",
+            mobileApp: "Mobil Uygulama & AI",
+            webPlatform: "Web Platformu",
+            visualIdentity: "Görsel Kimlik & Etkinlik",
+            brandComm: "Marka ve İletişim",
+        },
+        hero: {
+            title: "İletişim Tasarımcısı",
+            description: "Tasarım ve anlatıyı birleştirerek insani, işlevsel ve estetik dijital deneyimler inşa ediyorum.",
+        },
+        prometeon: {
+            slogan: "Siz Sürdükçe,",
+            sloganHighlight: "Dünya Döner.",
+            description: "Prometeon'un küresel vizyonunu Türkiye dinamikleriyle buluşturan 360° iletişim tasarımı. Kurumsal kimlik yerelleştirmesinden C-Level sunumlara, saha giydirmelerinden A Milli Futbol Takımı, Dakar ve Toprak Razgatlıoğlu gibi global sponsorlukların kreatif içerik yönetimine uzanan kapsamlı bir vaka çalışması.",
+            publishing: "Kurumsal Yayıncılık",
+            publishingSub: "Entegre Editoryal Çerçeve — 4 Sayı",
+            techTitle: "Lastik Teknolojisi",
+            techDesc: "Prometeon endüstriyel lastik kesitinin 3D görselleştirilmesi. İç yapıyı, sırt bileşenlerini ve güçlendirilmiş gövde teknolojisini gösteren detaylı render.",
+            galleryTitle: "Kampanya Galerisi",
+            gallerySub: "Etkinlikler · Kampanyalar · Kurum İçi İletişim",
+        }
+    },
+    en: {
+        common: {
+            projects: "View My Projects",
+            scrollDown: "Scroll Down",
+            contact: "Get in Touch",
+            location: "Istanbul, Turkey",
+            rights: "All rights reserved.",
+            workTogether: "Let's work together",
+            hello: "Hello!",
+            im: "I'm Abdul Samed Bozdağ.",
+            aboutMe: "About Me",
+            journey: "My Journey",
+            skills: "Skills & Tools",
+            mobileApp: "Mobile App & AI",
+            webPlatform: "Web Platform",
+            visualIdentity: "Visual Identity & Event",
+            brandComm: "Brand and Communication",
+        },
+        hero: {
+            title: "Communication Designer",
+            description: "Combining design and narrative to build human-centered, functional, and aesthetic digital experiences.",
+        },
+        prometeon: {
+            slogan: "As Long As You Drive,",
+            sloganHighlight: "The World Turns.",
+            description: "A comprehensive case study showcasing Prometeon's global vision integrated with Turkish dynamics. Spanning from corporate identity localization to C-Level presentations, field branding, and creative content management for global sponsorships like the Turkish National Football Team, Dakar, and Toprak Razgatlıoğlu.",
+            publishing: "Corporate Publishing",
+            publishingSub: "Integrated Editorial Framework — 4 Issues",
+            techTitle: "Tire Technology",
+            techDesc: "3D visualization of Prometeon industrial tire cross-section. Detailed render showing internal structure, tread components, and reinforced casing technology.",
+            galleryTitle: "Campaign Gallery",
+            gallerySub: "Events · Campaigns · Internal Communication",
+        }
+    }
+};

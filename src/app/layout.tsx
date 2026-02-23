@@ -55,6 +55,7 @@ export const metadata: Metadata = {
 
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { CustomCursor } from "@/components/CustomCursor";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 export default function RootLayout({
   children,
@@ -64,27 +65,22 @@ export default function RootLayout({
   return (
     <html lang="tr" suppressHydrationWarning>
       <body className={`${outfit.variable} ${playfair.variable} ${jakarta.variable} ${rem.variable} font-sans antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <SmoothScroll>
-            <CustomCursor />
-            {/* Ambient Noise Texture */}
-            <div className="fixed inset-0 z-[9998] pointer-events-none opacity-[0.03] text-black dark:text-white mix-blend-overlay">
-              <svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'>
-                <filter id='noise'>
-                  <feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch' />
-                </filter>
-                <rect width='100%' height='100%' filter='url(#noise)' />
-              </svg>
-            </div>
-            {children}
-          </SmoothScroll>
-        </ThemeProvider>
+        <LanguageProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <SmoothScroll>
+              <CustomCursor />
+              {/* Ambient Noise Texture */}
+              {/* ... */}
+              {children}
+            </SmoothScroll>
+          </ThemeProvider>
+        </LanguageProvider>
       </body>
-    </html >
+    </html>
   );
 }

@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import * as d3 from 'd3-geo';
 import { feature } from 'topojson-client';
-import { motion, useSpring, useMotionValue, animate } from 'framer-motion';
+import { motion, useSpring, useMotionValue, animate, useInView } from 'framer-motion';
 import { AlertCircle } from 'lucide-react';
 
 const PROMETEON_LOCATIONS = [
@@ -16,12 +16,16 @@ const PROMETEON_LOCATIONS = [
 
 export default function GlobeToMap({ isDark = true }: { isDark?: boolean }) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const isInView = useInView(containerRef, { amount: 0.1 });
     const [isUnrolled, setIsUnrolled] = useState(false);
     const [worldData, setWorldData] = useState<any>(null);
     const [error, setError] = useState<string | null>(null);
 
     // SÜRÜKLEME VE ZOOM İÇİN REFERANSLAR
+    const activePointers = useRef<Map<number, { x: number, y: number }>>(new Map());
     const pointerInteracting = useRef<number | null>(null);
+    const lastPinchDistance = useRef<number | null>(null);
 
     const t = useMotionValue(0);
     const rotation = useMotionValue(0);
@@ -64,11 +68,15 @@ export default function GlobeToMap({ isDark = true }: { isDark?: boolean }) {
         let frameId: number;
 
         const step = (time: number) => {
+            if (!isInView) {
+                frameId = requestAnimationFrame(step);
+                return;
+            }
             const deltaTime = time - lastTime;
             lastTime = time;
 
             const currentT = t.get();
-            if (currentT < 0.99 && pointerInteracting.current === null) {
+            if (currentT < 0.99 && activePointers.current.size === 0) {
                 const currentRot = rotation.get();
                 const speed = 0.015 * (1 - currentT);
                 rotation.set(currentRot + speed * deltaTime);
@@ -85,9 +93,13 @@ export default function GlobeToMap({ isDark = true }: { isDark?: boolean }) {
         let frameId: number;
 
         const render = () => {
+            if (!isInView) {
+                frameId = requestAnimationFrame(render);
+                return;
+            }
             const canvas = canvasRef.current;
             if (!canvas || !worldData) return;
-            const ctx = canvas.getContext('2d');
+            const ctx = canvas.getContext('2d', { alpha: false });
             if (!ctx) return;
 
             const progress = smoothT.get();
@@ -96,9 +108,12 @@ export default function GlobeToMap({ isDark = true }: { isDark?: boolean }) {
 
             // Ölçekleri dinamik olarak güncelle
             projectionGlobe.scale(400 * z);
-            projectionMap.scale(159 * z); // 1000px genişlik için tam dünya ölçeği
+            projectionMap.scale(159 * z);
 
-            ctx.clearRect(0, 0, width, height);
+            // Başarımı artırmak için arka planı temizleme yerine boya kullanabiliriz
+            // alpha: false set ettiğimiz için temiz bir zemin çizmeliyiz
+            ctx.fillStyle = isDark ? '#050505' : '#fafafa';
+            ctx.fillRect(0, 0, width, height);
 
             const project = (lng: number, lat: number) => {
                 const pGlobe = projectionGlobe.rotate([-rot, -10])([lng, lat]);
@@ -219,29 +234,57 @@ export default function GlobeToMap({ isDark = true }: { isDark?: boolean }) {
         });
     };
 
+    const getDistance = (p1: { x: number, y: number }, p2: { x: number, y: number }) => {
+        return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
+    };
+
     return (
-        <div className="w-full flex flex-col items-center justify-center gap-6">
-            {/* SÜRÜKLE BIRAK ETKİLEŞİMLERİ BURAYA EKLENDİ */}
+        <div ref={containerRef} className="w-full flex flex-col items-center justify-center gap-6">
             <div
                 className="relative w-full max-w-[650px] aspect-square flex items-center justify-center rounded-full group cursor-grab active:cursor-grabbing touch-none"
                 onPointerDown={(e) => {
-                    pointerInteracting.current = e.clientX;
+                    activePointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+                    if (activePointers.current.size === 1) {
+                        pointerInteracting.current = e.clientX;
+                    } else if (activePointers.current.size === 2) {
+                        const pts = Array.from(activePointers.current.values());
+                        lastPinchDistance.current = getDistance(pts[0], pts[1]);
+                    }
                 }}
-                onPointerUp={() => {
-                    pointerInteracting.current = null;
+                onPointerUp={(e) => {
+                    activePointers.current.delete(e.pointerId);
+                    if (activePointers.current.size < 2) lastPinchDistance.current = null;
+                    if (activePointers.current.size === 0) pointerInteracting.current = null;
                 }}
-                onPointerOut={() => {
-                    pointerInteracting.current = null;
+                onPointerCancel={(e) => {
+                    activePointers.current.delete(e.pointerId);
+                    if (activePointers.current.size < 2) lastPinchDistance.current = null;
+                    if (activePointers.current.size === 0) pointerInteracting.current = null;
                 }}
                 onPointerMove={(e) => {
-                    if (pointerInteracting.current !== null && !isUnrolled) {
+                    if (activePointers.current.has(e.pointerId)) {
+                        activePointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+                    }
+
+                    if (activePointers.current.size === 2 && lastPinchDistance.current !== null) {
+                        // Pinch Zoom logic
+                        const pts = Array.from(activePointers.current.values());
+                        const distance = getDistance(pts[0], pts[1]);
+                        const delta = (distance - lastPinchDistance.current) * 0.01;
+
+                        const currentZoom = zoom.get();
+                        const nextZoom = Math.min(Math.max(currentZoom + delta, 1), 3);
+                        zoom.set(nextZoom);
+                        lastPinchDistance.current = distance;
+                    } else if (activePointers.current.size === 1 && pointerInteracting.current !== null && !isUnrolled) {
+                        // Rotation logic
                         const delta = e.clientX - pointerInteracting.current;
                         pointerInteracting.current = e.clientX;
                         rotation.set(rotation.get() - delta * 0.3);
                     }
                 }}
                 onWheel={(e) => {
-                    // Zoom logic - Sadece yakınlaştırmaya izin ver (min 1)
                     const currentZoom = zoom.get();
                     const delta = e.deltaY > 0 ? -0.1 : 0.1;
                     const nextZoom = Math.min(Math.max(currentZoom + delta, 1), 3);

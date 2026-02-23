@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function About() {
+    const { t } = useLanguage();
     return (
         <section className="py-24 px-6 md:px-12 bg-neutral-50 dark:bg-neutral-900/50">
             <div className="max-w-4xl mx-auto">
@@ -12,7 +14,7 @@ export function About() {
                     viewport={{ once: true }}
                     className="text-3xl md:text-5xl font-bold mb-12 text-neutral-900 dark:text-neutral-50"
                 >
-                    Hakkımda
+                    {t("common.aboutMe")}
                 </motion.h2>
                 <div className="grid md:grid-cols-2 gap-12">
                     <motion.div
@@ -22,7 +24,7 @@ export function About() {
                         transition={{ delay: 0.1 }}
                     >
                         <h3 className="text-xl font-semibold mb-4 text-neutral-900 dark:text-neutral-100">
-                            Yolculuğum
+                            {t("common.journey")}
                         </h3>
                         <p className="text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
                             Eylül 2020 - Ocak 2026 Yıldız Teknik Üniversitesi İletişim ve Tasarımı.
@@ -37,7 +39,7 @@ export function About() {
                         transition={{ delay: 0.2 }}
                     >
                         <h3 className="text-xl font-semibold mb-4 text-neutral-900 dark:text-neutral-100">
-                            Yetenekler & Araçlar
+                            {t("common.skills")}
                         </h3>
                         <ul className="space-y-4">
                             {[

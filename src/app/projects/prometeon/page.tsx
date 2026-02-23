@@ -1,12 +1,15 @@
 "use client";
 
-import { motion, useAnimation, useMotionValue, AnimatePresence } from "framer-motion";
+import { motion, useAnimation, useMotionValue, AnimatePresence, useInView } from "framer-motion";
 import { useState, useEffect, useRef, createContext, useContext } from "react";
 import Image from "next/image";
 import { ArrowDown, Sun, Moon } from "lucide-react";
 import { StickyBackButton } from "@/components/StickyBackButton";
 import { LightboxImage } from "@/components/ImageLightbox";
 import GlobeToMap from "@/components/prometeon/GlobeToMap";
+import { TireScene } from "@/components/prometeon/TireScene";
+import { useLanguage } from "@/context/LanguageContext";
+import { Globe } from "lucide-react";
 
 // ---------------------------------------------------------------------------
 // TYPES & DATA
@@ -95,8 +98,9 @@ const DraggableMarquee = () => {
     const x = useMotionValue(0);
     const [isDragging, setIsDragging] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
+    const isInView = useInView(containerRef, { amount: 0.1 });
 
-    const allImages = [...images, ...images, ...images, ...images];
+    const allImages = [...images, ...images, ...images]; // Reduced clones from 4 transfer to 3
     const itemWidth = 336; // 320px + 16px gap
     const trackWidth = allImages.length * itemWidth;
 
@@ -105,15 +109,19 @@ const DraggableMarquee = () => {
         let lastTime = performance.now();
 
         const animate = (time: number) => {
+            if (!isInView) {
+                animationFrame = requestAnimationFrame(animate);
+                return;
+            }
+
             if (!isDragging) {
                 const delta = time - lastTime;
-                const speed = 0.05; // Base speed
+                const speed = 0.04; // Slightly slower for better perf/aesthetic
                 const currentX = x.get();
                 let nextX = currentX - speed * delta;
 
-                // Loop logic: if we've moved past 1/4 of the track, jump back
                 const oneSetWidth = images.length * itemWidth;
-                if (nextX <= -oneSetWidth * 2) {
+                if (nextX <= -oneSetWidth) {
                     nextX += oneSetWidth;
                 }
 
@@ -125,7 +133,7 @@ const DraggableMarquee = () => {
 
         animationFrame = requestAnimationFrame(animate);
         return () => cancelAnimationFrame(animationFrame);
-    }, [isDragging, images.length, x]);
+    }, [isDragging, images.length, x, isInView]);
 
     return (
         <div
@@ -155,6 +163,7 @@ const DraggableMarquee = () => {
 // ---------------------------------------------------------------------------
 const EditorialShowcase = () => {
     const { isDark } = useTheme();
+    const { t } = useLanguage();
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     const magazineConfigs = [
@@ -174,10 +183,10 @@ const EditorialShowcase = () => {
                         className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mb-4 transition-colors duration-500"
                         style={{ color: isDark ? "#ededed" : "#212b59" }}
                     >
-                        Kurumsal Yayıncılık
+                        {t("prometeon.publishing")}
                     </motion.h2>
                     <p className="text-sm font-light tracking-[0.4em] uppercase transition-colors duration-500" style={{ color: isDark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.3)" }}>
-                        Entegre Editoryal Çerçeve — 4 Sayı
+                        {t("prometeon.publishingSub")}
                     </p>
                 </div>
 
@@ -231,6 +240,7 @@ const EditorialShowcase = () => {
 // ---------------------------------------------------------------------------
 const TireCrossSection = () => {
     const { isDark } = useTheme();
+    const { t } = useLanguage();
     return (
         <section className="relative py-32 overflow-hidden transition-colors duration-500" style={{ background: isDark ? "#050505" : "#ffffff" }}>
             <div className="max-w-[1400px] mx-auto px-6">
@@ -246,10 +256,10 @@ const TireCrossSection = () => {
                             Ürün Görselleştirme
                         </p>
                         <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase transition-colors duration-500" style={{ color: isDark ? "#ededed" : "#0f204b" }}>
-                            Lastik Teknolojisi
+                            {t("prometeon.techTitle")}
                         </h2>
                         <p className="text-base max-w-md font-light leading-relaxed transition-colors duration-500" style={{ color: isDark ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.5)" }}>
-                            Prometeon endüstriyel lastik kesitinin 3D görselleştirilmesi. İç yapıyı, sırt bileşenlerini ve güçlendirilmiş gövde teknolojisini gösteren detaylı render.
+                            {t("prometeon.techDesc")}
                         </p>
                         <div className="flex gap-8 pt-4">
                             {["Ar-Ge Render", "3D Varlık", "Teknik Özellik"].map((tag) => (
@@ -267,26 +277,9 @@ const TireCrossSection = () => {
                         viewport={{ once: true }}
                         className="relative flex-1 flex items-center justify-center min-h-[400px]"
                     >
-                        <motion.div
-                            animate={{
-                                y: [-12, 12, -12],
-                                rotate: [0, 2, -2, 0],
-                            }}
-                            transition={{
-                                duration: 8,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                            }}
-                            className="relative w-72 h-72 md:w-96 md:h-96"
-                        >
-                            <Image
-                                src="/prometeon/lastik_parcasi/seffaf_lastik_parcasi.png"
-                                alt="Lastik Kesiti"
-                                fill
-                                className="object-contain"
-                                style={{ filter: isDark ? "drop-shadow(0 0 60px rgba(15,32,75,0.3))" : "drop-shadow(0 0 40px rgba(15,32,75,0.15))" }}
-                            />
-                        </motion.div>
+                        <div className="relative w-full h-[400px] md:h-[500px]">
+                            <TireScene />
+                        </div>
                         <div className="absolute inset-0 rounded-full pointer-events-none" style={{ background: isDark ? "radial-gradient(circle, rgba(15,32,75,0.12) 0%, transparent 70%)" : "radial-gradient(circle, rgba(15,32,75,0.05) 0%, transparent 70%)" }} />
                     </motion.div>
                 </div>
@@ -300,6 +293,7 @@ const TireCrossSection = () => {
 // ---------------------------------------------------------------------------
 const CreativeShowcase = () => {
     const { isDark } = useTheme();
+    const { t } = useLanguage();
 
     const showcaseItems = [
         {
@@ -338,10 +332,10 @@ const CreativeShowcase = () => {
                         className="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-3 transition-colors duration-500"
                         style={{ color: isDark ? "#ffffff" : "#212b59" }}
                     >
-                        Kampanya Galerisi
+                        {t("prometeon.galleryTitle")}
                     </motion.h2>
                     <p className="text-xs font-mono tracking-[0.3em] uppercase transition-colors duration-500" style={{ color: isDark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.3)" }}>
-                        Etkinlikler · Kampanyalar · Kurum İçi İletişim
+                        {t("prometeon.gallerySub")}
                     </p>
                 </div>
 
@@ -390,6 +384,11 @@ const CreativeShowcase = () => {
 export default function PrometeonPage() {
     const [isDark, setIsDark] = useState(true);
     const toggle = () => setIsDark((p) => !p);
+    const { language, setLanguage, t } = useLanguage();
+
+    const toggleLanguage = () => {
+        setLanguage(language === "tr" ? "en" : "tr");
+    };
 
     return (
         <ThemeContext.Provider value={{ isDark, toggle }}>
@@ -402,6 +401,23 @@ export default function PrometeonPage() {
             >
                 <StickyBackButton />
                 <ThemeToggle />
+
+                {/* Top Bar for Language Toggle (Prometeon Specific) */}
+                <div className="fixed top-24 right-6 z-[100]">
+                    <button
+                        onClick={toggleLanguage}
+                        className="p-3 rounded-full border backdrop-blur-xl transition-colors duration-500 flex items-center justify-center"
+                        style={{
+                            background: isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)",
+                            borderColor: isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)",
+                        }}
+                    >
+                        <Globe size={18} className={isDark ? "text-white/60" : "text-[#0f204b]/60"} />
+                        <span className="ml-2 text-xs font-bold uppercase tracking-tighter">
+                            {language === "tr" ? "EN" : "TR"}
+                        </span>
+                    </button>
+                </div>
 
                 {/* ═══════════════════════════════════════════════════════ */}
                 {/* HERO SECTION: Dark Premium w/ Unrolling Globe        */}
@@ -422,11 +438,12 @@ export default function PrometeonPage() {
                         </div>
 
                         <h1 className="text-6xl lg:text-8xl font-bold tracking-tight leading-[0.9] transition-colors duration-500" style={{ color: isDark ? "#ffffff" : "#212b59" }}>
-                            Küresel Etki,<br />
-                            <span className="text-neutral-500">Yerel Hassasiyet.</span>
+                            {t("prometeon.slogan")}<br />
+                            <span className="text-neutral-500">{t("prometeon.sloganHighlight")}</span>
                         </h1>
-                        <p className="text-xl text-neutral-400 max-w-lg leading-relaxed transition-colors duration-500" style={{ color: isDark ? "#a3a3a3" : "#4b5563" }}>
-                            Prometeon'un küresel vizyonunu Türkiye dinamikleriyle buluşturan 360° iletişim tasarımı. Kurumsal kimlik yerelleştirmesinden C-Level sunumlara, saha giydirmelerinden A Milli Futbol Takımı, Dakar ve Toprak Razgatlıoğlu gibi global sponsorlukların kreatif içerik yönetimine uzanan kapsamlı bir vaka çalışması.                        </p>
+                        <p className="text-xl text-neutral-500 max-w-lg leading-relaxed transition-colors duration-800" style={{ color: isDark ? "#f4f4f6" : "#212b59" }}>
+                            {t("prometeon.description")}
+                        </p>
                     </div>
 
                     {/* RIGHT: THE UNROLLING GLOBE */}
@@ -440,6 +457,11 @@ export default function PrometeonPage() {
                 {/* SECTION 2: Corporate Publishing (Magazine Fan)         */}
                 {/* ═══════════════════════════════════════════════════════ */}
                 <EditorialShowcase />
+
+                {/* ═══════════════════════════════════════════════════════ */}
+                {/* SECTION 1.5: Draggable Marquee                       */}
+                {/* ═══════════════════════════════════════════════════════ */}
+                <DraggableMarquee />
 
                 {/* ═══════════════════════════════════════════════════════ */}
                 {/* SECTION 3: Tire Cross-Section (Dedicated)              */}

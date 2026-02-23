@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import { Linkedin, Mail, ArrowUpRight } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Footer() {
+    const { t } = useLanguage();
     return (
         <footer className="py-16 px-6 md:px-12 border-t border-neutral-200 dark:border-neutral-800 mt-24 bg-white dark:bg-[#050505]">
             <div className="max-w-[1400px] mx-auto">
@@ -15,7 +17,7 @@ export function Footer() {
                     className="text-center mb-16"
                 >
                     <h3 className="text-3xl md:text-5xl font-bold mb-4 text-neutral-900 dark:text-neutral-100">
-                        Birlikte çalışalım
+                        {t("common.workTogether")}
                     </h3>
                     <p className="text-neutral-500 mb-8 max-w-md mx-auto">
                         Yeni projeler, iş birlikleri veya sadece merhaba demek için bana ulaşın.
@@ -25,14 +27,14 @@ export function Footer() {
                         className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-neutral-900 dark:bg-white text-white dark:text-black font-medium text-sm hover:opacity-80 transition-opacity"
                     >
                         <Mail className="w-4 h-4" />
-                        İletişime Geç
+                        {t("common.contact")}
                     </a>
                 </motion.div>
 
                 {/* Links & Info */}
                 <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-8 border-t border-neutral-200 dark:border-neutral-800">
                     <p className="text-neutral-500 text-sm">
-                        © {new Date().getFullYear()} Abdulsamed Bozdağ. Tüm hakları saklıdır.
+                        © {new Date().getFullYear()} Abdulsamed Bozdağ. {t("common.rights")}
                     </p>
                     <div className="flex items-center gap-6">
                         <a
