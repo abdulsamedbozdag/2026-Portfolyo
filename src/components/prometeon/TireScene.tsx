@@ -23,7 +23,7 @@ function TireModel({ url }: { url: string }) {
 
     useEffect(() => {
         if (scene) {
-            console.log("3D Model Render: Model loaded successfully.");
+            console.log("3D Model Render: Model loaded from GitHub Raw storage.");
             scene.traverse((child) => {
                 if ((child as THREE.Mesh).isMesh) {
                     const mesh = child as THREE.Mesh;
@@ -53,7 +53,7 @@ function Loader() {
             <div className="flex flex-col items-center gap-4 min-w-[200px] pointer-events-none">
                 <div className="w-48 bg-white/5 h-[1.5px] rounded-full overflow-hidden">
                     <div
-                        className="bg-[#00AEEF] h-full transition-all duration-300"
+                        className="bg-[#00AEEF] h-full transition-all duration-300 shadow-[0_0_15px_#00AEEF]"
                         style={{ width: `${progress}%` }}
                     />
                 </div>
@@ -62,7 +62,7 @@ function Loader() {
                         %{progress.toFixed(0)}
                     </span>
                     <span className="text-[8px] text-white/20 uppercase tracking-widest">
-                        Model Hazirlaniyor
+                        GitHub üzerinden yukleniyor
                     </span>
                 </div>
             </div>
@@ -73,8 +73,9 @@ function Loader() {
 export function TireScene() {
     const [hasError, setHasError] = useState(false);
 
-    // REVERTING TO LOCAL MODEL - Drive causes crashes if it returns a virus-scan HTML page instead of GLB
-    const modelUrl = "/prometeon/lastikler/R02_PRO_TRAILER_M1.glb";
+    // GitHub RAW content URL for consistent delivery
+    // Note: We use raw.githubusercontent.com for binary files
+    const modelUrl = "https://raw.githubusercontent.com/abdulsamedbozdag/2026-Portfolyo/main/public/prometeon/lastikler/R02_PRO_TRAILER_M1.glb";
 
     return (
         <div className="w-full h-full min-h-[450px] bg-[#050505] flex items-center justify-center relative overflow-hidden rounded-2xl border border-white/5">
@@ -91,7 +92,7 @@ export function TireScene() {
                         gl.setClearColor(new THREE.Color('#050505'), 1);
                     }}
                     onError={(err) => {
-                        console.error("3D Canvas Crash:", err);
+                        console.error("3D Canvas Error:", err);
                         setHasError(true);
                     }}
                 >
@@ -127,8 +128,8 @@ export function TireScene() {
             ) : (
                 <div className="text-center px-10">
                     <p className="text-white/30 text-xs uppercase tracking-widest leading-relaxed">
-                        3D Gorsellestirme Su an Kullanilamiyor.<br />
-                        Lutfen Sayfayi Yenileyin.
+                        3D Yukleme Hatasi.<br />
+                        Lutfen internet baglantinizi kontrol edin.
                     </p>
                 </div>
             )}
@@ -138,5 +139,5 @@ export function TireScene() {
     );
 }
 
-// Ensure preload
-useGLTF.preload("/prometeon/lastikler/R02_PRO_TRAILER_M1.glb", DRACO_URL);
+// Preload from GitHub
+useGLTF.preload("https://raw.githubusercontent.com/abdulsamedbozdag/2026-Portfolyo/main/public/prometeon/lastikler/R02_PRO_TRAILER_M1.glb", DRACO_URL);
