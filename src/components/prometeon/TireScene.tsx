@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import { Stage, OrbitControls, useGLTF, Float, useInView as useInViewDrei } from "@react-three/drei";
+import { Stage, OrbitControls, useGLTF, Float } from "@react-three/drei";
 import { Suspense, useRef, useState, useEffect } from "react";
 import * as THREE from "three";
 
@@ -28,7 +28,6 @@ export function TireScene({
     autoRotate = true,
 }: TireSceneProps) {
     const containerRef = useRef<HTMLDivElement>(null);
-    // useInView from framer-motion is fine too, but let's use a standard one for the container
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -44,21 +43,21 @@ export function TireScene({
         <div ref={containerRef} className={className}>
             {isVisible && (
                 <Canvas
-                    shadows
-                    dpr={[1, 1.5]}
+                    shadows={false}
+                    dpr={1} // Static DPR for laptop performance
                     camera={{ position: [0, 0, 5], fov: 45 }}
-                    gl={{ antialias: true, alpha: true }}
+                    gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
                 >
                     <Suspense fallback={null}>
                         <Stage
-                            intensity={0.6}
+                            intensity={0.4}
                             environment="city"
                             adjustCamera={true}
                         >
                             <Float
-                                speed={1.5}
-                                rotationIntensity={0.3}
-                                floatIntensity={0.5}
+                                speed={1.2}
+                                rotationIntensity={0.2}
+                                floatIntensity={0.3}
                             >
                                 <TireModel />
                             </Float>

@@ -48,8 +48,8 @@ export function SpitfireScene({
             {isVisible && (
                 <Canvas
                     shadows={false}
-                    dpr={[1, 1.5]}
-                    gl={{ alpha: true, antialias: true }}
+                    dpr={1} // Static DPR for performance
+                    gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
                 >
                     <Suspense fallback={null}>
                         <Stage
@@ -57,9 +57,9 @@ export function SpitfireScene({
                             environment="city"
                         >
                             <Float
-                                speed={2}
-                                rotationIntensity={0.5}
-                                floatIntensity={1}
+                                speed={1.5}
+                                rotationIntensity={0.4}
+                                floatIntensity={0.8}
                             >
                                 <SpitfireModel />
                             </Float>
@@ -70,7 +70,7 @@ export function SpitfireScene({
                         makeDefault
                         enableZoom={enableZoom}
                         autoRotate={autoRotate}
-                        autoRotateSpeed={1}
+                        autoRotateSpeed={0.8}
                         enablePan={false}
                         minPolarAngle={Math.PI / 4}
                         maxPolarAngle={Math.PI / 1.5}
