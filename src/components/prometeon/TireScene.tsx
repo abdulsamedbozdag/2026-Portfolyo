@@ -54,7 +54,6 @@ export function TireScene({
                             intensity={0.6}
                             environment="city"
                             adjustCamera={true}
-                            contactShadow={false} // Disable for better perf if needed
                         >
                             <Float
                                 speed={1.5}

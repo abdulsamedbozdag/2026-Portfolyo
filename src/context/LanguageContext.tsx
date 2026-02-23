@@ -1,6 +1,7 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from "react";
+import { translations } from "@/lib/translations";
 
 type Language = "tr" | "en";
 
@@ -22,28 +23,28 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         }
     }, []);
 
-    const setLanguage = (lang: Language) => {
+    const setLanguage = useCallback((lang: Language) => {
         setLanguageState(lang);
         localStorage.setItem("language", lang);
-    };
+    }, []);
 
-    // Helper function to get nested keys from dictionary
-    const t = (path: string): string => {
+    const t = useCallback((path: string): string => {
         const keys = path.split(".");
-        let result: any = require("@/lib/translations").translations[language];
+        let result: any = translations[language];
 
         for (const key of keys) {
-            if (result[key] === undefined) {
-                console.warn(`Translation key not found: ${path} for language: ${language}`);
+            if (result?.[key] === undefined) {
                 return path;
             }
             result = result[key];
         }
         return result;
-    };
+    }, [language]);
+
+    const value = useMemo(() => ({ language, setLanguage, t }), [language, setLanguage, t]);
 
     return (
-        <LanguageContext.Provider value={{ language, setLanguage, t }}>
+        <LanguageContext.Provider value={value}>
             {children}
         </LanguageContext.Provider>
     );

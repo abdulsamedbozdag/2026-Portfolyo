@@ -1,68 +1,70 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 export function CustomCursor() {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-    const [isHovered, setIsHovered] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
+    const dotRef = useRef<HTMLDivElement>(null);
+    const [isMobile, setIsMobile] = useState(true); // default true to avoid flash
+    const isHoveredRef = useRef(false);
+    const rafRef = useRef<number>(0);
+    const mouseRef = useRef({ x: 0, y: 0 });
 
     useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.matchMedia("(pointer: coarse)").matches);
+        const mobile = window.matchMedia("(pointer: coarse)").matches;
+        setIsMobile(mobile);
+        if (mobile) return;
+
+        const dot = dotRef.current;
+        if (!dot) return;
+
+        let curX = 0, curY = 0;
+
+        const onMouseMove = (e: MouseEvent) => {
+            mouseRef.current.x = e.clientX;
+            mouseRef.current.y = e.clientY;
         };
 
-        checkMobile();
-        window.addEventListener("resize", checkMobile);
-
-        const mouseMove = (e: MouseEvent) => {
-            setMousePosition({
-                x: e.clientX,
-                y: e.clientY,
-            });
-        };
-
-        const handleMouseOver = (e: MouseEvent) => {
+        const onMouseOver = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
-            if (
+            isHoveredRef.current = !!(
                 target.tagName === "A" ||
                 target.tagName === "BUTTON" ||
                 target.closest("a") ||
                 target.closest("button")
-            ) {
-                setIsHovered(true);
-            } else {
-                setIsHovered(false);
-            }
+            );
         };
 
-        window.addEventListener("mousemove", mouseMove);
-        window.addEventListener("mouseover", handleMouseOver);
+        const animate = () => {
+            const { x, y } = mouseRef.current;
+            const hovered = isHoveredRef.current;
+            const size = hovered ? 48 : 16;
+
+            // Smooth lerp
+            curX += (x - size / 2 - curX) * 0.15;
+            curY += (y - size / 2 - curY) * 0.15;
+
+            dot.style.transform = `translate3d(${curX}px, ${curY}px, 0) scale(${hovered ? 3 : 1})`;
+            rafRef.current = requestAnimationFrame(animate);
+        };
+
+        window.addEventListener("mousemove", onMouseMove, { passive: true });
+        window.addEventListener("mouseover", onMouseOver, { passive: true });
+        rafRef.current = requestAnimationFrame(animate);
 
         return () => {
-            window.removeEventListener("resize", checkMobile);
-            window.removeEventListener("mousemove", mouseMove);
-            window.removeEventListener("mouseover", handleMouseOver);
+            window.removeEventListener("mousemove", onMouseMove);
+            window.removeEventListener("mouseover", onMouseOver);
+            cancelAnimationFrame(rafRef.current);
         };
-    }, []);
+    }, [isMobile]);
 
     if (isMobile) return null;
 
     return (
-        <motion.div
+        <div
+            ref={dotRef}
             className="fixed top-0 left-0 w-4 h-4 bg-white rounded-full pointer-events-none z-[9999] mix-blend-difference"
-            animate={{
-                x: mousePosition.x - (isHovered ? 24 : 8),
-                y: mousePosition.y - (isHovered ? 24 : 8),
-                scale: isHovered ? 3 : 1,
-            }}
-            transition={{
-                type: "spring",
-                stiffness: 150,
-                damping: 15,
-                mass: 0.1,
-            }}
+            style={{ willChange: "transform", transition: "width 0.2s, height 0.2s" }}
         />
     );
 }
