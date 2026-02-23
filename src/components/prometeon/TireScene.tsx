@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import { Stage, OrbitControls, useGLTF, Float } from "@react-three/drei";
+import { OrbitControls, useGLTF, Float, Environment, ContactShadows } from "@react-three/drei";
 import { Suspense, useRef, useState, useEffect } from "react";
 import * as THREE from "three";
 
@@ -10,9 +10,19 @@ function TireModel() {
     const groupRef = useRef<THREE.Group>(null);
 
     return (
-        <group ref={groupRef}>
+        <group ref={groupRef} dispose={null}>
             <primitive object={scene} />
         </group>
+    );
+}
+
+// Simple fallback to show something while loading
+function Loader() {
+    return (
+        <mesh>
+            <sphereGeometry args={[0.5, 32, 32]} />
+            <meshBasicMaterial color="#333" wireframe />
+        </mesh>
     );
 }
 
@@ -44,24 +54,33 @@ export function TireScene({
             {isVisible && (
                 <Canvas
                     shadows={false}
-                    dpr={1} // Static DPR for laptop performance
-                    camera={{ position: [0, 0, 5], fov: 45 }}
-                    gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+                    dpr={[1, 2]} // Back to responsive DPR
+                    camera={{ position: [0, 0, 10], fov: 35 }}
+                    gl={{
+                        antialias: true,
+                        alpha: true,
+                    }}
                 >
-                    <Suspense fallback={null}>
-                        <Stage
-                            intensity={0.4}
-                            environment="city"
-                            adjustCamera={true}
+                    <ambientLight intensity={0.5} />
+                    <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
+                    <pointLight position={[-10, -10, -10]} intensity={0.5} />
+
+                    <Suspense fallback={<Loader />}>
+                        <Float
+                            speed={1.5}
+                            rotationIntensity={0.5}
+                            floatIntensity={0.5}
                         >
-                            <Float
-                                speed={1.2}
-                                rotationIntensity={0.2}
-                                floatIntensity={0.3}
-                            >
-                                <TireModel />
-                            </Float>
-                        </Stage>
+                            <TireModel />
+                        </Float>
+                        <Environment preset="city" />
+                        <ContactShadows
+                            position={[0, -2, 0]}
+                            opacity={0.4}
+                            scale={10}
+                            blur={2}
+                            far={4.5}
+                        />
                     </Suspense>
 
                     <OrbitControls
@@ -70,8 +89,8 @@ export function TireScene({
                         autoRotate={autoRotate}
                         autoRotateSpeed={0.5}
                         enablePan={false}
-                        minPolarAngle={Math.PI / 3}
-                        maxPolarAngle={Math.PI / 1.5}
+                        minDistance={5}
+                        maxDistance={15}
                     />
                 </Canvas>
             )}
