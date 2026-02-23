@@ -1,8 +1,8 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import { Stage, OrbitControls, useGLTF, Float } from "@react-three/drei";
-import { Suspense, useRef } from "react";
+import { Stage, OrbitControls, useGLTF, Float, useInView as useInViewDrei } from "@react-three/drei";
+import { Suspense, useRef, useState, useEffect } from "react";
 import * as THREE from "three";
 
 function TireModel() {
@@ -27,41 +27,56 @@ export function TireScene({
     enableZoom = false,
     autoRotate = true,
 }: TireSceneProps) {
-    return (
-        <div className={className}>
-            <Canvas
-                shadows={false} // Disable heavy shadows for perf
-                dpr={[1, 1.5]}
-                gl={{ preserveDrawingBuffer: false, alpha: true, antialias: false }}
-                camera={{ position: [0, 0, 5], fov: 45 }}
-                frameloop="demand" // IMPORTANT: Only render when needed
-            >
-                <Suspense fallback={null}>
-                    <Stage
-                        intensity={0.6}
-                        environment="city"
-                        adjustCamera={true}
-                    >
-                        <Float
-                            speed={1.5}
-                            rotationIntensity={0.3}
-                            floatIntensity={0.5}
-                        >
-                            <TireModel />
-                        </Float>
-                    </Stage>
-                </Suspense>
+    const containerRef = useRef<HTMLDivElement>(null);
+    // useInView from framer-motion is fine too, but let's use a standard one for the container
+    const [isVisible, setIsVisible] = useState(false);
 
-                <OrbitControls
-                    makeDefault
-                    enableZoom={enableZoom}
-                    autoRotate={autoRotate}
-                    autoRotateSpeed={0.5}
-                    enablePan={false}
-                    minPolarAngle={Math.PI / 3}
-                    maxPolarAngle={Math.PI / 1.5}
-                />
-            </Canvas>
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => setIsVisible(entry.isIntersecting),
+            { threshold: 0.1 }
+        );
+        if (containerRef.current) observer.observe(containerRef.current);
+        return () => observer.disconnect();
+    }, []);
+
+    return (
+        <div ref={containerRef} className={className}>
+            {isVisible && (
+                <Canvas
+                    shadows
+                    dpr={[1, 1.5]}
+                    camera={{ position: [0, 0, 5], fov: 45 }}
+                    gl={{ antialias: true, alpha: true }}
+                >
+                    <Suspense fallback={null}>
+                        <Stage
+                            intensity={0.6}
+                            environment="city"
+                            adjustCamera={true}
+                            contactShadow={false} // Disable for better perf if needed
+                        >
+                            <Float
+                                speed={1.5}
+                                rotationIntensity={0.3}
+                                floatIntensity={0.5}
+                            >
+                                <TireModel />
+                            </Float>
+                        </Stage>
+                    </Suspense>
+
+                    <OrbitControls
+                        makeDefault
+                        enableZoom={enableZoom}
+                        autoRotate={autoRotate}
+                        autoRotateSpeed={0.5}
+                        enablePan={false}
+                        minPolarAngle={Math.PI / 3}
+                        maxPolarAngle={Math.PI / 1.5}
+                    />
+                </Canvas>
+            )}
         </div>
     );
 }
