@@ -423,9 +423,9 @@ export default function PrometeonPage() {
                 {/* ═══════════════════════════════════════════════════════ */}
                 <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[90vh] w-full max-w-7xl mx-auto px-6 relative z-10 transition-colors duration-500">
                     {/* LEFT: STORY & LOGO */}
-                    <div className="flex flex-col items-start justify-center space-y-8">
+                    <div className="flex flex-col items-start justify-center space-y-4">
                         {/* PROMETEON LOGO - Fixed Path */}
-                        <div className="relative h-24 w-80 mb-6">
+                        <div className="relative h-20 w-72 mb-4">
                             <Image
                                 src="/prometeon/Logo/Prometeon_Slogan_Darkblue_NoBox_PNG-01.png"
                                 alt="Prometeon"
@@ -436,11 +436,11 @@ export default function PrometeonPage() {
                             />
                         </div>
 
-                        <h1 className="text-6xl lg:text-8xl font-bold tracking-tight leading-[0.9] transition-colors duration-500" style={{ color: isDark ? "#ffffff" : "#212b59" }}>
+                        <h1 className="text-5xl lg:text-7xl font-bold tracking-tight leading-[0.95] transition-colors duration-500" style={{ color: isDark ? "#ffffff" : "#212b59" }}>
                             {t("prometeon.slogan")}<br />
                             <span className="text-neutral-500">{t("prometeon.sloganHighlight")}</span>
                         </h1>
-                        <p className="text-xl text-neutral-500 max-w-lg leading-relaxed transition-colors duration-800" style={{ color: isDark ? "#f4f4f6" : "#212b59" }}>
+                        <p className="text-lg text-neutral-500 max-w-2xl leading-relaxed transition-colors duration-800" style={{ color: isDark ? "#f4f4f6" : "#212b59" }}>
                             {t("prometeon.description")}
                         </p>
                     </div>
