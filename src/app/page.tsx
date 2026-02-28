@@ -29,8 +29,18 @@ export default function Home() {
       {/* 1. HERO SECTION */}
       <EditorialHero />
 
-      {/* 1. PROMETEON INTERLUDE (01) */}
-      <PrometeonInterlude />
+      {/* 1. PROMETEON SHOWCASE (01) */}
+      <ProjectShowcase
+        number="01"
+        category="Marka ve İletişim"
+        title="Prometeon"
+        titleImage="/prometeon/Logo/Prometeon_Slogan_Darkblue_NoBox_PNG-01.png"
+        tags={["İç İletişim", "Basılı Materyaller", "Fabrika Giydirmeleri"]}
+        image="/prometeon/Logo/Prometeon_Slogan_Darkblue_NoBox_PNG-01.png"
+        href="/projects/prometeon"
+        reverse={false}
+        objectContain={true}
+      />
 
       {/* 2. TEDX SHOWCASE (02) */}
       <ProjectShowcase

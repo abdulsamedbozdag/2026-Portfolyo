@@ -17,6 +17,7 @@ interface ProjectShowcaseProps {
     reverse?: boolean; // If true, image is on the left
     comingSoon?: boolean;
     objectContain?: boolean; // New: To prevent cropping
+    titleImage?: string; // New: For logic-based logos as titles
 }
 
 export default function ProjectShowcase({
@@ -30,6 +31,7 @@ export default function ProjectShowcase({
     reverse = false,
     comingSoon = false,
     objectContain = false,
+    titleImage,
 }: ProjectShowcaseProps) {
     return (
         <section className="min-h-screen flex items-center justify-center py-24 px-6 md:px-12 relative overflow-hidden bg-background text-foreground transition-colors duration-500">
@@ -59,7 +61,18 @@ export default function ProjectShowcase({
                     {/* Title & Description */}
                     <div>
                         <h2 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6">
-                            {title}
+                            {titleImage ? (
+                                <div className="relative h-12 md:h-20 w-full max-w-[280px] md:max-w-[400px]">
+                                    <Image
+                                        src={titleImage}
+                                        alt={title}
+                                        fill
+                                        className="object-contain object-left dark:brightness-0 dark:invert transition-all duration-500"
+                                    />
+                                </div>
+                            ) : (
+                                title
+                            )}
                         </h2>
                         <div className="flex flex-wrap gap-3 mb-8">
                             {tags.map((tag, i) => (
