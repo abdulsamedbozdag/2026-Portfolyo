@@ -24,9 +24,6 @@ export default function Home() {
   const { t } = useLanguage();
   return (
     <main className="bg-background min-h-screen text-foreground selection:bg-neutral-500/20 pt-24 md:pt-0">
-      <div className="fixed top-6 right-6 z-50">
-        <ThemeToggle />
-      </div>
 
       {/* 1. HERO SECTION */}
       <EditorialHero />

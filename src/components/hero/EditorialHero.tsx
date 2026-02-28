@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ArrowDown, MapPin, Globe } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import Link from "next/link";
 
 // (GrainOverlay removed for performance — feTurbulence causes GPU stalls)
@@ -47,11 +48,11 @@ export default function EditorialHero() {
         <section className="relative h-screen w-full overflow-hidden bg-background text-foreground font-friendly transition-colors duration-500">
 
             {/* Main Layout */}
-            <div className="relative z-20 h-full flex flex-col justify-between px-6 md:px-12 py-10 max-w-[1400px] mx-auto">
+            <div className="relative z-20 h-full flex flex-col justify-between px-6 md:px-12 pt-6 md:pt-10 pb-10 max-w-[1400px] mx-auto">
 
                 {/* Navigation Navbar */}
-                <nav className="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md border-b border-white/10 md:bg-transparent md:backdrop-blur-none md:border-none transition-all duration-500">
-                    <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-4 md:py-10 flex justify-between items-center text-sm tracking-wide">
+                <nav className="relative z-50 w-full transition-all duration-500">
+                    <div className="flex justify-between items-center text-sm tracking-wide py-4">
                         <div className="flex items-center gap-8">
                             <Link href="/" className="font-bold text-foreground/90 hover:opacity-70 transition-opacity">
                                 A. Samed Bozdağ
@@ -83,6 +84,10 @@ export default function EditorialHero() {
                             <div className="flex items-center gap-3 transition-colors duration-500">
                                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
                                 <LiveClock />
+                            </div>
+
+                            <div className="ml-2">
+                                <ThemeToggle />
                             </div>
                         </div>
                     </div>
