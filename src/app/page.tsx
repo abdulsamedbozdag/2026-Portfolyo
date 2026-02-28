@@ -39,7 +39,6 @@ export default function Home() {
         title="TEDx YTU"
         tags={["3D Tasarım", "Blender", "Marka Kimliği", "Hareketli Grafik"]}
         image="/tedx/tedx-poster.png"
-        video="/tedx/tedx-intro_1.mp4"
         href="/projects/tedx"
         reverse={false}
       />
