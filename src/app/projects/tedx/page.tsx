@@ -101,19 +101,8 @@ export default function TedxPage() {
                         style={{ filter: "brightness(0.5) contrast(1.1)" }}
                     />
 
-                    {/* Navigation Overlaid */}
-                    <nav className="absolute top-0 left-0 right-0 z-50 p-8 flex justify-between items-center mix-blend-difference text-white">
-                        <Link
-                            href="/"
-                            className="flex items-center gap-3 hover:opacity-70 transition-all group"
-                        >
-                            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-                            <span className="font-medium tracking-tight">Ana Sayfaya Dön</span>
-                        </Link>
-                    </nav>
-
                     {/* Cinematic Gradient Overlays */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 pointer-events-none" />
+                    pulp                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 pointer-events-none" />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20 pointer-events-none" />
 
                     {/* Noise texture overlay */}

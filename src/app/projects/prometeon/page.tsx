@@ -425,7 +425,7 @@ export default function PrometeonPage() {
                     {/* LEFT: STORY & LOGO */}
                     <div className="flex flex-col items-start justify-center space-y-8">
                         {/* PROMETEON LOGO - Fixed Path */}
-                        <div className="relative h-16 w-64 mb-6">
+                        <div className="relative h-24 w-80 mb-6">
                             <Image
                                 src="/prometeon/Logo/Prometeon_Slogan_Darkblue_NoBox_PNG-01.png"
                                 alt="Prometeon"

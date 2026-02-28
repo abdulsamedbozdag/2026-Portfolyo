@@ -20,11 +20,12 @@ export function StickyBackButton() {
         setMounted(true);
 
         const onScroll = () => {
-            setVisible(window.scrollY > 200);
+            // Always visible now as requested, but we could keep the logic if we wanted.
+            // setVisible(window.scrollY > 200);
         };
 
         window.addEventListener("scroll", onScroll, { passive: true });
-        onScroll();
+        setVisible(true); // Always visible
 
         return () => window.removeEventListener("scroll", onScroll);
     }, []);

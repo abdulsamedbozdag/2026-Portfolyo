@@ -11,16 +11,7 @@ export default function BoodyAiPage() {
     return (
         <main className="min-h-screen bg-background text-foreground transition-colors duration-500 selection:bg-blue-600/20">
             <StickyBackButton />
-            {/* Navigation */}
-            <nav className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center mix-blend-difference text-white">
-                <Link
-                    href="/"
-                    className="flex items-center gap-2 hover:opacity-70 transition-opacity"
-                >
-                    <ArrowLeft className="w-5 h-5" />
-                    <span className="font-medium">Ana Sayfaya Dön</span>
-                </Link>
-            </nav>
+            {/* Hero Section */}
 
             {/* Hero Section */}
             <section className="relative h-[80vh] w-full bg-[#0A0A0A]">

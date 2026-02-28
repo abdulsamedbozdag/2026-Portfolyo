@@ -14,17 +14,7 @@ export default function SpitfirePage() {
         <main className="min-h-screen bg-white dark:bg-neutral-950 selection:bg-amber-500 selection:text-white">
             <StickyBackButton />
             {/* Interactive 3D Hero */}
-            <section className="relative min-h-screen w-full bg-neutral-900 dark:bg-neutral-950 overflow-hidden flex flex-col pt-24 pb-12 transition-colors duration-500">
-                {/* Navigation */}
-                <nav className="absolute top-0 left-0 right-0 z-50 p-8 flex justify-between items-center text-white">
-                    <Link
-                        href="/"
-                        className="flex items-center gap-3 hover:opacity-70 transition-all group"
-                    >
-                        <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-                        <span className="font-medium tracking-tight">Ana Sayfaya Dön</span>
-                    </Link>
-                </nav>
+            <section className="relative min-h-screen w-full bg-neutral-900 dark:bg-neutral-900 overflow-hidden flex flex-col pt-24 pb-12 transition-colors duration-500">
 
                 <div className="flex-1 relative flex items-center justify-center px-4 md:px-16">
                     {/* Rounded Frame for 3D Scene */}

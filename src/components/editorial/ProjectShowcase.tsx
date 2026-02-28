@@ -64,7 +64,7 @@ export default function ProjectShowcase({
                     <div>
                         <h2 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6">
                             {titleImage ? (
-                                <div className="relative h-12 md:h-24 w-full max-w-[320px] md:max-w-[500px]">
+                                <div className="relative h-16 md:h-32 w-full max-w-[400px] md:max-w-[700px]">
                                     <Image
                                         src={titleImage}
                                         alt={title}
