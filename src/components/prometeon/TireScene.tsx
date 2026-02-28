@@ -37,7 +37,7 @@ export function TireScene() {
     }, []);
 
     return (
-        <div className="w-full h-full flex items-center justify-center relative overflow-hidden">
+        <div className="w-full h-full flex items-center justify-center relative overflow-hidden cursor-grab active:cursor-grabbing">
             {/* Background Glow (to help black tire visibility) */}
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08)_0%,transparent_70%)]" />
 

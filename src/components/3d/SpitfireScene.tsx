@@ -5,6 +5,7 @@ import { Stage, OrbitControls, useGLTF, Float } from "@react-three/drei";
 import { Suspense, useRef, useState, useEffect } from "react";
 import * as THREE from "three";
 import { Loader3D } from "./Loader3D";
+import { cn } from "@/lib/utils";
 
 function SpitfireModel() {
     const { scene } = useGLTF("/spitfire/spitfire.glb");
@@ -45,7 +46,7 @@ export function SpitfireScene({
     }, []);
 
     return (
-        <div ref={containerRef} className={className}>
+        <div ref={containerRef} className={cn(className, "cursor-grab active:cursor-grabbing")}>
             {isVisible && (
                 <Canvas
                     shadows={false}

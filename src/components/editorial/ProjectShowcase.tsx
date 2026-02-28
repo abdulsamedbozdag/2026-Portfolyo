@@ -115,37 +115,39 @@ export default function ProjectShowcase({
                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     className={`relative aspect-[4/3] w-full group ${reverse ? "lg:order-1" : "lg:order-2"}`}
                 >
-                    <Link href={comingSoon ? "#" : href} className={`block w-full h-full relative overflow-hidden rounded-2xl ${comingSoon ? "cursor-default" : "cursor-pointer"}`}>
-                        <div className="absolute inset-0 bg-neutral-900/50 z-10 opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+                    {customComponent ? (
+                        <div className="w-full h-full relative overflow-hidden rounded-2xl">
+                            {customComponent}
+                        </div>
+                    ) : (
+                        <Link href={comingSoon ? "#" : href} className={`block w-full h-full relative overflow-hidden rounded-2xl ${comingSoon ? "cursor-default" : "cursor-pointer"}`}>
+                            <div className="absolute inset-0 bg-neutral-900/50 z-10 opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
 
-                        {customComponent ? (
-                            <div className="w-full h-full relative z-0">
-                                {customComponent}
-                            </div>
-                        ) : video ? (
-                            <video
-                                src={video}
-                                autoPlay
-                                muted
-                                loop
-                                playsInline
-                                className={cn(
-                                    "w-full h-full transform transition-transform duration-700 group-hover:scale-105",
-                                    objectContain ? "object-contain" : "object-cover"
-                                )}
-                            />
-                        ) : (
-                            <Image
-                                src={image}
-                                alt={title}
-                                fill
-                                className={cn(
-                                    "transition-transform duration-700 group-hover:scale-105",
-                                    objectContain ? "object-contain" : "object-cover"
-                                )}
-                            />
-                        )}
-                    </Link>
+                            {video ? (
+                                <video
+                                    src={video}
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    className={cn(
+                                        "w-full h-full transform transition-transform duration-700 group-hover:scale-105",
+                                        objectContain ? "object-contain" : "object-cover"
+                                    )}
+                                />
+                            ) : (
+                                <Image
+                                    src={image}
+                                    alt={title}
+                                    fill
+                                    className={cn(
+                                        "transition-transform duration-700 group-hover:scale-105",
+                                        objectContain ? "object-contain" : "object-cover"
+                                    )}
+                                />
+                            )}
+                        </Link>
+                    )}
 
                     {/* Decorative elements around image */}
                     <div className={`absolute -z-10 w-full h-full top-6 ${reverse ? "-left-6" : "-right-6"} border border-border/30 rounded-2xl transition-colors duration-500`} />
