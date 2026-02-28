@@ -34,7 +34,7 @@ export default function SocialMediaPage() {
                         className="max-w-4xl"
                     >
                         <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-[0.2em] uppercase border border-white/20 rounded-full backdrop-blur-md bg-white/5">
-                            {t("common.brandComm")}
+                            {t("common.socialMedia")}
                         </span>
                         <h1 className="text-6xl md:text-9xl font-black mb-8 tracking-tighter leading-none uppercase">
                             {t("common.socialMedia").split(' ').map((word, i) => (

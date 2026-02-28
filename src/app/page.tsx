@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import EditorialHero from "@/components/hero/EditorialHero";
 import ProjectShowcase from "@/components/editorial/ProjectShowcase";
 import SpitfireInterlude from "@/components/editorial/SpitfireInterlude";
-import { TireScene } from "@/components/prometeon/TireScene";
+import PrometeonInterlude from "@/components/editorial/PrometeonInterlude";
 import { About } from "@/components/About";
 import { Footer } from "@/components/Footer";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -37,9 +37,8 @@ export default function Home() {
         titleImage="/prometeon/Logo/Prometeon_Slogan_Darkblue_NoBox_PNG-01.png"
         tags={["İç İletişim", "Basılı Materyaller", "Fabrika Giydirmeleri"]}
         image="/prometeon/Logo/Prometeon_Slogan_Darkblue_NoBox_PNG-01.png"
-        customComponent={<TireScene />}
         href="/projects/prometeon"
-        reverse={true}
+        reverse={false}
         objectContain={true}
       />
 
@@ -57,7 +56,7 @@ export default function Home() {
       {/* 3. SOCIAL MEDIA SHOWCASE (03) */}
       <ProjectShowcase
         number="03"
-        category={t("common.brandComm")}
+        category={t("common.socialMedia")}
         title="Social Media"
         tags={["Art Direction", "Kampanya Tasarımı", "İçerik Stratejisi"]}
         image="/Social Media/kfc Billboardcopy.jpg"
