@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Linkedin, Mail, ArrowUpRight } from "lucide-react";
+import { Linkedin, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { ContactForm } from "./ContactForm";
 import Link from "next/link";
 
 export function Footer() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     return (
         <footer className="py-16 px-6 md:px-12 border-t border-border mt-24 bg-background transition-colors duration-500">
             <div className="max-w-[1400px] mx-auto">
@@ -20,16 +21,13 @@ export function Footer() {
                     <h3 className="text-3xl md:text-5xl font-bold mb-4 text-foreground transition-colors duration-500">
                         {t("common.workTogether")}
                     </h3>
-                    <p className="text-foreground/50 mb-8 max-w-md mx-auto transition-colors duration-500">
-                        Yeni projeler, iş birlikleri veya sadece merhaba demek için bana ulaşın.
+                    <p className="text-foreground/50 mb-12 max-w-md mx-auto transition-colors duration-500">
+                        {language === "tr"
+                            ? "Yeni projeler, iş birlikleri veya sadece merhaba demek için bana ulaşın."
+                            : "Reach out for new projects, collaborations or just to say hello."}
                     </p>
-                    <a
-                        href="mailto:abdulsamedbozdag@gmail.com"
-                        className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-foreground text-background font-medium text-sm hover:opacity-80 transition-all duration-300"
-                    >
-                        <Mail className="w-4 h-4" />
-                        {t("common.contact")}
-                    </a>
+
+                    <ContactForm />
                 </motion.div>
 
                 {/* Links & Info */}
