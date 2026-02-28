@@ -109,7 +109,7 @@ export default function Uni4SocietyPage() {
                                             alt={logo.alt}
                                             width={logo.width}
                                             height={logo.width / 2}
-                                            className="object-contain dark:invert dark:brightness-200"
+                                            className="object-contain dark:brightness-0 dark:invert transition-all duration-300"
                                         />
                                     </div>
                                 ))}
@@ -187,12 +187,12 @@ export default function Uni4SocietyPage() {
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="relative rounded-3xl overflow-hidden border border-foreground/5 shadow-2xl"
+                            className="relative rounded-3xl overflow-hidden border border-foreground/5 shadow-2xl bg-neutral-900/50"
                         >
                             <LightboxImage
                                 src="/Uni4Society/Sticker/İçerikler/BOOTCAMPAfiş-QR-YATAY.jpg"
                                 alt="Bootcamp Horizontal Poster"
-                                className="w-full h-auto object-cover h-full"
+                                className="w-full h-auto"
                                 width={1200}
                                 height={800}
                             />
@@ -209,7 +209,7 @@ export default function Uni4SocietyPage() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
                         {contents.map((content, i) => (
                             <motion.div
                                 key={i}
@@ -217,13 +217,12 @@ export default function Uni4SocietyPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className={`relative rounded-3xl overflow-hidden border border-foreground/5 shadow-lg hover:shadow-2xl transition-all duration-500 group ${i === 0 ? "md:col-span-2 md:row-span-2" : ""
-                                    }`}
+                                className="break-inside-avoid relative rounded-3xl overflow-hidden border border-foreground/5 shadow-lg hover:shadow-2xl transition-all duration-500 group"
                             >
                                 <LightboxImage
                                     src={content.src}
                                     alt={content.alt}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
                                     width={800}
                                     height={1000}
                                 />
