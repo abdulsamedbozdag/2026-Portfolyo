@@ -21,11 +21,11 @@ export default function Uni4SocietyPage() {
     ];
 
     const contents = [
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 0.jpg", alt: "Uni4Society Content 0" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 1.jpg", alt: "Uni4Society Content 1" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 15.jpg", alt: "Uni4Society Content 15" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 17.jpg", alt: "Uni4Society Content 17" },
         { src: "/Uni4Society/Sticker/İçerikler/Frame 8-1.jpg", alt: "Uni4Society Content 8-1" },
+        { src: "/Uni4Society/Sticker/sm içerik/2022yatırımüni1.png", alt: "Yatırım Üni 1" },
+        { src: "/Uni4Society/Sticker/sm içerik/2022yatırımüni2.png", alt: "Yatırım Üni 2" },
+        { src: "/Uni4Society/Sticker/sm içerik/ilkkan özlüsöz.png", alt: "Filozof İlkkan" },
+        { src: "/Uni4Society/Sticker/Tişört tasarımı/U4S Tişört Mockup.jpg", alt: "Uni4Society Tişört Mockup" },
     ];
 
     return (
@@ -90,7 +90,7 @@ export default function Uni4SocietyPage() {
                         <div className="pt-8 flex items-center gap-6">
                             <div className="relative w-12 h-12 grayscale hover:grayscale-0 transition-all duration-500">
                                 <Image
-                                    src="/Uni4Society/Sticker/spark-pp-logo.png"
+                                    src="/Uni4Society/Sticker/logolar/spark-pp-logo.png"
                                     alt="Spark Logo"
                                     fill
                                     className="object-contain"
@@ -98,7 +98,7 @@ export default function Uni4SocietyPage() {
                             </div>
                             <div className="relative w-24 h-12 grayscale hover:grayscale-0 transition-all duration-500">
                                 <Image
-                                    src="/Uni4Society/Sticker/İçerikler/Ytü-Teknopark Logo.png"
+                                    src="/Uni4Society/Sticker/logolar/Ytü-Teknopark Logo.png"
                                     alt="YTÜ Teknopark Logo"
                                     fill
                                     className="object-contain"
@@ -196,18 +196,11 @@ export default function Uni4SocietyPage() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.4 }}
-                                className="relative aspect-video rounded-3xl overflow-hidden bg-neutral-900/50 flex items-center justify-center p-12 border border-foreground/5"
+                                className="relative aspect-video rounded-3xl overflow-hidden bg-neutral-900/50 flex items-center justify-center p-12 border border-foreground/5 overflow-hidden"
                             >
-                                <Image
-                                    src="/Uni4Society/Sticker/İçerikler/rocket.png"
-                                    alt="Rocket Illustration"
-                                    width={400}
-                                    height={400}
-                                    className="object-contain drop-shadow-2xl"
-                                />
                                 <div className="absolute inset-x-0 bottom-8 text-center px-6">
                                     <p className="text-xs uppercase tracking-[0.3em] font-medium text-foreground/30 italic">
-                                        3D Identity Illustration
+                                        Creative Visual Identity
                                     </p>
                                 </div>
                             </motion.div>
