@@ -48,10 +48,10 @@ export function TireScene() {
                         <PrometeonTire url="/prometeon/lastikler/R02_PRO_TRAILER_M1_7MB.glb" />
                     </Stage>
 
-                    {/* Lighting for the sidewall */}
-                    <directionalLight position={[5, 2, 5]} intensity={3} color="#ffffff" />
-                    <directionalLight position={[-5, 2, 5]} intensity={2} color="#ffffff" />
-                    <ambientLight intensity={0.5} />
+                    {/* Lighting for the sidewall - Focused on the right diagonal */}
+                    <directionalLight position={[10, 5, 5]} intensity={4} color="#ffffff" />
+                    <directionalLight position={[-10, 5, -5]} intensity={1} color="#ffffff" />
+                    <ambientLight intensity={0.4} />
 
                     <OrbitControls
                         enableZoom={isCtrlPressed}
