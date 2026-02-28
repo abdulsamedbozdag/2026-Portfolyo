@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { TireScene } from "@/components/prometeon/TireScene";
+import Image from "next/image";
 
 export default function PrometeonInterlude() {
     return (
@@ -11,16 +11,18 @@ export default function PrometeonInterlude() {
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 select-none px-6 text-center">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    whileInView={{ opacity: 0.8, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1.5 }}
+                    className="relative w-full max-w-4xl aspect-[5/1] md:aspect-[7/1] opacity-40 transition-all duration-500"
                 >
-                    <h2 className="text-6xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/10 tracking-tighter leading-none uppercase transition-all duration-500">
-                        PROMETEON
-                    </h2>
-                    <p className="mt-4 text-sm md:text-lg uppercase tracking-[0.5em] text-foreground/40 font-medium transition-colors duration-500">
-                        Endüstriyel Mükemmellik
-                    </p>
+                    <Image
+                        src="/prometeon/Logo/Prometeon_Slogan_Darkblue_NoBox_PNG-01.png"
+                        alt="Prometeon Slogan"
+                        fill
+                        className="object-contain transition-all duration-500 dark:brightness-0 dark:invert"
+                        priority
+                    />
                 </motion.div>
             </div>
 
