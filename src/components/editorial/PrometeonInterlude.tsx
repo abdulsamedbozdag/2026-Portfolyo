@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { TireScene } from "@/components/prometeon/TireScene";
 import Image from "next/image";
 
