@@ -28,7 +28,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         localStorage.setItem("language", lang);
     }, []);
 
-    const t = useCallback((path: string): string => {
+    const t = useCallback((path: string): any => {
         const keys = path.split(".");
         let result: any = translations[language];
 

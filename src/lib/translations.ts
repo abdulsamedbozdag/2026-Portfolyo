@@ -58,12 +58,14 @@ export const translations = {
                 degree: "İletişim ve Tasarımı (Lisans)",
                 date: "Eylül 2020 - Ocak 2026",
                 focus: "Marka Yönetimi, Kullanıcı Deneyimi Tasarımı (UX), Görsel İletişim",
+                logo: "/logos/ytu.png"
             },
             experience: [
                 {
                     company: "PROMETEON",
                     role: "Marka ve İletişim Stajyeri",
                     date: "Ağustos 2024 - Halen",
+                    logo: "/logos/prometeon.png",
                     points: [
                         "Kurumsal Marka Yönetimi: Global CI standartlarına sadık kalarak yerel stratejilerin uygulanması.",
                         "B2B Pazarlama İletişimi: Ürün lansman materyalleri ve dijital mailing tasarımları.",
@@ -75,6 +77,7 @@ export const translations = {
                     company: "ISTCODE",
                     role: "Grafik Tasarım Stajyeri",
                     date: "Mayıs 2024 - Temmuz 2024",
+                    logo: "/logos/istcode.png",
                     points: [
                         "Sosyal Medya Tasarımı: Etkileşim odaklı post ve story setleri.",
                         "Hızlı Üretim: Ajans temposunda yaratıcı çözümler ve revize yönetimi."
@@ -84,6 +87,7 @@ export const translations = {
                     company: "CAR2GATHER",
                     role: "Kurucu Ortak ve Tasarımcı",
                     date: "Mart 2022 - Ağustos 2023",
+                    logo: "/logos/car2gather.png",
                     points: [
                         "Marka Kimliği İnşası: Logodan kurumsal renk paletine kadar tüm kimlik süreci.",
                         "UI/UX Tasarımı: Mobil uygulama ve web platformu kullanıcı akışları ve arayüz kurgusu.",
@@ -178,12 +182,14 @@ export const translations = {
                 degree: "Bachelor's Degree in Communication Design",
                 date: "Sep 2020 - Jan 2026",
                 focus: "Brand Management, User Experience Design (UX), Visual Communication",
+                logo: "/logos/ytu.png"
             },
             experience: [
                 {
                     company: "PROMETEON",
                     role: "Brand and Communication Intern",
                     date: "August 2024 - Present",
+                    logo: "/logos/prometeon.png",
                     points: [
                         "Corporate Brand Management: Executing visual strategies while adhering to global CI standards.",
                         "B2B Marketing Communication: Producing launch materials and digital mailing designs.",
@@ -195,6 +201,7 @@ export const translations = {
                     company: "ISTCODE",
                     role: "Graphic Design Intern",
                     date: "May 2024 - July 2024",
+                    logo: "/logos/istcode.png",
                     points: [
                         "Social Media Design: Interaction-oriented post and story sets for various sectors.",
                         "Rapid Production: Creative solutions and revision management in agency environment."
@@ -204,6 +211,7 @@ export const translations = {
                     company: "CAR2GATHER",
                     role: "Co-Founder and Designer",
                     date: "March 2022 - August 2023",
+                    logo: "/logos/car2gather.png",
                     points: [
                         "Brand Identity Construction: Creating entire identity from logo to tone of voice.",
                         "UI/UX Design: Designing user-friendly interfaces and architecting user flows.",

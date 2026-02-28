@@ -37,14 +37,15 @@ export default function AboutPage() {
                     animate={{ opacity: 1, y: 0 }}
                     className="flex flex-col md:flex-row items-center gap-12"
                 >
-                    <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden border-2 border-primary/10 transition-transform duration-500 hover:scale-[1.02]">
+                    <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden border-2 border-primary/10 transition-transform duration-500 hover:scale-[1.02] bg-foreground/5">
                         <Image
-                            src="/AbdulSamedBozdag.jpg" // Note: Need to check if this image exists or use a placeholder
+                            src="/AbdulSamedBozdag.jpg"
                             alt="Abdul Samed Bozdağ"
                             fill
                             className="object-cover"
                             priority
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
                     </div>
                     <div className="flex-1 text-center md:text-left">
                         <motion.h1
@@ -91,12 +92,24 @@ export default function AboutPage() {
                                     <div className="absolute left-0 top-1 w-12 h-12 rounded-full bg-background border-2 border-foreground/10 flex items-center justify-center z-10">
                                         <div className="w-3 h-3 rounded-full bg-primary" />
                                     </div>
-                                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
-                                        <div>
-                                            <h3 className="text-2xl font-bold">{exp.company}</h3>
-                                            <p className="text-primary font-medium">{exp.role}</p>
+                                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                                        <div className="flex items-center gap-4">
+                                            {exp.logo && (
+                                                <div className="relative w-12 h-12 rounded-xl border border-foreground/5 bg-white overflow-hidden p-1 flex-shrink-0">
+                                                    <Image
+                                                        src={exp.logo}
+                                                        alt={exp.company}
+                                                        fill
+                                                        className="object-contain"
+                                                    />
+                                                </div>
+                                            )}
+                                            <div>
+                                                <h3 className="text-2xl font-bold">{exp.company}</h3>
+                                                <p className="text-primary font-medium">{exp.role}</p>
+                                            </div>
                                         </div>
-                                        <span className="text-sm font-mono opacity-40 bg-foreground/5 px-3 py-1 rounded-full w-fit">
+                                        <span className="text-sm font-mono opacity-60 bg-foreground/5 px-3 py-1 rounded-full w-fit">
                                             {exp.date}
                                         </span>
                                     </div>
@@ -130,11 +143,23 @@ export default function AboutPage() {
                             className="p-8 rounded-3xl bg-foreground/[0.02] border border-foreground/5"
                         >
                             <div className="flex flex-col md:flex-row justify-between gap-4 mb-4">
-                                <div>
-                                    <h3 className="text-2xl font-bold">{cv.education.school}</h3>
-                                    <p className="text-primary font-medium">{cv.education.degree}</p>
+                                <div className="flex items-center gap-4">
+                                    {cv.education.logo && (
+                                        <div className="relative w-12 h-12 rounded-xl border border-foreground/5 bg-white overflow-hidden p-1 flex-shrink-0">
+                                            <Image
+                                                src={cv.education.logo}
+                                                alt={cv.education.school}
+                                                fill
+                                                className="object-contain"
+                                            />
+                                        </div>
+                                    )}
+                                    <div>
+                                        <h3 className="text-2xl font-bold">{cv.education.school}</h3>
+                                        <p className="text-primary font-medium">{cv.education.degree}</p>
+                                    </div>
                                 </div>
-                                <span className="text-sm font-mono opacity-40">{cv.education.date}</span>
+                                <span className="text-sm font-mono opacity-60">{cv.education.date}</span>
                             </div>
                             <p className="text-muted-foreground italic">
                                 <span className="font-bold not-italic mr-2">Odak:</span>
@@ -164,7 +189,7 @@ export default function AboutPage() {
                                 >
                                     <h4 className="font-bold text-lg leading-tight mb-1">{vol.org}</h4>
                                     <p className="text-sm text-primary mb-2">{vol.role}</p>
-                                    <p className="text-xs opacity-40 font-mono">{vol.date}</p>
+                                    <p className="text-xs opacity-60 font-mono">{vol.date}</p>
                                 </motion.div>
                             ))}
                         </div>
@@ -187,7 +212,7 @@ export default function AboutPage() {
                                 <div key={i}>
                                     <div className="flex justify-between mb-2">
                                         <span className="font-bold text-sm tracking-widest uppercase">{skill.name}</span>
-                                        <span className="text-xs opacity-40 font-mono">{skill.level}/10</span>
+                                        <span className="text-xs opacity-60 font-mono">{skill.level}/10</span>
                                     </div>
                                     <div className="h-2 w-full bg-foreground/5 rounded-full overflow-hidden">
                                         <motion.div
@@ -203,7 +228,7 @@ export default function AboutPage() {
                         </div>
 
                         <div className="mt-16 pt-8 border-t border-foreground/5">
-                            <h4 className="text-sm font-bold uppercase tracking-widest mb-4 opacity-40">{about.references}</h4>
+                            <h4 className="text-sm font-bold uppercase tracking-widest mb-4 opacity-60">{about.references}</h4>
                             <p className="text-sm text-muted-foreground leading-relaxed">
                                 {about.referencesNote}
                             </p>

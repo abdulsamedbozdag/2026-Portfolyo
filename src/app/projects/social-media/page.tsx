@@ -42,7 +42,7 @@ export default function SocialMediaPage() {
                             </span>
                         </div>
                         <h1 className="text-6xl md:text-9xl font-black mb-8 tracking-tighter leading-none uppercase">
-                            {t("common.socialMedia").split(' ').map((word, i) => (
+                            {(t("common.socialMedia") as string).split(' ').map((word, i) => (
                                 <span key={i} className="block">{word}</span>
                             ))}
                         </h1>
