@@ -12,7 +12,7 @@ export default function SocialMediaPage() {
     const { t } = useLanguage();
 
     return (
-        <main className="min-h-screen bg-white dark:bg-[#050505] selection:bg-blue-600 selection:text-white">
+        <main className="min-h-screen bg-background text-foreground transition-colors duration-500 selection:bg-blue-600/20">
             <StickyBackButton />
 
             {/* Hero Section */}
@@ -47,11 +47,11 @@ export default function SocialMediaPage() {
             </section>
 
             {/* Project Info */}
-            <section className="max-w-7xl mx-auto py-24 px-6">
+            <section className="max-w-7xl mx-auto py-24 px-6 transition-colors duration-500">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                     <div className="lg:col-span-8">
-                        <h2 className="text-3xl font-bold mb-8">Stratejik Görsel İletişim</h2>
-                        <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed mb-8">
+                        <h2 className="text-3xl font-bold mb-8 text-foreground transition-colors duration-500">Stratejik Görsel İletişim</h2>
+                        <p className="text-lg text-foreground/60 leading-relaxed mb-8 transition-colors duration-500">
                             Sosyal medya, bir markanın hedef kitlesiyle en doğrudan temas kurduğu alandır.
                             Bu projede farklı sektörlerden markalar için (Hızlı Tüketim, Sağlık, Kafe vb.)
                             özgün kampanya kurguları ve görsel dünyalar oluşturuldu.
@@ -60,16 +60,16 @@ export default function SocialMediaPage() {
                     </div>
                     <div className="lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-8">
                         <div>
-                            <h3 className="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-2">Rol</h3>
-                            <p className="text-lg font-medium">Art Director</p>
+                            <h3 className="text-xs font-bold uppercase tracking-widest text-muted mb-2 transition-colors duration-500">Rol</h3>
+                            <p className="text-lg font-medium text-foreground transition-colors duration-500">Art Director</p>
                         </div>
                         <div>
-                            <h3 className="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-2">Odak</h3>
-                            <p className="text-lg font-medium">Reklam & İçerik</p>
+                            <h3 className="text-xs font-bold uppercase tracking-widest text-muted mb-2 transition-colors duration-500">Odak</h3>
+                            <p className="text-lg font-medium text-foreground transition-colors duration-500">Reklam & İçerik</p>
                         </div>
                         <div>
-                            <h3 className="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-2">Araçlar</h3>
-                            <p className="text-lg font-medium">Adobe Suite, AI</p>
+                            <h3 className="text-xs font-bold uppercase tracking-widest text-muted mb-2 transition-colors duration-500">Araçlar</h3>
+                            <p className="text-lg font-medium text-foreground transition-colors duration-500">Adobe Suite, AI</p>
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@ export default function SocialMediaPage() {
             <section className="max-w-[1600px] mx-auto px-6 pb-24">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {/* Dentist Campaign */}
-                    <div className="lg:col-span-2 aspect-video relative rounded-3xl overflow-hidden shadow-2xl group border border-neutral-100 dark:border-white/5">
+                    <div className="lg:col-span-2 aspect-video relative rounded-3xl overflow-hidden shadow-2xl group border border-border transition-colors duration-500">
                         <LightboxImage
                             src="/Social Media/BehanceŞerit_Dentist.jpg"
                             alt="Dentist Campaign"
@@ -87,7 +87,7 @@ export default function SocialMediaPage() {
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
-                    <div className="aspect-square relative rounded-3xl overflow-hidden shadow-2xl group border border-neutral-100 dark:border-white/5">
+                    <div className="aspect-square relative rounded-3xl overflow-hidden shadow-2xl group border border-border transition-colors duration-500">
                         <LightboxImage
                             src="/Social Media/Dentist_1.jpg"
                             alt="Dentist Content"
@@ -97,7 +97,7 @@ export default function SocialMediaPage() {
                     </div>
 
                     {/* Cafe & Food */}
-                    <div className="aspect-square relative rounded-3xl overflow-hidden shadow-2xl group border border-neutral-100 dark:border-white/5">
+                    <div className="aspect-square relative rounded-3xl overflow-hidden shadow-2xl group border border-border transition-colors duration-500">
                         <LightboxImage
                             src="/Social Media/tatlıkafe.jpg"
                             alt="Cafe Design"
@@ -105,7 +105,7 @@ export default function SocialMediaPage() {
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
-                    <div className="lg:col-span-2 aspect-[16/10] relative rounded-3xl overflow-hidden shadow-2xl group border border-neutral-100 dark:border-white/5">
+                    <div className="lg:col-span-2 aspect-[16/10] relative rounded-3xl overflow-hidden shadow-2xl group border border-border transition-colors duration-500">
                         <LightboxImage
                             src="/Social Media/kfc Billboardcopy.jpg"
                             alt="KFC Billboard"
@@ -115,7 +115,7 @@ export default function SocialMediaPage() {
                     </div>
 
                     {/* More content */}
-                    <div className="aspect-[4/5] relative rounded-3xl overflow-hidden shadow-2xl group border border-neutral-100 dark:border-white/5">
+                    <div className="aspect-[4/5] relative rounded-3xl overflow-hidden shadow-2xl group border border-border transition-colors duration-500">
                         <LightboxImage
                             src="/Social Media/1.jpg"
                             alt="Social Media Asset 1"
@@ -123,7 +123,7 @@ export default function SocialMediaPage() {
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
-                    <div className="aspect-[4/5] relative rounded-3xl overflow-hidden shadow-2xl group border border-neutral-100 dark:border-white/5">
+                    <div className="aspect-[4/5] relative rounded-3xl overflow-hidden shadow-2xl group border border-border transition-colors duration-500">
                         <LightboxImage
                             src="/Social Media/2.jpg"
                             alt="Social Media Asset 2"
@@ -131,7 +131,7 @@ export default function SocialMediaPage() {
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
-                    <div className="aspect-[4/5] relative rounded-3xl overflow-hidden shadow-2xl group border border-neutral-100 dark:border-white/5">
+                    <div className="aspect-[4/5] relative rounded-3xl overflow-hidden shadow-2xl group border border-border transition-colors duration-500">
                         <LightboxImage
                             src="/Social Media/3.jpg"
                             alt="Social Media Asset 3"
@@ -142,7 +142,7 @@ export default function SocialMediaPage() {
                 </div>
 
                 <div className="mt-24 text-center">
-                    <p className="text-neutral-400 font-medium">Ve daha fazlası dijital stratejilerle hayat buluyor.</p>
+                    <p className="text-foreground/40 font-medium transition-colors duration-500">Ve daha fazlası dijital stratejilerle hayat buluyor.</p>
                 </div>
             </section>
         </main>

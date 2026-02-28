@@ -9,7 +9,7 @@ import { StickyBackButton } from "@/components/StickyBackButton";
 
 export default function Car2GatherPage() {
     return (
-        <main className="min-h-screen bg-white dark:bg-neutral-950 selection:bg-orange-500 selection:text-white">
+        <main className="min-h-screen bg-background text-foreground transition-colors duration-500 selection:bg-orange-500/20">
             <StickyBackButton />
             {/* Navigation */}
             <nav className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center mix-blend-difference text-white">
@@ -50,23 +50,23 @@ export default function Car2GatherPage() {
             </section>
 
             {/* Project Details */}
-            <section className="max-w-4xl mx-auto py-24 px-6">
+            <section className="max-w-4xl mx-auto py-24 px-6 transition-colors duration-500">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
                     <div className="md:col-span-2">
-                        <h3 className="text-lg font-bold mb-4">Proje Özeti</h3>
-                        <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-lg">
+                        <h3 className="text-lg font-bold mb-4 text-foreground">Proje Özeti</h3>
+                        <p className="text-foreground/60 leading-relaxed text-lg transition-colors duration-500">
                             car2gather, araç paylaşımı ve yolculuk planlamayı kolaylaştıran modern bir web platformudur.
                             Kullanıcı dostu arayüzü ve akıcı deneyimi ile karmaşık seyahat planlamalarını basitleştirmeyi hedefler.
                         </p>
                     </div>
                     <div className="space-y-8">
                         <div>
-                            <h3 className="text-lg font-bold mb-2">Rolüm</h3>
-                            <p className="text-neutral-600 dark:text-neutral-400">Web Designer</p>
+                            <h3 className="text-lg font-bold mb-2 text-foreground transition-colors duration-500">Rolüm</h3>
+                            <p className="text-foreground/60 transition-colors duration-500">Web Designer</p>
                         </div>
                         <div>
-                            <h3 className="text-lg font-bold mb-2">Araçlar</h3>
-                            <p className="text-neutral-600 dark:text-neutral-400">Figma, React, Tailwind CSS</p>
+                            <h3 className="text-lg font-bold mb-2 text-foreground transition-colors duration-500">Araçlar</h3>
+                            <p className="text-foreground/60 transition-colors duration-500">Figma, React, Tailwind CSS</p>
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@ export default function Car2GatherPage() {
                         ></iframe>
                     </div>
 
-                    <div className="bg-neutral-100 dark:bg-neutral-900 rounded-2xl p-12 text-center text-neutral-500">
+                    <div className="bg-card border border-border rounded-2xl p-12 text-center text-foreground/40 transition-colors duration-500">
                         <p>Dashboard ve arayüz detayları buraya eklenecek.</p>
                     </div>
                 </div>

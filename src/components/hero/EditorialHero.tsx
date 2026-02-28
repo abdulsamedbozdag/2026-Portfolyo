@@ -43,7 +43,7 @@ export default function EditorialHero() {
     };
 
     return (
-        <section className="relative h-screen w-full overflow-hidden bg-[#050505] text-[#ededed] font-friendly">
+        <section className="relative h-screen w-full overflow-hidden bg-background text-foreground font-friendly transition-colors duration-500">
 
             {/* Main Layout */}
             <div className="relative z-20 h-full flex flex-col justify-between px-6 md:px-12 py-10 max-w-[1400px] mx-auto">
@@ -53,7 +53,7 @@ export default function EditorialHero() {
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="font-bold text-white/90"
+                        className="font-bold text-foreground/90 transition-colors duration-500"
                     >
                         A. Samed Bozdağ
                     </motion.div>
@@ -62,7 +62,7 @@ export default function EditorialHero() {
                         {/* Language Toggle */}
                         <button
                             onClick={toggleLanguage}
-                            className="flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 hover:bg-white/5 transition-colors"
+                            className="flex items-center gap-2 px-3 py-1 rounded-full border border-border/40 hover:bg-foreground/5 transition-colors duration-500"
                         >
                             <Globe size={14} />
                             <span className="font-medium text-xs">
@@ -70,11 +70,11 @@ export default function EditorialHero() {
                             </span>
                         </button>
 
-                        <div className="hidden md:flex items-center gap-2">
-                            <MapPin size={14} className="text-white/40" />
+                        <div className="hidden md:flex items-center gap-2 transition-colors duration-500">
+                            <MapPin size={14} className="text-foreground/40" />
                             <span>{t("common.location")}</span>
                         </div>
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-3 transition-colors duration-500">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
                             <LiveClock />
                         </div>
@@ -94,12 +94,12 @@ export default function EditorialHero() {
                             <span>{t("hero.title")}</span>
                         </div>
 
-                        <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-[1.15] tracking-tight">
+                        <h1 className="text-4xl md:text-6xl font-extrabold text-foreground leading-[1.15] tracking-tight transition-colors duration-500">
                             <span className="opacity-60 font-normal italic">{t("common.hello")}</span><br />
                             {t("common.im")}
                         </h1>
 
-                        <p className="text-lg md:text-xl text-white/50 leading-relaxed font-normal max-w-lg">
+                        <p className="text-lg md:text-xl text-foreground/50 leading-relaxed font-normal max-w-lg transition-colors duration-500">
                             {t("hero.description")}
                         </p>
 
@@ -109,7 +109,7 @@ export default function EditorialHero() {
                             transition={{ delay: 0.5 }}
                             className="mt-4"
                         >
-                            <button className="px-8 py-3.5 rounded-full bg-white text-black font-semibold hover:bg-emerald-400 transition-colors duration-300">
+                            <button className="px-8 py-3.5 rounded-full bg-foreground text-background font-semibold hover:bg-emerald-500 transition-colors duration-300">
                                 {t("common.projects")}
                             </button>
                         </motion.div>
@@ -122,7 +122,7 @@ export default function EditorialHero() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1.2 }}
-                        className="flex items-center gap-3 text-[10px] uppercase tracking-[0.4em] text-white/20"
+                        className="flex items-center gap-3 text-[10px] uppercase tracking-[0.4em] text-foreground/20 transition-colors duration-500"
                     >
                         <div className="animate-bounce">
                             <ArrowDown size={14} />

@@ -21,8 +21,8 @@ const PLACEHOLDERS = {
 export default function Home() {
   const { t } = useLanguage();
   return (
-    <main className="bg-[#050505] min-h-screen text-[#ededed] selection:bg-white/20">
-      <div className="fixed top-6 right-6 z-50 text-white">
+    <main className="bg-background min-h-screen text-foreground selection:bg-neutral-500/20">
+      <div className="fixed top-6 right-6 z-50">
         <ThemeToggle />
       </div>
 

@@ -9,7 +9,7 @@ import { StickyBackButton } from "@/components/StickyBackButton";
 
 export default function BoodyAiPage() {
     return (
-        <main className="min-h-screen bg-white dark:bg-neutral-950 selection:bg-blue-600 selection:text-white">
+        <main className="min-h-screen bg-background text-foreground transition-colors duration-500 selection:bg-blue-600/20">
             <StickyBackButton />
             {/* Navigation */}
             <nav className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center mix-blend-difference text-white">
@@ -51,11 +51,11 @@ export default function BoodyAiPage() {
             </section>
 
             {/* Project Details */}
-            <section className="max-w-4xl mx-auto py-24 px-6">
+            <section className="max-w-4xl mx-auto py-24 px-6 transition-colors duration-500">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
                     <div className="md:col-span-2">
-                        <h3 className="text-lg font-bold mb-4">Proje Özeti</h3>
-                        <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-lg">
+                        <h3 className="text-lg font-bold mb-4 text-foreground">Proje Özeti</h3>
+                        <p className="text-foreground/60 leading-relaxed text-lg transition-colors duration-500">
                             Boody AI, yapay zeka destekli kişiselleştirilmiş bir mobil deneyim sunar.
                             Kullanıcı alışkanlıklarını analiz ederek akıllı önerilerde bulunan bu uygulama için,
                             sezgisel ve modern bir arayüz tasarlandı.
@@ -63,12 +63,12 @@ export default function BoodyAiPage() {
                     </div>
                     <div className="space-y-8">
                         <div>
-                            <h3 className="text-lg font-bold mb-2">Rolüm</h3>
-                            <p className="text-neutral-600 dark:text-neutral-400">UI/UX Designer</p>
+                            <h3 className="text-lg font-bold mb-2 text-foreground">Rolüm</h3>
+                            <p className="text-foreground/60 transition-colors duration-500">UI/UX Designer</p>
                         </div>
                         <div>
-                            <h3 className="text-lg font-bold mb-2">Araçlar</h3>
-                            <p className="text-neutral-600 dark:text-neutral-400">Figma, AI Tools, Protopie</p>
+                            <h3 className="text-lg font-bold mb-2 text-foreground">Araçlar</h3>
+                            <p className="text-foreground/60 transition-colors duration-500">Figma, AI Tools, Protopie</p>
                         </div>
                     </div>
                 </div>
@@ -96,10 +96,10 @@ export default function BoodyAiPage() {
                     </div>
 
                     {/* Wireframe & Lo-Fi Section */}
-                    <div className="py-20 border-y border-neutral-100 dark:border-white/5 my-12">
+                    <div className="py-20 border-y border-border my-12 transition-colors duration-500">
                         <div className="max-w-2xl mx-auto text-center mb-16">
-                            <h2 className="text-3xl font-bold mb-6">Wireframe & Lo-Fi</h2>
-                            <p className="text-neutral-500 dark:text-neutral-400">
+                            <h2 className="text-3xl font-bold mb-6 text-foreground">Wireframe & Lo-Fi</h2>
+                            <p className="text-foreground/50 transition-colors duration-500">
                                 Kullanıcı yolculuğunu ve temel etkileşimleri doğrulamak için hazırlanan düşük sadakatli taslaklar.
                                 Karmaşık AI akışlarını en basit haliyle kurgulayarak kullanıcı deneyimini optimize ettik.
                             </p>
@@ -135,7 +135,7 @@ export default function BoodyAiPage() {
                         </div>
                     </div>
 
-                    <div className="bg-neutral-100 dark:bg-neutral-900 rounded-2xl p-12 text-center text-neutral-500">
+                    <div className="bg-card border border-border rounded-2xl p-12 text-center text-foreground/40 transition-colors duration-500">
                         <p>Diğer proje detay görselleri buraya eklenecek.</p>
                     </div>
                 </div>

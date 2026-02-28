@@ -14,7 +14,7 @@ export default function SpitfirePage() {
         <main className="min-h-screen bg-white dark:bg-neutral-950 selection:bg-amber-500 selection:text-white">
             <StickyBackButton />
             {/* Interactive 3D Hero */}
-            <section className="relative min-h-screen w-full bg-neutral-900 overflow-hidden flex flex-col pt-24 pb-12">
+            <section className="relative min-h-screen w-full bg-neutral-900 dark:bg-neutral-950 overflow-hidden flex flex-col pt-24 pb-12 transition-colors duration-500">
                 {/* Navigation */}
                 <nav className="absolute top-0 left-0 right-0 z-50 p-8 flex justify-between items-center text-white">
                     <Link
@@ -28,7 +28,7 @@ export default function SpitfirePage() {
 
                 <div className="flex-1 relative flex items-center justify-center px-4 md:px-16">
                     {/* Rounded Frame for 3D Scene */}
-                    <div className="w-full max-w-5xl aspect-[3/4] md:aspect-[16/10] relative rounded-3xl overflow-hidden border border-white/10 bg-neutral-800/50 backdrop-blur-sm shadow-2xl">
+                    <div className="w-full max-w-5xl aspect-[3/4] md:aspect-[16/10] relative rounded-3xl overflow-hidden border border-white/10 dark:border-white/5 bg-neutral-800/50 dark:bg-neutral-900/50 backdrop-blur-sm shadow-2xl">
                         {/* Interactive Scene with Zoom Enabled */}
                         <SpitfireScene
                             className="w-full h-full cursor-grab active:cursor-grabbing"
@@ -74,7 +74,7 @@ export default function SpitfirePage() {
             </section>
 
             {/* Content Container */}
-            <section className="bg-white dark:bg-neutral-950">
+            <section className="bg-background transition-colors duration-500">
                 <div className="max-w-7xl mx-auto py-24 px-6">
 
                     {/* Intro / Role / Tools */}

@@ -173,7 +173,7 @@ export default function TedxPage() {
             </section>
 
             {/* Content Container - Limit width and center */}
-            <section className="bg-white dark:bg-neutral-950">
+            <section className="bg-background transition-colors duration-500">
 
                 {/* Intro / Role / Tools */}
                 <div className="max-w-3xl mx-auto py-24 px-6 text-center">
@@ -192,7 +192,7 @@ export default function TedxPage() {
                         </div>
                     </div>
 
-                    <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight text-foreground transition-colors duration-500">
                         Dijital ve fiziksel dünyaların sınırlarını bulanıklaştıran bir oyun deneyimi.
                     </h2>
                     <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
@@ -222,7 +222,7 @@ export default function TedxPage() {
 
                 {/* Text Block */}
                 <div className="max-w-3xl mx-auto py-24 px-6">
-                    <h3 className="text-2xl font-bold mb-6">Sahne Tasarımı</h3>
+                    <h3 className="text-2xl font-bold mb-6 text-foreground transition-colors duration-500">Sahne Tasarımı</h3>
                     <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
                         Sahne tasarımı, konuşmacının odak noktasında kalmasını sağlarken, arka planda
                         sürekli değişen ve yaşayan bir dijital organism hissi yaratacak şekilde kurgulandı.
@@ -241,7 +241,7 @@ export default function TedxPage() {
 
                 {/* Text Block */}
                 <div className="max-w-3xl mx-auto py-24 px-6 text-center">
-                    <h3 className="text-2xl font-bold mb-6">Sonuç</h3>
+                    <h3 className="text-2xl font-bold mb-6 text-foreground transition-colors duration-500">Sonuç</h3>
                     <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
                         Etkinlik boyunca kullanılan tüm görsel materyaller, sosyal medya içerikleri ve
                         sahne görselleri, katılımcılardan tam not aldı ve etkinliğin "The Game" temasını
