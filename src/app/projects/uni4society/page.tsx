@@ -9,7 +9,7 @@ import Image from "next/image";
 
 export default function Uni4SocietyPage() {
     const { t } = useLanguage();
-    const project = t("uni4society");
+    const project = t("cv.uni4society");
 
     const stickers = [
         { src: "/Uni4Society/Sticker/U4S_bayıl_istersen.png", alt: "Bayıl İstersen Sticker" },
@@ -80,15 +80,35 @@ export default function Uni4SocietyPage() {
                             <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Araçlar</h3>
                             <p className="text-lg font-medium">{project.tools}</p>
                         </div>
+
+                        {/* Partner Logos */}
+                        <div className="pt-8 flex items-center gap-6">
+                            <div className="relative w-12 h-12 grayscale hover:grayscale-0 transition-all duration-500">
+                                <Image
+                                    src="/Uni4Society/Sticker/spark-pp-logo.png"
+                                    alt="Spark Logo"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                            <div className="relative w-24 h-12 grayscale hover:grayscale-0 transition-all duration-500">
+                                <Image
+                                    src="/Uni4Society/Sticker/İçerikler/Ytü-Teknopark Logo.png"
+                                    alt="YTÜ Teknopark Logo"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                        </div>
                     </div>
 
                     <div className="md:col-span-8 space-y-12">
                         <h2 className="text-3xl md:text-5xl font-bold leading-tight">
                             {project.introTitle}
                         </h2>
-                        <p className="text-xl text-muted-foreground leading-relaxed">
+                        <div className="text-xl text-muted-foreground leading-relaxed whitespace-pre-line">
                             {project.description}
-                        </p>
+                        </div>
                     </div>
                 </section>
 

@@ -125,16 +125,16 @@ export const translations = {
                 title: "Uni4Society YTÜ",
                 category: "Tasarım ve Sosyal Medya",
                 role: "Tasarım ve Sosyal Medya Ekibi Koordinatörü",
-                date: "2022 - 2023",
+                date: "2023",
                 tools: "Illustrator, Photoshop, Canva",
-                description: "Yıldız Teknik Üniversitesi bünyesinde girişimcilik ekosistemine yönelik bir platform olan Uni4Society YTÜ için hazırlanan görsel kimlik ve sosyal medya içerikleri. Etkinliklerin tanıtımı, girişimci adaylarına yönelik bilgilendirici içerikler ve topluluk aidiyetini güçlendiren sticker tasarımlarını kapsamaktadır.",
+                description: '"Dokunduğun Yere Etki Bırak!"\n\nBu motto ile yola çıkan University4Society, üniversite öğrencilerine girişimcilik yetkinliklerini aktarmak, bulundukları ekosistem ve toplumun günlük hayatta karşılaştığı sorunlara teknoloji tabanlı çözümler getirebilmeleri, farklılık ve farkındalık yaratabilmeleri için onları, düzenlediği yerel ve ulusal ekosistem etkinliklerine davet ederek bir değişim öncüsü olmayı amaçlar.',
                 introTitle: "Girişimcilik ve Tasarımın Buluşması",
                 stickerTitle: "Topluluk Ruhu: Sticker Tasarımları",
                 stickerDesc: "Girişimci adaylarının ve topluluk üyelerinin kendilerini ifade edebilecekleri, mizahi ve samimi bir dille kurgulanan sticker setleri. Bu tasarımlar, topluluk içi etkileşimi artırmak ve marka bilinirliğini eğlenceli bir yolla yaymak amacıyla üretilmiştir.",
                 contentTitle: "Sosyal Medya ve Görsel İletişim",
                 contentDesc: "Bilgilendirici post serileri, etkinlik duyuruları ve girişimcilik dünyasına dair içgörülerin paylaşıldığı dinamik sosyal medya arayüzleri.",
-                bootcampTitle: "Bootcamp Tasarımı: Fikirlerin İvmesi",
-                bootcampDesc: "3D modellemeler ve canlı illüstrasyonlarla kurgulanan Bootcamp afişi; dinamik bir girişimcilik atmosferini temsil ediyor. Yükselen roket yeni fikirlerin ivmesini, figürler ise katılımcıların enerjisini simgeliyor."
+                bootcampTitle: "BOOTCAMP AFİŞ",
+                bootcampDesc: "Etkinlik Görsel Kimlik Tasarımı: Bootcamp dünyasını 3D editoryal bir yaklaşımla kurgulayarak; dinamik girişimcilik ekosistemini yükselen bir roket ve katılımcıları temsil eden illüstrasyonlarla sembolize ettik. Marka mottosunu temel alan bu görsel dil, inovasyon ve topluluk enerjisini ön plana çıkarmayı hedefler."
             }
         }
     },
@@ -264,16 +264,16 @@ export const translations = {
                 title: "Uni4Society YTU",
                 category: "Design & Social Media",
                 role: "Design and Social Media Team Coordinator",
-                date: "2022 - 2023",
+                date: "2023",
                 tools: "Illustrator, Photoshop, Canva",
-                description: "Visual identity and social media content created for Uni4Society YTU, a platform dedicated to the entrepreneurship ecosystem within Yıldız Technical University. It covers event promotion, informative content for aspiring entrepreneurs, and sticker designs that strengthen community belonging.",
+                description: '"Leave an Impact Where You Touch!"\n\nStarting with this motto, University4Society aims to be a pioneer of change by inviting university students to local and national ecosystem events to convey entrepreneurship competencies, to enable them to bring technology-based solutions to the problems encountered in the ecosystem and society in daily life, and to create difference and awareness.',
                 introTitle: "Where Entrepreneurship Meets Design",
                 stickerTitle: "Community Spirit: Sticker Designs",
                 stickerDesc: "Sticker sets designed with a humorous and sincere tone, allowing aspiring entrepreneurs and community members to express themselves. These designs were produced to increase interaction within the community and spread brand awareness in a fun way.",
                 contentTitle: "Social Media & Visual Communication",
                 contentDesc: "Informative post series, event announcements, and dynamic social media interfaces where insights about the world of entrepreneurship are shared.",
-                bootcampTitle: "Bootcamp Design: Momentum of Ideas",
-                bootcampDesc: "Designed with 3D modeling and vibrant illustrations, the Bootcamp poster captures a dynamic entrepreneurial atmosphere. The rising rocket symbolizes the momentum of fresh ideas, while the characters represent the vibrant energy of the participants."
+                bootcampTitle: "BOOTCAMP POSTER",
+                bootcampDesc: "Event Visual Identity Design: By constructing the Bootcamp world with a 3D editorial approach; we symbolized the dynamic entrepreneurship ecosystem with a rising rocket and illustrations representing the participants. This visual language, based on the brand motto, aims to highlight innovation and community energy."
             }
         }
     }
