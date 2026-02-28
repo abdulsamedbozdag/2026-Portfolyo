@@ -35,6 +35,14 @@ export default function Uni4SocietyPage() {
                 <ThemeToggle />
             </div>
 
+            {/* Brand Gradient Background */}
+            <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none opacity-20 dark:opacity-[0.15]">
+                <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#FAE000] blur-[120px] animate-pulse" style={{ animationDuration: '8s' }} />
+                <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[#AA144D] blur-[120px] animate-pulse" style={{ animationDuration: '10s' }} />
+                <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#58B4AE] blur-[120px] animate-pulse" style={{ animationDuration: '12s' }} />
+                <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[#ED9724] blur-[120px] animate-pulse" style={{ animationDuration: '9s' }} />
+            </div>
+
             {/* Hero Section */}
             <section className="relative h-[80vh] w-full overflow-hidden bg-neutral-900">
                 <LightboxImage
@@ -52,9 +60,6 @@ export default function Uni4SocietyPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h1 className="text-5xl md:text-8xl font-black tracking-tighter mb-4">
-                            {project.title}
-                        </h1>
                         <p className="text-xl md:text-2xl font-light text-muted-foreground max-w-2xl">
                             {project.category}
                         </p>
