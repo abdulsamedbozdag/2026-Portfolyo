@@ -38,7 +38,7 @@ export function About() {
                             <h3 className="text-xl font-semibold mb-4 text-foreground transition-colors duration-500">
                                 {t("common.journey")}
                             </h3>
-                            <p className="text-foreground/60 leading-relaxed mb-8 transition-colors duration-500">
+                            <p className="text-foreground/60 leading-relaxed mb-8 transition-colors duration-500 text-justify">
                                 {t("about.bio")}
                             </p>
                             <Link
@@ -70,9 +70,14 @@ export function About() {
                         <div className="grid grid-cols-2 gap-x-8 gap-y-6">
                             {(t("cv.skills") as any[] || []).slice(0, 6).map((skill, index) => (
                                 <div key={index} className="flex flex-col">
-                                    <span className="text-[10px] font-bold text-muted uppercase tracking-[0.2em] mb-1.5 transition-colors duration-500">
-                                        {skill.name}
-                                    </span>
+                                    <div className="flex justify-between items-end mb-1.5">
+                                        <span className="text-[10px] font-bold text-muted uppercase tracking-[0.2em] transition-colors duration-500">
+                                            {skill.name}
+                                        </span>
+                                        <span className="text-[10px] font-mono text-primary/60">
+                                            {skill.level}/10
+                                        </span>
+                                    </div>
                                     <div className="h-1 w-full bg-foreground/5 rounded-full overflow-hidden">
                                         <motion.div
                                             initial={{ width: 0 }}
