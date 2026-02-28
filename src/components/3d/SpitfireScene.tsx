@@ -4,6 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import { Stage, OrbitControls, useGLTF, Float } from "@react-three/drei";
 import { Suspense, useRef, useState, useEffect } from "react";
 import * as THREE from "three";
+import { Loader3D } from "./Loader3D";
 
 function SpitfireModel() {
     const { scene } = useGLTF("/spitfire/spitfire.glb");
@@ -51,7 +52,7 @@ export function SpitfireScene({
                     dpr={1} // Static DPR for performance
                     gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
                 >
-                    <Suspense fallback={null}>
+                    <Suspense fallback={<Loader3D />}>
                         <Stage
                             intensity={0.5}
                             environment="city"

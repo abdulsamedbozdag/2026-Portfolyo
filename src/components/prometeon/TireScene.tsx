@@ -4,6 +4,7 @@ import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { useGLTF, Stage, OrbitControls } from "@react-three/drei";
 import { motion } from "framer-motion";
+import { Loader3D } from "../3d/Loader3D";
 
 function PrometeonTire({ url }: { url: string }) {
     const { scene } = useGLTF(url);
@@ -41,7 +42,7 @@ export function TireScene() {
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08)_0%,transparent_70%)]" />
 
             <Canvas shadows camera={{ position: [0, 0, 5], fov: 40 }} dpr={[1, 2]}>
-                <Suspense fallback={null}>
+                <Suspense fallback={<Loader3D />}>
                     {/* Re-enabling adjustCamera to let Stage handle the base fit, matching scale for final size */}
                     <Stage environment="studio" intensity={1.5} shadows={{ type: 'contact', opacity: 0.8, blur: 2 } as any} adjustCamera={true}>
                         <PrometeonTire url="/prometeon/lastikler/R02_PRO_TRAILER_M1_7MB.glb" />

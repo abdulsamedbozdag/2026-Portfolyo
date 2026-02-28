@@ -24,8 +24,8 @@ export default function PrometeonInterlude() {
                 </motion.div>
             </div>
 
-            {/* 3D Scene (In Front) */}
-            <div className="absolute inset-0 z-10">
+            {/* 3D Scene (In Front) - Added vertical padding to prevent covering entire screen */}
+            <div className="absolute inset-x-0 top-[10vh] bottom-[10vh] z-10">
                 <TireScene />
             </div>
 
