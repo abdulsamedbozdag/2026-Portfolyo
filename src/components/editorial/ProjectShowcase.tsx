@@ -18,6 +18,7 @@ interface ProjectShowcaseProps {
     comingSoon?: boolean;
     objectContain?: boolean; // New: To prevent cropping
     titleImage?: string; // New: For logic-based logos as titles
+    customComponent?: React.ReactNode; // New: For 3D scenes or others
 }
 
 export default function ProjectShowcase({
@@ -32,6 +33,7 @@ export default function ProjectShowcase({
     comingSoon = false,
     objectContain = false,
     titleImage,
+    customComponent,
 }: ProjectShowcaseProps) {
     return (
         <section className="min-h-screen flex items-center justify-center py-24 px-6 md:px-12 relative overflow-hidden bg-background text-foreground transition-colors duration-500">
@@ -62,7 +64,7 @@ export default function ProjectShowcase({
                     <div>
                         <h2 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6">
                             {titleImage ? (
-                                <div className="relative h-12 md:h-20 w-full max-w-[280px] md:max-w-[400px]">
+                                <div className="relative h-12 md:h-24 w-full max-w-[320px] md:max-w-[500px]">
                                     <Image
                                         src={titleImage}
                                         alt={title}
@@ -116,7 +118,11 @@ export default function ProjectShowcase({
                     <Link href={comingSoon ? "#" : href} className={`block w-full h-full relative overflow-hidden rounded-2xl ${comingSoon ? "cursor-default" : "cursor-pointer"}`}>
                         <div className="absolute inset-0 bg-neutral-900/50 z-10 opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
 
-                        {video ? (
+                        {customComponent ? (
+                            <div className="w-full h-full relative z-0">
+                                {customComponent}
+                            </div>
+                        ) : video ? (
                             <video
                                 src={video}
                                 autoPlay

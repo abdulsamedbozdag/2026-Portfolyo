@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import EditorialHero from "@/components/hero/EditorialHero";
 import ProjectShowcase from "@/components/editorial/ProjectShowcase";
 import SpitfireInterlude from "@/components/editorial/SpitfireInterlude";
-import PrometeonInterlude from "@/components/editorial/PrometeonInterlude";
+import { TireScene } from "@/components/prometeon/TireScene";
 import { About } from "@/components/About";
 import { Footer } from "@/components/Footer";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -37,8 +37,9 @@ export default function Home() {
         titleImage="/prometeon/Logo/Prometeon_Slogan_Darkblue_NoBox_PNG-01.png"
         tags={["İç İletişim", "Basılı Materyaller", "Fabrika Giydirmeleri"]}
         image="/prometeon/Logo/Prometeon_Slogan_Darkblue_NoBox_PNG-01.png"
+        customComponent={<TireScene />}
         href="/projects/prometeon"
-        reverse={false}
+        reverse={true}
         objectContain={true}
       />
 
