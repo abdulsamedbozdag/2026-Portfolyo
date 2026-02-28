@@ -90,6 +90,9 @@ const DraggableMarquee = () => {
         "/prometeon/Lansman/lastikveciragan.jpeg",
         "/prometeon/Lansman/prometeon_isik.jpeg",
         "/prometeon/Lansman/unlockanewera.jpeg",
+        "/prometeon/Lansman/EMR_0101 Renkli (124 of 681).jpg",
+        "/prometeon/Lansman/EMR_0101 Renkli (131 of 681).jpg",
+        "/prometeon/Lansman/EMR_0101 Renkli (132 of 681).jpg",
         "/prometeon/kampanya/prometeon_axess_kampanyasi.jpeg",
         "/prometeon/kampanya/prometeon_maximum_kampanyasi.jpeg",
         "/prometeon/Lansman/toplufoto.jpeg",
@@ -319,6 +322,12 @@ const CreativeShowcase = () => {
             image: "/prometeon/Lansman/EMR_0101 Renkli (124 of 681).jpg",
             span: "lg:col-span-7",
         },
+        {
+            title: "Saha Uygulamaları",
+            subtitle: "Marka Görünürlüğü",
+            image: "/prometeon/dagvelastik.jpeg",
+            span: "lg:col-span-12",
+        }
     ];
 
     return (
@@ -376,6 +385,76 @@ const CreativeShowcase = () => {
     );
 };
 
+// ---------------------------------------------------------------------------
+// Sponsorship Showcase
+// ---------------------------------------------------------------------------
+const SponsorshipShowcase = () => {
+    const { isDark } = useTheme();
+    const { t } = useLanguage();
+
+    const sponsors = [
+        {
+            title: t("prometeon.sponsorshipArda"),
+            image: "/prometeon/Sponsorluk/ARDA TURAN_PROMETEON.jpg",
+            category: "Sponsorluk",
+        },
+        {
+            title: t("prometeon.sponsorshipTEGV"),
+            image: "/prometeon/Sponsorluk/TEGV_ATMA_BAĞIŞLA_AFİŞ_2025.jpg",
+            category: "Sosyal Sorumluluk",
+        },
+        {
+            title: t("prometeon.sponsorshipToprak"),
+            image: "/prometeon/Sponsorluk/toprak razgatlıoğlu kutlama post_R2.jpg",
+            category: "Sponsorluk",
+        },
+    ];
+
+    return (
+        <section className="relative py-32 transition-colors duration-500" style={{ background: isDark ? "#080808" : "#f9f9f9" }}>
+            <div className="max-w-[1400px] mx-auto px-6">
+                <div className="mb-16 text-center">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="text-4xl md:text-5xl font-bold tracking-tighter uppercase mb-4 transition-colors duration-500"
+                        style={{ color: isDark ? "#ffffff" : "#212b59" }}
+                    >
+                        {t("prometeon.sponsorshipTitle")}
+                    </motion.h2>
+                    <p className="text-sm font-light tracking-[0.4em] uppercase transition-colors duration-500" style={{ color: isDark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.3)" }}>
+                        {t("prometeon.sponsorshipSub")}
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {sponsors.map((item, i) => (
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.1 }}
+                            className="flex flex-col gap-6"
+                        >
+                            <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border transition-colors duration-500 group" style={{ borderColor: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.08)" }}>
+                                <LightboxImage
+                                    src={item.image}
+                                    alt={item.title}
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                />
+                            </div>
+                            <div>
+                                <span className="text-[10px] font-mono tracking-widest uppercase opacity-40">{item.category}</span>
+                                <h3 className="text-xl font-bold mt-1">{item.title}</h3>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
 
 // ==========================================
 // MAIN PAGE
@@ -467,6 +546,11 @@ export default function PrometeonPage() {
                 {/* SECTION 4: Creative Showcase Gallery                   */}
                 {/* ═══════════════════════════════════════════════════════ */}
                 <CreativeShowcase />
+
+                {/* ═══════════════════════════════════════════════════════ */}
+                {/* SECTION 5: Sponsorships & Projects                   */}
+                {/* ═══════════════════════════════════════════════════════ */}
+                <SponsorshipShowcase />
 
                 {/* ═══════════════════════════════════════════════════════ */}
                 {/* Footer                                                 */}

@@ -34,6 +34,11 @@ export const translations = {
             techDesc: "Prometeon endüstriyel lastik kesitinin 3D görselleştirilmesi. İç yapıyı, sırt bileşenlerini ve güçlendirilmiş gövde teknolojisini gösteren detaylı render.",
             galleryTitle: "Kampanya Galerisi",
             gallerySub: "Etkinlikler · Kampanyalar · Kurum İçi İletişim",
+            sponsorshipTitle: "Sponsorluk & Sosyal Sorumluluk",
+            sponsorshipSub: "Global Marka Elçileri ve Toplumsal Fayda",
+            sponsorshipArda: "Arda Turan Sponsorluğu",
+            sponsorshipToprak: "Toprak Razgatlıoğlu Sponsorluğu",
+            sponsorshipTEGV: "TEGV Sosyal Sorumluluk",
         }
     },
     en: {
@@ -71,6 +76,11 @@ export const translations = {
             techDesc: "3D visualization of Prometeon industrial tire cross-section. Detailed render showing internal structure, tread components, and reinforced casing technology.",
             galleryTitle: "Campaign Gallery",
             gallerySub: "Events · Campaigns · Internal Communication",
+            sponsorshipTitle: "Sponsorship & Social Responsibility",
+            sponsorshipSub: "Global Brand Ambassadors and Social Impact",
+            sponsorshipArda: "Arda Turan Sponsorship",
+            sponsorshipToprak: "Toprak Razgatlıoğlu Sponsorship",
+            sponsorshipTEGV: "TEGV Social Responsibility",
         }
     }
 };
