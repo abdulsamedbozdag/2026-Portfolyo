@@ -498,36 +498,62 @@ export default function PrometeonPage() {
                 </div>
 
                 {/* ═══════════════════════════════════════════════════════ */}
-                {/* HERO SECTION: Dark Premium w/ Unrolling Globe        */}
+                {/* HERO SECTION: Centered TEDx Style w/ Globe Below      */}
                 {/* ═══════════════════════════════════════════════════════ */}
-                <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[90vh] w-full max-w-7xl mx-auto px-6 relative z-10 transition-colors duration-500">
-                    {/* LEFT: STORY & LOGO */}
-                    <div className="flex flex-col items-start justify-center space-y-4">
-                        {/* PROMETEON LOGO - Fixed Path */}
-                        <div className="relative h-20 w-72 mb-4">
-                            <Image
-                                src="/prometeon/Logo/Prometeon_Slogan_Darkblue_NoBox_PNG-01.png"
-                                alt="Prometeon"
-                                fill
-                                className="object-contain"
-                                priority
-                                style={{ filter: isDark ? "brightness(0) invert(1)" : "none" }}
-                            />
+                <section className="relative pt-32 pb-12 w-full max-w-7xl mx-auto px-6 z-10">
+                    <div className="max-w-3xl mx-auto text-center space-y-12">
+                        {/* PROMETEON LOGO - Centered */}
+                        <div className="relative h-16 w-full flex justify-center mb-8">
+                            <div className="relative h-16 w-64">
+                                <Image
+                                    src="/prometeon/Logo/Prometeon_Slogan_Darkblue_NoBox_PNG-01.png"
+                                    alt="Prometeon"
+                                    fill
+                                    className="object-contain"
+                                    priority
+                                    style={{ filter: isDark ? "brightness(0) invert(1)" : "none" }}
+                                />
+                            </div>
                         </div>
 
-                        <h1 className="text-5xl lg:text-7xl font-bold tracking-tight leading-[0.95] transition-colors duration-500" style={{ color: isDark ? "#ffffff" : "#212b59" }}>
-                            {t("prometeon.slogan")}<br />
-                            <span className="text-neutral-500">{t("prometeon.sloganHighlight")}</span>
+                        {/* TEDx Styled Info Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-center">
+                            <div>
+                                <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500 mb-2">Rolüm</h3>
+                                <p className="text-base font-medium">Visual Communication Designer</p>
+                            </div>
+                            <div>
+                                <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500 mb-2">Yıl</h3>
+                                <p className="text-base font-medium">2023 - 2025</p>
+                            </div>
+                            <div>
+                                <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500 mb-2">Sektör</h3>
+                                <p className="text-base font-medium">Endüstriyel Lastik Grubu</p>
+                            </div>
+                        </div>
+
+                        <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-[1.1] transition-colors duration-500" style={{ color: isDark ? "#ffffff" : "#212b59" }}>
+                            {t("prometeon.slogan")} <span className="text-neutral-500">{t("prometeon.sloganHighlight")}</span>
                         </h1>
-                        <p className="text-lg text-neutral-500 max-w-2xl leading-relaxed transition-colors duration-800" style={{ color: isDark ? "#f4f4f6" : "#212b59" }}>
+
+                        <p className="text-lg leading-relaxed max-w-2xl mx-auto transition-colors duration-800" style={{ color: isDark ? "rgba(255,255,255,0.6)" : "#212b59/80" }}>
                             {t("prometeon.description")}
                         </p>
-                    </div>
 
-                    {/* RIGHT: THE UNROLLING GLOBE */}
-                    <div className="w-full flex justify-center items-center">
-                        {/* Render the UNROLLING wireframe GlobeToMap component here */}
-                        <GlobeToMap isDark={isDark} />
+                        {/* THE UNROLLING GLOBE - Centered Below */}
+                        <div className="w-full flex justify-center items-center pt-20">
+                            <GlobeToMap isDark={isDark} />
+                        </div>
+
+                        <div className="flex justify-center pt-12">
+                            <motion.div
+                                animate={{ y: [0, 10, 0] }}
+                                transition={{ duration: 2, repeat: Infinity }}
+                                className="text-neutral-500"
+                            >
+                                <ArrowDown size={24} />
+                            </motion.div>
+                        </div>
                     </div>
                 </section>
 

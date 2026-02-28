@@ -56,30 +56,17 @@ export default function SocialMediaPage() {
             </section>
 
             {/* Project Info */}
-            <section className="max-w-7xl mx-auto py-24 px-6 transition-colors duration-500">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-                    <div className="lg:col-span-8">
-                        <h2 className="text-3xl font-bold mb-4 text-foreground transition-colors duration-500">
-                            {language === 'tr' ? "Stratejik Görsel İletişim" : "Strategic Visual Communication"}
-                        </h2>
-                        <p className="text-xs uppercase tracking-widest text-amber-500 font-bold mb-8">
-                            {t("common.unoofficialNote")}
-                        </p>
-                        <p className="text-lg text-foreground/60 leading-relaxed mb-8 transition-colors duration-500">
-                            {language === 'tr'
-                                ? "Sosyal medya, bir markanın hedef kitlesiyle en doğrudan temas kurduğu alandır. Bu projede farklı sektörlerden markalar için (Hızlı Tüketim, Sağlık, Kafe vb.) özgün kampanya kurguları ve görsel dünyalar oluşturuldu. Her tasarım, platformun dinamiklerine ve markanın tonuna uygun olarak modernize edildi."
-                                : "Social media is the space where a brand establishes the most direct contact with its target audience. In this project, unique campaign setups and visual worlds were created for brands from different sectors (FMCG, Health, Cafe, etc.). Each design was modernized in accordance with the dynamics of the platform and the tone of the brand."}
-                        </p>
-                    </div>
-                    <div className="lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-8">
+            <section className="bg-background transition-colors duration-500">
+                <div className="max-w-3xl mx-auto py-24 px-6 text-center">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-left md:text-center">
                         <div>
-                            <h3 className="text-xs font-bold uppercase tracking-widest text-muted mb-2 transition-colors duration-500">
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">
                                 {language === 'tr' ? "ROL" : "ROLE"}
                             </h3>
                             <p className="text-lg font-medium text-foreground transition-colors duration-500">Art Director</p>
                         </div>
                         <div>
-                            <h3 className="text-xs font-bold uppercase tracking-widest text-muted mb-2 transition-colors duration-500">
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">
                                 {language === 'tr' ? "ODAK" : "FOCUS"}
                             </h3>
                             <p className="text-lg font-medium text-foreground transition-colors duration-500">
@@ -87,12 +74,26 @@ export default function SocialMediaPage() {
                             </p>
                         </div>
                         <div>
-                            <h3 className="text-xs font-bold uppercase tracking-widest text-muted mb-2 transition-colors duration-500">
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">
                                 {language === 'tr' ? "ARAÇLAR" : "TOOLS"}
                             </h3>
                             <p className="text-lg font-medium text-foreground transition-colors duration-500">Adobe Suite, AI</p>
                         </div>
                     </div>
+
+                    <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight text-foreground transition-colors duration-500">
+                        {language === 'tr' ? "Stratejik Görsel İletişim" : "Strategic Visual Communication"}
+                    </h2>
+
+                    <p className="text-xs uppercase tracking-widest text-amber-500 font-bold mb-8">
+                        {t("common.unoofficialNote")}
+                    </p>
+
+                    <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed transition-colors duration-500">
+                        {language === 'tr'
+                            ? "Sosyal medya, bir markanın hedef kitlesiyle en doğrudan temas kurduğu alandır. Bu projede farklı sektörlerden markalar için (Hızlı Tüketim, Sağlık, Kafe vb.) özgün kampanya kurguları ve görsel dünyalar oluşturuldu. Her tasarım, platformun dinamiklerine ve markanın tonuna uygun olarak modernize edildi."
+                            : "Social media is the space where a brand establishes the most direct contact with its target audience. In this project, unique campaign setups and visual worlds were created for brands from different sectors (FMCG, Health, Cafe, etc.). Each design was modernized in accordance with the dynamics of the platform and the tone of the brand."}
+                    </p>
                 </div>
             </section>
 

@@ -70,62 +70,51 @@ export default function Uni4SocietyPage() {
             {/* Content Container */}
             <div className="max-w-7xl mx-auto px-6 py-24 space-y-32">
 
-                {/* Intro / Info */}
-                <section className="grid md:grid-cols-12 gap-12 items-start">
-                    <div className="md:col-span-4 space-y-8 sticky top-32">
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                        >
-                            {/* Info Grid */}
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8">
-                                <div>
-                                    <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-foreground/30 mb-2">Deneyim</p>
-                                    <p className="text-sm font-medium leading-relaxed">{project.role}</p>
-                                </div>
-                                <div>
-                                    <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-foreground/30 mb-2">YIL</p>
-                                    <p className="text-sm font-medium leading-relaxed">{project.date}</p>
-                                </div>
-                                <div className="col-span-2">
-                                    <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-foreground/30 mb-2">Araçlar</p>
-                                    <p className="text-sm font-medium leading-relaxed">{project.tools}</p>
-                                </div>
-                            </div>
-
-                            {/* Partner Logos */}
-                            <div className="pt-12 flex flex-wrap items-center gap-8 md:gap-12">
-                                {[
-                                    { src: "/Uni4Society/Sticker/logolar/spark-pp-logo.png", alt: "Spark", width: 60 },
-                                    { src: "/Uni4Society/Sticker/logolar/Ytü-Teknopark Logo.png", alt: "YTÜ Teknopark", width: 120 },
-                                    { src: "/Uni4Society/Sticker/logolar/Ytü-StartupHouse.png", alt: "YTÜ Startup House", width: 100 },
-                                    { src: "/Uni4Society/Sticker/logolar/yildiz-teknik-universitesi-logo-diket-turkce-.png", alt: "YTÜ Logo", width: 80 },
-                                    { src: "/Uni4Society/Sticker/logolar/uni4socirt_ytü.png", alt: "U4S YTÜ", width: 80 }
-                                ].map((logo, i) => (
-                                    <div key={i} className="relative transition-all duration-500 hover:scale-110">
-                                        <Image
-                                            src={logo.src}
-                                            alt={logo.alt}
-                                            width={logo.width}
-                                            height={logo.width / 2}
-                                            className="object-contain dark:brightness-0 dark:invert transition-all duration-300"
-                                        />
-                                    </div>
-                                ))}
-                            </div>
-                        </motion.div>
-                    </div>
-
-                    <div className="md:col-span-8 space-y-12">
-                        <h2 className="text-3xl md:text-5xl font-bold leading-tight">
-                            {project.introTitle}
-                        </h2>
-                        <div className="text-xl text-muted-foreground leading-relaxed whitespace-pre-line">
-                            {project.description}
+                {/* Intro / Role / Tools */}
+                <div className="max-w-3xl mx-auto py-24 px-6 text-center">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-left md:text-center">
+                        <div>
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Rolüm</h3>
+                            <p className="text-lg font-medium">{project.role}</p>
+                        </div>
+                        <div>
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Yıl</h3>
+                            <p className="text-lg font-medium">{project.date}</p>
+                        </div>
+                        <div>
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Araçlar</h3>
+                            <p className="text-lg font-medium">{project.tools}</p>
                         </div>
                     </div>
-                </section>
+
+                    <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight text-foreground transition-colors duration-500">
+                        {project.introTitle}
+                    </h2>
+                    <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed whitespace-pre-line">
+                        {project.description}
+                    </p>
+
+                    {/* Partner Logos */}
+                    <div className="pt-16 flex flex-wrap items-center justify-center gap-8 md:gap-12">
+                        {[
+                            { src: "/Uni4Society/Sticker/logolar/spark-pp-logo.png", alt: "Spark", width: 60 },
+                            { src: "/Uni4Society/Sticker/logolar/Ytü-Teknopark Logo.png", alt: "YTÜ Teknopark", width: 120 },
+                            { src: "/Uni4Society/Sticker/logolar/Ytü-StartupHouse.png", alt: "YTÜ Startup House", width: 100 },
+                            { src: "/Uni4Society/Sticker/logolar/yildiz-teknik-universitesi-logo-diket-turkce-.png", alt: "YTÜ Logo", width: 80 },
+                            { src: "/Uni4Society/Sticker/logolar/uni4socirt_ytü.png", alt: "U4S YTÜ", width: 80 }
+                        ].map((logo, i) => (
+                            <div key={i} className="relative transition-all duration-500 hover:scale-110">
+                                <Image
+                                    src={logo.src}
+                                    alt={logo.alt}
+                                    width={logo.width}
+                                    height={logo.width / 2}
+                                    className="object-contain dark:brightness-0 dark:invert transition-all duration-300"
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
                 {/* Stickers Section */}
                 <section className="space-y-12 text-center">
@@ -166,11 +155,11 @@ export default function Uni4SocietyPage() {
                         </p>
                     </div>
 
-                    {/* Posters Grid */}
-                    <div className="md:col-span-12 grid md:grid-cols-2 gap-8">
+                    {/* Posters (Vertical Stack) */}
+                    <div className="max-w-4xl mx-auto space-y-12">
                         <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             className="relative rounded-3xl overflow-hidden border border-foreground/5 shadow-2xl"
                         >
@@ -178,15 +167,16 @@ export default function Uni4SocietyPage() {
                                 src="/Uni4Society/Sticker/İçerikler/BOOTCAMPAfiş-QR-DİKEY.jpg"
                                 alt="Bootcamp Vertical Poster"
                                 className="w-full h-auto"
-                                width={600}
-                                height={900}
+                                width={1200}
+                                height={1800}
                             />
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
                             className="relative rounded-3xl overflow-hidden border border-foreground/5 shadow-2xl bg-neutral-900/50"
                         >
                             <LightboxImage

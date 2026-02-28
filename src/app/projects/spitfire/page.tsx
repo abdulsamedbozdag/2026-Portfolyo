@@ -68,19 +68,31 @@ export default function SpitfirePage() {
                 <div className="max-w-7xl mx-auto py-24 px-6">
 
                     {/* Intro / Role / Tools */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24 border-b border-neutral-200 dark:border-neutral-800 pb-12">
-                        <div>
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Rolüm</h3>
-                            <p className="text-lg font-medium dark:text-white">3D Artist & Developer</p>
+                    <div className="max-w-3xl mx-auto py-24 px-6 text-center">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-left md:text-center">
+                            <div>
+                                <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Rolüm</h3>
+                                <p className="text-lg font-medium dark:text-white">3D Artist & Developer</p>
+                            </div>
+                            <div>
+                                <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Yıl</h3>
+                                <p className="text-lg font-medium dark:text-white">2024</p>
+                            </div>
+                            <div>
+                                <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Araçlar</h3>
+                                <p className="text-lg font-medium dark:text-white">Blender, Three.js, R3F</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Yıl</h3>
-                            <p className="text-lg font-medium dark:text-white">2024</p>
-                        </div>
-                        <div>
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Araçlar</h3>
-                            <p className="text-lg font-medium dark:text-white">Blender, React Three Fiber, GLSL</p>
-                        </div>
+
+                        <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight dark:text-white">
+                            Havacılık tarihinin efsanesi, tarayıcıda yeniden hayat buluyor.
+                        </h2>
+                        <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                            Spitfire MK.1 sadece bir uçak değil, bir tasarım ikonudur. Bu projede, bu efsanevi
+                            uçağın her detayını 3D ortamda modelledim ve web teknolojileriyle interaktif bir
+                            deneyime dönüştürdüm. Stüdyo ışıklandırması ve yüksek çözünürlüklü kaplamalarla
+                            gerçekçi bir atmosfer hedeflendi.
+                        </p>
                     </div>
 
                     {/* Poster Image */}
@@ -91,18 +103,6 @@ export default function SpitfirePage() {
                             fill
                             className="object-contain"
                         />
-                    </div>
-
-                    <div className="max-w-3xl mx-auto text-center mb-24">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight dark:text-white">
-                            Havacılık tarihinin efsanesi, tarayıcıda yeniden hayat buluyor.
-                        </h2>
-                        <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                            Spitfire MK.1 sadece bir uçak değil, bir tasarım ikonudur. Bu projede, bu efsanevi
-                            uçağın her detayını 3D ortamda modelledim ve web teknolojileriyle interaktif bir
-                            deneyime dönüştürdüm. Stüdyo ışıklandırması ve yüksek çözünürlüklü kaplamalarla
-                            gerçekçi bir atmosfer hedeflendi.
-                        </p>
                     </div>
 
                     {/* Gallery Grid */}

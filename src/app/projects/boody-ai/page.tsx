@@ -42,30 +42,35 @@ export default function BoodyAiPage() {
             </section>
 
             {/* Project Details */}
-            <section className="max-w-4xl mx-auto py-24 px-6 transition-colors duration-500">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
-                    <div className="md:col-span-2">
-                        <h3 className="text-lg font-bold mb-4 text-foreground">Proje Özeti</h3>
-                        <p className="text-foreground/60 leading-relaxed text-lg transition-colors duration-500">
-                            Boody AI, yapay zeka destekli kişiselleştirilmiş bir mobil deneyim sunar.
-                            Kullanıcı alışkanlıklarını analiz ederek akıllı önerilerde bulunan bu uygulama için,
-                            sezgisel ve modern bir arayüz tasarlandı.
-                        </p>
-                    </div>
-                    <div className="space-y-8">
+            <section className="bg-background transition-colors duration-500">
+                <div className="max-w-3xl mx-auto py-24 px-6 text-center">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-left md:text-center">
                         <div>
-                            <h3 className="text-lg font-bold mb-2 text-foreground">Rolüm</h3>
-                            <p className="text-foreground/60 transition-colors duration-500">UI/UX Designer</p>
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Rolüm</h3>
+                            <p className="text-lg font-medium transition-colors duration-500">UI/UX Designer</p>
                         </div>
                         <div>
-                            <h3 className="text-lg font-bold mb-2 text-foreground">Araçlar</h3>
-                            <p className="text-foreground/60 transition-colors duration-500">Figma, AI Tools, Protopie</p>
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Yıl</h3>
+                            <p className="text-lg font-medium transition-colors duration-500">2024</p>
+                        </div>
+                        <div>
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Araçlar</h3>
+                            <p className="text-lg font-medium transition-colors duration-500">Figma, AI Tools, Protopie</p>
                         </div>
                     </div>
+
+                    <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight text-foreground transition-colors duration-500">
+                        Yapay zeka desteğiyle kişiselleştirilmiş bir mobil asistan deneyimi.
+                    </h2>
+                    <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                        Boody AI, yapay zeka destekli kişiselleştirilmiş bir mobil deneyim sunar.
+                        Kullanıcı alışkanlıklarını analiz ederek akıllı önerilerde bulunan bu uygulama için,
+                        sezgisel ve modern bir arayüz tasarlandı.
+                    </p>
                 </div>
 
                 {/* Content Flow */}
-                <div className="space-y-12">
+                <div className="max-w-7xl mx-auto space-y-12 px-6 pb-24">
                     {/* Example Image 1 */}
                     <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl">
                         <LightboxImage
