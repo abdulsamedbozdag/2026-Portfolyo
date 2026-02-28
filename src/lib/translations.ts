@@ -39,6 +39,84 @@ export const translations = {
             sponsorshipArda: "Arda Turan Sponsorluğu",
             sponsorshipToprak: "Toprak Razgatlıoğlu Sponsorluğu",
             sponsorshipTEGV: "TEGV Sosyal Sorumluluk",
+        },
+        about: {
+            title: "Hakkımda",
+            heroTitle: "Tasarım ve Stratejinin Kesişimi.",
+            bio: "İletişim tasarımı alanında çalışan, kullanıcı deneyimi ve marka odaklı projeler üreten bir tasarımcıyım. Üniversite eğitimim, kurucu start-up ortaklığı ve kurumsal deneyimlerim sayesinde dijital ürünler ve mobil uygulamalar üzerinde uygulamalı çalışma tecrübesine sahibim.",
+            downloadCV: "CV'yi İndir",
+            education: "Eğitim",
+            experience: "Deneyim",
+            volunteer: "Gönüllü Deneyimler",
+            skills: "Yetenekler",
+            references: "Referanslar",
+            referencesNote: "İhtiyaç halinde referansların telefon numaraları sizinle paylaşılacaktır.",
+        },
+        cv: {
+            education: {
+                school: "Yıldız Teknik Üniversitesi",
+                degree: "İletişim ve Tasarımı (Lisans)",
+                date: "Eylül 2020 - Ocak 2026",
+                focus: "Marka Yönetimi, Kullanıcı Deneyimi Tasarımı (UX), Görsel İletişim",
+            },
+            experience: [
+                {
+                    company: "PROMETEON",
+                    role: "Marka ve İletişim Stajyeri",
+                    date: "Ağustos 2024 - Halen",
+                    points: [
+                        "Kurumsal Marka Yönetimi: Global CI standartlarına sadık kalarak yerel stratejilerin uygulanması.",
+                        "B2B Pazarlama İletişimi: Ürün lansman materyalleri ve dijital mailing tasarımları.",
+                        "Etkinlik ve Sponsorluk: A Milli Futbol Takımı, Toprak Razgatlıoğlu ve Dakar sponsorluk yönetimi.",
+                        "İç İletişim: İK departmanı için stratejik görsel destek ve sunum tasarımları."
+                    ]
+                },
+                {
+                    company: "ISTCODE",
+                    role: "Grafik Tasarım Stajyeri",
+                    date: "Mayıs 2024 - Temmuz 2024",
+                    points: [
+                        "Sosyal Medya Tasarımı: Etkileşim odaklı post ve story setleri.",
+                        "Hızlı Üretim: Ajans temposunda yaratıcı çözümler ve revize yönetimi."
+                    ]
+                },
+                {
+                    company: "CAR2GATHER",
+                    role: "Kurucu Ortak ve Tasarımcı",
+                    date: "Mart 2022 - Ağustos 2023",
+                    points: [
+                        "Marka Kimliği İnşası: Logodan kurumsal renk paletine kadar tüm kimlik süreci.",
+                        "UI/UX Tasarımı: Mobil uygulama ve web platformu kullanıcı akışları ve arayüz kurgusu.",
+                        "Yatırımcı Sunumları: Pitch Deck tasarımları ve iş modeli görselleştirmesi.",
+                        "Ürün Stratejisi: Design Thinking metodolojisi ile ürün geliştirme."
+                    ]
+                }
+            ],
+            volunteer: [
+                {
+                    org: "YTÜ SPARK KULÜBÜ",
+                    role: "Tasarım Ekibi Koordinatörü",
+                    date: "Mayıs 2023 - Eylül 2023"
+                },
+                {
+                    org: "Uni4Society YTÜ",
+                    role: "Tasarım ve Sosyal Medya Ekibi Koordinatörü",
+                    date: "Şubat 2022 - Mayıs 2023"
+                },
+                {
+                    org: "TEDx YTÜ",
+                    role: "Etkinlik Görsel Tasarımcısı",
+                    date: "Şubat 2023 - Ağustos 2023"
+                }
+            ],
+            skills: [
+                { name: "Photoshop", level: 9 },
+                { name: "Illustrator", level: 9 },
+                { name: "After Effects", level: 7 },
+                { name: "Premier Pro", level: 8 },
+                { name: "Figma", level: 9 },
+                { name: "Blender", level: 7 }
+            ]
         }
     },
     en: {
@@ -81,6 +159,84 @@ export const translations = {
             sponsorshipArda: "Arda Turan Sponsorship",
             sponsorshipToprak: "Toprak Razgatlıoğlu Sponsorship",
             sponsorshipTEGV: "TEGV Social Responsibility",
+        },
+        about: {
+            title: "About",
+            heroTitle: "Where Design Meets Strategy.",
+            bio: "I combine my design competence with an entrepreneurial perspective. My focus is creating strategic design solutions that go beyond aesthetics to merge User Experience (UX) with clear business goals.",
+            downloadCV: "Download CV",
+            education: "Education",
+            experience: "Experience",
+            volunteer: "Volunteer Work",
+            skills: "Skills",
+            references: "References",
+            referencesNote: "Reference contact details available upon request.",
+        },
+        cv: {
+            education: {
+                school: "Yıldız Technical University",
+                degree: "Bachelor's Degree in Communication Design",
+                date: "Sep 2020 - Jan 2026",
+                focus: "Brand Management, User Experience Design (UX), Visual Communication",
+            },
+            experience: [
+                {
+                    company: "PROMETEON",
+                    role: "Brand and Communication Intern",
+                    date: "August 2024 - Present",
+                    points: [
+                        "Corporate Brand Management: Executing visual strategies while adhering to global CI standards.",
+                        "B2B Marketing Communication: Producing launch materials and digital mailing designs.",
+                        "Events and Sponsorship: Creative management for Turkish National Football Team, Toprak Razgatlıoğlu, and Dakar.",
+                        "Internal Communication: Strategic visual support and presentation designs for HR."
+                    ]
+                },
+                {
+                    company: "ISTCODE",
+                    role: "Graphic Design Intern",
+                    date: "May 2024 - July 2024",
+                    points: [
+                        "Social Media Design: Interaction-oriented post and story sets for various sectors.",
+                        "Rapid Production: Creative solutions and revision management in agency environment."
+                    ]
+                },
+                {
+                    company: "CAR2GATHER",
+                    role: "Co-Founder and Designer",
+                    date: "March 2022 - August 2023",
+                    points: [
+                        "Brand Identity Construction: Creating entire identity from logo to tone of voice.",
+                        "UI/UX Design: Designing user-friendly interfaces and architecting user flows.",
+                        "Pitch Deck Design: Visualizing strategic presentations and business models.",
+                        "Product Strategy: Playing an active role in determining features using Design Thinking."
+                    ]
+                }
+            ],
+            volunteer: [
+                {
+                    org: "YTÜ SPARK CLUB",
+                    role: "Design Team Coordinator",
+                    date: "May 2023 - Sep 2023"
+                },
+                {
+                    org: "Uni4Society YTÜ",
+                    role: "Design and Social Media Team Coordinator",
+                    date: "Feb 2022 - May 2023"
+                },
+                {
+                    org: "TEDx YTÜ",
+                    role: "Event Visual Designer",
+                    date: "Feb 2023 - Aug 2023"
+                }
+            ],
+            skills: [
+                { name: "Photoshop", level: 9 },
+                { name: "Illustrator", level: 9 },
+                { name: "After Effects", level: 7 },
+                { name: "Premier Pro", level: 8 },
+                { name: "Figma", level: 9 },
+                { name: "Blender", level: 7 }
+            ]
         }
     }
 };

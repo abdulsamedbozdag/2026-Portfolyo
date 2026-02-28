@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Linkedin, Mail, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import Link from "next/link";
 
 export function Footer() {
     const { t } = useLanguage();
@@ -56,6 +57,12 @@ export function Footer() {
                             Behance
                             <ArrowUpRight className="w-3 h-3" />
                         </a>
+                        <Link
+                            href="/about"
+                            className="text-foreground/60 hover:text-foreground transition-colors duration-500 text-sm font-medium"
+                        >
+                            {t("about.title")}
+                        </Link>
                         <a
                             href="mailto:abdulsamedbozdag@gmail.com"
                             className="text-foreground/60 hover:text-foreground transition-colors duration-500 text-sm"

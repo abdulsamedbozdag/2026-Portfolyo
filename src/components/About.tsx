@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
+import Link from "next/link";
 
 export function About() {
     const { t } = useLanguage();
@@ -26,12 +27,25 @@ export function About() {
                         <h3 className="text-xl font-semibold mb-4 text-foreground transition-colors duration-500">
                             {t("common.journey")}
                         </h3>
-                        <p className="text-foreground/60 leading-relaxed mb-6 transition-colors duration-500">
-                            Eylül 2020 - Ocak 2026 Yıldız Teknik Üniversitesi İletişim ve Tasarımı.
-                            Karmaşık problemleri basit, estetik ve işlevsel çözümlere dönüştürmek üzerine kurulu.
+                        <p className="text-foreground/60 leading-relaxed mb-8 transition-colors duration-500">
+                            {t("about.bio")}
                         </p>
-
+                        <Link
+                            href="/about"
+                            className="inline-flex items-center gap-2 text-primary font-bold group"
+                        >
+                            <span className="border-b-2 border-primary/20 group-hover:border-primary transition-colors pb-1">
+                                {t("common.projects") === "Projelerimi Gör" ? "Daha Fazlasını Öğren" : "Learn More About Me"}
+                            </span>
+                            <motion.span
+                                animate={{ x: [0, 5, 0] }}
+                                transition={{ repeat: Infinity, duration: 1.5 }}
+                            >
+                                →
+                            </motion.span>
+                        </Link>
                     </motion.div>
+
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
