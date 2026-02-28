@@ -16,6 +16,7 @@ export const translations = {
             webPlatform: "Web Platformu",
             visualIdentity: "Görsel Kimlik & Etkinlik",
             brandComm: "Marka ve İletişim",
+            socialMedia: "Sosyal Medya",
         },
         hero: {
             title: "İletişim Tasarımcısı",
@@ -50,6 +51,7 @@ export const translations = {
             webPlatform: "Web Platform",
             visualIdentity: "Visual Identity & Event",
             brandComm: "Brand and Communication",
+            socialMedia: "Social Media",
         },
         hero: {
             title: "Communication Designer",
