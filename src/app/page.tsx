@@ -38,7 +38,7 @@ export default function Home() {
         category={t("common.visualIdentity")}
         title="TEDx YTU"
         tags={["3D Tasarım", "Blender", "Marka Kimliği", "Hareketli Grafik"]}
-        image="/tedx/tedx-poster.png"
+        image="/tedx/Behance-KAPAK.jpg"
         href="/projects/tedx"
         reverse={false}
       />
