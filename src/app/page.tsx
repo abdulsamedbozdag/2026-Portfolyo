@@ -58,7 +58,7 @@ export default function Home() {
         number="03"
         category={t("common.socialMedia")}
         title="Social Media"
-        tags={["Art Direction", "Kampanya Tasarımı", "İçerik Stratejisi"]}
+        tags={[t("common.conceptWork"), "Art Direction", "Kampanya Tasarımı", "İçerik Stratejisi"]}
         image="/Social Media/kfc Billboardcopy.jpg"
         href="/projects/social-media"
         reverse={true}

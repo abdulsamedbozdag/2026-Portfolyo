@@ -33,9 +33,14 @@ export default function SocialMediaPage() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="max-w-4xl"
                     >
-                        <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-[0.2em] uppercase border border-white/20 rounded-full backdrop-blur-md bg-white/5">
-                            {t("common.socialMedia")}
-                        </span>
+                        <div className="flex flex-wrap gap-3 mb-6">
+                            <span className="inline-block px-4 py-1.5 text-xs font-bold tracking-[0.2em] uppercase border border-white/20 rounded-full backdrop-blur-md bg-white/5">
+                                {t("common.socialMedia")}
+                            </span>
+                            <span className="inline-block px-4 py-1.5 text-xs font-bold tracking-[0.2em] uppercase border border-amber-500/30 text-amber-400 rounded-full backdrop-blur-md bg-amber-500/10">
+                                {t("common.conceptWork")}
+                            </span>
+                        </div>
                         <h1 className="text-6xl md:text-9xl font-black mb-8 tracking-tighter leading-none uppercase">
                             {t("common.socialMedia").split(' ').map((word, i) => (
                                 <span key={i} className="block">{word}</span>
@@ -54,9 +59,12 @@ export default function SocialMediaPage() {
             <section className="max-w-7xl mx-auto py-24 px-6 transition-colors duration-500">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                     <div className="lg:col-span-8">
-                        <h2 className="text-3xl font-bold mb-8 text-foreground transition-colors duration-500">
+                        <h2 className="text-3xl font-bold mb-4 text-foreground transition-colors duration-500">
                             {language === 'tr' ? "Stratejik Görsel İletişim" : "Strategic Visual Communication"}
                         </h2>
+                        <p className="text-xs uppercase tracking-widest text-amber-500 font-bold mb-8">
+                            {t("common.unoofficialNote")}
+                        </p>
                         <p className="text-lg text-foreground/60 leading-relaxed mb-8 transition-colors duration-500">
                             {language === 'tr'
                                 ? "Sosyal medya, bir markanın hedef kitlesiyle en doğrudan temas kurduğu alandır. Bu projede farklı sektörlerden markalar için (Hızlı Tüketim, Sağlık, Kafe vb.) özgün kampanya kurguları ve görsel dünyalar oluşturuldu. Her tasarım, platformun dinamiklerine ve markanın tonuna uygun olarak modernize edildi."

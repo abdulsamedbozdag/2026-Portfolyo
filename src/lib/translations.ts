@@ -17,6 +17,8 @@ export const translations = {
             visualIdentity: "Görsel Kimlik & Etkinlik",
             brandComm: "Marka ve İletişim",
             socialMedia: "Sosyal Medya",
+            conceptWork: "Konsept Tasarım",
+            unoofficialNote: "Resmi olmayan / Şahsi çalışma",
         },
         hero: {
             title: "İletişim Tasarımcısı",
@@ -52,6 +54,8 @@ export const translations = {
             visualIdentity: "Visual Identity & Event",
             brandComm: "Brand and Communication",
             socialMedia: "Social Media",
+            conceptWork: "Concept Design",
+            unoofficialNote: "Unofficial / Personal work",
         },
         hero: {
             title: "Communication Designer",
