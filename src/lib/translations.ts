@@ -122,8 +122,8 @@ export const translations = {
                 { name: "Blender", level: 7 }
             ],
             uni4society: {
-                title: "Uni4Society YTÜ",
-                category: "Tasarım ve Sosyal Medya",
+                title: "University4Society",
+                category: "",
                 role: "Tasarım ve Sosyal Medya Ekibi Koordinatörü",
                 date: "2023",
                 tools: "Illustrator, Photoshop, After Effects, Premiere Pro",
@@ -183,7 +183,7 @@ export const translations = {
             heroTitle: "Where Design Meets Strategy.",
             bio: "I combine my design competence with an entrepreneurial perspective. My focus is creating strategic design solutions that go beyond aesthetics to merge User Experience (UX) with clear business goals.",
             downloadCV: "Download CV",
-            education: "Education",
+            education: "Year",
             experience: "Experience",
             volunteer: "Volunteer Work",
             skills: "Skills",
@@ -260,8 +260,8 @@ export const translations = {
                 { name: "Blender", level: 7 }
             ],
             uni4society: {
-                title: "Uni4Society YTU",
-                category: "Design & Social Media",
+                title: "University4Society",
+                category: "",
                 role: "Design and Social Media Team Coordinator",
                 date: "2023",
                 tools: "Illustrator, Photoshop, After Effects, Premiere Pro",
