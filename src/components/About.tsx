@@ -67,27 +67,18 @@ export function About() {
                         <h3 className="text-xl font-semibold mb-6 text-foreground transition-colors duration-500">
                             {t("common.skills")}
                         </h3>
-                        <div className="grid grid-cols-2 gap-x-8 gap-y-6">
+                        <div className="flex flex-wrap gap-3">
                             {(t("cv.skills") as any[] || []).slice(0, 6).map((skill, index) => (
-                                <div key={index} className="flex flex-col">
-                                    <div className="flex justify-between items-end mb-1.5">
-                                        <span className="text-[10px] font-bold text-muted uppercase tracking-[0.2em] transition-colors duration-500">
-                                            {skill.name}
-                                        </span>
-                                        <span className="text-[10px] font-mono text-primary/60">
-                                            {skill.level}/10
-                                        </span>
-                                    </div>
-                                    <div className="h-1 w-full bg-foreground/5 rounded-full overflow-hidden">
-                                        <motion.div
-                                            initial={{ width: 0 }}
-                                            whileInView={{ width: `${(skill.level / 10) * 100}%` }}
-                                            transition={{ duration: 1, delay: 0.3 + index * 0.1 }}
-                                            viewport={{ once: true }}
-                                            className="h-full bg-primary"
-                                        />
-                                    </div>
-                                </div>
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.1 * index }}
+                                    className="px-4 py-2 rounded-xl bg-foreground/[0.03] border border-foreground/5 text-[10px] font-bold text-muted uppercase tracking-[0.2em] transition-all hover:bg-foreground/5 hover:border-primary/20"
+                                >
+                                    {skill.name}
+                                </motion.div>
                             ))}
                         </div>
                         <div className="mt-8">

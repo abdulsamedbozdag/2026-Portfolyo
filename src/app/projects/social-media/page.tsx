@@ -19,7 +19,7 @@ export default function SocialMediaPage() {
             <section className="relative h-[80vh] w-full bg-[#0A0A0A] overflow-hidden">
                 <Image
                     src="/Social Media/kfc Billboardcopy.jpg"
-                    alt="Social Media Design Hero"
+                    alt="Freelance Design Hero"
                     fill
                     className="object-cover opacity-60"
                     priority

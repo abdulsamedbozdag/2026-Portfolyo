@@ -8,7 +8,9 @@ import { TireScene } from "@/components/prometeon/TireScene";
 import { About } from "@/components/About";
 import { Footer } from "@/components/Footer";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { ArrowDown, MapPin, Globe } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import Link from "next/link";
 
 // Placeholder images
 const PLACEHOLDERS = {
@@ -21,7 +23,7 @@ const PLACEHOLDERS = {
 export default function Home() {
   const { t } = useLanguage();
   return (
-    <main className="bg-background min-h-screen text-foreground selection:bg-neutral-500/20">
+    <main className="bg-background min-h-screen text-foreground selection:bg-neutral-500/20 pt-24 md:pt-0">
       <div className="fixed top-6 right-6 z-50">
         <ThemeToggle />
       </div>
@@ -58,7 +60,7 @@ export default function Home() {
       <ProjectShowcase
         number="03"
         category={t("common.socialMedia")}
-        title="Social Media"
+        title={t("common.socialMedia")}
         tags={[t("common.conceptWork"), "Art Direction", "Kampanya Tasarımı", "İçerik Stratejisi"]}
         image="/Social Media/kfc Billboardcopy.jpg"
         href="/projects/social-media"
@@ -88,6 +90,17 @@ export default function Home() {
         image={PLACEHOLDERS.mobileApp}
         href="/projects/boody-ai"
         reverse={true}
+      />
+
+      {/* 7. UNI4SOCIETY SHOWCASE (07) */}
+      <ProjectShowcase
+        number="07"
+        category={t("uni4society.category")}
+        title="Uni4Society YTÜ"
+        tags={["Sosyal Medya", "Görsel Kimlik", "Sticker Tasarımı"]}
+        image="/Uni4Society/Sticker/İçerikler/Behance-KAPAK copy.jpg"
+        href="/projects/uni4society"
+        reverse={false}
       />
 
       {/* 7. ABOUT & FOOTER */}

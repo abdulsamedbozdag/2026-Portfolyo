@@ -16,7 +16,7 @@ export const translations = {
             webPlatform: "Web Platformu",
             visualIdentity: "Görsel Kimlik & Etkinlik",
             brandComm: "Marka ve İletişim",
-            socialMedia: "Sosyal Medya",
+            socialMedia: "Serbest Çalışma",
             conceptWork: "Konsept Tasarım",
             unoofficialNote: "Resmi olmayan / Şahsi çalışma",
         },
@@ -58,7 +58,7 @@ export const translations = {
                 degree: "İletişim ve Tasarımı (Lisans)",
                 date: "Eylül 2020 - Ocak 2026",
                 focus: "Marka Yönetimi, Kullanıcı Deneyimi Tasarımı (UX), Görsel İletişim",
-                logo: "/logos/ytu.png"
+                logo: "/yildiz-teknik-universitesi-logo-diket-turkce-.png"
             },
             experience: [
                 {
@@ -120,7 +120,20 @@ export const translations = {
                 { name: "Premier Pro", level: 8 },
                 { name: "Figma", level: 9 },
                 { name: "Blender", level: 7 }
-            ]
+            ],
+            uni4society: {
+                title: "Uni4Society YTÜ",
+                category: "Tasarım ve Sosyal Medya",
+                role: "Tasarım ve Sosyal Medya Ekibi Koordinatörü",
+                date: "2022 - 2023",
+                tools: "Illustrator, Photoshop, Canva",
+                description: "Yıldız Teknik Üniversitesi bünyesinde girişimcilik ekosistemine yönelik bir platform olan Uni4Society YTÜ için hazırlanan görsel kimlik ve sosyal medya içerikleri. Etkinliklerin tanıtımı, girişimci adaylarına yönelik bilgilendirici içerikler ve topluluk aidiyetini güçlendiren sticker tasarımlarını kapsamaktadır.",
+                introTitle: "Girişimcilik ve Tasarımın Buluşması",
+                stickerTitle: "Topluluk Ruhu: Sticker Tasarımları",
+                stickerDesc: "Girişimci adaylarının ve topluluk üyelerinin kendilerini ifade edebilecekleri, mizahi ve samimi bir dille kurgulanan sticker setleri. Bu tasarımlar, topluluk içi etkileşimi artırmak ve marka bilinirliğini eğlenceli bir yolla yaymak amacıyla üretilmiştir.",
+                contentTitle: "Sosyal Medya ve Görsel İletişim",
+                contentDesc: "Bilgilendirici post serileri, etkinlik duyuruları ve girişimcilik dünyasına dair içgörülerin paylaşıldığı dinamik sosyal medya arayüzleri."
+            }
         }
     },
     en: {
@@ -140,7 +153,7 @@ export const translations = {
             webPlatform: "Web Platform",
             visualIdentity: "Visual Identity & Event",
             brandComm: "Brand and Communication",
-            socialMedia: "Social Media",
+            socialMedia: "Freelance",
             conceptWork: "Concept Design",
             unoofficialNote: "Unofficial / Personal work",
         },
@@ -182,7 +195,7 @@ export const translations = {
                 degree: "Bachelor's Degree in Communication Design",
                 date: "Sep 2020 - Jan 2026",
                 focus: "Brand Management, User Experience Design (UX), Visual Communication",
-                logo: "/logos/ytu.png"
+                logo: "/yildiz-teknik-universitesi-logo-diket-turkce-.png"
             },
             experience: [
                 {
@@ -244,7 +257,20 @@ export const translations = {
                 { name: "Premier Pro", level: 8 },
                 { name: "Figma", level: 9 },
                 { name: "Blender", level: 7 }
-            ]
+            ],
+            uni4society: {
+                title: "Uni4Society YTU",
+                category: "Design & Social Media",
+                role: "Design and Social Media Team Coordinator",
+                date: "2022 - 2023",
+                tools: "Illustrator, Photoshop, Canva",
+                description: "Visual identity and social media content created for Uni4Society YTU, a platform dedicated to the entrepreneurship ecosystem within Yıldız Technical University. It covers event promotion, informative content for aspiring entrepreneurs, and sticker designs that strengthen community belonging.",
+                introTitle: "Where Entrepreneurship Meets Design",
+                stickerTitle: "Community Spirit: Sticker Designs",
+                stickerDesc: "Sticker sets designed with a humorous and sincere tone, allowing aspiring entrepreneurs and community members to express themselves. These designs were produced to increase interaction within the community and spread brand awareness in a fun way.",
+                contentTitle: "Social Media & Visual Communication",
+                contentDesc: "Informative post series, event announcements, and dynamic social media interfaces where insights about the world of entrepreneurship are shared."
+            }
         }
     }
 };

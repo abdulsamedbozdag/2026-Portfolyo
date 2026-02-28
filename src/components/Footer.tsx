@@ -37,7 +37,7 @@ export function Footer() {
                     <p className="text-foreground/50 text-sm transition-colors duration-500">
                         © {new Date().getFullYear()} Abdulsamed Bozdağ. {t("common.rights")}
                     </p>
-                    <div className="flex items-center gap-6">
+                    <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-6 gap-y-4">
                         <a
                             href="https://www.linkedin.com/in/abdul-samed-bozda%C4%9F/"
                             target="_blank"

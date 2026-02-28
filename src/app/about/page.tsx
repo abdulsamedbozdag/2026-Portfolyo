@@ -207,23 +207,18 @@ export default function AboutPage() {
                             <h2 className="text-2xl font-black tracking-tight uppercase">{about.skills}</h2>
                         </div>
 
-                        <div className="space-y-6">
+                        <div className="flex flex-wrap gap-3">
                             {cv.skills.map((skill: any, i: number) => (
-                                <div key={i}>
-                                    <div className="flex justify-between mb-2">
-                                        <span className="font-bold text-sm tracking-widest uppercase">{skill.name}</span>
-                                        <span className="text-xs opacity-60 font-mono">{skill.level}/10</span>
-                                    </div>
-                                    <div className="h-2 w-full bg-foreground/5 rounded-full overflow-hidden">
-                                        <motion.div
-                                            initial={{ width: 0 }}
-                                            whileInView={{ width: `${(skill.level / 10) * 100}%` }}
-                                            transition={{ duration: 1, delay: i * 0.1 }}
-                                            viewport={{ once: true }}
-                                            className="h-full bg-primary"
-                                        />
-                                    </div>
-                                </div>
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.05 }}
+                                    className="px-4 py-2 rounded-xl bg-foreground/[0.03] border border-foreground/5 text-[10px] font-bold text-muted uppercase tracking-[0.2em] transition-all hover:bg-foreground/5 hover:border-primary/20"
+                                >
+                                    {skill.name}
+                                </motion.div>
                             ))}
                         </div>
 
