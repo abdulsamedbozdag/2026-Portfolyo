@@ -172,39 +172,6 @@ export default function Uni4SocietyPage() {
                                 height={900}
                             />
                         </motion.div>
-
-                        {/* Horizontal Poster & Rocket Illustration */}
-                        <div className="md:col-span-8 space-y-8">
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.2 }}
-                                className="relative rounded-3xl overflow-hidden border border-foreground/5 shadow-xl"
-                            >
-                                <LightboxImage
-                                    src="/Uni4Society/Sticker/İçerikler/BOOTCAMPAfiş-QR-YATAY.jpg"
-                                    alt="Bootcamp Horizontal Poster"
-                                    className="w-full h-auto"
-                                    width={1200}
-                                    height={800}
-                                />
-                            </motion.div>
-
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.4 }}
-                                className="relative aspect-video rounded-3xl overflow-hidden bg-neutral-900/50 flex items-center justify-center p-12 border border-foreground/5 overflow-hidden"
-                            >
-                                <div className="absolute inset-x-0 bottom-8 text-center px-6">
-                                    <p className="text-xs uppercase tracking-[0.3em] font-medium text-foreground/30 italic">
-                                        Creative Visual Identity
-                                    </p>
-                                </div>
-                            </motion.div>
-                        </div>
                     </div>
                 </section>
 
@@ -238,7 +205,7 @@ export default function Uni4SocietyPage() {
                         ))}
                     </div>
                 </section>
-            </div>
-        </main>
+            </div >
+        </main >
     );
 }
