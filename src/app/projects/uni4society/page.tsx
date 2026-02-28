@@ -5,6 +5,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { StickyBackButton } from "@/components/StickyBackButton";
 import { LightboxImage } from "@/components/ImageLightbox";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import Image from "next/image";
 
 export default function Uni4SocietyPage() {
     const { t } = useLanguage();
@@ -22,31 +23,9 @@ export default function Uni4SocietyPage() {
     const contents = [
         { src: "/Uni4Society/Sticker/İçerikler/Frame 0.jpg", alt: "Uni4Society Content 0" },
         { src: "/Uni4Society/Sticker/İçerikler/Frame 1.jpg", alt: "Uni4Society Content 1" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 3.jpg", alt: "Uni4Society Content 3" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 4.jpg", alt: "Uni4Society Content 4" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 4.1.jpg", alt: "Uni4Society Content 4.1" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 6.jpg", alt: "Uni4Society Content 6" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 7.jpg", alt: "Uni4Society Content 7" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 7.1.jpg", alt: "Uni4Society Content 7.1" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 7.2.jpg", alt: "Uni4Society Content 7.2" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 7.2-1.jpg", alt: "Uni4Society Content 7.2-1" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 7.2-2.jpg", alt: "Uni4Society Content 7.2-2" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 8.jpg", alt: "Uni4Society Content 8" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 8-1.jpg", alt: "Uni4Society Content 8-1" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 9.jpg", alt: "Uni4Society Content 9" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 10.jpg", alt: "Uni4Society Content 10" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 11.jpg", alt: "Uni4Society Content 11" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 12.jpg", alt: "Uni4Society Content 12" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 13.jpg", alt: "Uni4Society Content 13" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 14.jpg", alt: "Uni4Society Content 14" },
         { src: "/Uni4Society/Sticker/İçerikler/Frame 15.jpg", alt: "Uni4Society Content 15" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 16.jpg", alt: "Uni4Society Content 16" },
         { src: "/Uni4Society/Sticker/İçerikler/Frame 17.jpg", alt: "Uni4Society Content 17" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 18.jpg", alt: "Uni4Society Content 18" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 19.jpg", alt: "Uni4Society Content 19" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 20.jpg", alt: "Uni4Society Content 20" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 21.jpg", alt: "Uni4Society Content 21" },
-        { src: "/Uni4Society/Sticker/İçerikler/Frame 22.jpg", alt: "Uni4Society Content 22" },
+        { src: "/Uni4Society/Sticker/İçerikler/Frame 8-1.jpg", alt: "Uni4Society Content 8-1" },
     ];
 
     return (
@@ -140,6 +119,74 @@ export default function Uni4SocietyPage() {
                                 />
                             </motion.div>
                         ))}
+                    </div>
+                </section>
+
+                {/* Bootcamp Section */}
+                <section className="space-y-16">
+                    <div className="max-w-3xl space-y-4">
+                        <h2 className="text-3xl md:text-5xl font-bold">{project.bootcampTitle}</h2>
+                        <p className="text-xl text-muted-foreground leading-relaxed">
+                            {project.bootcampDesc}
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-12 gap-8 items-start">
+                        {/* Vertical Poster */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="md:col-span-4 relative rounded-3xl overflow-hidden border border-foreground/5 shadow-2xl"
+                        >
+                            <LightboxImage
+                                src="/Uni4Society/Sticker/İçerikler/BOOTCAMPAfiş-QR-DİKEY.jpg"
+                                alt="Bootcamp Vertical Poster"
+                                className="w-full h-auto"
+                                width={600}
+                                height={900}
+                            />
+                        </motion.div>
+
+                        {/* Horizontal Poster & Rocket Illustration */}
+                        <div className="md:col-span-8 space-y-8">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2 }}
+                                className="relative rounded-3xl overflow-hidden border border-foreground/5 shadow-xl"
+                            >
+                                <LightboxImage
+                                    src="/Uni4Society/Sticker/İçerikler/BOOTCAMPAfiş-QR-YATAY.jpg"
+                                    alt="Bootcamp Horizontal Poster"
+                                    className="w-full h-auto"
+                                    width={1200}
+                                    height={800}
+                                />
+                            </motion.div>
+
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.4 }}
+                                className="relative aspect-video rounded-3xl overflow-hidden bg-neutral-900/50 flex items-center justify-center p-12 border border-foreground/5"
+                            >
+                                <Image
+                                    src="/Uni4Society/Sticker/İçerikler/rocket.png"
+                                    alt="Rocket Illustration"
+                                    width={400}
+                                    height={400}
+                                    className="object-contain drop-shadow-2xl"
+                                />
+                                <div className="absolute inset-x-0 bottom-8 text-center px-6">
+                                    <p className="text-xs uppercase tracking-[0.3em] font-medium text-foreground/30 italic">
+                                        3D Identity Illustration
+                                    </p>
+                                </div>
+                            </motion.div>
+                        </div>
                     </div>
                 </section>
 
