@@ -12,16 +12,16 @@ export default function PrometeonInterlude() {
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 select-none px-6 text-center">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 0.8, scale: 1 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1.5 }}
-                    className="relative w-full max-w-4xl aspect-[5/1] md:aspect-[7/1] opacity-40 transition-all duration-500"
+                    className="relative w-full max-w-[1200px] aspect-[5/1] md:aspect-[7/1] transition-all duration-500"
                 >
                     <Image
                         src="/prometeon/Logo/Prometeon_Slogan_Darkblue_NoBox_PNG-01.png"
                         alt="Prometeon Slogan"
                         fill
-                        className="object-contain transition-all duration-500 dark:brightness-0 dark:invert"
+                        className="object-contain transition-all duration-500 dark:brightness-0 dark:invert opacity-95"
                         priority
                     />
                 </motion.div>
@@ -43,7 +43,7 @@ export default function PrometeonInterlude() {
                 >
                     <Link
                         href="/projects/prometeon"
-                        className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-card hover:bg-foreground/5 backdrop-blur-md border border-border text-foreground font-medium tracking-wide transition-all hover:scale-105"
+                        className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-card hover:bg-foreground/5 border border-border text-foreground font-medium tracking-wide transition-all hover:scale-105"
                     >
                         <span>Projeyi İncele</span>
                         <span className="group-hover:translate-x-1 transition-transform">→</span>
