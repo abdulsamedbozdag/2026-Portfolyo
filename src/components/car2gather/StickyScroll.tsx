@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { PhoneMockup } from "@/components/mockups/PhoneMockup";
@@ -22,17 +22,37 @@ export function StickyScroll() {
         {
             title: t("cv.car2gather.step1Title"),
             description: t("cv.car2gather.step1Desc"),
-            image: "/RotadakiSürücüler.png"
+            image: "/step1-home-search.png"
         },
         {
             title: t("cv.car2gather.step2Title"),
             description: t("cv.car2gather.step2Desc"),
-            image: "/SeçilenSürücüyeTalepGöndermSayfası.png"
+            image: "/step2-route-selection.png"
         },
         {
             title: t("cv.car2gather.step3Title"),
             description: t("cv.car2gather.step3Desc"),
-            image: "/ChatSayfası.png"
+            image: "/step3-driver-list.png"
+        },
+        {
+            title: t("cv.car2gather.step4Title"),
+            description: t("cv.car2gather.step4Desc"),
+            image: "/step4-driver-profile.png"
+        },
+        {
+            title: t("cv.car2gather.step5Title"),
+            description: t("cv.car2gather.step5Desc"),
+            image: "/step5-request-status.png"
+        },
+        {
+            title: t("cv.car2gather.step6Title"),
+            description: t("cv.car2gather.step6Desc"),
+            image: "/step6-message-list.png"
+        },
+        {
+            title: t("cv.car2gather.step7Title"),
+            description: t("cv.car2gather.step7Desc"),
+            image: "/step7-active-chat.png"
         }
     ];
 
@@ -45,7 +65,8 @@ export function StickyScroll() {
                         {features.map((feature, index) => (
                             <FeatureLink
                                 key={index}
-                                feature={feature}
+                                title={feature.title}
+                                description={feature.description}
                                 index={index}
                                 setActiveIndex={setActiveIndex}
                             />
@@ -56,24 +77,27 @@ export function StickyScroll() {
                     <div className="hidden md:flex w-1/2 h-screen sticky top-0 items-center justify-center">
                         <div className="relative w-full max-w-sm aspect-[9/19]">
                             <PhoneMockup className="scale-90 lg:scale-100 transition-transform duration-500">
-                                <AnimatePresence mode="wait">
-                                    <motion.div
-                                        key={activeIndex}
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        exit={{ opacity: 0 }}
-                                        transition={{ duration: 0.5, ease: "easeInOut" }}
-                                        className="absolute inset-0 w-full h-full"
-                                    >
-                                        <Image
-                                            src={features[activeIndex].image}
-                                            alt={features[activeIndex].title}
-                                            fill
-                                            className="object-cover"
-                                            sizes="(max-width: 768px) 100vw, 400px"
-                                        />
-                                    </motion.div>
-                                </AnimatePresence>
+                                <div className="relative w-full h-full overflow-hidden rounded-[2rem]">
+                                    <AnimatePresence mode="wait">
+                                        <motion.div
+                                            key={activeIndex}
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            transition={{ duration: 0.6, ease: "easeInOut" }}
+                                            className="absolute inset-0 w-full h-full"
+                                        >
+                                            <Image
+                                                src={features[activeIndex].image}
+                                                alt={features[activeIndex].title}
+                                                fill
+                                                className="object-cover"
+                                                sizes="(max-width: 768px) 100vw, 400px"
+                                                priority
+                                            />
+                                        </motion.div>
+                                    </AnimatePresence>
+                                </div>
                             </PhoneMockup>
                         </div>
                     </div>
@@ -84,17 +108,22 @@ export function StickyScroll() {
                             <div key={index} className="space-y-8">
                                 <div className="relative aspect-[9/19] max-w-[280px] mx-auto">
                                     <PhoneMockup className="scale-95">
-                                        <Image
-                                            src={feature.image}
-                                            alt={feature.title}
-                                            fill
-                                            className="object-cover"
-                                        />
+                                        <div className="relative w-full h-full overflow-hidden rounded-[2rem]">
+                                            <Image
+                                                src={feature.image}
+                                                alt={feature.title}
+                                                fill
+                                                className="object-cover"
+                                            />
+                                        </div>
                                     </PhoneMockup>
                                 </div>
-                                <div className="text-center">
-                                    <h3 className="text-2xl font-bold mb-4 text-white">{feature.title}</h3>
-                                    <p className="text-neutral-400 leading-relaxed">{feature.description}</p>
+                                <div className="text-center px-4">
+                                    <span className="text-orange-500 font-mono text-xs mb-2 block tracking-widest uppercase">
+                                        Step 0{index + 1}
+                                    </span>
+                                    <h3 className="text-2xl font-bold mb-4 text-white tracking-tight">{feature.title}</h3>
+                                    <p className="text-neutral-400 leading-relaxed text-sm">{feature.description}</p>
                                 </div>
                             </div>
                         ))}
@@ -105,10 +134,10 @@ export function StickyScroll() {
     );
 }
 
-function FeatureLink({ feature, index, setActiveIndex }: { feature: Feature, index: number, setActiveIndex: (i: number) => void }) {
+function FeatureLink({ title, description, index, setActiveIndex }: { title: string, description: string, index: number, setActiveIndex: (i: number) => void }) {
     const ref = useRef(null);
     const isInView = useInView(ref, {
-        margin: "-40% 0px -40% 0px",
+        margin: "-45% 0px -45% 0px",
         once: false
     });
 
@@ -123,17 +152,17 @@ function FeatureLink({ feature, index, setActiveIndex }: { feature: Feature, ind
             ref={ref}
             className={cn(
                 "md:h-screen flex flex-col justify-center transition-all duration-700 ease-in-out hidden md:flex",
-                isInView ? "opacity-100 translate-x-0" : "opacity-20 -translate-x-4"
+                isInView ? "opacity-100 translate-y-0" : "opacity-20 translate-y-4"
             )}
         >
             <span className="text-orange-500 font-mono text-sm mb-4 tracking-widest uppercase">
                 Step 0{index + 1}
             </span>
-            <h3 className="text-4xl md:text-5xl font-bold mb-8 text-white tracking-tight">
-                {feature.title}
+            <h3 className="text-4xl md:text-5xl font-bold mb-8 text-white tracking-tight leading-[1.1]">
+                {title}
             </h3>
             <p className="text-xl text-neutral-400 leading-relaxed max-w-md">
-                {feature.description}
+                {description}
             </p>
         </div>
     );

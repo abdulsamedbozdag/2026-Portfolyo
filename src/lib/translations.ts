@@ -140,12 +140,20 @@ export const translations = {
                 role: "App Designer",
                 year: "2022-2023",
                 description: "Araç paylaşımı ve yolculuk planlamayı kolaylaştıran modern bir mobil uygulama.",
-                step1Title: "Zahmetsiz Eşleşme",
-                step1Desc: "Karmaşık formlar olmadan konum tabanlı hızlı arama. Fiyatların ve sürücü puanlarının bir bakışta incelenebildiği şeffaf ilan mimarisi.",
-                step2Title: "Güven ve Kural Şeffaflığı",
-                step2Desc: "Güven, araç paylaşımının kalbidir. Rezervasyon öncesinde sigara içme, evcil hayvan ve bagaj kapasitesi gibi kuralları net bir şekilde göstererek güven inşa eden profil tasarımı.",
-                step3Title: "Kesintisiz İletişim",
-                step3Desc: "Hareket halindeyken yazma zahmetini ortadan kaldıran akıllı hızlı yanıt çipleri ve aktif sürüş taleplerini gösteren gerçek zamanlı durum yönetimi."
+                step1Title: "Hızlı Konum Arama",
+                step1Desc: "Kalkış ve varış noktalarını anında belirlemek için zahmetsiz harita tabanlı arayüz.",
+                step2Title: "Hassas Rotalama",
+                step2Desc: "Tamamen kullanıcının gitmek istediği yere ulaşmasına odaklanan minimalist giriş alanları.",
+                step3Title: "Şeffaf İlanlar",
+                step3Desc: "Sürücü puanlarını, araç bilgilerini ve kişi başı ücretlendirmeyi bir bakışta gösteren taranabilir mimari.",
+                step4Title: "Güven ve Kurallar Profili",
+                step4Desc: "Sürüş talebi göndermeden önce sigara, evcil hayvan ve bagaj kurallarını net bir şekilde göstererek güven inşa eder.",
+                step5Title: "Gerçek Zamanlı Durum",
+                step5Desc: "Kullanıcıların taleplerinin durumunu her zaman bilmelerini sağlayan net durum göstergeleri (örn. Yanıt Bekleniyor).",
+                step6Title: "Düzenli Gelen Kutusu",
+                step6Desc: "Tüm sürücü iletişimlerini takip etmek için özel, temiz bir mesajlaşma arayüzü.",
+                step7Title: "Kesintisiz Sohbet",
+                step7Desc: "Hareket halindeyken yazma zahmetini ortadan kaldıran akıllı hızlı yanıt çipleri."
             }
         }
     },
@@ -291,12 +299,20 @@ export const translations = {
                 role: "App Designer",
                 year: "2022-2023",
                 description: "A modern mobile app that makes carpooling and trip planning easy.",
-                step1Title: "Effortless Matching",
-                step1Desc: "Location-based fast search without complex forms. A transparent listing architecture where prices and driver ratings are scannable at a glance.",
-                step2Title: "Trust & Rule Transparency",
-                step2Desc: "Trust is the heart of carpooling. A profile design that builds confidence by clearly displaying rules like smoking, pets, and luggage capacity before booking.",
-                step3Title: "Seamless Communication",
-                step3Desc: "Smart quick-reply chips that eliminate the hassle of typing on the go, and real-time status management showing active ride requests."
+                step1Title: "Quick Location Search",
+                step1Desc: "Effortless map-based interface to set departure and destination points instantly.",
+                step2Title: "Precise Routing",
+                step2Desc: "Minimalist input fields focused entirely on getting the user exactly where they need to go.",
+                step3Title: "Transparent Listings",
+                step3Desc: "Scannable architecture displaying driver ratings, vehicle info, and per-person pricing at a glance.",
+                step4Title: "Trust & Rules Profile",
+                step4Desc: "Building trust by clearly showing smoking, pet, and luggage rules before sending a ride request.",
+                step5Title: "Real-Time Status",
+                step5Desc: "Clear status indicators (e.g., Awaiting Response) so users always know the state of their requests.",
+                step6Title: "Organized Inbox",
+                step6Desc: "A dedicated, clean messaging interface to keep track of all driver communications.",
+                step7Title: "Seamless Chat",
+                step7Desc: "Smart quick-reply chips that eliminate the hassle of typing while on the go."
             }
         }
     }
