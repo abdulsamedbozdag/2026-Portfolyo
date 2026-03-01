@@ -18,41 +18,43 @@ export function StickyScroll() {
     const [activeIndex, setActiveIndex] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
 
+    const imgBase = "/car2gather/car2gather_YolcuKullan%C4%B1m%C4%B1";
+
     const features: Feature[] = [
         {
             title: t("cv.car2gather.step1Title"),
             description: t("cv.car2gather.step1Desc"),
-            image: "/step1-home-search.png"
+            image: `${imgBase}/step1-home-search.png`
         },
         {
             title: t("cv.car2gather.step2Title"),
             description: t("cv.car2gather.step2Desc"),
-            image: "/step2-route-selection.png"
+            image: `${imgBase}/step2-route-selection.png`
         },
         {
             title: t("cv.car2gather.step3Title"),
             description: t("cv.car2gather.step3Desc"),
-            image: "/step3-driver-list.png"
+            image: `${imgBase}/step3-driver-list.png`
         },
         {
             title: t("cv.car2gather.step4Title"),
             description: t("cv.car2gather.step4Desc"),
-            image: "/step4-driver-profile.png"
+            image: `${imgBase}/step4-driver-profile.png`
         },
         {
             title: t("cv.car2gather.step5Title"),
             description: t("cv.car2gather.step5Desc"),
-            image: "/step5-request-status.png"
+            image: `${imgBase}/step5-request-status.png`
         },
         {
             title: t("cv.car2gather.step6Title"),
             description: t("cv.car2gather.step6Desc"),
-            image: "/step6-message-list.png"
+            image: `${imgBase}/step6-message-list.png`
         },
         {
             title: t("cv.car2gather.step7Title"),
             description: t("cv.car2gather.step7Desc"),
-            image: "/step7-active-chat.png"
+            image: `${imgBase}/step7-active-chat.png`
         }
     ];
 
