@@ -53,23 +53,12 @@ export default function Home() {
         reverse={false}
       />
 
-      {/* 3. SOCIAL MEDIA SHOWCASE (03) */}
-      <ProjectShowcase
-        number="03"
-        category={t("common.socialMedia")}
-        title={t("common.socialMedia")}
-        tags={[t("common.conceptWork"), "Art Direction", "Kampanya Tasarımı", "İçerik Stratejisi"]}
-        image="/Social Media/kfc Billboardcopy.jpg"
-        href="/projects/social-media"
-        reverse={true}
-      />
-
-      {/* 4. SPITFIRE INTERLUDE (04) */}
+      {/* SPITFIRE INTERLUDE */}
       <SpitfireInterlude />
 
-      {/* 5. CAR2GATHER SHOWCASE (05) */}
+      {/* 3. CAR2GATHER SHOWCASE (03) */}
       <ProjectShowcase
-        number="05"
+        number="03"
         category={t("common.webPlatform")}
         title="car2gather"
         tags={["Web Tasarım", "Kullanıcı Akışı", "SaaS"]}
@@ -78,9 +67,9 @@ export default function Home() {
         reverse={false}
       />
 
-      {/* 6. BOODY AI SHOWCASE (06) */}
+      {/* 4. BOODY AI SHOWCASE (04) */}
       <ProjectShowcase
-        number="06"
+        number="04"
         category={t("common.mobileApp")}
         title="Boody AI"
         tags={["UI/UX", "Mobil Tasarım", "Yapay Zeka"]}
@@ -89,9 +78,9 @@ export default function Home() {
         reverse={true}
       />
 
-      {/* 7. UNI4SOCIETY SHOWCASE (07) */}
+      {/* 5. UNI4SOCIETY SHOWCASE (05) */}
       <ProjectShowcase
-        number="07"
+        number="05"
         category={t("uni4society.category")}
         title="Uni4Society YTÜ"
         tags={["Sosyal Medya", "Görsel Kimlik", "Sticker Tasarımı"]}
