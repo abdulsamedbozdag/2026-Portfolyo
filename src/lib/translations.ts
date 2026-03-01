@@ -19,6 +19,7 @@ export const translations = {
             socialMedia: "Serbest Çalışma",
             conceptWork: "Konsept Tasarım",
             unoofficialNote: "Resmi olmayan / Şahsi çalışma",
+            app: "Uygulama",
         },
         hero: {
             title: "İletişim Tasarımcısı",
@@ -134,6 +135,17 @@ export const translations = {
                 contentDesc: "Bilgilendirici post serileri, etkinlik duyuruları ve girişimcilik dünyasına dair içgörülerin paylaşıldığı dinamik sosyal medya arayüzleri.",
                 bootcampTitle: "BOOTCAMP AFİŞ",
                 bootcampDesc: "Etkinlik Görsel Kimlik Tasarımı: Bootcamp dünyasını 3D editoryal bir yaklaşımla kurgulayarak; dinamik girişimcilik ekosistemini yükselen bir roket ve katılımcıları temsil eden illüstrasyonlarla sembolize ettik. Marka mottosunu temel alan bu görsel dil, inovasyon ve topluluk enerjisini ön plana çıkarmayı hedefler."
+            },
+            car2gather: {
+                role: "App Designer",
+                year: "2022-2023",
+                description: "Araç paylaşımı ve yolculuk planlamayı kolaylaştıran modern bir mobil uygulama.",
+                step1Title: "Zahmetsiz Eşleşme",
+                step1Desc: "Karmaşık formlar olmadan konum tabanlı hızlı arama. Fiyatların ve sürücü puanlarının bir bakışta incelenebildiği şeffaf ilan mimarisi.",
+                step2Title: "Güven ve Kural Şeffaflığı",
+                step2Desc: "Güven, araç paylaşımının kalbidir. Rezervasyon öncesinde sigara içme, evcil hayvan ve bagaj kapasitesi gibi kuralları net bir şekilde göstererek güven inşa eden profil tasarımı.",
+                step3Title: "Kesintisiz İletişim",
+                step3Desc: "Hareket halindeyken yazma zahmetini ortadan kaldıran akıllı hızlı yanıt çipleri ve aktif sürüş taleplerini gösteren gerçek zamanlı durum yönetimi."
             }
         }
     },
@@ -157,6 +169,7 @@ export const translations = {
             socialMedia: "Freelance",
             conceptWork: "Concept Design",
             unoofficialNote: "Unofficial / Personal work",
+            app: "App",
         },
         hero: {
             title: "Communication Designer",
@@ -273,6 +286,17 @@ export const translations = {
                 contentDesc: "Informative post series, event announcements, and dynamic social media interfaces where insights about the world of entrepreneurship are shared.",
                 bootcampTitle: "BOOTCAMP POSTER",
                 bootcampDesc: "Event Visual Identity Design: By constructing the Bootcamp world with a 3D editorial approach; we symbolized the dynamic entrepreneurship ecosystem with a rising rocket and illustrations representing the participants. This visual language, based on the brand motto, aims to highlight innovation and community energy."
+            },
+            car2gather: {
+                role: "App Designer",
+                year: "2022-2023",
+                description: "A modern mobile app that makes carpooling and trip planning easy.",
+                step1Title: "Effortless Matching",
+                step1Desc: "Location-based fast search without complex forms. A transparent listing architecture where prices and driver ratings are scannable at a glance.",
+                step2Title: "Trust & Rule Transparency",
+                step2Desc: "Trust is the heart of carpooling. A profile design that builds confidence by clearly displaying rules like smoking, pets, and luggage capacity before booking.",
+                step3Title: "Seamless Communication",
+                step3Desc: "Smart quick-reply chips that eliminate the hassle of typing on the go, and real-time status management showing active ride requests."
             }
         }
     }

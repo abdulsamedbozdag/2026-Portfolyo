@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, useInView, AnimatePresence } from "fra
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { PhoneMockup } from "@/components/mockups/PhoneMockup";
+import { useLanguage } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
 
 interface Feature {
@@ -12,27 +13,28 @@ interface Feature {
     image: string;
 }
 
-const features: Feature[] = [
-    {
-        title: "Effortless Matching",
-        description: "Location-based fast search without complex forms. A transparent listing architecture where prices and driver ratings are scannable at a glance.",
-        image: "/RotadakiSürücüler.png"
-    },
-    {
-        title: "Trust & Rule Transparency",
-        description: "Trust is the heart of carpooling. A profile design that builds confidence by clearly displaying rules like smoking, pets, and luggage capacity before booking.",
-        image: "/SeçilenSürücüyeTalepGöndermSayfası.png"
-    },
-    {
-        title: "Seamless Communication",
-        description: "Smart quick-reply chips that eliminate the hassle of typing on the go, and real-time status management showing active ride requests.",
-        image: "/ChatSayfası.png"
-    }
-];
-
 export function StickyScroll() {
+    const { t } = useLanguage();
     const [activeIndex, setActiveIndex] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
+
+    const features: Feature[] = [
+        {
+            title: t("cv.car2gather.step1Title"),
+            description: t("cv.car2gather.step1Desc"),
+            image: "/RotadakiSürücüler.png"
+        },
+        {
+            title: t("cv.car2gather.step2Title"),
+            description: t("cv.car2gather.step2Desc"),
+            image: "/SeçilenSürücüyeTalepGöndermSayfası.png"
+        },
+        {
+            title: t("cv.car2gather.step3Title"),
+            description: t("cv.car2gather.step3Desc"),
+            image: "/ChatSayfası.png"
+        }
+    ];
 
     return (
         <section className="relative bg-neutral-950 py-24 md:py-0" ref={containerRef}>
