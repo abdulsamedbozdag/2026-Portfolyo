@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { LightboxImage } from "@/components/ImageLightbox";
 import { StickyBackButton } from "@/components/StickyBackButton";
+import { StickyScroll } from "@/components/car2gather/StickyScroll";
 
 export default function Car2GatherPage() {
     return (
@@ -102,7 +103,12 @@ export default function Car2GatherPage() {
                             className="absolute inset-0"
                         ></iframe>
                     </div>
+                </div>
 
+                {/* Sticky Scroll Feature Section */}
+                <StickyScroll />
+
+                <div className="max-w-7xl mx-auto px-6 py-24">
                     <div className="bg-card border border-border rounded-2xl p-12 text-center text-foreground/40 transition-colors duration-500">
                         <p>Dashboard ve arayüz detayları buraya eklenecek.</p>
                     </div>
