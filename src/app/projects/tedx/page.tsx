@@ -36,8 +36,8 @@ export default function TedxPage() {
             scrollTrigger: {
                 trigger: sectionRef.current,
                 start: "top top",
-                end: isMobile ? "+=300%" : "+=800%", // Truly slow playback on desktop, faster on mobile
-                scrub: isMobile ? 1 : 2, // More responsive scrub on mobile
+                end: isMobile ? "+=150%" : "+=200%", // Reduced scroll distance to eliminate dead zone
+                scrub: isMobile ? 1 : 1.5,
                 pin: true,
                 anticipatePin: 1,
             },
@@ -86,7 +86,7 @@ export default function TedxPage() {
         <main className="min-h-screen bg-white dark:bg-neutral-950 selection:bg-red-600 selection:text-white overflow-x-hidden">
             <StickyBackButton />
             {/* Scrollytelling Intro Section */}
-            <section ref={sectionRef} className="relative h-[400vh] w-full bg-black">
+            <section ref={sectionRef} className="relative h-[200vh] w-full bg-black">
                 {/* Sticky Video Container */}
                 <div className="sticky top-0 h-screen w-full overflow-hidden">
                     <video
@@ -184,12 +184,6 @@ export default function TedxPage() {
                     <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight text-foreground transition-colors duration-500">
                         Dijital ve fiziksel dünyaların sınırlarını bulanıklaştıran bir deneyim.
                     </h2>
-                    <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed transition-colors duration-500">
-                        TEDx Yıldız Teknik Üniversitesi etkinliği için hazırlanan "The Game" konsepti,
-                        izleyicileri sadece birer seyirci olmaktan çıkarıp, etkinliğin bir parçası haline
-                        getirmeyi hedefledi. Derin perspektifler, neon ışıklar ve glitch efektleriyle
-                        kurgulanan bu evren, konuşmacıların hikayelerine görsel bir zemin oluşturdu.
-                    </p>
                 </div>
 
                 {/* Labirent Section */}
@@ -291,6 +285,17 @@ export default function TedxPage() {
                             />
                         </div>
                     </div>
+
+                    {/* New Labirent Image Asset */}
+                    <div className="mt-16 relative rounded-3xl overflow-hidden shadow-2xl border border-border transition-colors duration-500">
+                        <LightboxImage
+                            src="/tedx/sonnlabirent.jpg"
+                            alt="TEDx Final Labirent View"
+                            className="w-full h-auto"
+                            width={1200}
+                            height={800}
+                        />
+                    </div>
                 </div>
 
                 {/* Storyboard Section */}
@@ -307,21 +312,6 @@ export default function TedxPage() {
                             height={800}
                         />
                     </div>
-                </div>
-
-                {/* Text Block */}
-                <div className="max-w-3xl mx-auto py-24 px-6 text-center">
-                    <h3 className="text-2xl font-bold mb-6 text-foreground transition-colors duration-500">Sonuç</h3>
-                    <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                        Etkinlik boyunca kullanılan tüm görsel materyaller, sosyal medya içerikleri ve
-                        sahne görselleri, katılımcılardan tam not aldı ve etkinliğin "The Game" temasını
-                        başarıyla yansıttı.
-                    </p>
-                </div>
-
-                {/* Bottom Full Image */}
-                <div className="h-[80vh] relative w-full bg-neutral-100 dark:bg-neutral-900">
-                    <LightboxImage src="/tedx/TedX3.jpg" alt="TEDx Atmosphere" fill className="object-contain" />
                 </div>
             </section>
         </main>
