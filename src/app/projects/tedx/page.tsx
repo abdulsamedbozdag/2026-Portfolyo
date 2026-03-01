@@ -173,7 +173,7 @@ export default function TedxPage() {
                         </div>
                         <div>
                             <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2 transition-colors duration-500">Yıl</h3>
-                            <p className="text-lg font-medium text-foreground transition-colors duration-500">2024</p>
+                            <p className="text-lg font-medium text-foreground transition-colors duration-500">2023</p>
                         </div>
                         <div>
                             <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2 transition-colors duration-500">Araçlar</h3>
@@ -181,9 +181,6 @@ export default function TedxPage() {
                         </div>
                     </div>
 
-                    <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight text-foreground transition-colors duration-500">
-                        Dijital ve fiziksel dünyaların sınırlarını bulanıklaştıran bir deneyim.
-                    </h2>
                 </div>
 
                 {/* Labirent Section */}
@@ -235,22 +232,11 @@ export default function TedxPage() {
                     </div>
                 </div>
 
-                {/* Text Block */}
-                <div className="max-w-3xl mx-auto py-24 px-6">
-                    <h3 className="text-2xl font-bold mb-6 text-foreground transition-colors duration-500">Sahne Tasarımı</h3>
-                    <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
-                        Sahne tasarımı, konuşmacının odak noktasında kalmasını sağlarken, arka planda
-                        sürekli değişen ve yaşayan bir dijital organism hissi yaratacak şekilde kurgulandı.
-                    </p>
-                </div>
 
-                {/* Full Width Image - Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border transition-colors duration-500">
-                    <div className="aspect-[4/5] relative bg-background transition-colors duration-500">
-                        <LightboxImage src="/tedx/TedX1.jpg" alt="TEDx Detail 1" fill className="object-cover" />
-                    </div>
-                    <div className="aspect-[4/5] relative bg-background transition-colors duration-500">
-                        <LightboxImage src="/tedx/TedX2.jpg" alt="TEDx Detail 2" fill className="object-cover" />
+                {/* Detail Image - Grid Refactor to Single if items missing */}
+                <div className="max-w-5xl mx-auto px-6 mb-32">
+                    <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-border transition-colors duration-500">
+                        <LightboxImage src="/tedx/TedX2.jpg" alt="TEDx Detail" className="w-full h-auto" width={1200} height={800} />
                     </div>
                 </div>
 
@@ -258,32 +244,6 @@ export default function TedxPage() {
                 <div className="max-w-7xl mx-auto py-32 px-6">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl font-bold text-foreground transition-colors duration-500">Sosyal Medya</h2>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-xl border border-border transition-colors duration-500 group">
-                            <LightboxImage
-                                src="/tedx/TedX_SosyalMedya_sol.png"
-                                alt="TEDx Social Media Left"
-                                fill
-                                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                            />
-                        </div>
-                        <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-xl border border-border transition-colors duration-500 group">
-                            <LightboxImage
-                                src="/tedx/TedX_SosyalMedya_orta.png"
-                                alt="TEDx Social Media Middle"
-                                fill
-                                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                            />
-                        </div>
-                        <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-xl border border-border transition-colors duration-500 group">
-                            <LightboxImage
-                                src="/tedx/TedX_SosyalMedya_sağ.png"
-                                alt="TEDx Social Media Right"
-                                fill
-                                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                            />
-                        </div>
                     </div>
 
                     {/* New Labirent Image Asset */}
