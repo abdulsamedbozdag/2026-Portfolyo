@@ -153,7 +153,13 @@ export const translations = {
                 step6Title: "Düzenli Gelen Kutusu",
                 step6Desc: "Tüm sürücü iletişimlerini takip etmek için özel, temiz bir mesajlaşma arayüzü.",
                 step7Title: "Kesintisiz Sohbet",
-                step7Desc: "Hareket halindeyken yazma zahmetini ortadan kaldıran akıllı hızlı yanıt çipleri."
+                step7Desc: "Hareket halindeyken yazma zahmetini ortadan kaldıran akıllı hızlı yanıt çipleri.",
+                processTitle: "Process & Architecture",
+                processSub: "Bileşen Kütüphanesi & Düşük Sadakatli UX Akışı",
+                processDesc: "Yüksek sadakatli tasarıma geçmeden önce, rota oluşturma ve eşleştirme sorunlarını çözmek için temel kullanıcı akışı basit wireframe'ler kullanılarak haritalandırıldı. Uygulama genelinde tutarlılığı sağlamak için erken aşamada temel bir bileşen kütüphanesi de oluşturuldu.",
+                compLib: "Bileşen Kütüphanesi",
+                wireframeTitle: "Wireframe Evrimi",
+                earlyStage: "ERKEN AŞAMA WIREFRAME'LER"
             }
         }
     },
@@ -312,7 +318,13 @@ export const translations = {
                 step6Title: "Organized Inbox",
                 step6Desc: "A dedicated, clean messaging interface to keep track of all driver communications.",
                 step7Title: "Seamless Chat",
-                step7Desc: "Smart quick-reply chips that eliminate the hassle of typing while on the go."
+                step7Desc: "Smart quick-reply chips that eliminate the hassle of typing while on the go.",
+                processTitle: "Process & Architecture",
+                processSub: "Component Library & Low-Fi UX Flow",
+                processDesc: "Before moving to high-fidelity, the core user flow was mapped out using basic wireframes to solve routing and matching problems. A foundational component library was also established early on to ensure consistency across the application.",
+                compLib: "Component Library",
+                wireframeTitle: "Wireframe Evolution",
+                earlyStage: "EARLY STAGE WIREFRAMES"
             }
         }
     }

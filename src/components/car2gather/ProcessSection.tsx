@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function ProcessSection() {
+    const { t } = useLanguage();
+
     const wireframes = [
         { src: "/car2gather/c2g-lowfi-1.png", alt: "Wireframe 1" },
         { src: "/car2gather/c2g-lowfi-2.png", alt: "Wireframe 2" },
@@ -21,13 +24,13 @@ export function ProcessSection() {
                         transition={{ duration: 0.6 }}
                     >
                         <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight text-foreground transition-colors duration-500">
-                            Process & Architecture
+                            {t("cv.car2gather.processTitle")}
                         </h2>
                         <h3 className="text-xl md:text-2xl font-medium text-neutral-500 dark:text-neutral-400 mb-6 transition-colors duration-500">
-                            Component Library & Low-Fi UX Flow
+                            {t("cv.car2gather.processSub")}
                         </h3>
                         <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-500 max-w-4xl leading-relaxed transition-colors duration-500">
-                            Before moving to high-fidelity, the core user flow was mapped out using basic wireframes to solve routing and matching problems. A foundational component library was also established early on to ensure consistency across the application.
+                            {t("cv.car2gather.processDesc")}
                         </p>
                     </motion.div>
                 </div>
@@ -45,7 +48,7 @@ export function ProcessSection() {
                     >
                         <div className="absolute top-4 left-6 z-10">
                             <span className="text-[10px] uppercase tracking-[0.2em] font-medium text-neutral-500 bg-white/80 dark:bg-black/40 px-3 py-1 rounded-full backdrop-blur-md border border-neutral-200 dark:border-white/10 transition-colors duration-500">
-                                Component Library
+                                {t("cv.car2gather.compLib")}
                             </span>
                         </div>
                         <div className="relative aspect-[4/3] w-full">
@@ -70,7 +73,7 @@ export function ProcessSection() {
                     >
                         <div className="mb-4">
                             <span className="text-[10px] uppercase tracking-[0.2em] font-medium text-neutral-500 px-1">
-                                Wireframe Evolution
+                                {t("cv.car2gather.wireframeTitle")}
                             </span>
                         </div>
 
@@ -91,7 +94,7 @@ export function ProcessSection() {
                         </div>
 
                         <div className="mt-6 flex justify-between items-center text-[11px] text-neutral-400 dark:text-neutral-600 font-medium transition-colors duration-500">
-                            <span>EARLY STAGE WIREFRAMES</span>
+                            <span>{t("cv.car2gather.earlyStage")}</span>
                             <span>2022</span>
                         </div>
                     </motion.div>
