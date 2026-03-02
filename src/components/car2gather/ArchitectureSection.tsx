@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import {
     Smartphone,
@@ -35,7 +35,7 @@ export function ArchitectureSection() {
         { label: t("cv.car2gather.flowChat"), icon: MessageCircle },
     ];
 
-    const containerVariants = {
+    const containerVariants: Variants = {
         hidden: { opacity: 0, y: 30 },
         visible: {
             opacity: 1,
@@ -44,7 +44,7 @@ export function ArchitectureSection() {
         }
     };
 
-    const itemVariants = {
+    const itemVariants: Variants = {
         hidden: { opacity: 0, scale: 0.95 },
         visible: { opacity: 1, scale: 1 }
     };
@@ -122,7 +122,7 @@ export function ArchitectureSection() {
                                         className="group relative flex-1 p-6 rounded-2xl bg-neutral-900/50 border border-white/5 backdrop-blur-sm transition-all duration-500 hover:bg-neutral-800/80 hover:border-white/20 hover:-translate-y-2 overflow-hidden"
                                     >
                                         <div className="absolute top-3 right-4 flex items-center gap-2">
-                                            <span className={`w-1.5 h-1.5 rounded-full ${node.dotColor} shadow-[0_0_10px_${node.dotColor.replace('bg-', '')}]`} />
+                                            <span className={`w-1.5 h-1.5 rounded-full ${node.dotColor} shadow-md`} />
                                         </div>
                                         <div className="flex flex-col items-center text-center gap-4">
                                             <div className={`p-3 rounded-xl bg-white/5 ${node.color} group-hover:scale-110 transition-transform backdrop-blur-md`}>
