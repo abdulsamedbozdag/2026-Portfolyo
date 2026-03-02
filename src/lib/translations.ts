@@ -179,7 +179,19 @@ export const translations = {
                 does: "Yapıyor",
                 feels: "Hissediyor",
                 archTitle: "Bilgi Mimarisi & Kullanıcı Akışı",
-                archDesc: "Navigasyonun basitleştirilmesi, hem sürücüler hem de yolcular için bilişsel yükü önemli ölçüde azalttı."
+                archDesc: "Navigasyonun basitleştirilmesi, hem sürücüler hem de yolcular için bilişsel yükü önemli ölçüde azalttı.",
+                iaHome: "Ana Sayfa",
+                iaSearch: "Arama",
+                iaPost: "Yolculuk Paylaş",
+                iaInbox: "Gelen Kutusu",
+                iaProfile: "Profil",
+                flowStart: "Uygulamayı Aç",
+                flowSearch: "Rota Ara",
+                flowSelect: "Yolculuk Seç",
+                flowReview: "Profil İncele",
+                flowRequest: "Talep Gönder",
+                flowConfirm: "Onay",
+                flowChat: "Sohbet"
             }
         }
     },
@@ -364,7 +376,19 @@ export const translations = {
                 does: "Does",
                 feels: "Feels",
                 archTitle: "Information Architecture & User Flow",
-                archDesc: "Simplifying the navigation reduced the cognitive load for both drivers and passengers."
+                archDesc: "Simplifying the navigation reduced the cognitive load for both drivers and passengers.",
+                iaHome: "Home",
+                iaSearch: "Search",
+                iaPost: "Post Ride",
+                iaInbox: "Inbox",
+                iaProfile: "Profile",
+                flowStart: "Open App",
+                flowSearch: "Search Route",
+                flowSelect: "Select Ride",
+                flowReview: "Review Profile",
+                flowRequest: "Send Request",
+                flowConfirm: "Confirm",
+                flowChat: "Chat"
             }
         }
     }
