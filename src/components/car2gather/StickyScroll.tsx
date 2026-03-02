@@ -77,16 +77,16 @@ export function StickyScroll() {
 
                     {/* Right Column: Sticky Phone */}
                     <div className="hidden md:flex w-1/2 h-screen sticky top-0 items-center justify-center">
-                        <div className="relative w-full max-w-sm aspect-[9/19]">
-                            <PhoneMockup className="scale-90 lg:scale-100 transition-transform duration-500">
+                        <div className="relative w-full flex justify-center items-center">
+                            <PhoneMockup className="transition-transform duration-500">
                                 <div className="relative w-full h-full overflow-hidden rounded-[2rem]">
                                     <AnimatePresence mode="wait">
                                         <motion.div
                                             key={activeIndex}
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            exit={{ opacity: 0 }}
-                                            transition={{ duration: 0.6, ease: "easeInOut" }}
+                                            initial={{ opacity: 0, y: 40 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -40 }}
+                                            transition={{ duration: 0.5, ease: "easeInOut" }}
                                             className="absolute inset-0 w-full h-full"
                                         >
                                             <Image
@@ -108,9 +108,9 @@ export function StickyScroll() {
                     <div className="md:hidden space-y-24">
                         {features.map((feature, index) => (
                             <div key={index} className="space-y-8">
-                                <div className="relative aspect-[9/19] max-w-[280px] mx-auto">
-                                    <PhoneMockup className="scale-95">
-                                        <div className="relative w-full h-full overflow-hidden rounded-[2rem]">
+                                <div className="relative aspect-[9/19.5] max-w-[260px] mx-auto">
+                                    <PhoneMockup>
+                                        <div className="relative w-full h-full overflow-hidden rounded-[2.2rem]">
                                             <Image
                                                 src={feature.image}
                                                 alt={feature.title}

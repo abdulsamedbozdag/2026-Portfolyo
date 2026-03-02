@@ -5,7 +5,9 @@ import { useEffect, useState } from "react";
 import { ArrowDown, MapPin, Globe } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import HeroShowcase from "@/components/home/HeroShowcase";
 import Link from "next/link";
+import { FigmaInspectWrapper } from "./FigmaInspectWrapper";
 
 // (GrainOverlay removed for performance — feTurbulence causes GPU stalls)
 
@@ -57,15 +59,9 @@ export default function EditorialHero() {
                             <Link href="/" className="font-bold text-foreground/90 hover:opacity-70 transition-opacity">
                                 A. Samed Bozdağ
                             </Link>
-                            <Link href="/" className="hidden md:block font-medium text-foreground/60 hover:text-foreground transition-colors">
-                                Home
-                            </Link>
                         </div>
 
                         <div className="flex items-center gap-3 md:gap-6">
-                            <Link href="/" className="md:hidden font-medium text-foreground/60 hover:text-foreground transition-colors mr-2">
-                                Home
-                            </Link>
                             {/* Language Toggle */}
                             <button
                                 onClick={toggleLanguage}
@@ -103,12 +99,19 @@ export default function EditorialHero() {
                     >
                         <div className="inline-flex items-center gap-3 text-emerald-400 font-medium tracking-wide">
                             <span className="h-0.5 w-10 bg-emerald-400/30"></span>
-                            <span>{t("hero.title")}</span>
+                            <FigmaInspectWrapper label="Badge • Auto Layout">
+                                <span>{t("hero.title")}</span>
+                            </FigmaInspectWrapper>
                         </div>
 
                         <h1 className="text-4xl md:text-6xl font-extrabold text-foreground leading-[1.3] md:leading-[1.15] tracking-tight transition-colors duration-500">
-                            <span className="opacity-60 font-normal italic">{t("common.hello")}</span><br />
-                            {t("common.im")}
+                            <FigmaInspectWrapper label="Span • 24px">
+                                <span className="opacity-60 font-normal italic">{t("common.hello")}</span>
+                            </FigmaInspectWrapper>
+                            <br />
+                            <FigmaInspectWrapper label="H1 • 64px">
+                                <span>{t("common.im")}</span>
+                            </FigmaInspectWrapper>
                         </h1>
 
                         <p className="text-lg md:text-xl text-foreground/50 leading-relaxed font-normal max-w-lg transition-colors duration-500 px-0 md:px-0">

@@ -184,7 +184,7 @@ const EditorialShowcase = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mb-4 transition-colors duration-500"
-                        style={{ color: isDark ? "#ededed" : "#212b59" }}
+                        style={{ color: isDark ? "#ededed" : "#0f204b" }}
                     >
                         {t("prometeon.publishing")}
                     </motion.h2>
@@ -338,7 +338,7 @@ const CreativeShowcase = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         className="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-3 transition-colors duration-500"
-                        style={{ color: isDark ? "#ffffff" : "#212b59" }}
+                        style={{ color: isDark ? "#ffffff" : "#0f204b" }}
                     >
                         {t("prometeon.galleryTitle")}
                     </motion.h2>
@@ -418,7 +418,7 @@ const SponsorshipShowcase = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         className="text-4xl md:text-5xl font-bold tracking-tighter uppercase mb-4 transition-colors duration-500"
-                        style={{ color: isDark ? "#ffffff" : "#212b59" }}
+                        style={{ color: isDark ? "#ffffff" : "#0f204b" }}
                     >
                         {t("prometeon.sponsorshipTitle")}
                     </motion.h2>
@@ -474,7 +474,7 @@ export default function PrometeonPage() {
                 className="min-h-screen overflow-x-hidden transition-colors duration-500 selection:bg-[#0f204b] selection:text-white font-rem"
                 style={{
                     background: isDark ? "#050505" : "#fafafa",
-                    color: isDark ? "#ededed" : "#1a1a1a",
+                    color: isDark ? "#ededed" : "#0f204b",
                 }}
             >
                 <StickyBackButton />
@@ -503,8 +503,8 @@ export default function PrometeonPage() {
                 <section className="relative pt-32 pb-12 w-full max-w-7xl mx-auto px-6 z-10">
                     <div className="max-w-3xl mx-auto text-center space-y-12">
                         {/* PROMETEON LOGO - Centered */}
-                        <div className="relative h-16 w-full flex justify-center mb-8">
-                            <div className="relative h-16 w-64">
+                        <div className="relative h-24 w-full flex justify-center mb-8">
+                            <div className="relative h-24 w-80 md:w-96">
                                 <Image
                                     src="/prometeon/Logo/Prometeon_Slogan_Darkblue_NoBox_PNG-01.png"
                                     alt="Prometeon"
@@ -524,19 +524,19 @@ export default function PrometeonPage() {
                             </div>
                             <div>
                                 <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500 mb-2">Yıl</h3>
-                                <p className="text-base font-medium">2023 - 2025</p>
+                                <p className="text-base font-medium">Ağustos 2024 - Şubat 2026</p>
                             </div>
                             <div>
                                 <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500 mb-2">Sektör</h3>
-                                <p className="text-base font-medium">Endüstriyel Lastik Grubu</p>
+                                <p className="text-base font-medium">Endüstriyel ve Ticari Araç Lastiği</p>
                             </div>
                         </div>
 
-                        <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-[1.1] transition-colors duration-500" style={{ color: isDark ? "#ffffff" : "#212b59" }}>
+                        <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-[1.1] transition-colors duration-500" style={{ color: isDark ? "#ffffff" : "#0f204b" }}>
                             {t("prometeon.slogan")} <span className="text-neutral-500">{t("prometeon.sloganHighlight")}</span>
                         </h1>
 
-                        <p className="text-lg leading-relaxed max-w-2xl mx-auto transition-colors duration-800" style={{ color: isDark ? "rgba(255,255,255,0.6)" : "#212b59/80" }}>
+                        <p className="text-lg leading-relaxed max-w-2xl mx-auto transition-colors duration-800" style={{ color: isDark ? "rgba(255,255,255,0.6)" : "#0f204b" }}>
                             {t("prometeon.description")}
                         </p>
 
@@ -583,7 +583,7 @@ export default function PrometeonPage() {
                 {/* ═══════════════════════════════════════════════════════ */}
                 <section className="py-20 border-t text-center transition-colors duration-500" style={{ borderColor: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.08)" }}>
                     <p className="text-[10px] font-light tracking-[0.5em] uppercase transition-colors duration-500" style={{ color: isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.15)" }}>
-                        Prometeon Tire Group — Endüstriyel Mükemmellik
+                        Prometeon Tire Group — Endüstriyel ve ticari Araç Lastiği
                     </p>
                 </section>
             </main>

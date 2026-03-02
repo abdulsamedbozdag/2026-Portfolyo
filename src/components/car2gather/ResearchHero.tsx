@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
+import Image from "next/image";
 
 export function ResearchHero() {
     const { t } = useLanguage();
@@ -12,6 +13,17 @@ export function ResearchHero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 >
+                    {/* Logo */}
+                    <div className="mb-12 h-16 relative w-64">
+                        <Image
+                            src="/car2gather/c2g yatay-turuncu(bg-yeşil).png"
+                            alt="car2gather"
+                            fill
+                            className="object-contain object-left"
+                            priority
+                        />
+                    </div>
+
                     <div className="flex flex-wrap gap-3 mb-8">
                         <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-neutral-500 border border-neutral-200 dark:border-white/10 px-4 py-2 rounded-full transition-colors duration-500">
                             {t("cv.car2gather.role")}

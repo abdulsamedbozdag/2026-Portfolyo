@@ -2,140 +2,105 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import { LightboxImage } from "@/components/ImageLightbox";
 import { StickyBackButton } from "@/components/StickyBackButton";
+import { BoodyStickyScroll } from "@/components/boody/BoodyStickyScroll";
+import Link from "next/link";
 
-export default function BoodyAiPage() {
+export default function BoodyAppPage() {
     return (
-        <main className="min-h-screen bg-background text-foreground transition-colors duration-500 selection:bg-blue-600/20">
+        <main className="min-h-screen bg-black text-white selection:bg-purple-600/30">
             <StickyBackButton />
-            {/* Hero Section */}
 
             {/* Hero Section */}
-            <section className="relative h-[80vh] w-full bg-[#0A0A0A]">
-                {/* Placeholder for Boody AI Hero - using abstract 3d placeholder for now */}
-                <Image
-                    src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=2564"
-                    alt="Boody AI Visual Identity"
-                    fill
-                    className="object-cover opacity-80"
-                    priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-                <div className="absolute bottom-0 left-0 w-full p-6 md:p-12 text-white">
+            <section className="relative h-[80vh] w-full flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="/Boody/Boody_Anasayfa_kapak_görseli.png"
+                        alt="Boody App Hero"
+                        fill
+                        className="object-cover opacity-70 transition-all duration-1000"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                </div>
+
+                <div className="relative z-10 text-center px-6">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 1, ease: "easeOut" }}
+                        className="flex flex-col items-center"
+                    >
+                        {/* Boody Logo Integration */}
+                        <div className="w-32 h-32 mb-8 relative">
+                            <Image
+                                src="/Boody/__logo_boody_mor.svg"
+                                alt="Boody Logo"
+                                fill
+                                className="object-contain"
+                            />
+                        </div>
+
+                        <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold uppercase tracking-[0.2em] border border-white/20 rounded-full backdrop-blur-md bg-white/5">
+                            Mobil Uygulama & Yapay Zeka
+                        </span>
+                        <h1 className="text-6xl md:text-9xl font-black mb-6 tracking-tighter bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
+                            BOODY APP
+                        </h1>
+                    </motion.div>
+                </div>
+
+                {/* Decorative Elements */}
+                <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent" />
+            </section>
+
+            {/* Project Overview */}
+            <section className="relative z-10 bg-black">
+                <div className="max-w-4xl mx-auto py-24 px-6">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 border-y border-white/10 py-12">
+                        <div>
+                            <h3 className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">Rol</h3>
+                            <p className="text-sm font-medium">UI/UX Designer</p>
+                        </div>
+                        <div>
+                            <h3 className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">Yıl</h3>
+                            <p className="text-sm font-medium">2026</p>
+                        </div>
+                        <div>
+                            <h3 className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">Platform</h3>
+                            <p className="text-sm font-medium">Flutter & iOS/Android</p>
+                        </div>
+                        <div>
+                            <h3 className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">Araçlar</h3>
+                            <p className="text-sm font-medium">Figma, Framer, Flutter</p>
+                        </div>
+                    </div>
+
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="max-w-4xl"
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="space-y-8"
                     >
-                        <span className="inline-block px-3 py-1 mb-4 text-sm font-medium border border-white/30 rounded-full backdrop-blur-sm">
-                            Mobil Uygulama & AI
-                        </span>
-                        <h1 className="text-5xl md:text-8xl font-bold mb-6 tracking-tight">
-                            Boody AI
-                        </h1>
+                        <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
+                            Öğrenciler için tasarlanmış, yapay zeka destekli modern bir sosyal ağ deneyimi.
+                        </h2>
+                        <p className="text-lg md:text-xl text-neutral-400 leading-relaxed">
+                            Boody App, akademik başarıyı ve kampüs içi iletişimi tek bir platformda toplar.
+                            Karmaşık problemleri saniyeler içinde çözen yapay zeka asistanı ve ilgi alanlarına
+                            dayalı ağ kurma özellikleri ile öğrenci hayatını dijitalde yeniden kurgular.
+                        </p>
                     </motion.div>
                 </div>
             </section>
 
-            {/* Project Details */}
-            <section className="bg-background transition-colors duration-500">
-                <div className="max-w-3xl mx-auto py-24 px-6 text-center">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-left md:text-center">
-                        <div>
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Rolüm</h3>
-                            <p className="text-lg font-medium transition-colors duration-500">UI/UX Designer</p>
-                        </div>
-                        <div>
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Yıl</h3>
-                            <p className="text-lg font-medium transition-colors duration-500">2024</p>
-                        </div>
-                        <div>
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Araçlar</h3>
-                            <p className="text-lg font-medium transition-colors duration-500">Figma, AI Tools, Protopie</p>
-                        </div>
-                    </div>
-
-                    <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight text-foreground transition-colors duration-500">
-                        Yapay zeka desteğiyle kişiselleştirilmiş bir mobil asistan deneyimi.
-                    </h2>
-                    <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                        Boody AI, yapay zeka destekli kişiselleştirilmiş bir mobil deneyim sunar.
-                        Kullanıcı alışkanlıklarını analiz ederek akıllı önerilerde bulunan bu uygulama için,
-                        sezgisel ve modern bir arayüz tasarlandı.
-                    </p>
-                </div>
-
-                {/* Content Flow */}
-                <div className="max-w-7xl mx-auto space-y-12 px-6 pb-24">
-                    {/* Example Image 1 */}
-                    <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl">
-                        <LightboxImage
-                            src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1470"
-                            alt="Boody AI App Screens"
-                            fill
-                            className="object-cover"
-                        />
-                    </div>
-
-                    {/* Example Image 2 */}
-                    <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl">
-                        <LightboxImage
-                            src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?auto=format&fit=crop&q=80&w=2670"
-                            alt="Boody AI Design System"
-                            fill
-                            className="object-cover"
-                        />
-                    </div>
-
-                    {/* Wireframe & Lo-Fi Section */}
-                    <div className="py-20 border-y border-border my-12 transition-colors duration-500">
-                        <div className="max-w-2xl mx-auto text-center mb-16">
-                            <h2 className="text-3xl font-bold mb-6 text-foreground">Wireframe & Lo-Fi</h2>
-                            <p className="text-foreground/50 transition-colors duration-500">
-                                Kullanıcı yolculuğunu ve temel etkileşimleri doğrulamak için hazırlanan düşük sadakatli taslaklar.
-                                Karmaşık AI akışlarını en basit haliyle kurgulayarak kullanıcı deneyimini optimize ettik.
-                            </p>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div className="aspect-[3/4] relative bg-neutral-100 dark:bg-neutral-900 rounded-3xl overflow-hidden p-8 flex items-center justify-center border border-white/5">
-                                <div className="w-full h-full relative border-2 border-dashed border-white/10 rounded-xl flex flex-col gap-4 p-6">
-                                    <div className="w-1/2 h-4 bg-white/5 rounded" />
-                                    <div className="w-full h-32 bg-white/5 rounded-lg" />
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <div className="h-20 bg-white/5 rounded-lg" />
-                                        <div className="h-20 bg-white/5 rounded-lg" />
-                                    </div>
-                                    <div className="w-full h-10 bg-blue-500/20 rounded-full mt-auto" />
-                                </div>
-                                <span className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-widest text-neutral-500">Lo-Fi Sketch 01</span>
-                            </div>
-                            <div className="aspect-[3/4] relative bg-neutral-100 dark:bg-neutral-900 rounded-3xl overflow-hidden p-8 flex items-center justify-center border border-white/5">
-                                <div className="w-full h-full relative border-2 border-dashed border-white/10 rounded-xl flex flex-col gap-4 p-6">
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <div className="w-12 h-12 rounded-full bg-white/5" />
-                                        <div className="flex-1 space-y-2">
-                                            <div className="w-1/2 h-2 bg-white/5 rounded" />
-                                            <div className="w-1/3 h-2 bg-white/5 rounded" />
-                                        </div>
-                                    </div>
-                                    <div className="w-full h-2 bg-white/5 rounded" />
-                                    <div className="w-3/4 h-2 bg-white/5 rounded" />
-                                    <div className="w-full h-48 bg-white/5 rounded-lg mt-4" />
-                                </div>
-                                <span className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-widest text-neutral-500">Wireframe 02</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="bg-card border border-border rounded-2xl p-12 text-center text-foreground/40 transition-colors duration-500">
-                        <p>Diğer proje detay görselleri buraya eklenecek.</p>
-                    </div>
-                </div>
+            {/* Premium Sticky Scroll Sections */}
+            <section className="pb-32">
+                <BoodyStickyScroll />
             </section>
+
+            {/* Footer Space */}
+            <div className="py-12 bg-black" />
         </main>
     );
 }

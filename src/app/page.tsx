@@ -1,95 +1,157 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import EditorialHero from "@/components/hero/EditorialHero";
 import ProjectShowcase from "@/components/editorial/ProjectShowcase";
 import SpitfireInterlude from "@/components/editorial/SpitfireInterlude";
 import { TireScene } from "@/components/prometeon/TireScene";
 import { About } from "@/components/About";
 import { Footer } from "@/components/Footer";
-import { ThemeToggle } from "@/components/ThemeToggle";
-import { ArrowDown, MapPin, Globe } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import Link from "next/link";
+import { cn } from "@/lib/utils";
 
-// Placeholder images
-const PLACEHOLDERS = {
-  mobileApp: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=1974", // High quality mobile app placeholder
-  webApp: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2426",
-  abstract3d: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=2564",
-  office: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2301",
-};
+type Category = "All" | "UI/UX Design" | "3D" | "Brand & Graphic";
+
+const categories: Category[] = ["All", "UI/UX Design", "3D", "Brand & Graphic"];
 
 export default function Home() {
   const { t } = useLanguage();
+  const [activeCategory, setActiveCategory] = useState<Category>("All");
+
+  const projects = [
+    {
+      id: "prometeon",
+      category: "Marka ve İletişim",
+      mainCategory: ["3D", "Brand & Graphic"],
+      title: "Prometeon",
+      tags: ["İç İletişim", "Basılı Materyaller", "Fabrika Giydirmeleri"],
+      image: "/prometeon/Logo/Prometeon_Slogan_Darkblue_NoBox_PNG-01.png",
+      href: "/projects/prometeon",
+      reverse: true,
+      objectContain: true,
+      customComponent: <TireScene />,
+      number: "01"
+    },
+    {
+      id: "tedx",
+      category: t("common.visualIdentity"),
+      mainCategory: ["3D", "Brand & Graphic"],
+      title: "TEDx YTU",
+      tags: ["3D Tasarım", "Blender", "Marka Kimliği", "Hareketli Grafik"],
+      image: "/tedx/Behance-KAPAK.jpg",
+      href: "/projects/tedx",
+      reverse: false,
+      number: "02"
+    },
+    {
+      id: "boody-ai",
+      category: "Mobil Uygulama",
+      mainCategory: ["UI/UX Design"],
+      title: "Boody App",
+      tags: ["UI/UX", "Mobil Tasarım"],
+      image: "/Boody/Boody_Anasayfa_kapak_görseli.png",
+      href: "/projects/boody-ai",
+      reverse: true,
+      number: "03"
+    },
+    {
+      id: "car2gather",
+      category: t("common.webPlatform"),
+      mainCategory: ["UI/UX Design"],
+      title: "car2gather",
+      tags: ["Web Tasarım", "Kullanıcı Akışı", "SaaS"],
+      image: "/car2gather/AnasayfaKapakGörseli.png",
+      href: "/projects/car2gather",
+      reverse: false,
+      number: "04"
+    },
+    {
+      id: "uni4society",
+      category: t("uni4society.category"),
+      mainCategory: ["Brand & Graphic"],
+      title: "Uni4Society YTÜ",
+      tags: ["Sosyal Medya", "Görsel Kimlik", "Sticker Tasarımı"],
+      image: "/Uni4Society/Sticker/İçerikler/Behance-KAPAK copy.jpg",
+      href: "/projects/uni4society",
+      reverse: true,
+      number: "05"
+    }
+  ];
+
   return (
-    <main className="bg-background min-h-screen text-foreground selection:bg-neutral-500/20 pt-24 md:pt-0">
+    <main className="bg-background min-h-screen text-foreground selection:bg-neutral-500/20 pt-24 md:pt-0 overflow-hidden">
 
       {/* 1. HERO SECTION */}
       <EditorialHero />
 
-      {/* 1. PROMETEON SHOWCASE (01) */}
-      <ProjectShowcase
-        number="01"
-        category="Marka ve İletişim"
-        title="Prometeon"
-        titleImage="/prometeon/Logo/Prometeon_Slogan_Darkblue_NoBox_PNG-01.png"
-        tags={["İç İletişim", "Basılı Materyaller", "Fabrika Giydirmeleri"]}
-        image="/prometeon/Logo/Prometeon_Slogan_Darkblue_NoBox_PNG-01.png"
-        customComponent={<TireScene />}
-        href="/projects/prometeon"
-        reverse={true}
-        objectContain={true}
-      />
+      {/* 2. MINIMALIST FILTER */}
+      <div className="flex justify-center py-12 md:py-32">
+        <nav className="flex items-center gap-10 md:gap-16 overflow-x-auto no-scrollbar pb-4 max-w-full px-6">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={cn(
+                "relative transition-all duration-300 whitespace-nowrap text-base md:text-lg tracking-tight",
+                activeCategory === cat
+                  ? "text-white font-medium"
+                  : "text-neutral-500 hover:text-neutral-300"
+              )}
+            >
+              <span>{cat}</span>
+              {activeCategory === cat && (
+                <motion.div
+                  layoutId="activeFilterDotZig"
+                  className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-white rounded-full"
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                />
+              )}
+            </button>
+          ))}
+        </nav>
+      </div>
 
-      {/* 2. TEDX SHOWCASE (02) */}
-      <ProjectShowcase
-        number="02"
-        category={t("common.visualIdentity")}
-        title="TEDx YTU"
-        tags={["3D Tasarım", "Blender", "Marka Kimliği", "Hareketli Grafik"]}
-        image="/tedx/Behance-KAPAK.jpg"
-        href="/projects/tedx"
-        reverse={false}
-      />
+      {/* 3. ZIG-ZAG PROJECTS FLOW */}
+      <div className="flex flex-col">
+        <AnimatePresence mode="popLayout">
+          {projects.filter(p => activeCategory === "All" || p.mainCategory.includes(activeCategory as any)).map((p, index) => (
+            <motion.div
+              key={p.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <ProjectShowcase
+                number={p.number}
+                category={p.category}
+                title={p.title}
+                tags={p.tags}
+                image={p.image}
+                href={p.href}
+                reverse={p.reverse}
+                objectContain={p.objectContain}
+                customComponent={p.customComponent}
+              />
 
-      {/* SPITFIRE INTERLUDE */}
-      <SpitfireInterlude />
+              {/* Optional: Add Spitfire Interlude only when appropriate, e.g. after TEDx if both visible or just as a stand-alone filtered section */}
+              {p.id === "tedx" && (activeCategory === "All" || activeCategory === "3D" || activeCategory === "Brand & Graphic") && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                >
+                  <SpitfireInterlude />
+                </motion.div>
+              )}
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
 
-      {/* 3. CAR2GATHER SHOWCASE (03) */}
-      <ProjectShowcase
-        number="03"
-        category={t("common.webPlatform")}
-        title="car2gather"
-        tags={["Web Tasarım", "Kullanıcı Akışı", "SaaS"]}
-        image={PLACEHOLDERS.webApp}
-        href="/projects/car2gather"
-        reverse={false}
-      />
-
-      {/* 4. BOODY AI SHOWCASE (04) */}
-      <ProjectShowcase
-        number="04"
-        category={t("common.mobileApp")}
-        title="Boody AI"
-        tags={["UI/UX", "Mobil Tasarım", "Yapay Zeka"]}
-        image={PLACEHOLDERS.mobileApp}
-        href="/projects/boody-ai"
-        reverse={true}
-      />
-
-      {/* 5. UNI4SOCIETY SHOWCASE (05) */}
-      <ProjectShowcase
-        number="05"
-        category={t("uni4society.category")}
-        title="Uni4Society YTÜ"
-        tags={["Sosyal Medya", "Görsel Kimlik", "Sticker Tasarımı"]}
-        image="/Uni4Society/Sticker/İçerikler/Behance-KAPAK copy.jpg"
-        href="/projects/uni4society"
-        reverse={false}
-      />
-
-      {/* 7. ABOUT & FOOTER */}
+      {/* 4. ABOUT & FOOTER */}
       <About />
       <Footer />
     </main>
