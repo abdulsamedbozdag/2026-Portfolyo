@@ -159,7 +159,27 @@ export const translations = {
                 processDesc: "Yüksek sadakatli tasarıma geçmeden önce, rota oluşturma ve eşleştirme sorunlarını çözmek için temel kullanıcı akışı basit wireframe'ler kullanılarak haritalandırıldı. Uygulama genelinde tutarlılığı sağlamak için erken aşamada temel bir bileşen kütüphanesi de oluşturuldu.",
                 compLib: "Bileşen Kütüphanesi",
                 wireframeTitle: "Wireframe Evrimi",
-                earlyStage: "ERKEN AŞAMA WIREFRAME'LER"
+                earlyStage: "ERKEN AŞAMA WIREFRAME'LER",
+                uxHeroSubtitle: "Güven ve Verimlilikle Şehir İçi Yolculuk Paylaşımını Yeniden Tanımlamak",
+                problemTitle: "Problem",
+                problemDesc: "Şehir trafiği ve karbon ayak izi giderek artıyor. Mevcut çözümler ya çok pahalı ya da konfor ve güvenden yoksun.",
+                goalTitle: "Hedef",
+                goalDesc: "Aynı rota üzerindeki sürücüleri ve yolcuları anında birbirine bağlayan, şeffaf ve güven temelli bir mikro mobilite ekosistemi oluşturmak.",
+                audienceTitle: "Hedef Kitle",
+                audienceDesc: "Maliyet etkin, günlük ulaşım alternatifleri arayan çevre bilincine sahip şehirli profesyoneller ve üniversite öğrencileri.",
+                benchmarkTitle: "Benchmark",
+                competitor1: "BlaBlaCar",
+                friction1: "Karmaşık rezervasyon akışları",
+                competitor2: "Uber",
+                friction2: "Anlık güven sinyallerinin eksikliği",
+                personaTitle: "Kullanıcı Personası",
+                empathyTitle: "Empati Haritası",
+                says: "Söylüyor",
+                thinks: "Düşünüyor",
+                does: "Yapıyor",
+                feels: "Hissediyor",
+                archTitle: "Bilgi Mimarisi & Kullanıcı Akışı",
+                archDesc: "Navigasyonun basitleştirilmesi, hem sürücüler hem de yolcular için bilişsel yükü önemli ölçüde azalttı."
             }
         }
     },
@@ -324,7 +344,27 @@ export const translations = {
                 processDesc: "Before moving to high-fidelity, the core user flow was mapped out using basic wireframes to solve routing and matching problems. A foundational component library was also established early on to ensure consistency across the application.",
                 compLib: "Component Library",
                 wireframeTitle: "Wireframe Evolution",
-                earlyStage: "EARLY STAGE WIREFRAMES"
+                earlyStage: "EARLY STAGE WIREFRAMES",
+                uxHeroSubtitle: "Redefining Urban Carpooling with Trust and Efficiency",
+                problemTitle: "The Problem",
+                problemDesc: "Urban traffic and carbon footprints are rising. Existing solutions are either too expensive or lack comfort and trust.",
+                goalTitle: "The Goal",
+                goalDesc: "Create a transparent, trust-based micro-mobility ecosystem connecting drivers and passengers on the same route instantly.",
+                audienceTitle: "Target Audience",
+                audienceDesc: "Eco-conscious urban professionals and university students seeking cost-effective, daily commute alternatives.",
+                benchmarkTitle: "Discovery & Benchmarking",
+                competitor1: "BlaBlaCar",
+                friction1: "Complex booking flows",
+                competitor2: "Uber",
+                friction2: "Lack of immediate trust signals",
+                personaTitle: "User Persona",
+                empathyTitle: "Empathy Map",
+                says: "Says",
+                thinks: "Thinks",
+                does: "Does",
+                feels: "Feels",
+                archTitle: "Information Architecture & User Flow",
+                archDesc: "Simplifying the navigation reduced the cognitive load for both drivers and passengers."
             }
         }
     }
