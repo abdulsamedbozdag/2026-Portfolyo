@@ -6,6 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { LightboxImage } from "@/components/ImageLightbox";
 import { StickyBackButton } from "@/components/StickyBackButton";
 import { StickyScroll } from "@/components/car2gather/StickyScroll";
+import { ProcessSection } from "@/components/car2gather/ProcessSection";
 
 export default function Car2GatherPage() {
     const { t } = useLanguage();
@@ -70,6 +71,9 @@ export default function Car2GatherPage() {
                         {t("cv.car2gather.description")}
                     </h2>
                 </div>
+
+                {/* Process & Architecture Section */}
+                <ProcessSection />
 
                 {/* Sticky Scroll Feature Section - Moved Up */}
                 <StickyScroll />
