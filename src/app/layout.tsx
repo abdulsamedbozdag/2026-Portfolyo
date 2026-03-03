@@ -56,6 +56,7 @@ export const metadata: Metadata = {
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { CustomCursor } from "@/components/CustomCursor";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({
   children,
@@ -78,6 +79,7 @@ export default function RootLayout({
               {/* ... */}
               {children}
             </SmoothScroll>
+            <Analytics />
           </ThemeProvider>
         </LanguageProvider>
       </body>

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import Link from "next/link";
 import Image from "next/image";
+import { Download } from "lucide-react";
 
 export function About() {
     const { t } = useLanguage();
@@ -55,6 +56,32 @@ export function About() {
                                     →
                                 </motion.span>
                             </Link>
+
+                            <button
+                                onClick={() => {
+                                    const cvPath = "/CV/CV_AbdulSamedBozdağ_03_03_26.pdf";
+                                    const link = document.createElement("a");
+                                    link.href = cvPath;
+                                    link.download = "AbdulSamedBozdag_CV.pdf";
+                                    document.body.appendChild(link);
+                                    link.click();
+                                    document.body.removeChild(link);
+
+                                    // Tracking
+                                    if (typeof window !== "undefined" && (window as any).va) {
+                                        import("@vercel/analytics").then(({ track }) => {
+                                            track("cv_download", {
+                                                page: "home_about",
+                                                language: t("common.projects") === "Projelerimi Gör" ? "tr" : "en"
+                                            });
+                                        });
+                                    }
+                                }}
+                                className="inline-flex items-center gap-2 text-foreground/40 hover:text-primary transition-colors font-medium text-sm mt-4 cursor-pointer"
+                            >
+                                <Download size={14} />
+                                {t("common.projects") === "Projelerimi Gör" ? "CV'yi İndir" : "Download CV"}
+                            </button>
                         </div>
                     </div>
 

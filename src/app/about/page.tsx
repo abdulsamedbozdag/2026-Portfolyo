@@ -57,7 +57,28 @@ export default function AboutPage() {
                             {about.bio}
                         </p>
                         <div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
-                            <button className="group flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-full font-bold transition-all hover:scale-105 active:scale-95">
+                            <button
+                                onClick={() => {
+                                    const cvPath = "/CV/CV_AbdulSamedBozdağ_03_03_26.pdf";
+                                    const link = document.createElement("a");
+                                    link.href = cvPath;
+                                    link.download = "AbdulSamedBozdag_CV.pdf";
+                                    document.body.appendChild(link);
+                                    link.click();
+                                    document.body.removeChild(link);
+
+                                    // Tracking
+                                    if (typeof window !== "undefined" && (window as any).va) {
+                                        import("@vercel/analytics").then(({ track }) => {
+                                            track("cv_download", {
+                                                page: "about",
+                                                language: language
+                                            });
+                                        });
+                                    }
+                                }}
+                                className="group flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-full font-bold transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                            >
                                 <Download size={18} />
                                 {about.downloadCV}
                             </button>
