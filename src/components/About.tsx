@@ -62,34 +62,14 @@ export function About() {
                                 </motion.span>
                             </Link>
 
-                            <button
-                                onClick={() => {
-                                    const cvPath = "/CV/CV_AbdulSamedBozdag.pdf";
-                                    const link = document.createElement("a");
-                                    link.href = cvPath;
-                                    link.download = "AbdulSamedBozdag_CV.pdf";
-                                    document.body.appendChild(link);
-                                    link.click();
-                                    document.body.removeChild(link);
-
-                                    // Tracking
-                                    if (typeof window !== "undefined") {
-                                        const win = window as any;
-                                        if (win.va) {
-                                            import("@vercel/analytics").then(({ track }) => {
-                                                track("cv_download", {
-                                                    page: "home_about",
-                                                    language: t("common.projects") === "Projelerimi Gör" ? "tr" : "en"
-                                                });
-                                            });
-                                        }
-                                    }
-                                }}
-                                className="inline-flex items-center gap-2 text-foreground/40 hover:text-primary transition-colors font-medium text-sm mt-4 cursor-pointer"
+                            <a
+                                href="/CV/CV_AbdulSamedBozdag.pdf"
+                                download="AbdulSamedBozdag_CV.pdf"
+                                className="inline-flex items-center gap-2 text-foreground/40 hover:text-primary transition-colors font-medium text-sm mt-4 cursor-pointer no-underline"
                             >
                                 <Download size={14} />
                                 {t("common.projects") === "Projelerimi Gör" ? "CV'yi İndir" : "Download CV"}
-                            </button>
+                            </a>
                         </div>
                     </div>
 

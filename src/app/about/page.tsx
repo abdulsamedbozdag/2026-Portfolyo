@@ -49,13 +49,14 @@ export default function AboutPage() {
             {/* Top Navigation Controls */}
             <div className="fixed top-6 left-6 z-[9991] flex items-center gap-3">
                 <StickyBackButton noPortal />
-                <div className="flex items-center gap-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 p-1">
+                <div className="flex items-center gap-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 p-1 shadow-2xl">
                     <ThemeToggle className="text-white hover:bg-white/10" />
+                    <div className="w-[1px] h-4 bg-white/10 mx-1" />
                     <button
                         onClick={() => setLanguage(language === "tr" ? "en" : "tr")}
-                        className="flex items-center gap-2 px-3 py-1.5 rounded-full text-white hover:bg-white/10 transition-colors text-xs font-bold"
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-full text-white/90 hover:text-white hover:bg-white/10 transition-all text-[10px] font-bold tracking-widest uppercase"
                     >
-                        <Globe size={14} />
+                        <Globe size={12} className="opacity-70" />
                         <span>{language === "tr" ? "EN" : "TR"}</span>
                     </button>
                 </div>
@@ -93,34 +94,14 @@ export default function AboutPage() {
                             {about.bio}
                         </motion.p>
                         <motion.div variants={itemVariants} className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
-                            <button
-                                onClick={() => {
-                                    const cvPath = "/CV/CV_AbdulSamedBozdag.pdf";
-                                    const link = document.createElement("a");
-                                    link.href = cvPath;
-                                    link.download = "AbdulSamedBozdag_CV.pdf";
-                                    document.body.appendChild(link);
-                                    link.click();
-                                    document.body.removeChild(link);
-
-                                    // Tracking
-                                    if (typeof window !== "undefined") {
-                                        const win = window as any;
-                                        if (win.va) {
-                                            import("@vercel/analytics").then(({ track }) => {
-                                                track("cv_download", {
-                                                    page: "about",
-                                                    language: language
-                                                });
-                                            });
-                                        }
-                                    }
-                                }}
-                                className="group flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-full font-bold transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                            <a
+                                href="/CV/CV_AbdulSamedBozdag.pdf"
+                                download="AbdulSamedBozdag_CV.pdf"
+                                className="group flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-full font-bold transition-all hover:scale-105 active:scale-95 cursor-pointer no-underline"
                             >
                                 <Download size={18} />
                                 {about.downloadCV}
-                            </button>
+                            </a>
                         </motion.div>
                     </div>
                 </motion.div>
