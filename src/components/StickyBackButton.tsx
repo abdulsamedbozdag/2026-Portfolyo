@@ -12,27 +12,18 @@ import { ArrowLeft } from "lucide-react";
    Rendered via Portal to avoid DOM conflicts with GSAP ScrollTrigger.
    ───────────────────────────────────────────── */
 
-export function StickyBackButton() {
+export function StickyBackButton({ noPortal = false }: { noPortal?: boolean }) {
     const [visible, setVisible] = useState(false);
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
         setMounted(true);
-
-        const onScroll = () => {
-            // Always visible now as requested, but we could keep the logic if we wanted.
-            // setVisible(window.scrollY > 200);
-        };
-
-        window.addEventListener("scroll", onScroll, { passive: true });
-        setVisible(true); // Always visible
-
-        return () => window.removeEventListener("scroll", onScroll);
+        setVisible(true);
     }, []);
 
     if (!mounted) return null;
 
-    return createPortal(
+    const content = (
         <AnimatePresence>
             {visible && (
                 <motion.div
@@ -40,7 +31,7 @@ export function StickyBackButton() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.3 }}
-                    className="z-[9990]"
+                    className={noPortal ? "z-[9990]" : "fixed top-6 left-6 z-[9990]"}
                 >
                     <Link
                         href="/"
@@ -51,7 +42,10 @@ export function StickyBackButton() {
                     </Link>
                 </motion.div>
             )}
-        </AnimatePresence>,
-        document.body
+        </AnimatePresence>
     );
+
+    if (noPortal) return content;
+
+    return createPortal(content, document.body);
 }

@@ -29,7 +29,7 @@ export default function AboutPage() {
         <main className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground font-inter pb-20">
             {/* Top Navigation Controls */}
             <div className="fixed top-6 left-6 z-[9991] flex items-center gap-3">
-                <StickyBackButton />
+                <StickyBackButton noPortal />
                 <div className="flex items-center gap-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 p-1">
                     <ThemeToggle className="text-white hover:bg-white/10" />
                     <button
