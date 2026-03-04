@@ -59,7 +59,7 @@ export function About() {
 
                             <button
                                 onClick={() => {
-                                    const cvPath = "/CV/CV_AbdulSamedBozdağ_03_03_26.pdf";
+                                    const cvPath = "/CV/CV_AbdulSamedBozdag.pdf";
                                     const link = document.createElement("a");
                                     link.href = cvPath;
                                     link.download = "AbdulSamedBozdag_CV.pdf";

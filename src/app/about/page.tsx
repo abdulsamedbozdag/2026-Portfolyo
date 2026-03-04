@@ -59,7 +59,7 @@ export default function AboutPage() {
                         <div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
                             <button
                                 onClick={() => {
-                                    const cvPath = "/CV/CV_AbdulSamedBozdağ_03_03_26.pdf";
+                                    const cvPath = "/CV/CV_AbdulSamedBozdag.pdf";
                                     const link = document.createElement("a");
                                     link.href = cvPath;
                                     link.download = "AbdulSamedBozdag_CV.pdf";
