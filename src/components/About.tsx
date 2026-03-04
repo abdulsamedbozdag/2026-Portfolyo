@@ -108,11 +108,7 @@ export function About() {
                                 </motion.div>
                             ))}
                         </div>
-                        <div className="mt-8">
-                            <p className="text-sm text-foreground/40 italic">
-                                {t("common.projects") === "Projelerimi Gör" ? "Ve daha fazlası yetenek setimde mevcut." : "And more available in my skill set."}
-                            </p>
-                        </div>
+
                     </motion.div>
                 </div>
             </div>

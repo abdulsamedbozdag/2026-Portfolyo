@@ -40,7 +40,7 @@ export function StickyBackButton() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.3 }}
-                    className="fixed top-6 left-6 z-[9990]"
+                    className="z-[9990]"
                 >
                     <Link
                         href="/"

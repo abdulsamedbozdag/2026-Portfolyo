@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { StickyBackButton } from "@/components/StickyBackButton";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { Download, GraduationCap, Briefcase, Heart, Award } from "lucide-react";
+import { Download, GraduationCap, Briefcase, Heart, Award, Globe } from "lucide-react";
 import Image from "next/image";
 
 export default function AboutPage() {
-    const { t, language } = useLanguage();
+    const { t, language, setLanguage } = useLanguage();
     const cv = t("cv");
     const about = t("about");
 
@@ -27,8 +27,20 @@ export default function AboutPage() {
 
     return (
         <main className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground font-inter pb-20">
-            <StickyBackButton />
-            <ThemeToggle />
+            {/* Top Navigation Controls */}
+            <div className="fixed top-6 left-6 z-[9991] flex items-center gap-3">
+                <StickyBackButton />
+                <div className="flex items-center gap-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 p-1">
+                    <ThemeToggle className="text-white hover:bg-white/10" />
+                    <button
+                        onClick={() => setLanguage(language === "tr" ? "en" : "tr")}
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-full text-white hover:bg-white/10 transition-colors text-xs font-bold"
+                    >
+                        <Globe size={14} />
+                        <span>{language === "tr" ? "EN" : "TR"}</span>
+                    </button>
+                </div>
+            </div>
 
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 px-6 max-w-7xl mx-auto">
