@@ -63,7 +63,7 @@ export function About() {
                             </Link>
 
                             <a
-                                href="/CV/CV_AbdulSamedBozdag.pdf"
+                                href="/CV_AbdulSamedBozdag.pdf"
                                 download="AbdulSamedBozdag_CV.pdf"
                                 className="inline-flex items-center gap-2 text-foreground/40 hover:text-primary transition-colors font-medium text-sm mt-4 cursor-pointer no-underline"
                             >

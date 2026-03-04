@@ -47,14 +47,20 @@ export default function AboutPage() {
     return (
         <main className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground font-inter pb-20">
             {/* Top Navigation Controls */}
-            <div className="fixed top-6 left-6 z-[9991] flex items-center gap-3">
-                <StickyBackButton noPortal />
+            <div className="fixed top-6 left-6 z-[50] flex items-center gap-3 pointer-events-auto">
+                <Link
+                    href="/"
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/60 backdrop-blur-md text-white text-sm font-medium hover:bg-black/80 transition-colors border border-white/10"
+                >
+                    <ArrowLeft className="w-4 h-4" />
+                    {language === "tr" ? "Ana Sayfa" : "Home"}
+                </Link>
                 <div className="flex items-center gap-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 p-1 shadow-2xl">
                     <ThemeToggle className="text-white hover:bg-white/10" />
                     <div className="w-[1px] h-4 bg-white/10 mx-1" />
                     <button
                         onClick={() => setLanguage(language === "tr" ? "en" : "tr")}
-                        className="flex items-center gap-2 px-3 py-1.5 rounded-full text-white/90 hover:text-white hover:bg-white/10 transition-all text-[10px] font-bold tracking-widest uppercase"
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-full text-white hover:bg-white/10 transition-all text-[10px] font-bold tracking-widest uppercase"
                     >
                         <Globe size={12} className="opacity-70" />
                         <span>{language === "tr" ? "EN" : "TR"}</span>
@@ -95,7 +101,7 @@ export default function AboutPage() {
                         </motion.p>
                         <motion.div variants={itemVariants} className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
                             <a
-                                href="/CV/CV_AbdulSamedBozdag.pdf"
+                                href="/CV_AbdulSamedBozdag.pdf"
                                 download="AbdulSamedBozdag_CV.pdf"
                                 className="group flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-full font-bold transition-all hover:scale-105 active:scale-95 cursor-pointer no-underline"
                             >

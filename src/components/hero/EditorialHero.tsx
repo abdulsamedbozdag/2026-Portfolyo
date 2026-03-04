@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ArrowDown, MapPin, Globe } from "lucide-react";
+import { ArrowDown, MapPin, Globe, Download } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import HeroShowcase from "@/components/home/HeroShowcase";
@@ -122,11 +122,19 @@ export default function EditorialHero() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5 }}
-                            className="mt-4"
+                            className="mt-4 flex flex-wrap gap-4"
                         >
                             <button className="px-8 py-3.5 rounded-full bg-foreground text-background font-semibold hover:bg-emerald-500 transition-colors duration-300">
                                 {t("common.projects")}
                             </button>
+                            <a
+                                href="/CV_AbdulSamedBozdag.pdf"
+                                download="AbdulSamedBozdag_CV.pdf"
+                                className="px-8 py-3.5 rounded-full border border-foreground/20 text-foreground font-semibold hover:bg-foreground hover:text-background transition-all duration-300 no-underline inline-flex items-center gap-2"
+                            >
+                                <Download size={18} />
+                                {t("common.projects") === "Projelerimi Gör" ? "CV'yi İndir" : "Download CV"}
+                            </a>
                         </motion.div>
                     </motion.div>
                 </div>
