@@ -6,6 +6,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { Download } from "lucide-react";
 
+interface Skill {
+    name: string;
+    level: number;
+}
+
 export function About() {
     const { t } = useLanguage();
     return (
@@ -68,13 +73,16 @@ export function About() {
                                     document.body.removeChild(link);
 
                                     // Tracking
-                                    if (typeof window !== "undefined" && (window as any).va) {
-                                        import("@vercel/analytics").then(({ track }) => {
-                                            track("cv_download", {
-                                                page: "home_about",
-                                                language: t("common.projects") === "Projelerimi Gör" ? "tr" : "en"
+                                    if (typeof window !== "undefined") {
+                                        const win = window as any;
+                                        if (win.va) {
+                                            import("@vercel/analytics").then(({ track }) => {
+                                                track("cv_download", {
+                                                    page: "home_about",
+                                                    language: t("common.projects") === "Projelerimi Gör" ? "tr" : "en"
+                                                });
                                             });
-                                        });
+                                        }
                                     }
                                 }}
                                 className="inline-flex items-center gap-2 text-foreground/40 hover:text-primary transition-colors font-medium text-sm mt-4 cursor-pointer"
@@ -95,7 +103,7 @@ export function About() {
                             {t("common.skills")}
                         </h3>
                         <div className="flex flex-wrap gap-3">
-                            {(t("cv.skills") as any[] || []).slice(0, 6).map((skill, index) => (
+                            {(t("cv.skills") as Skill[] || []).slice(0, 6).map((skill: Skill, index: number) => (
                                 <motion.div
                                     key={index}
                                     initial={{ opacity: 0, scale: 0.9 }}

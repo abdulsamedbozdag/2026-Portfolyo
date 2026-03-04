@@ -7,6 +7,25 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { Download, GraduationCap, Briefcase, Heart, Award, Globe } from "lucide-react";
 import Image from "next/image";
 
+interface Experience {
+    company: string;
+    role: string;
+    date: string;
+    logo?: string;
+    points: string[];
+}
+
+interface Volunteer {
+    org: string;
+    role: string;
+    date: string;
+}
+
+interface Skill {
+    name: string;
+    level: number;
+}
+
 export default function AboutPage() {
     const { t, language, setLanguage } = useLanguage();
     const cv = t("cv");
@@ -45,8 +64,9 @@ export default function AboutPage() {
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 px-6 max-w-7xl mx-auto">
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial="hidden"
+                    animate="visible"
+                    variants={containerVariants}
                     className="flex flex-col md:flex-row items-center gap-12"
                 >
                     <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden border-2 border-primary/10 transition-transform duration-500 hover:scale-[1.02] bg-foreground/5">
@@ -61,14 +81,18 @@ export default function AboutPage() {
                     </div>
                     <div className="flex-1 text-center md:text-left">
                         <motion.h1
+                            variants={itemVariants}
                             className="text-5xl md:text-7xl font-black tracking-tighter mb-4"
                         >
                             {about.title}
                         </motion.h1>
-                        <p className="text-xl md:text-2xl font-light text-muted-foreground max-w-2xl leading-relaxed">
+                        <motion.p
+                            variants={itemVariants}
+                            className="text-xl md:text-2xl font-light text-muted-foreground max-w-2xl leading-relaxed"
+                        >
                             {about.bio}
-                        </p>
-                        <div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
+                        </motion.p>
+                        <motion.div variants={itemVariants} className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
                             <button
                                 onClick={() => {
                                     const cvPath = "/CV/CV_AbdulSamedBozdag.pdf";
@@ -80,13 +104,16 @@ export default function AboutPage() {
                                     document.body.removeChild(link);
 
                                     // Tracking
-                                    if (typeof window !== "undefined" && (window as any).va) {
-                                        import("@vercel/analytics").then(({ track }) => {
-                                            track("cv_download", {
-                                                page: "about",
-                                                language: language
+                                    if (typeof window !== "undefined") {
+                                        const win = window as any;
+                                        if (win.va) {
+                                            import("@vercel/analytics").then(({ track }) => {
+                                                track("cv_download", {
+                                                    page: "about",
+                                                    language: language
+                                                });
                                             });
-                                        });
+                                        }
                                     }
                                 }}
                                 className="group flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-full font-bold transition-all hover:scale-105 active:scale-95 cursor-pointer"
@@ -94,7 +121,7 @@ export default function AboutPage() {
                                 <Download size={18} />
                                 {about.downloadCV}
                             </button>
-                        </div>
+                        </motion.div>
                     </div>
                 </motion.div>
             </section>
@@ -113,7 +140,7 @@ export default function AboutPage() {
                         </div>
 
                         <div className="space-y-12 relative before:absolute before:left-[23px] before:top-2 before:bottom-2 before:w-[2px] before:bg-foreground/5">
-                            {cv.experience.map((exp: any, i: number) => (
+                            {cv.experience.map((exp: Experience, i: number) => (
                                 <motion.div
                                     key={i}
                                     initial="hidden"
@@ -209,20 +236,19 @@ export default function AboutPage() {
                             </div>
                             <h2 className="text-3xl font-black tracking-tight uppercase">{about.volunteer}</h2>
                         </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {cv.volunteer.map((vol: any, i: number) => (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {cv.volunteer.map((vol: Volunteer, i: number) => (
                                 <motion.div
                                     key={i}
                                     initial="hidden"
                                     whileInView="visible"
                                     viewport={{ once: true }}
                                     variants={itemVariants}
-                                    className="p-6 rounded-2xl bg-foreground/[0.02] border border-foreground/5 hover:border-primary/20 transition-colors"
+                                    className="p-6 rounded-2xl bg-foreground/[0.03] border border-foreground/5"
                                 >
-                                    <h4 className="font-bold text-lg leading-tight mb-1">{vol.org}</h4>
-                                    <p className="text-sm text-primary mb-2">{vol.role}</p>
-                                    <p className="text-xs opacity-60 font-mono">{vol.date}</p>
+                                    <h3 className="font-bold text-lg mb-1">{vol.org}</h3>
+                                    <p className="text-primary text-sm font-medium mb-2">{vol.role}</p>
+                                    <p className="text-muted-foreground text-xs uppercase tracking-wider">{vol.date}</p>
                                 </motion.div>
                             ))}
                         </div>
@@ -230,39 +256,37 @@ export default function AboutPage() {
                 </div>
 
                 {/* Right Column: Skills & Info */}
-                <div className="lg:col-span-4 space-y-12">
+                <aside className="lg:col-span-4 space-y-12">
                     {/* Skills */}
-                    <section className="sticky top-12">
+                    <section>
                         <div className="flex items-center gap-4 mb-8">
                             <div className="p-3 bg-foreground/5 rounded-xl text-primary">
                                 <Award size={24} />
                             </div>
                             <h2 className="text-2xl font-black tracking-tight uppercase">{about.skills}</h2>
                         </div>
-
-                        <div className="flex flex-wrap gap-3">
-                            {cv.skills.map((skill: any, i: number) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: i * 0.05 }}
-                                    className="px-4 py-2 rounded-xl bg-foreground/[0.03] border border-foreground/5 text-[10px] font-bold text-muted uppercase tracking-[0.2em] transition-all hover:bg-foreground/5 hover:border-primary/20"
-                                >
-                                    {skill.name}
+                        <div className="space-y-6">
+                            {cv.skills.map((skill: Skill, i: number) => (
+                                <motion.div key={i} variants={itemVariants}>
+                                    <div className="flex justify-between items-center mb-2">
+                                        <span className="font-bold text-sm tracking-wide uppercase">{skill.name}</span>
+                                        <span className="text-xs text-muted-foreground">{skill.level}/10</span>
+                                    </div>
+                                    <div className="h-1.5 w-full bg-foreground/5 rounded-full overflow-hidden">
+                                        <motion.div
+                                            initial={{ width: 0 }}
+                                            whileInView={{ width: `${skill.level * 10}%` }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 1, delay: 0.1 * i }}
+                                            className="h-full bg-primary"
+                                        />
+                                    </div>
                                 </motion.div>
                             ))}
                         </div>
 
-                        <div className="mt-16 pt-8 border-t border-foreground/5">
-                            <h4 className="text-sm font-bold uppercase tracking-widest mb-4 opacity-60">{about.references}</h4>
-                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                {about.referencesNote}
-                            </p>
-                        </div>
                     </section>
-                </div>
+                </aside>
             </div>
         </main>
     );
