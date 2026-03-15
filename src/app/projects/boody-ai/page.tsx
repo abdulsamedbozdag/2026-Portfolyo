@@ -31,8 +31,8 @@ export default function BoodyAppPage() {
                         transition={{ duration: 1, ease: "easeOut" }}
                         className="flex flex-col items-center"
                     >
-                        {/* Boody Logo Integration */}
-                        <div className="w-32 h-32 mb-8 relative">
+                        {/* Boody Logo Integration - Enlarged as requested */}
+                        <div className="w-56 h-56 mb-4 relative">
                             <Image
                                 src="/Boody/__logo_boody_mor.svg"
                                 alt="Boody Logo"
@@ -42,7 +42,7 @@ export default function BoodyAppPage() {
                         </div>
 
                         <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold uppercase tracking-[0.2em] border border-white/20 rounded-full backdrop-blur-md bg-white/5">
-                            Mobil Uygulama & Yapay Zeka
+                            Mobil Uygulama
                         </span>
                         <h1 className="text-6xl md:text-9xl font-black mb-6 tracking-tighter bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
                             BOODY APP
