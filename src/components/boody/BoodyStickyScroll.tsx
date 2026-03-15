@@ -24,7 +24,7 @@ export function BoodyStickyScroll() {
         },
         {
             title: "AI Çalışma Asistanı",
-            description: "Matematik ve fen problemlerini saniyeler içinde çözen, adım adım rehberlik sunan gelişmiş yapay zeka desteği.",
+            description: "Zor soruları saniyeler içinde çözen, adım adım rehberlik sunan gelişmiş yapay zeka desteği.",
             image: "/Boody/boodyapp_ai_cozum.jpeg"
         },
         {
@@ -39,12 +39,12 @@ export function BoodyStickyScroll() {
         },
         {
             title: "İlan Keşfet",
-            description: "Ürün satışı, oda arkadaşı arama veya etkinliklerden haberdar olma imkanı sunan kapsamlı pazar yeri.",
+            description: "Ders çalışma, sosyalleşme, spor, sanat, kariyer Boody'si bulmanı sağlayan ilan verme sistemi",
             image: "/Boody/boody_ilan_ara.jpeg"
         },
         {
             title: "İlan Detayları",
-            description: "İlanlar hakkında detaylı bilgi, konum ve satıcı profili ile güvenli alışveriş deneyimi.",
+            description: "İlanlar hakkında detaylı bilgi, konum ve kullanıcı profili ile güvenli deneyim.",
             image: "/Boody/boodyapp_ilandetay.jpeg"
         },
         {
@@ -64,7 +64,7 @@ export function BoodyStickyScroll() {
         },
         {
             title: "Öğrenci Profili",
-            description: "Kendinizi ifade edin, ilgi alanlarınızı paylaşın ve kampüsteki dijital kimliğinizi oluşturun.",
+            description: "Kendinizi tanıtın, ilgi alanlarınızı paylaşın ve kampüsteki dijital kimliğinizi oluşturun.",
             image: "/Boody/boodyapp_profil.jpeg"
         },
         {

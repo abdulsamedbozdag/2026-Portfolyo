@@ -22,6 +22,7 @@ export function ProcessSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
+                        className="flex flex-col items-center text-center max-w-4xl mx-auto"
                     >
                         <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight text-foreground transition-colors duration-500">
                             {t("cv.car2gather.processTitle")}
@@ -29,7 +30,7 @@ export function ProcessSection() {
                         <h3 className="text-xl md:text-2xl font-medium text-neutral-500 dark:text-neutral-400 mb-6 transition-colors duration-500">
                             {t("cv.car2gather.processSub")}
                         </h3>
-                        <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-500 max-w-4xl leading-relaxed transition-colors duration-500">
+                        <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-500 leading-relaxed transition-colors duration-500">
                             {t("cv.car2gather.processDesc")}
                         </p>
                     </motion.div>

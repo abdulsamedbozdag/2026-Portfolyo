@@ -52,7 +52,7 @@ export function EmpathySection() {
 
                 {/* Empathy Map Grid */}
                 <div className="lg:col-span-7 flex flex-col justify-between">
-                    <div className="mb-8">
+                    <div className="mb-8 text-center lg:text-left">
                         <h3 className="text-3xl font-bold text-foreground transition-colors duration-500">{t("cv.car2gather.empathyTitle")}</h3>
                     </div>
 

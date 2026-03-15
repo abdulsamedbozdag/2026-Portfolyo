@@ -13,7 +13,7 @@ export function CoreSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="group relative rounded-3xl p-8 md:p-12 border border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-neutral-900 overflow-hidden"
+                    className="group relative rounded-3xl p-8 md:p-12 border border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-neutral-900 overflow-hidden text-center"
                 >
                     <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
                         <span className="text-8xl font-bold italic select-none">!</span>
@@ -32,7 +32,7 @@ export function CoreSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="group relative rounded-3xl p-8 md:p-12 border border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-neutral-900 overflow-hidden"
+                    className="group relative rounded-3xl p-8 md:p-12 border border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-neutral-900 overflow-hidden text-center"
                 >
                     <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
                         <span className="text-8xl font-bold italic select-none">✓</span>

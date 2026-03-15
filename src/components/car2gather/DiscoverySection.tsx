@@ -13,7 +13,7 @@ export function DiscoverySection() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7 }}
-                    className="lg:col-span-8 group relative rounded-3xl p-8 md:p-12 border border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-neutral-900 shadow-xl dark:shadow-2xl overflow-hidden transition-colors duration-500"
+                    className="lg:col-span-8 group relative rounded-3xl p-8 md:p-12 border border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-neutral-900 shadow-xl dark:shadow-2xl overflow-hidden transition-colors duration-500 flex flex-col items-center text-center"
                 >
                     <div className="absolute top-4 right-8 z-10">
                         <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-neutral-400 dark:text-neutral-500 px-3 py-1 border border-neutral-200 dark:border-white/10 rounded-full">
@@ -23,7 +23,7 @@ export function DiscoverySection() {
                     <p className="text-2xl md:text-4xl font-bold leading-tight mt-12 text-foreground transition-colors duration-500">
                         {t("cv.car2gather.audienceDesc")}
                     </p>
-                    <div className="mt-12 flex flex-wrap gap-3">
+                    <div className="mt-12 flex flex-wrap justify-center gap-3">
                         {["Professionals", "Students", "Eco-conscious", "Commuters"].map((tag) => (
                             <span key={tag} className="text-[11px] font-medium text-neutral-500 dark:text-neutral-400 bg-neutral-200/50 dark:bg-white/5 px-4 py-2 rounded-lg transition-colors duration-500">
                                 {tag}

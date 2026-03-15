@@ -68,10 +68,10 @@ export function ArchitectureSection() {
                     variants={containerVariants}
                     className="space-y-16"
                 >
-                    <div className="max-w-3xl">
+                    <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
                         <motion.span
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] uppercase tracking-[0.2em] text-white/50 mb-4"
                         >
                             Architecture
