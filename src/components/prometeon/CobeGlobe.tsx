@@ -20,27 +20,26 @@ export default function CobeGlobe() {
         onResize();
 
         const globe = createGlobe(canvasRef.current!, {
-            devicePixelRatio: 2,
+            devicePixelRatio: typeof window !== 'undefined' ? Math.min(window.devicePixelRatio, 2) : 1,
             width: width * 2,
             height: width * 2,
             phi: 0,
             theta: 0.3,
-            dark: 0, // LIGHT MODE
+            dark: 0, 
             diffuse: 1.2,
-            mapSamples: 16000,
-            mapBrightness: 6,
-            baseColor: [0.95, 0.95, 0.95],
-            markerColor: [0, 0.68, 0.93], // Prometeon Blue
+            mapSamples: 8000, // Reduced from 16000 for mobile stability
+            mapBrightness: 12, // Increased to ensure visibility
+            baseColor: [1, 1, 1],
+            markerColor: [0, 0.68, 0.93], 
             glowColor: [1, 1, 1],
             markers: [
-                { location: [45.46, 9.19], size: 0.08 }, // Italy
-                { location: [40.85, 29.88], size: 0.06 }, // Turkey
-                { location: [-23.66, -46.53], size: 0.06 }, // Brazil
-                { location: [31.20, 29.91], size: 0.05 }, // Egypt
-                { location: [35.86, 104.19], size: 0.07 }, // China
+                { location: [45.46, 9.19], size: 0.08 }, 
+                { location: [40.85, 29.88], size: 0.06 }, 
+                { location: [-23.66, -46.53], size: 0.06 }, 
+                { location: [31.20, 29.91], size: 0.05 }, 
+                { location: [35.86, 104.19], size: 0.07 }, 
             ],
             onRender: (state) => {
-                // Auto-rotate unless interacting
                 if (!pointerInteracting.current) {
                     phi.current += 0.005;
                 }

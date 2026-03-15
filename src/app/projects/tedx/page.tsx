@@ -95,10 +95,15 @@ export default function TedxPage() {
                         muted
                         playsInline
                         preload="auto"
-                        className="h-full w-full object-cover"
-                        onLoadedData={() => setIsVideoLoaded(true)}
-                        onCanPlay={() => setIsVideoLoaded(true)}
-                        style={{ filter: "brightness(0.5) contrast(1.1)" }}
+                        className={`h-full w-full object-cover transition-opacity duration-1000 ${isVideoLoaded ? "opacity-100" : "opacity-0"}`}
+                        onLoadedData={() => {
+                            if (videoRef.current) {
+                                videoRef.current.currentTime = 0.001; // Force first frame
+                            }
+                            setIsVideoLoaded(true);
+                        }}
+                        onCanPlayThrough={() => setIsVideoLoaded(true)}
+                        style={{ filter: "brightness(0.6) contrast(1.1)" }}
                     />
 
                     {/* Cinematic Gradient Overlays */}

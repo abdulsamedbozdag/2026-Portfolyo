@@ -169,11 +169,18 @@ const EditorialShowcase = () => {
     const { t } = useLanguage();
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
+    const magazineImages = [
+        "/prometeon/dergi/8martözel2025.png",
+        "/prometeon/dergi/Bizden7.jpg",
+        "/prometeon/dergi/bizden6.png",
+        "/prometeon/dergi/bizden_8_dergi.png",
+    ];
+
     const magazineConfigs = [
-        { rotate: -12, x: -130, y: 25 },
-        { rotate: -4, x: -45, y: -5 },
-        { rotate: 4, x: 45, y: 5 },
-        { rotate: 12, x: 130, y: 30 },
+        { rotate: -12, x: -140, y: 20 },
+        { rotate: -4, x: -50, y: -10 },
+        { rotate: 4, x: 50, y: 0 },
+        { rotate: 12, x: 140, y: 30 },
     ];
 
     return (
@@ -193,7 +200,7 @@ const EditorialShowcase = () => {
                     </p>
                 </div>
 
-                <div className="relative h-[550px] md:h-[650px] flex items-center justify-center">
+                <div className="relative h-[500px] md:h-[650px] flex items-center justify-center">
                     {magazineConfigs.map((config, i) => (
                         <motion.div
                             key={i}
@@ -201,18 +208,18 @@ const EditorialShowcase = () => {
                             onMouseLeave={() => setHoveredIndex(null)}
                             initial={{
                                 rotate: config.rotate,
-                                x: config.x,
+                                x: typeof window !== 'undefined' && window.innerWidth < 768 ? config.x / 2 : config.x,
                                 y: config.y,
                             }}
                             animate={{
                                 rotate: hoveredIndex === i ? 0 : config.rotate,
-                                scale: hoveredIndex === i ? 1.15 : hoveredIndex !== null ? 0.95 : 1,
-                                x: config.x,
+                                scale: hoveredIndex === i ? (typeof window !== 'undefined' && window.innerWidth < 768 ? 1.05 : 1.15) : hoveredIndex !== null ? 0.95 : 1,
+                                x: typeof window !== 'undefined' && window.innerWidth < 768 ? config.x / 2 : config.x,
                                 y: hoveredIndex === i ? config.y - 30 : config.y,
                                 zIndex: hoveredIndex === i ? 50 : 10 - i,
                             }}
                             transition={{ type: "spring", stiffness: 180, damping: 22 }}
-                            className="absolute w-56 h-72 md:w-72 md:h-[400px] rounded-xl overflow-hidden cursor-pointer border transition-colors duration-500"
+                            className="absolute w-44 h-60 md:w-72 md:h-[400px] rounded-xl overflow-hidden cursor-pointer border transition-colors duration-500"
                             style={{
                                 borderColor: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.1)",
                                 boxShadow: hoveredIndex === i
@@ -221,13 +228,15 @@ const EditorialShowcase = () => {
                             }}
                         >
                             <Image
-                                src="/prometeon/dergi/bizden_8_dergi.png"
-                                alt={`Prometeon Dergisi Sayı ${i + 1}`}
+                                src={magazineImages[i]}
+                                alt={`Prometeon Dergisi Sayı ${i + 6}`}
                                 fill
                                 className={`object-cover transition-all duration-500 ${hoveredIndex !== null && hoveredIndex !== i ? "opacity-40 blur-[1px]" : "opacity-90"}`}
                             />
                             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/70 to-transparent p-4 flex flex-col justify-end">
-                                <span className="text-[9px] font-mono text-white/50 uppercase tracking-widest">Sayı 0{i + 1}</span>
+                                <span className="text-[9px] font-mono text-white/50 uppercase tracking-widest">
+                                    {i === 0 ? "8 Mart Özel" : `Sayı 0${i + 5}`}
+                                </span>
                             </div>
                         </motion.div>
                     ))}
@@ -296,37 +305,30 @@ const TireCrossSection = () => {
 const CreativeShowcase = () => {
     const { isDark } = useTheme();
     const { t } = useLanguage();
+    const [selectedGallery, setSelectedGallery] = useState<string[] | null>(null);
+
+    const fieldAppsImages = [
+        "/prometeon/saha uygulamalari/saha_1.png",
+        "/prometeon/saha uygulamalari/saha_2.png",
+        "/prometeon/saha uygulamalari/saha3.png",
+        "/prometeon/saha uygulamalari/saha4.png",
+        "/prometeon/saha uygulamalari/durlas_835x290-001.jpg",
+        "/prometeon/saha uygulamalari/600x400_R02-01.jpg",
+    ];
 
     const showcaseItems = [
-        {
-            title: "Lansman Etkinliği",
-            subtitle: "Çırağan Sarayı, İstanbul",
-            image: "/prometeon/Lansman/toplufoto.jpeg",
-            span: "lg:col-span-7",
-        },
-        {
-            title: "Özel Günler",
-            subtitle: "Milli Gün Kampanyaları",
-            image: "/prometeon/Özel Günler/19_MAYIS.jpeg",
-            span: "lg:col-span-5",
-        },
         {
             title: "Kurum İçi İletişim",
             subtitle: "Sosyal Medya ve Markalama",
             image: "/prometeon/Özel Günler/ANNELERGUNU.png",
-            span: "lg:col-span-5",
-        },
-        {
-            title: "Ürün Lansmanı",
-            subtitle: "Endüstriyel Vitrin",
-            image: "/prometeon/Lansman/EMR_0101 Renkli (124 of 681).jpg",
-            span: "lg:col-span-7",
+            span: "lg:col-span-6",
         },
         {
             title: "Saha Uygulamaları",
             subtitle: "Marka Görünürlüğü",
             image: "/prometeon/dagvelastik.jpeg",
-            span: "lg:col-span-12",
+            span: "lg:col-span-6",
+            gallery: fieldAppsImages
         }
     ];
 
@@ -347,7 +349,7 @@ const CreativeShowcase = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-5 text-left">
                     {showcaseItems.map((item, i) => (
                         <motion.div
                             key={i}
@@ -355,6 +357,7 @@ const CreativeShowcase = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
+                            onClick={() => item.gallery && setSelectedGallery(item.gallery)}
                             className={`${item.span} md:col-span-6 group relative h-[350px] md:h-[420px] rounded-2xl overflow-hidden cursor-pointer border transition-colors duration-500`}
                             style={{ borderColor: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.08)" }}
                         >
@@ -380,6 +383,41 @@ const CreativeShowcase = () => {
                         </motion.div>
                     ))}
                 </div>
+
+                {/* Saha Uygulamaları Modal Gallery */}
+                <AnimatePresence>
+                    {selectedGallery && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 z-[200] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center p-6 md:p-20"
+                        >
+                            <button
+                                onClick={() => setSelectedGallery(null)}
+                                className="absolute top-10 right-10 text-white/60 hover:text-white transition-colors p-4"
+                            >
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </button>
+
+                            <div className="w-full max-w-6xl h-full flex items-center justify-center overflow-x-auto snap-x snap-mandatory gap-8 pb-10 custom-scrollbar">
+                                {selectedGallery.map((img, idx) => (
+                                    <div key={idx} className="relative min-w-full md:min-w-[80%] h-full snap-center flex-shrink-0">
+                                        <Image
+                                            src={img}
+                                            alt={`Gallery item ${idx + 1}`}
+                                            fill
+                                            className="object-contain"
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="text-white/40 text-sm font-light mt-4 tracking-widest uppercase">
+                                Sağa Kaydırarak Gezin • {selectedGallery.length} Görsel
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </section>
     );
@@ -407,6 +445,7 @@ const SponsorshipShowcase = () => {
             title: t("prometeon.sponsorshipToprak"),
             image: "/prometeon/Sponsorluk/toprak razgatlıoğlu kutlama post_R2.jpg",
             category: "Sponsorluk",
+            hasSaltLogo: true
         },
     ];
 
@@ -427,7 +466,7 @@ const SponsorshipShowcase = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
                     {sponsors.map((item, i) => (
                         <motion.div
                             key={i}
@@ -444,9 +483,25 @@ const SponsorshipShowcase = () => {
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
                             </div>
-                            <div>
+                            <div className="flex flex-col">
                                 <span className="text-[10px] font-mono tracking-widest uppercase opacity-40">{item.category}</span>
-                                <h3 className="text-xl font-bold mt-1">{item.title}</h3>
+                                <div className="flex items-center gap-3 mt-1">
+                                    <h3 className="text-xl font-bold">{item.title}</h3>
+                                    {item.hasSaltLogo && (
+                                        <div className="relative w-8 h-8 rounded-sm overflow-hidden flex-shrink-0">
+                                            <Image
+                                                src="/logos/salt.png"
+                                                alt="Salt Logo"
+                                                fill
+                                                className="object-contain"
+                                                onError={(e) => {
+                                                    // Fallback if logo not found
+                                                    (e.target as any).style.display = 'none';
+                                                }}
+                                            />
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         </motion.div>
                     ))}
@@ -455,6 +510,7 @@ const SponsorshipShowcase = () => {
         </section>
     );
 };
+
 
 // ==========================================
 // MAIN PAGE

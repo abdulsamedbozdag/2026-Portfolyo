@@ -46,17 +46,24 @@ export function SpitfireScene({
     }, []);
 
     return (
-        <div ref={containerRef} className={cn(className, "cursor-grab active:cursor-grabbing")}>
+        <div 
+            ref={containerRef} 
+            className={cn(className, "relative cursor-grab active:cursor-grabbing touch-pan-y")}
+            style={{ touchAction: 'pan-y' }}
+        >
             {isVisible && (
                 <Canvas
                     shadows={false}
-                    dpr={1} // Static DPR for performance
+                    dpr={1} 
                     gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
+                    style={{ pointerEvents: 'auto', touchAction: 'pan-y' }}
+                    camera={{ position: [0, 0, 10], fov: 35 }}
                 >
                     <Suspense fallback={<Loader3D />}>
                         <Stage
                             intensity={0.5}
                             environment="city"
+                            adjustCamera={false}
                         >
                             <Float
                                 speed={1.5}
@@ -70,14 +77,13 @@ export function SpitfireScene({
 
                     <OrbitControls
                         makeDefault
-                        enableZoom={enableZoom}
+                        enableZoom={false}
                         autoRotate={autoRotate}
                         autoRotateSpeed={0.8}
                         enablePan={false}
+                        rotateSpeed={0.5}
                         minPolarAngle={Math.PI / 4}
                         maxPolarAngle={Math.PI / 1.5}
-                        minDistance={minDistance}
-                        maxDistance={maxDistance}
                     />
                 </Canvas>
             )}

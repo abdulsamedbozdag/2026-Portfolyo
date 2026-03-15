@@ -4,8 +4,9 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { StickyBackButton } from "@/components/StickyBackButton";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { Download, GraduationCap, Briefcase, Heart, Award, Globe } from "lucide-react";
+import { Download, GraduationCap, Briefcase, Heart, Award, Globe, ArrowLeft } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Experience {
     company: string;

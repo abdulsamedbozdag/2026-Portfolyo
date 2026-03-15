@@ -124,33 +124,36 @@ export default function EditorialHero() {
                             transition={{ delay: 0.5 }}
                             className="mt-4 flex flex-wrap gap-4"
                         >
-                            <button className="px-8 py-3.5 rounded-full bg-foreground text-background font-semibold hover:bg-emerald-500 transition-colors duration-300">
-                                {t("common.projects")}
-                            </button>
                             <a
                                 href="/CV_AbdulSamedBozdag.pdf"
                                 download="AbdulSamedBozdag_CV.pdf"
-                                className="px-8 py-3.5 rounded-full border border-foreground/20 text-foreground font-semibold hover:bg-foreground hover:text-background transition-all duration-300 no-underline inline-flex items-center gap-2"
+                                className="px-8 py-3.5 rounded-full bg-foreground text-background font-semibold hover:bg-emerald-500 transition-all duration-300 no-underline inline-flex items-center gap-2"
                             >
                                 <Download size={18} />
-                                {t("common.projects") === "Projelerimi Gör" ? "CV'yi İndir" : "Download CV"}
+                                {language === "tr" ? "CV'yi İndir" : "Download CV"}
                             </a>
                         </motion.div>
                     </motion.div>
                 </div>
 
-                {/* Subtle Indicator */}
+                {/* Subtle Indicator - Enhanced for better feedback */}
                 <div className="flex justify-start">
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1.2 }}
-                        className="flex items-center gap-3 text-[10px] uppercase tracking-[0.4em] text-foreground/20 transition-colors duration-500"
+                        className="flex flex-col items-start gap-4 text-[10px] uppercase tracking-[0.4em] text-foreground/40 transition-colors duration-500"
                     >
-                        <div className="animate-bounce">
-                            <ArrowDown size={14} />
+                        <div className="flex items-center gap-3">
+                            <motion.div 
+                                animate={{ y: [0, 8, 0] }}
+                                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                                className="text-emerald-400"
+                            >
+                                <ArrowDown size={14} />
+                            </motion.div>
+                            <span className="font-bold">{t("common.scrollDown")}</span>
                         </div>
-                        <span>{t("common.scrollDown")}</span>
                     </motion.div>
                 </div>
             </div>
