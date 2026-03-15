@@ -4,15 +4,19 @@ import { useEffect, useRef, useState } from "react";
 
 export function CustomCursor() {
     const dotRef = useRef<HTMLDivElement>(null);
-    const [isMobile, setIsMobile] = useState(true); // default true to avoid flash
     const isHoveredRef = useRef(false);
     const rafRef = useRef<number>(0);
     const mouseRef = useRef({ x: 0, y: 0 });
+    const [isMobile, setIsMobile] = useState(() => {
+        if (typeof window !== "undefined") {
+            return window.matchMedia("(pointer: coarse)").matches;
+        }
+        return false;
+    });
 
     useEffect(() => {
-        const mobile = window.matchMedia("(pointer: coarse)").matches;
-        setIsMobile(mobile);
-        if (mobile) return;
+        // Initial value for isMobile is set via lazy initializer
+        if (isMobile) return;
 
         const dot = dotRef.current;
         if (!dot) return;

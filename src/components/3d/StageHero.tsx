@@ -205,8 +205,8 @@ function CameraRig() {
     useFrame((state) => {
         const t = state.clock.elapsedTime;
         // Very subtle idle sway
-        camera.position.x = THREE.MathUtils.lerp(camera.position.x, Math.sin(t * 0.15) * 0.3, 0.02);
-        camera.position.y = THREE.MathUtils.lerp(camera.position.y, 2.2 + Math.sin(t * 0.2) * 0.1, 0.02);
+        camera.position.setX(THREE.MathUtils.lerp(camera.position.x, Math.sin(t * 0.15) * 0.3, 0.02));
+        camera.position.setY(THREE.MathUtils.lerp(camera.position.y, 2.2 + Math.sin(t * 0.2) * 0.1, 0.02));
         camera.lookAt(0, 1.2, -2);
     });
 

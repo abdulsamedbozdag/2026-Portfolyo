@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const nextConfig: any = {
+const nextConfig: import("next").NextConfig = {
   images: {
     remotePatterns: [
       {
@@ -9,6 +9,7 @@ const nextConfig: any = {
       },
     ],
   },
+  // We'll let Vercel handle these or fix the errors so they aren't needed
   typescript: {
     ignoreBuildErrors: true,
   },

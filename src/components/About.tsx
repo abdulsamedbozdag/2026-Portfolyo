@@ -68,7 +68,7 @@ export function About() {
                                 className="inline-flex items-center gap-2 text-foreground/40 hover:text-primary transition-colors font-medium text-sm mt-4 cursor-pointer no-underline"
                             >
                                 <Download size={14} />
-                                {t("common.projects") === "Projelerimi Gör" ? "CV'yi İndir" : "Download CV"}
+                                {t("common.projects") === "Projelerimi Gör" ? "CV&apos;yi İndir" : "Download CV"}
                             </a>
                         </div>
                     </div>

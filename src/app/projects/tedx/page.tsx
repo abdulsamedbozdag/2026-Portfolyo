@@ -22,7 +22,10 @@ export default function TedxPage() {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+        const checkMobile = () => setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
 
@@ -61,12 +64,11 @@ export default function TedxPage() {
     useEffect(() => {
         const video = videoRef.current;
 
-        // Safety timeout: Unlock screen after 10s regardless of load state
+        if (!video) return;
+
         const timer = setTimeout(() => {
             setIsVideoLoaded(true);
         }, 10000);
-
-        if (!video) return () => clearTimeout(timer);
 
         const handleProgress = () => {
             if (video.buffered.length > 0) {
@@ -107,7 +109,7 @@ export default function TedxPage() {
                     />
 
                     {/* Cinematic Gradient Overlays */}
-                    pulp                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 pointer-events-none" />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20 pointer-events-none" />
 
                     {/* Noise texture overlay */}
@@ -193,8 +195,8 @@ export default function TedxPage() {
                     <h2 className="text-3xl font-bold mb-8 text-foreground transition-colors duration-500">ANA AFİŞ</h2>
                     <div className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed mb-12 space-y-6 transition-colors duration-500">
                         <p>
-                            Hayatın her alanından isimlerin "The Game" konseptiyle konuşma yaptığı
-                            etkinliğimizin tasarımı için "Labirent"ten ilham alındı.
+                            Hayatın her alanından isimlerin &quot;The Game&quot; konseptiyle konuşma yaptığı
+                            etkinliğimizin tasarımı için &quot;Labirent&quot;ten ilham alındı.
                         </p>
                         <p>
                             Labirent felsefesi, genellikle hayatın karmaşıklığını,

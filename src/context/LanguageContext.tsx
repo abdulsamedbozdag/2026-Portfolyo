@@ -14,13 +14,20 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-    const [language, setLanguageState] = useState<Language>("tr");
+    const [language, setLanguageState] = useState<Language>(() => {
+        if (typeof window !== "undefined") {
+            try {
+                const savedLang = localStorage.getItem("language") as Language;
+                return savedLang || "tr";
+            } catch (e) {
+                return "tr";
+            }
+        }
+        return "tr";
+    });
 
     useEffect(() => {
-        const savedLang = localStorage.getItem("language") as Language;
-        if (savedLang) {
-            setLanguageState(savedLang);
-        }
+        // Language is already initialized via lazy initializer
     }, []);
 
     const setLanguage = useCallback((lang: Language) => {
