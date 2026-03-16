@@ -178,7 +178,7 @@ export default function TedxPage() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-left md:text-center">
                         <div>
                             <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2 transition-colors duration-500">Rolüm</h3>
-                            <p className="text-lg font-medium text-foreground transition-colors duration-500">Art Director & 3D Artist</p>
+                            <p className="text-lg font-medium text-foreground transition-colors duration-500">Grafik Tasarımcı & 3D Artist</p>
                         </div>
                         <div>
                             <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2 transition-colors duration-500">Yıl</h3>
