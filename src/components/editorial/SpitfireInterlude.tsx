@@ -6,7 +6,7 @@ import { SpitfireScene } from "@/components/3d/SpitfireScene";
 
 export default function SpitfireInterlude() {
     return (
-        <section className="relative h-[40vh] md:h-screen min-h-[250px] md:min-h-[600px] w-full flex items-center justify-center bg-background transition-colors duration-500 overflow-hidden -mt-8 md:mt-0">
+        <section className="relative h-[70vh] md:h-screen min-h-[400px] md:min-h-[600px] w-full flex items-center justify-center bg-background transition-colors duration-500 overflow-hidden -mt-8 md:mt-0">
             {/* Background Title (Behind the Plane) */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 select-none px-6 text-center">
                 <motion.div
@@ -35,8 +35,8 @@ export default function SpitfireInterlude() {
                 />
             </div>
 
-            {/* Bottom Controls (On Top) */}
-            <div className="absolute bottom-12 md:bottom-24 left-0 w-full flex flex-col items-center gap-4 md:gap-6 z-20 pointer-events-none">
+            {/* Bottom Controls (On Top)  */}
+            <div className="absolute bottom-6 md:bottom-24 left-0 w-full flex flex-col items-center gap-4 md:gap-6 z-20 pointer-events-none">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ export default function SpitfireInterlude() {
 
             {/* Gradient fades for seamless integration */}
             <div className="absolute top-0 left-0 w-full h-8 md:h-32 bg-gradient-to-b from-background to-transparent pointer-events-none transition-colors duration-500" />
-            <div className="absolute bottom-0 left-0 w-full h-16 md:h-32 bg-gradient-to-t from-background to-transparent pointer-events-none transition-colors duration-500" />
+            <div className="absolute bottom-0 left-0 w-full h-24 md:h-32 bg-gradient-to-t from-background to-transparent pointer-events-none transition-colors duration-500" />
         </section>
     );
 }

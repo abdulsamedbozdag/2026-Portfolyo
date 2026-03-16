@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import Link from "next/link";
 import Image from "next/image";
-import { Download } from "lucide-react";
 
 interface Skill {
     name: string;
@@ -62,14 +61,6 @@ export function About() {
                                 </motion.span>
                             </Link>
 
-                            <a
-                                href="/CV_AbdulSamedBozdag.pdf"
-                                download="AbdulSamedBozdag_CV.pdf"
-                                className="inline-flex items-center gap-2 text-foreground/40 hover:text-primary transition-colors font-medium text-sm mt-4 cursor-pointer no-underline"
-                            >
-                                <Download size={14} />
-                                {t("common.projects") === "Projelerimi Gör" ? "CV&apos;yi İndir" : "Download CV"}
-                            </a>
                         </div>
                     </div>
 

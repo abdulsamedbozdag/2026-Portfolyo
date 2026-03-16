@@ -102,7 +102,7 @@ export default function AboutPage() {
                         </motion.p>
                         <motion.div variants={itemVariants} className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
                             <a
-                                href="/CV_AbdulSamedBozdag.pdf"
+                                href="/CV_AbdulSamedBozdag.pdf?v=3"
                                 download="AbdulSamedBozdag_CV.pdf"
                                 className="group flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-full font-bold transition-all hover:scale-105 active:scale-95 cursor-pointer no-underline"
                             >
