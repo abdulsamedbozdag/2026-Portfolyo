@@ -7,24 +7,31 @@ import { motion } from "framer-motion";
 import { Loader3D } from "../3d/Loader3D";
 
 function PrometeonTire() {
-    const { nodes } = useGLTF(
+    const { nodes, scene } = useGLTF(
         '/prometeon/lastikler/R02_PRO_TRAILER_M1_no_materials.glb',
         'https://www.gstatic.com/draco/versioned/decoders/1.5.5/'
     );
-    
-    // Model içindeki mesh adının 'Lastik_Objesi' veya 'Lastik' olduğunu varsayıyoruz
-    const tireNode = (nodes.Lastik_Objesi || nodes.Lastik) as any;
 
-    if (!tireNode) return null;
+    // Tüm mesh'leri alıyoruz
+    const meshes = Object.values(nodes).filter((node: any) => node.isMesh);
+
+    if (meshes.length === 0) {
+        console.warn("Model içinde hiç Mesh bulunamadı!");
+        return null;
+    }
 
     return (
-        <mesh geometry={tireNode.geometry} scale={0.25}>
-            <meshStandardMaterial
-                color="#121212"    // Çok koyu gri/siyah arası bir renk
-                roughness={0.7}    // Pürüzlülük (Kauçuk matlığı için)
-                metalness={0.1}    // Hafif bir ışık yansıması
-            />
-        </mesh>
+        <group scale={0.25}>
+            {meshes.map((mesh: any, idx: number) => (
+                <mesh key={idx} geometry={mesh.geometry}>
+                    <meshStandardMaterial
+                        color="#121212"    // Çok koyu gri/siyah arası bir renk
+                        roughness={0.7}    // Pürüzlülük (Kauçuk matlığı için)
+                        metalness={0.1}    // Hafif bir ışık yansıması
+                    />
+                </mesh>
+            ))}
+        </group>
     );
 }
 
