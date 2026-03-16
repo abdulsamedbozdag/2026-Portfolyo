@@ -8,7 +8,7 @@ import { Loader3D } from "../3d/Loader3D";
 
 function PrometeonTire() {
     const { nodes } = useGLTF(
-        '/prometeon/lastikler/R02_PRO_TRAILER_M1_no_materials.glb',
+        '/prometeon/lastikler/R02_PRO_TRAILER_M1_7MB.glb',
         'https://www.gstatic.com/draco/versioned/decoders/1.5.5/'
     );
 
