@@ -45,13 +45,13 @@ export default function OctaGonePage() {
             <StickyBackButton />
 
             {/* HERO SECTION */}
-            <section className="relative h-[90vh] flex flex-col justify-center px-6 md:px-12 overflow-hidden bg-black">
+            <section className="relative min-h-[60vh] flex flex-col justify-end px-6 md:px-12 pb-16 overflow-hidden bg-black">
                 <div className="absolute inset-0 z-0">
                     <Image 
                         src="/octagone/octagonekapak.png"
                         alt="OctaGone Hero"
                         fill
-                        className="object-cover opacity-60 grayscale-[0.3]"
+                        className="object-cover opacity-60 grayscale-[0.3] object-left"
                         priority
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-transparent" />
@@ -64,30 +64,25 @@ export default function OctaGonePage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <div className="flex items-center gap-4 mb-4">
+                        <div className="flex items-center gap-4 mb-12">
                             <span className="px-3 py-1 bg-red-600 text-[10px] font-bold tracking-widest uppercase rounded">PROJE 4 FINAL</span>
-                            <span className="text-xs uppercase tracking-[0.3em] text-neutral-400">ABDUL SAMED — 2008A028</span>
                         </div>
-
-                        <h1 className="text-[clamp(4rem,12vw,10rem)] font-black leading-[0.85] tracking-tighter mb-12">
-                            OCTA<span className="text-red-600">GONE</span>
-                        </h1>
 
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-white/10">
                             <div>
-                                <h3 className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2">Ders</h3>
+                                <h3 className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2 font-bold">Ders</h3>
                                 <p className="text-base font-semibold">Proje 4</p>
                             </div>
                             <div>
-                                <h3 className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2">Konu</h3>
+                                <h3 className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2 font-bold">Konu</h3>
                                 <p className="text-base font-semibold">Oyun Tasarımı</p>
                             </div>
                             <div>
-                                <h3 className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2">Yıl</h3>
+                                <h3 className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2 font-bold">Yıl</h3>
                                 <p className="text-base font-semibold">2025</p>
                             </div>
                             <div>
-                                <h3 className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2">Platform</h3>
+                                <h3 className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2 font-bold">Platform</h3>
                                 <p className="text-base font-semibold">Etkileşimli Mekan</p>
                             </div>
                         </div>
@@ -96,7 +91,7 @@ export default function OctaGonePage() {
             </section>
 
             {/* TIMELINE SECTION */}
-            <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/5 bg-neutral-950/50">
+            <section className="pt-20 pb-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/5 bg-neutral-950/50">
                 <SectionLabel>Zaman Çizelgesi</SectionLabel>
                 <SectionTitle>Gelişim Süreci</SectionTitle>
 
