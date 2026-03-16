@@ -7,24 +7,28 @@ import { motion } from "framer-motion";
 import { Loader3D } from "../3d/Loader3D";
 
 function PrometeonTire() {
-    const { nodes } = useGLTF(
+    const { scene } = useGLTF(
         '/prometeon/lastikler/R02_PRO_TRAILER_M1_7MB.glb',
         'https://www.gstatic.com/draco/versioned/decoders/1.5.5/'
     );
 
-    const allMeshes = Object.values(nodes).filter((node: any) => node.isMesh);
+    // Hiyerarşiyi bozmadan sadece istenmeyenleri gizliyoruz
+    scene.traverse((node: any) => {
+        if (node.isMesh || node.isSkinnedMesh) {
+            node.geometry.computeBoundingSphere();
+            const radius = node.geometry.boundingSphere.radius;
+            // Lastik parçaları ~500 içinde kalır. Cylinder ve diğer devasa yapılar ~1300.
+            if (radius > 800) {
+                node.visible = false;
+            } else {
+                node.visible = true;
+            }
+        }
+    });
 
     return (
         <group scale={0.25}>
-            {allMeshes.map((mesh: any, idx: number) => (
-                <mesh key={idx} geometry={mesh.geometry}>
-                    <meshStandardMaterial
-                        color="#121212"    
-                        roughness={0.7}    
-                        metalness={0.1}    
-                    />
-                </mesh>
-            ))}
+            <primitive object={scene} />
         </group>
     );
 }
@@ -55,20 +59,20 @@ export function TireScene() {
 
     return (
         <div className="w-full h-full flex items-center justify-center relative overflow-hidden cursor-grab active:cursor-grabbing">
-            {/* Background Glow (to help black tire visibility) */}
+            {/* Background Glow */}
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08)_0%,transparent_70%)]" />
 
             <Canvas shadows camera={{ position: [0, 0, 5], fov: 40 }} dpr={[1, 2]}>
                 <Suspense fallback={<Loader3D />}>
-                    {/* Re-enabling adjustCamera to let Stage handle the base fit, matching scale for final size */}
-                    <Stage environment="studio" intensity={1.5} shadows={{ type: 'contact', opacity: 0.8, blur: 2 } as any} adjustCamera={true}>
+                    <Stage environment="studio" intensity={2} shadows={{ type: 'contact', opacity: 0.8, blur: 2 } as any} adjustCamera={true}>
                         <PrometeonTire />
                     </Stage>
 
-                    {/* Lighting for the sidewall - Focused on the right diagonal */}
+                    {/* Branding specific spotlight - hitting sidewall at an angle for shadows */}
+                    <spotLight position={[5, 2, 5]} intensity={15} angle={0.4} penumbra={1} castShadow />
                     <directionalLight position={[10, 5, 5]} intensity={4} color="#ffffff" />
                     <directionalLight position={[-10, 5, -5]} intensity={1} color="#ffffff" />
-                    <ambientLight intensity={0.4} />
+                    <ambientLight intensity={0.5} />
 
                     <OrbitControls
                         enableZoom={isCtrlPressed}
