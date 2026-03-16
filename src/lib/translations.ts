@@ -7,7 +7,7 @@ export const translations = {
             location: "İstanbul, Türkiye",
             rights: "Tüm hakları saklıdır.",
             workTogether: "İletişime geçin",
-            hello: "Selamlar!",
+            hello: "👋",
             im: "Ben Abdul Samed Bozdağ.",
             aboutMe: "Hakkımda",
             journey: "Yolculuğum",
@@ -22,8 +22,8 @@ export const translations = {
             app: "Uygulama",
         },
         hero: {
-            title: "İletişim Tasarımcısı",
-            description: "Tasarım ve anlatıyı birleştirerek insani, işlevsel ve estetik dijital deneyimler inşa ediyorum.",
+            title: "İletişim Tasarımcısı | UI / UX",
+            description: "Karmaşık problemleri, estetik ve işlevsel tasarım çözümleriyle ele alıyorum.",
         },
         prometeon: {
             slogan: "Siz Sürdükçe,",
@@ -203,7 +203,7 @@ export const translations = {
             location: "Istanbul, Turkey",
             rights: "All rights reserved.",
             workTogether: "Get in touch",
-            hello: "Hello!",
+            hello: "👋",
             im: "I'm Abdul Samed Bozdağ.",
             aboutMe: "About Me",
             journey: "My Journey",
@@ -218,8 +218,8 @@ export const translations = {
             app: "App",
         },
         hero: {
-            title: "Communication Designer",
-            description: "Combining design and narrative to build human-centered, functional, and aesthetic digital experiences.",
+            title: "Communication Designer | UI / UX",
+            description: "I approach complex problems with aesthetic and functional design solutions.",
         },
         prometeon: {
             slogan: "As Long As You Drive,",

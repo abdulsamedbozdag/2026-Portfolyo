@@ -49,8 +49,8 @@ export default function EditorialHero() {
     return (
         <section className="relative h-screen w-full overflow-hidden bg-background text-foreground font-friendly transition-colors duration-500">
 
-            {/* Main Layout */}
-            <div className="relative z-20 h-full flex flex-col justify-between px-6 md:px-12 pt-6 md:pt-10 pb-10 max-w-[1400px] mx-auto">
+            {/* Main Layout - Tightened spacing */}
+            <div className="relative z-20 h-full flex flex-col justify-start px-6 md:px-12 pt-6 md:pt-4 pb-10 max-w-[1400px] mx-auto gap-8 md:gap-12">
 
                 {/* Navigation Navbar */}
                 <nav className="relative z-50 w-full transition-all duration-500">
@@ -95,7 +95,7 @@ export default function EditorialHero() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                        className="flex flex-col gap-6"
+                        className="flex flex-col gap-4"
                     >
                         <div className="inline-flex items-center gap-3 text-emerald-400 font-medium tracking-wide">
                             <span className="h-0.5 w-10 bg-emerald-400/30"></span>
