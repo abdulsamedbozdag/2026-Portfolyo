@@ -19,6 +19,7 @@ interface ProjectShowcaseProps {
     objectContain?: boolean; // New: To prevent cropping
     titleImage?: string; // New: For logic-based logos as titles
     customComponent?: React.ReactNode; // New: For 3D scenes or others
+    imageClassName?: string; // New: For custom image positioning (e.g., object-left)
 }
 
 export default function ProjectShowcase({
@@ -34,6 +35,7 @@ export default function ProjectShowcase({
     objectContain = false,
     titleImage,
     customComponent,
+    imageClassName,
 }: ProjectShowcaseProps) {
     return (
         <section className="min-h-fit flex items-center justify-center py-8 md:py-24 px-6 md:px-12 relative overflow-hidden bg-background text-foreground transition-colors duration-500">
@@ -142,7 +144,8 @@ export default function ProjectShowcase({
                                     fill
                                     className={cn(
                                         "transition-transform duration-700 group-hover:scale-105",
-                                        objectContain ? "object-contain" : "object-cover"
+                                        objectContain ? "object-contain" : "object-cover",
+                                        imageClassName
                                     )}
                                 />
                             )}

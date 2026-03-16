@@ -154,6 +154,7 @@ export default function Home() {
                 reverse={p.reverse}
                 objectContain={p.objectContain}
                 customComponent={p.customComponent}
+                imageClassName={p.id === "octagone" ? "object-left" : ""}
               />
 
             </motion.div>
