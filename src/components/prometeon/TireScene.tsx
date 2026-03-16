@@ -7,16 +7,28 @@ import { motion } from "framer-motion";
 import { Loader3D } from "../3d/Loader3D";
 
 function PrometeonTire() {
-    const { nodes, scene } = useGLTF(
+    const { nodes } = useGLTF(
         '/prometeon/lastikler/R02_PRO_TRAILER_M1_no_materials.glb',
         'https://www.gstatic.com/draco/versioned/decoders/1.5.5/'
     );
 
-    // Tüm mesh'leri alıyoruz
-    const meshes = Object.values(nodes).filter((node: any) => node.isMesh);
+    // Tüm mesh'leri alıyoruz ve devasa olanları (arka plan/stüdyo) eliyoruz
+    const meshes = Object.values(nodes).filter((node: any) => {
+        if (!node.isMesh) return false;
+        
+        // Geometrinin boyutunu kontrol et
+        if (node.geometry) {
+            node.geometry.computeBoundingSphere();
+            const radius = node.geometry.boundingSphere.radius;
+            // Lastik genellikle küçük bir alan kaplar. 
+            // Radyusu çok büyük olan (örneğin > 5) nesneler muhtemelen stüdyo veya yardımcı halkalardır.
+            return radius < 5;
+        }
+        return true;
+    });
 
     if (meshes.length === 0) {
-        console.warn("Model içinde hiç Mesh bulunamadı!");
+        console.warn("Filtreleme sonrası uygun Mesh bulunamadı!");
         return null;
     }
 
@@ -25,9 +37,9 @@ function PrometeonTire() {
             {meshes.map((mesh: any, idx: number) => (
                 <mesh key={idx} geometry={mesh.geometry}>
                     <meshStandardMaterial
-                        color="#121212"    // Çok koyu gri/siyah arası bir renk
-                        roughness={0.7}    // Pürüzlülük (Kauçuk matlığı için)
-                        metalness={0.1}    // Hafif bir ışık yansıması
+                        color="#121212"    
+                        roughness={0.7}    
+                        metalness={0.1}    
                     />
                 </mesh>
             ))}

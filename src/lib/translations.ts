@@ -34,7 +34,7 @@ export const translations = {
             techTitle: "Lastik Teknolojisi",
             techDesc: "Prometeon endüstriyel lastik kesitinin 3D görselleştirilmesi. İç yapıyı, sırt bileşenlerini ve güçlendirilmiş gövde teknolojisini gösteren detaylı render.",
             galleryTitle: "Kampanya Galerisi",
-            gallerySub: "Etkinlikler · Kampanyalar · Kurum İçi İletişim",
+            gallerySub: "Etkinlikler · Kampanyalar · Görsel Tasarım",
             sponsorshipTitle: "Sponsorluk & Sosyal Sorumluluk",
             sponsorshipSub: "Global Marka Elçileri ve Toplumsal Fayda",
             sponsorshipArda: "Sports QR Sponsorluğu",
@@ -71,7 +71,7 @@ export const translations = {
                         "Kurumsal Marka Yönetimi: Global CI standartlarına sadık kalarak yerel stratejilerin uygulanması.",
                         "B2B Pazarlama İletişimi: Ürün lansman materyalleri ve dijital mailing tasarımları.",
                         "Etkinlik ve Sponsorluk: A Milli Futbol Takımı, Toprak Razgatlıoğlu ve Dakar sponsorluk yönetimi.",
-                        "İç İletişim: İK departmanı için stratejik görsel destek ve sunum tasarımları."
+                        "Görsel Tasarım: İK departmanı için stratejik görsel destek ve sunum tasarımları."
                     ]
                 },
                 {
@@ -230,7 +230,7 @@ export const translations = {
             techTitle: "Tire Technology",
             techDesc: "3D visualization of Prometeon industrial tire cross-section. Detailed render showing internal structure, tread components, and reinforced casing technology.",
             galleryTitle: "Campaign Gallery",
-            gallerySub: "Events · Campaigns · Internal Communication",
+            gallerySub: "Events · Campaigns · Visual Design",
             sponsorshipTitle: "Sponsorship & Social Responsibility",
             sponsorshipSub: "Global Brand Ambassadors and Social Impact",
             sponsorshipArda: "Sports QR Sponsorship",
@@ -267,7 +267,7 @@ export const translations = {
                         "Corporate Brand Management: Executing visual strategies while adhering to global CI standards.",
                         "B2B Marketing Communication: Producing launch materials and digital mailing designs.",
                         "Events and Sponsorship: Creative management for Turkish National Football Team, Toprak Razgatlıoğlu, and Dakar.",
-                        "Internal Communication: Strategic visual support and presentation designs for HR."
+                        "Visual Design: Strategic visual support and presentation designs for HR."
                     ]
                 },
                 {

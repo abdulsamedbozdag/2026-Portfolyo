@@ -30,7 +30,7 @@ export default function Home() {
       category: "Marka ve İletişim",
       mainCategory: ["3D", "Brand & Graphic"],
       title: "Prometeon",
-      tags: ["İç İletişim", "Basılı Materyaller", "Fabrika Giydirmeleri"],
+      tags: ["Görsel Tasarım", "Basılı Materyaller", "Fabrika Giydirmeleri"],
       image: "/prometeon/Logo/Prometeon_Slogan_Darkblue_NoBox_PNG-01.png",
       href: "/projects/prometeon",
       reverse: true,
