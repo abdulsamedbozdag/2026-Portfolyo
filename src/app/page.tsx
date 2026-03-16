@@ -8,7 +8,11 @@ import SpitfireInterlude from "@/components/editorial/SpitfireInterlude";
 import dynamic from 'next/dynamic';
 const TireScene = dynamic(() => import('@/components/prometeon/TireScene').then(mod => mod.TireScene), { 
   ssr: false,
-  loading: () => <p className="text-xs uppercase tracking-widest opacity-30">Yükleniyor...</p>
+  loading: () => (
+    <div className="h-[400px] w-full flex items-center justify-center bg-neutral-900/10 rounded-3xl animate-pulse text-xs uppercase tracking-widest opacity-30">
+      Yükleniyor...
+    </div>
+  )
 });
 
 import { About } from "@/components/About";
@@ -61,6 +65,17 @@ export default function Home() {
       number: "03"
     },
     {
+      id: "octagone",
+      category: "Oyun Tasarımı",
+      mainCategory: ["UI/UX Design"],
+      title: "OctaGone",
+      tags: ["Etkileşim Tasarımı", "Oyun Mekaniği", "Mekan Tasarımı"],
+      image: "/octagone/octagonekapak.png",
+      href: "/projects/octagone",
+      reverse: false,
+      number: "04"
+    },
+    {
       id: "car2gather",
       category: t("common.webPlatform"),
       mainCategory: ["UI/UX Design"],
@@ -68,8 +83,8 @@ export default function Home() {
       tags: ["Web Tasarım", "Kullanıcı Akışı", "SaaS"],
       image: "/car2gather/AnasayfaKapakGörseli.png",
       href: "/projects/car2gather",
-      reverse: false,
-      number: "04"
+      reverse: true,
+      number: "05"
     },
     {
       id: "uni4society",
@@ -79,8 +94,8 @@ export default function Home() {
       tags: ["Sosyal Medya", "Görsel Kimlik", "Sticker Tasarımı"],
       image: "/Uni4Society/Sticker/İçerikler/Behance-KAPAK copy.jpg",
       href: "/projects/uni4society",
-      reverse: true,
-      number: "05"
+      reverse: false,
+      number: "06"
     }
   ];
 

@@ -64,15 +64,15 @@ export function TireScene() {
 
             <Canvas shadows camera={{ position: [0, 0, 5], fov: 40 }} dpr={[1, 2]}>
                 <Suspense fallback={<Loader3D />}>
-                    <Stage environment="studio" intensity={2} shadows={{ type: 'contact', opacity: 0.8, blur: 2 } as any} adjustCamera={true}>
+                    <Stage environment="studio" intensity={1.5} shadows={{ type: 'contact', opacity: 0.8, blur: 2 } as any} adjustCamera={true}>
                         <PrometeonTire />
                     </Stage>
 
                     {/* Branding specific spotlight - hitting sidewall at an angle for shadows */}
-                    <spotLight position={[5, 2, 5]} intensity={15} angle={0.4} penumbra={1} castShadow />
+                    <spotLight position={[7, 2, 5]} intensity={20} angle={0.4} penumbra={1} castShadow />
                     <directionalLight position={[10, 5, 5]} intensity={4} color="#ffffff" />
                     <directionalLight position={[-10, 5, -5]} intensity={1} color="#ffffff" />
-                    <ambientLight intensity={0.5} />
+                    <ambientLight intensity={0.4} />
 
                     <OrbitControls
                         enableZoom={isCtrlPressed}
