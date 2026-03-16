@@ -36,7 +36,7 @@ export default function ProjectShowcase({
     customComponent,
 }: ProjectShowcaseProps) {
     return (
-        <section className="min-h-fit flex items-center justify-center py-8 md:py-24 px-6 md:px-12 relative overflow-hidden bg-background text-foreground transition-colors duration-500">
+        <section className="min-h-fit flex items-center justify-center py-16 md:py-32 px-6 md:px-12 relative overflow-hidden bg-background text-foreground transition-colors duration-500">
             {/* Background radial glow */}
             <div
                 className={`absolute w-[800px] h-[800px] rounded-full blur-[120px] opacity-[0.03] pointer-events-none 
