@@ -322,12 +322,11 @@ const CreativeShowcase = () => {
     ];
 
     const fieldAppsImages = [
-        "/prometeon/saha uygulamalari/saha_1.png",
-        "/prometeon/saha uygulamalari/saha_2.png",
-        "/prometeon/saha uygulamalari/saha3.png",
-        "/prometeon/saha uygulamalari/saha4.png",
-        "/prometeon/saha uygulamalari/durlas_835x290-001.jpg",
-        "/prometeon/saha uygulamalari/600x400_R02-01.jpg",
+        "/prometeon/saha%20uygulamalari/saha_1.png",
+        "/prometeon/saha%20uygulamalari/saha_2.png",
+        "/prometeon/saha%20uygulamalari/saha3.png",
+        "/prometeon/saha%20uygulamalari/saha4.png",
+        "/prometeon/saha%20uygulamalari/durlas_835x290-001.jpg",
     ];
 
     const showcaseItems = [
