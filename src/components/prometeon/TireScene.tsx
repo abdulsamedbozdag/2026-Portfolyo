@@ -12,32 +12,11 @@ function PrometeonTire() {
         'https://www.gstatic.com/draco/versioned/decoders/1.5.5/'
     );
 
-    // Hata ayıklama için tüm mesh'leri ve boyutlarını inceleyelim
     const allMeshes = Object.values(nodes).filter((node: any) => node.isMesh);
-    
-    console.log("--- 3D Mesh Analizi ---");
-    allMeshes.forEach((m: any) => {
-        m.geometry.computeBoundingSphere();
-        console.log(`Mesh: ${m.name}, Radius: ${m.geometry.boundingSphere.radius.toFixed(2)}`);
-    });
-
-    // Filtreyi teknik verilere göre optimize ediyoruz:
-    // Lastik gövdesi (empty_150-161): ~60 radius
-    // Lastik yanakları (Mesh_160, Mesh_161): ~450-560 radius
-    // Gereksiz stüdyo/arka plan (Cylinder): ~1312 radius
-    const filteredMeshes = allMeshes.filter((node: any) => {
-        const radius = node.geometry.boundingSphere.radius;
-        return radius < 1000; // Sadece devasa yardımcı geometrileri eler, lastiği tam bırakır.
-    });
-
-    if (filteredMeshes.length === 0) {
-        console.warn("Filtreleme sonrası uygun Mesh bulunamadı! Limitleri tekrar kontrol et.");
-        return null;
-    }
 
     return (
         <group scale={0.25}>
-            {filteredMeshes.map((mesh: any, idx: number) => (
+            {allMeshes.map((mesh: any, idx: number) => (
                 <mesh key={idx} geometry={mesh.geometry}>
                     <meshStandardMaterial
                         color="#121212"    
