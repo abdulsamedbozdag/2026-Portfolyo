@@ -21,21 +21,21 @@ function PrometeonTire() {
         console.log(`Mesh: ${m.name}, Radius: ${m.geometry.boundingSphere.radius.toFixed(2)}`);
     });
 
-    // Filtreyi çok daha gevşek tutuyoruz (örneğin devasa bir stüdyo mesh'i varsa onu eleriz)
+    // Filtreyi analiz sonuçlarına göre güncelliyoruz:
+    // Lastik parçaları (empty_150-161) yaklaşık 54-82 radyusunda.
+    // Devasa halka ve stüdyo (Mesh_160, Cylinder) 450+ radyusunda.
     const filteredMeshes = allMeshes.filter((node: any) => {
         const radius = node.geometry.boundingSphere.radius;
-        // Eğer radius çok büyükse (örn > 100), muhtemelen stüdyo/arkaplan elemanıdır.
-        // Ama lastik için 5 çok azmış, 50 yapalım.
-        return radius < 50;
+        return radius < 120; // 100-120 aralığı lastiği kapsar, halkayı eler.
     });
 
     if (filteredMeshes.length === 0) {
-        console.warn("Filtreleme sonrası uygun Mesh bulunamadı! Tüm mesh'ler çok büyük olabilir.");
+        console.warn("Filtreleme sonrası uygun Mesh bulunamadı! Limitleri tekrar kontrol et.");
         return null;
     }
 
     return (
-        <group scale={0.5}>
+        <group scale={0.1}>
             {filteredMeshes.map((mesh: any, idx: number) => (
                 <mesh key={idx} geometry={mesh.geometry}>
                     <meshStandardMaterial
