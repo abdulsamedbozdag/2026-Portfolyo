@@ -45,17 +45,17 @@ export default function OctaGonePage() {
             <StickyBackButton />
 
             {/* HERO SECTION */}
-            <section className="relative min-h-[60vh] flex flex-col justify-end px-6 md:px-12 pb-16 overflow-hidden bg-black">
+            <section className="relative min-h-[85vh] flex flex-col justify-end px-6 md:px-12 pb-24 overflow-hidden bg-black">
                 <div className="absolute inset-0 z-0">
                     <Image 
                         src="/octagone/octagonekapak.png"
                         alt="OctaGone Hero"
                         fill
-                        className="object-cover opacity-60 grayscale-[0.3] object-left"
+                        className="object-contain opacity-60 grayscale-[0.3] object-left-top scale-110 origin-top-left"
                         priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-transparent" />
-                    <div className="absolute inset-0 bg-radial-gradient(circle_at_50%_50%,rgba(232,0,29,0.1)_0%,transparent_80%)" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent" />
+                    <div className="absolute inset-0 bg-radial-gradient(circle_at_30%_30%,rgba(232,0,29,0.15)_0%,transparent_80%)" />
                 </div>
 
                 <div className="relative z-10 max-w-7xl mx-auto w-full">
@@ -64,26 +64,28 @@ export default function OctaGonePage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <div className="flex items-center gap-4 mb-12">
-                            <span className="px-3 py-1 bg-red-600 text-[10px] font-bold tracking-widest uppercase rounded">PROJE 4 FINAL</span>
+                        <div className="flex items-center gap-4 mb-20">
+                            <span className="px-5 py-2 bg-red-600 text-sm font-bold tracking-[0.25em] uppercase rounded shadow-[0_10px_40px_rgba(232,0,29,0.5)]">
+                                YTÜ İLETİŞİM VE TASARIMI — PROJE 4 FİNAL
+                            </span>
                         </div>
 
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-white/10">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 pt-12 border-t border-white/10">
                             <div>
-                                <h3 className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2 font-bold">Ders</h3>
-                                <p className="text-base font-semibold">Proje 4</p>
+                                <h3 className="text-[10px] uppercase tracking-[0.4em] text-neutral-500 mb-4 font-black">Ders</h3>
+                                <p className="text-2xl font-bold text-white tracking-tighter">Proje 4</p>
                             </div>
                             <div>
-                                <h3 className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2 font-bold">Konu</h3>
-                                <p className="text-base font-semibold">Oyun Tasarımı</p>
+                                <h3 className="text-[10px] uppercase tracking-[0.4em] text-neutral-500 mb-4 font-black">Konu</h3>
+                                <p className="text-2xl font-bold text-white tracking-tighter">Oyun Tasarımı</p>
                             </div>
                             <div>
-                                <h3 className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2 font-bold">Yıl</h3>
-                                <p className="text-base font-semibold">2025</p>
+                                <h3 className="text-[10px] uppercase tracking-[0.4em] text-neutral-500 mb-4 font-black">Yıl</h3>
+                                <p className="text-2xl font-bold text-white tracking-tighter">2025</p>
                             </div>
                             <div>
-                                <h3 className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2 font-bold">Platform</h3>
-                                <p className="text-base font-semibold">Etkileşimli Mekan</p>
+                                <h3 className="text-[10px] uppercase tracking-[0.4em] text-neutral-500 mb-4 font-black">Platform</h3>
+                                <p className="text-2xl font-bold text-white tracking-tighter uppercase">Mekan</p>
                             </div>
                         </div>
                     </motion.div>
@@ -163,101 +165,13 @@ export default function OctaGonePage() {
             </section>
 
             {/* TECHNICAL ANALYSIS (MIND MAP & FLOWCHART) */}
-            <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+            <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
                 <SectionLabel>Teknik Analiz</SectionLabel>
                 <SectionTitle>Zihin Haritası ve Süreç</SectionTitle>
                 
-                <div className="flex flex-col gap-12">
-                   {/* PREMIUM MIND MAP */}
-                   <div className="p-12 rounded-3xl bg-black border border-white/5 relative overflow-hidden flex flex-col items-center">
-                        <div className="absolute top-0 right-0 p-8 text-[8px] font-mono text-white/10 tracking-[1em]">SYSTEM_ARCHITECTURE_V1</div>
-                        <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-12 self-start">Kavramsal Zihin Haritası (Mind Map)</h3>
-                        
-                        <div className="w-full aspect-[16/9] max-h-[600px] flex items-center justify-center relative">
-                            {/* Central Node */}
-                            <motion.div 
-                                className="z-10 w-48 h-48 rounded-full bg-red-600 flex items-center justify-center shadow-[0_0_50px_rgba(232,0,29,0.3)]"
-                                whileHover={{ scale: 1.05 }}
-                            >
-                                <span className="text-2xl font-black text-white">OCTAGONE</span>
-                            </motion.div>
-
-                            {/* Branches with SVG Lines */}
-                            <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 1000 600">
-                                <path d="M500 300 L250 150" stroke="white" strokeWidth="1" strokeDasharray="5 5" />
-                                <path d="M500 300 L750 150" stroke="white" strokeWidth="1" strokeDasharray="5 5" />
-                                <path d="M500 300 L500 500" stroke="white" strokeWidth="1" strokeDasharray="5 5" />
-                            </svg>
-
-                            {/* Node 1: Mekan */}
-                            <motion.div className="absolute top-[15%] left-[15%] text-left" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-                                <div className="text-red-500 font-bold mb-2 text-xl">MEKAN</div>
-                                <ul className="text-xs text-neutral-400 space-y-1 border-l border-red-900 pl-4">
-                                    <li>Sekizgen Kapalı Alan</li>
-                                    <li>Gergin & Karamsar Atmosfer</li>
-                                    <li>Merkezi Sütun (Işık Kaynağı)</li>
-                                </ul>
-                            </motion.div>
-
-                            {/* Node 2: Platform */}
-                            <motion.div className="absolute top-[15%] right-[15%] text-right" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-                                <div className="text-red-500 font-bold mb-2 text-xl">PLATFORM</div>
-                                <ul className="text-xs text-neutral-400 space-y-1 border-r border-red-900 pr-4">
-                                    <li>8 Kişi / 8 Platform</li>
-                                    <li>3 Basamaklı Raylı Sistem</li>
-                                    <li>Menteşeli Hareket Dinamiği</li>
-                                </ul>
-                            </motion.div>
-
-                            {/* Node 3: Oynanış */}
-                            <motion.div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 text-center" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-                                <div className="text-red-500 font-bold mb-2 text-xl">OYNANIŞ</div>
-                                <ul className="text-xs text-neutral-400 space-y-1 space-y-1">
-                                    <li>Renkli Işık Hizalama</li>
-                                    <li>Düğmeli Kumanda Etkileşimi</li>
-                                    <li>Refleks & Hayatta Kalma</li>
-                                </ul>
-                            </motion.div>
-                        </div>
-                   </div>
-
-                   {/* PREMIUM FLOWCHART */}
-                   <div className="p-12 rounded-3xl bg-black border border-white/5 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 p-8 text-[8px] font-mono text-white/10 tracking-[1em]">LOGIC_FLOW_V2</div>
-                        <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-12">Oynanış Akış Diyagramı (Flowchart)</h3>
-                        
-                        <div className="flex flex-col items-center gap-8 py-8 w-full">
-                            <div className="flex flex-wrap justify-center gap-4 items-center w-full">
-                                <div className="px-6 py-3 rounded-full border border-red-600/30 bg-red-600/10 text-xs font-bold text-red-500 uppercase">BAŞLA</div>
-                                <Arrow className="rotate-0" />
-                                <div className="p-4 rounded-xl border border-white/10 bg-neutral-900 text-[10px] text-neutral-300">OYUNCU PLATFORMA ÇIKAR</div>
-                                <Arrow className="rotate-0" />
-                                <div className="p-4 rounded-xl border border-white/10 bg-neutral-900 text-[10px] text-neutral-300">IŞIKLAR BELİRİR (YEŞİL-SABİT)</div>
-                                <Arrow className="rotate-0" />
-                                <div className="p-4 rounded-xl border border-red-600/50 bg-neutral-900 text-[10px] text-white font-bold">DÜĞMEYE BASILDI MI?</div>
-                            </div>
-
-                            <div className="flex justify-center gap-24 w-full max-w-2xl relative">
-                                {/* NO BRANCH */}
-                                <div className="flex flex-col items-center gap-6">
-                                    <div className="text-[10px] font-bold text-red-600">HAYIR</div>
-                                    <Arrow className="rotate-90" />
-                                    <div className="p-4 rounded-xl border border-red-900/40 bg-red-900/10 text-[10px] text-red-200">1 BASAMAK İLERLER</div>
-                                    <Arrow className="rotate-90" />
-                                    <div className="p-4 rounded-xl border border-red-600 bg-red-600 text-[10px] text-white font-bold">OYUNCU ELENDİ</div>
-                                </div>
-
-                                {/* YES BRANCH */}
-                                <div className="flex flex-col items-center gap-6">
-                                    <div className="text-[10px] font-bold text-green-500 uppercase">EVET (HİZALANDI)</div>
-                                    <Arrow className="rotate-90" />
-                                    <div className="p-4 rounded-xl border border-green-900/40 bg-green-900/10 text-[10px] text-green-200 uppercase">OYUNCU SABİT KALIR</div>
-                                    <Arrow className="rotate-90" />
-                                    <div className="p-4 rounded-xl border border-green-600 bg-green-600 text-[10px] text-white font-bold uppercase">KAZANDI</div>
-                                </div>
-                            </div>
-                        </div>
-                   </div>
+                <div className="space-y-24">
+                   <MindMap />
+                   <Flowchart />
                 </div>
             </section>
 
@@ -371,6 +285,229 @@ export default function OctaGonePage() {
 // ---------------------------------------------------------------------------
 // HELPER COMPONENTS
 // ---------------------------------------------------------------------------
+
+function Flowchart() {
+    return (
+        <section className="mb-20 max-w-4xl mx-auto w-full">
+            <h2 className="text-3xl font-bold mb-10 text-center border-b pb-4 border-neutral-800 uppercase tracking-tight">Oyun Akışı (Flowchart)</h2>
+
+            <div className="flex flex-col items-center space-y-4">
+                {/* Başlangıç */}
+                <div className="bg-green-600 text-white font-bold py-3 px-10 rounded-full shadow-[0_0_15px_rgba(22,163,74,0.5)] text-sm uppercase tracking-widest">
+                    BAŞLA
+                </div>
+                <div className="w-px h-8 bg-neutral-700"></div>
+                {/* Adım 1 */}
+                <div className="bg-neutral-900 border border-neutral-800 p-5 rounded-xl text-center w-full max-w-md text-neutral-300 text-sm">
+                    Oyuncu elinde tuş olan kumandayla platforma çıkar.
+                </div>
+                <div className="w-px h-8 bg-neutral-700"></div>
+                {/* Adım 2 */}
+                <div className="bg-neutral-900 border border-neutral-800 p-5 rounded-xl text-center w-full max-w-md text-neutral-300 text-sm">
+                    Sekizgen sütun üzerinde ışıklar belirir. <span className="text-green-500 font-bold uppercase">Yeşil ışık sabittir</span>, oyuncunun renkli ışığı aşağı-yukarı hareket eder.
+                </div>
+                <div className="w-px h-8 bg-neutral-700"></div>
+                {/* Adım 3 */}
+                <div className="bg-blue-900/20 border border-blue-800 p-5 rounded-xl text-center w-full max-w-md text-blue-200 text-sm">
+                    Oyuncunun rengi yeşil ışık ile aynı konuma geldiğinde oyuncu düğmeye basar.
+                </div>
+                <div className="w-px h-8 bg-neutral-700"></div>
+                {/* Karar Mekanizması 1 */}
+                <div className="bg-neutral-900/50 border border-neutral-800 p-8 rounded-2xl text-center w-full max-w-2xl backdrop-blur-sm">
+                    <strong className="text-yellow-500 block mb-6 uppercase tracking-wider text-xs">Soru: Renkler aynı konuma geldiğinde oyuncu tuşa bastı mı?</strong>
+                    <div className="grid grid-cols-2 gap-8 mt-4">
+
+                        {/* HAYIR Dalı */}
+                        <div className="flex flex-col items-center">
+                            <div className="bg-red-600/10 text-red-500 py-1 px-4 rounded font-black mb-4 text-xs tracking-widest">HAYIR</div>
+                            <div className="bg-neutral-800/50 p-4 rounded-lg text-xs w-full text-neutral-400">Oyuncu 1 basamak ilerler.</div>
+                            <div className="w-px h-6 bg-neutral-700 my-2"></div>
+                            <div className="bg-neutral-800/50 p-4 rounded-lg text-xs w-full text-neutral-400 font-medium italic">3 basamakta da başaramadı mı?</div>
+                            <div className="w-px h-6 bg-neutral-700 my-2"></div>
+                            <div className="bg-red-600 text-white font-bold py-3 px-4 rounded-lg w-full shadow-[0_4px_20px_rgba(220,38,38,0.3)] text-xs uppercase tracking-tighter">
+                                OYUNCU ELENDİ
+                            </div>
+                        </div>
+                        {/* EVET Dalı */}
+                        <div className="flex flex-col items-center">
+                            <div className="bg-green-600/10 text-green-500 py-1 px-4 rounded font-black mb-4 text-xs tracking-widest">EVET</div>
+                            <div className="bg-neutral-800/50 p-4 rounded-lg text-xs w-full text-neutral-400 uppercase">Oyuncu sabittir.</div>
+                            <div className="w-px h-6 bg-neutral-700 my-2"></div>
+                            <div className="bg-neutral-800/50 p-4 rounded-lg text-xs w-full text-neutral-400 font-medium italic">Renkler aynı konumdayken oyuncu tuşa basmaya devam etti mi?</div>
+                            <div className="w-px h-6 bg-neutral-700 my-2"></div>
+                            <div className="bg-green-600 text-white font-bold py-3 px-4 rounded-lg w-full shadow-[0_4px_20px_rgba(22,163,74,0.3)] text-xs uppercase tracking-tighter">
+                                OYUNCU KAZANDI
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function MindMap() {
+    return (
+        <div className="octagone-mindmap-wrap relative overflow-hidden bg-neutral-900/20 border border-white/5 rounded-3xl p-8 md:p-14">
+            <style jsx>{`
+                .octagone-mindmap-wrap::before {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    background-image:
+                        linear-gradient(rgba(232,0,29,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(232,0,29,0.04) 1px, transparent 1px);
+                    background-size: 48px 48px;
+                    pointer-events: none;
+                }
+                .center-node {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    width: clamp(100px, 15vw, 140px);
+                    height: clamp(100px, 15vw, 140px);
+                    border-radius: 50%;
+                    background: #0f0f0f;
+                    border: 1.5px solid #2a2a2a;
+                    flex-shrink: 0;
+                    position: relative;
+                    z-index: 2;
+                }
+                .center-node::after {
+                    content: '';
+                    position: absolute;
+                    inset: -12px;
+                    border-radius: 50%;
+                    border: 1px solid rgba(232,0,29,0.18);
+                }
+                .mm-card {
+                    background: #111;
+                    border: 1px solid #1e1e1e;
+                    border-radius: 12px;
+                    padding: 20px;
+                    position: relative;
+                    overflow: hidden;
+                    text-align: left;
+                }
+                .mm-card::before {
+                    content: '';
+                    position: absolute;
+                    left: 0; top: 0; bottom: 0;
+                    width: 3px;
+                    background: #e8001d;
+                    border-radius: 3px 0 0 3px;
+                }
+                .mm-pill {
+                    background: #1a1a1a;
+                    border: 1px solid #2a2a2a;
+                    border-radius: 20px;
+                    padding: 4px 12px;
+                    font-size: 11px;
+                    color: #aaa;
+                    font-weight: 500;
+                    white-space: nowrap;
+                }
+                .mm-pill.red {
+                    background: rgba(232,0,29,0.08);
+                    border-color: rgba(232,0,29,0.25);
+                    color: #e8001d;
+                }
+                @media (max-width: 1024px) {
+                    .mm-layout {
+                        display: flex !important;
+                        flex-direction: column;
+                        gap: 40px;
+                        align-items: center;
+                    }
+                    .mm-col {
+                        width: 100%;
+                    }
+                }
+            `}</style>
+            
+            <div className="flex flex-col mb-12">
+                <div className="flex items-center gap-3 mb-2">
+                    <div className="w-5 h-px bg-red-600" />
+                    <span className="text-[10px] font-bold tracking-[0.4em] text-red-600 uppercase">Kavramsal Harita</span>
+                </div>
+                <h3 className="text-2xl font-bold text-neutral-100 uppercase tracking-tight">Mind Map — Oyunun Temel Yapısı</h3>
+            </div>
+
+            <div className="mm-layout grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-0 items-center relative transition-all duration-700">
+                {/* LEFT */}
+                <div className="mm-col flex flex-col gap-6 lg:pr-12">
+                    <div className="mm-card group hover:border-red-600/30 transition-colors">
+                        <div className="text-[9px] font-bold tracking-[0.3em] text-red-600 uppercase mb-2">01 — Mekan</div>
+                        <div className="text-base font-bold text-neutral-200 mb-3 uppercase tracking-tight">Sekizgen Arena</div>
+                        <div className="space-y-2">
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800">Sekizgen bir kapalı mekanda oynanacak.</p>
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800">Ortada platformu taşıyan sütun; ışıklar bu sütunda belirecek.</p>
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800 italic">Atmosfer gerginlik hissi için kasıtlı karamsar tutulacak.</p>
+                        </div>
+                    </div>
+
+                    <div className="mm-card group hover:border-red-600/30 transition-colors">
+                        <div className="text-[9px] font-bold tracking-[0.3em] text-red-600 uppercase mb-2">02 — Platform</div>
+                        <div className="text-base font-bold text-neutral-200 mb-3 uppercase tracking-tight">Ray & Menteşe Sistemi</div>
+                        <div className="space-y-2 mb-4">
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800">Her oyuncu için 3'er basamaktan oluşan raylı platform.</p>
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800">8 oyuncuya kadar ölçeklenir; solo da oynanabilir.</p>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                            <span className="mm-pill red uppercase tracking-tighter">Maks 8 kişi</span>
+                            <span className="mm-pill tracking-tighter">Min 1 kişi</span>
+                            <span className="mm-pill tracking-tighter font-black">3 basamak</span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* CENTER */}
+                <div className="center-node my-10 lg:my-0 shadow-[0_0_50px_rgba(232,0,29,0.15)] group transition-transform duration-500 hover:scale-105">
+                    <span className="text-[13px] font-bold tracking-[0.4em] text-neutral-600 leading-none mb-1.5 transition-colors group-hover:text-neutral-400">OCTA</span>
+                    <svg className="w-9 h-9 my-1.5" viewBox="0 0 36 36" fill="none">
+                        <line x1="18" y1="2"  x2="18" y2="34" stroke="#e8001d" strokeWidth="4.5" strokeLinecap="round"/>
+                        <line x1="2"  y1="18" x2="34" y2="18" stroke="#e8001d" strokeWidth="4.5" strokeLinecap="round"/>
+                        <line x1="5"  y1="5"  x2="31" y2="31" stroke="#e8001d" strokeWidth="4.5" strokeLinecap="round"/>
+                        <line x1="31" y1="5"  x2="5"  y2="31" stroke="#e8001d" strokeWidth="4.5" strokeLinecap="round"/>
+                        <line x1="18" y1="28" x2="18" y2="36" stroke="#e8001d" strokeWidth="4.5" strokeLinecap="round"/>
+                        <line x1="12" y1="32" x2="24" y2="32" stroke="#e8001d" strokeWidth="4.5" strokeLinecap="round"/>
+                    </svg>
+                    <span className="text-[13px] font-bold tracking-[0.4em] text-neutral-600 leading-none mt-1.5 transition-colors group-hover:text-neutral-400">GONE</span>
+                </div>
+
+                {/* RIGHT */}
+                <div className="mm-col flex flex-col gap-6 lg:pl-12">
+                    <div className="mm-card group hover:border-red-600/30 transition-colors">
+                        <div className="text-[9px] font-bold tracking-[0.3em] text-red-600 uppercase mb-2">03 — Oynanış</div>
+                        <div className="text-base font-bold text-neutral-200 mb-3 uppercase tracking-tight">Refleks Mekaniği</div>
+                        <div className="space-y-2">
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800">Oyuncular renk atanmış tek tuşlu kumandayla platforma çıkar.</p>
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800">Renkli ışık sütunda aşağı-yukarı hareket eder.</p>
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800"><span className="text-neutral-300 font-bold uppercase">Hedef:</span> kendi rengini sabit yeşil ışıkla hizalamak.</p>
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800 font-medium">Doğru zamanda bas → sabit kal. Hata → bir basamak kaybet.</p>
+                        </div>
+                    </div>
+
+                    <div className="mm-card group hover:border-red-600/30 transition-colors">
+                        <div className="text-[9px] font-bold tracking-[0.3em] text-red-600 uppercase mb-2">04 — Amaç</div>
+                        <div className="text-base font-bold text-neutral-200 mb-3 uppercase tracking-tight">Hayatta Kalma</div>
+                        <div className="space-y-2 mb-4">
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800 font-black">3 basamak kaybeden oyuncu platformdan düşerek elenir.</p>
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800 uppercase italic">Son ayakta kalan oyuncu kazanır.</p>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                            <span className="mm-pill red uppercase font-bold text-[10px]">Adrenalin</span>
+                            <span className="mm-pill red uppercase font-bold text-[10px]">Gerilim</span>
+                            <span className="mm-pill uppercase text-[10px]">Refleks</span>
+                            <span className="mm-pill uppercase text-[10px]">Strateji</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
 
 function Arrow({ className }: { className?: string }) {
     return (
