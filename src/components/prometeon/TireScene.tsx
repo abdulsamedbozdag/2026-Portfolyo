@@ -12,29 +12,31 @@ function PrometeonTire() {
         'https://www.gstatic.com/draco/versioned/decoders/1.5.5/'
     );
 
-    // Tüm mesh'leri alıyoruz ve devasa olanları (arka plan/stüdyo) eliyoruz
-    const meshes = Object.values(nodes).filter((node: any) => {
-        if (!node.isMesh) return false;
-        
-        // Geometrinin boyutunu kontrol et
-        if (node.geometry) {
-            node.geometry.computeBoundingSphere();
-            const radius = node.geometry.boundingSphere.radius;
-            // Lastik genellikle küçük bir alan kaplar. 
-            // Radyusu çok büyük olan (örneğin > 5) nesneler muhtemelen stüdyo veya yardımcı halkalardır.
-            return radius < 5;
-        }
-        return true;
+    // Hata ayıklama için tüm mesh'leri ve boyutlarını inceleyelim
+    const allMeshes = Object.values(nodes).filter((node: any) => node.isMesh);
+    
+    console.log("--- 3D Mesh Analizi ---");
+    allMeshes.forEach((m: any) => {
+        m.geometry.computeBoundingSphere();
+        console.log(`Mesh: ${m.name}, Radius: ${m.geometry.boundingSphere.radius.toFixed(2)}`);
     });
 
-    if (meshes.length === 0) {
-        console.warn("Filtreleme sonrası uygun Mesh bulunamadı!");
+    // Filtreyi çok daha gevşek tutuyoruz (örneğin devasa bir stüdyo mesh'i varsa onu eleriz)
+    const filteredMeshes = allMeshes.filter((node: any) => {
+        const radius = node.geometry.boundingSphere.radius;
+        // Eğer radius çok büyükse (örn > 100), muhtemelen stüdyo/arkaplan elemanıdır.
+        // Ama lastik için 5 çok azmış, 50 yapalım.
+        return radius < 50;
+    });
+
+    if (filteredMeshes.length === 0) {
+        console.warn("Filtreleme sonrası uygun Mesh bulunamadı! Tüm mesh'ler çok büyük olabilir.");
         return null;
     }
 
     return (
-        <group scale={0.25}>
-            {meshes.map((mesh: any, idx: number) => (
+        <group scale={0.5}>
+            {filteredMeshes.map((mesh: any, idx: number) => (
                 <mesh key={idx} geometry={mesh.geometry}>
                     <meshStandardMaterial
                         color="#121212"    
