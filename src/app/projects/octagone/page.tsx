@@ -64,8 +64,8 @@ export default function OctaGonePage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <div className="flex items-center gap-4 mb-20">
-                            <span className="px-5 py-2 bg-red-600 text-sm font-bold tracking-[0.25em] uppercase rounded shadow-[0_10px_40px_rgba(232,0,29,0.5)]">
+                        <div className="flex flex-col items-center gap-4 mb-20 text-center">
+                            <span className="px-6 py-2.5 bg-red-600 text-sm font-bold tracking-[0.3em] uppercase rounded shadow-[0_15px_50px_rgba(232,0,29,0.4)] block mx-auto">
                                 YTÜ İLETİŞİM VE TASARIMI — PROJE 4 FİNAL
                             </span>
                         </div>
@@ -385,18 +385,14 @@ function MindMap() {
                     background: #111;
                     border: 1px solid #1e1e1e;
                     border-radius: 12px;
-                    padding: 20px;
+                    padding: 24px;
                     position: relative;
                     overflow: hidden;
                     text-align: left;
+                    transition: border-color 0.3s ease;
                 }
-                .mm-card::before {
-                    content: '';
-                    position: absolute;
-                    left: 0; top: 0; bottom: 0;
-                    width: 3px;
-                    background: #e8001d;
-                    border-radius: 3px 0 0 3px;
+                .mm-card:hover {
+                    border-color: rgba(232, 0, 29, 0.3);
                 }
                 .mm-pill {
                     background: #1a1a1a;

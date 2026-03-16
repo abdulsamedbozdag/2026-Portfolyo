@@ -114,7 +114,7 @@ export default function EditorialHero() {
                                         repeatDelay: 1,
                                         ease: "easeInOut" 
                                     }}
-                                    className="origin-bottom-right inline-block mb-4"
+                                    className="origin-bottom-right inline-block mb-4 bg-transparent"
                                 >
                                     {/* Premium Minimalist Waving Hand - Resized to 37px */}
                                     <svg width="37" height="37" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400">
