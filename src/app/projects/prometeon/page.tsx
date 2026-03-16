@@ -310,15 +310,15 @@ const CreativeShowcase = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const internalCommImages = [
-        "/prometeon/Özel Günler/ANNELERGUNU.png",
-        "/prometeon/Özel Günler/10 KASIM MAIL_r6.jpg",
-        "/prometeon/Özel Günler/19_MAYIS.jpeg",
-        "/prometeon/Özel Günler/doğumgünü_-03.jpg",
-        "/prometeon/Özel Günler/İK_19_MAYIS.jpg",
-        "/prometeon/Özel Günler/İK_23_NİSAN.jpg",
-        "/prometeon/Özel Günler/İK_Anneler_Günü.png",
-        "/prometeon/Özel Günler/İK_Babalar_Günü.jpg",
-        "/prometeon/Özel Günler/İK_Kurban_Bayramı.jpg",
+        "/prometeon/Kurum%20i%C3%A7i%20iletisim/ANNELERGUNU.png",
+        "/prometeon/Kurum%20i%C3%A7i%20iletisim/10%20KASIM%20MAIL_r6.jpg",
+        "/prometeon/Kurum%20i%C3%A7i%20iletisim/19_MAYIS.jpeg",
+        "/prometeon/Kurum%20i%C3%A7i%20iletisim/doğumgünü_-03.jpg",
+        "/prometeon/Kurum%20i%C3%A7i%20iletisim/İK_19_MAYIS.jpg",
+        "/prometeon/Kurum%20i%C3%A7i%20iletisim/İK_23_NİSAN.jpg",
+        "/prometeon/Kurum%20i%C3%A7i%20iletisim/İK_Anneler_Günü.png",
+        "/prometeon/Kurum%20i%C3%A7i%20iletisim/İK_Babalar_Günü.jpg",
+        "/prometeon/Kurum%20i%C3%A7i%20iletisim/İK_Kurban_Bayramı.jpg",
     ];
 
     const fieldAppsImages = [
@@ -334,7 +334,7 @@ const CreativeShowcase = () => {
         {
             title: "Kurum İçi İletişim",
             subtitle: "Sosyal Medya ve Markalama",
-            image: "/prometeon/Özel Günler/ANNELERGUNU.png",
+            image: "/prometeon/Kurum%20i%C3%A7i%20iletisim/ANNELERGUNU.png",
             span: "lg:col-span-6",
             gallery: internalCommImages
         },
