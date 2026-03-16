@@ -88,25 +88,27 @@ export default function TedxPage() {
         <main className="min-h-screen bg-white dark:bg-neutral-950 selection:bg-red-600 selection:text-white overflow-x-hidden">
             <StickyBackButton />
             {/* Scrollytelling Intro Section */}
-            <section ref={sectionRef} className="relative h-[200vh] w-full bg-black">
+            <section ref={sectionRef} className="relative h-[150vh] md:h-[200vh] w-full bg-black">
                 {/* Sticky Video Container */}
-                <div className="sticky top-0 h-screen w-full overflow-hidden">
-                    <video
-                        ref={videoRef}
-                        src="/tedx/tedx-intro_1.mp4"
-                        muted
-                        playsInline
-                        preload="auto"
-                        className={`h-full w-full object-cover transition-opacity duration-1000 ${isVideoLoaded ? "opacity-100" : "opacity-0"}`}
-                        onLoadedData={() => {
-                            if (videoRef.current) {
-                                videoRef.current.currentTime = 0.001; // Force first frame
-                            }
-                            setIsVideoLoaded(true);
-                        }}
-                        onCanPlayThrough={() => setIsVideoLoaded(true)}
-                        style={{ filter: "brightness(0.6) contrast(1.1)" }}
-                    />
+                <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+                    <div className="relative w-full aspect-video md:h-full md:aspect-auto">
+                        <video
+                            ref={videoRef}
+                            src="/tedx/tedx-intro_1.mp4"
+                            muted
+                            playsInline
+                            preload="auto"
+                            className={`h-full w-full object-cover transition-opacity duration-1000 ${isVideoLoaded ? "opacity-100" : "opacity-0"}`}
+                            onLoadedData={() => {
+                                if (videoRef.current) {
+                                    videoRef.current.currentTime = 0.001; // Force first frame
+                                }
+                                setIsVideoLoaded(true);
+                            }}
+                            onCanPlayThrough={() => setIsVideoLoaded(true)}
+                            style={{ filter: "brightness(0.6) contrast(1.1)" }}
+                        />
+                    </div>
 
                     {/* Cinematic Gradient Overlays */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 pointer-events-none" />

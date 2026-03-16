@@ -48,7 +48,7 @@ export function SpitfireScene({
     return (
         <div 
             ref={containerRef} 
-            className={cn(className, "relative cursor-grab active:cursor-grabbing touch-pan-y")}
+            className={cn(className, "relative cursor-grab active:cursor-grabbing")}
             style={{ touchAction: 'pan-y' }}
         >
             {isVisible && (
