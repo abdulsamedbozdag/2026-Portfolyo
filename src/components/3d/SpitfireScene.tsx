@@ -57,13 +57,13 @@ export function SpitfireScene({
                     dpr={1} 
                     gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
                     style={{ pointerEvents: 'auto', touchAction: 'pan-y' }}
-                    camera={{ position: [0, 0, 10], fov: 35 }}
+                    camera={{ position: [0, 0, 12], fov: 45 }}
                 >
                     <Suspense fallback={<Loader3D />}>
                         <Stage
                             intensity={0.5}
                             environment="city"
-                            adjustCamera={false}
+                            adjustCamera={true}
                         >
                             <Float
                                 speed={1.5}

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ArrowDown, Sun, Moon } from "lucide-react";
 import { StickyBackButton } from "@/components/StickyBackButton";
 import { LightboxImage } from "@/components/ImageLightbox";
+import { cn } from "@/lib/utils";
 import GlobeToMap from "@/components/prometeon/GlobeToMap";
 import { TireScene } from "@/components/prometeon/TireScene";
 import { useLanguage } from "@/context/LanguageContext";
@@ -306,6 +307,19 @@ const CreativeShowcase = () => {
     const { isDark } = useTheme();
     const { t } = useLanguage();
     const [selectedGallery, setSelectedGallery] = useState<string[] | null>(null);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const internalCommImages = [
+        "/prometeon/Özel Günler/ANNELERGUNU.png",
+        "/prometeon/Özel Günler/10 KASIM MAIL_r6.jpg",
+        "/prometeon/Özel Günler/19_MAYIS.jpeg",
+        "/prometeon/Özel Günler/doğumgünü_-03.jpg",
+        "/prometeon/Özel Günler/İK_19_MAYIS.jpg",
+        "/prometeon/Özel Günler/İK_23_NİSAN.jpg",
+        "/prometeon/Özel Günler/İK_Anneler_Günü.png",
+        "/prometeon/Özel Günler/İK_Babalar_Günü.jpg",
+        "/prometeon/Özel Günler/İK_Kurban_Bayramı.jpg",
+    ];
 
     const fieldAppsImages = [
         "/prometeon/saha uygulamalari/saha_1.png",
@@ -322,6 +336,7 @@ const CreativeShowcase = () => {
             subtitle: "Sosyal Medya ve Markalama",
             image: "/prometeon/Özel Günler/ANNELERGUNU.png",
             span: "lg:col-span-6",
+            gallery: internalCommImages
         },
         {
             title: "Saha Uygulamaları",
@@ -357,7 +372,12 @@ const CreativeShowcase = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            onClick={() => item.gallery && setSelectedGallery(item.gallery)}
+                            onClick={() => {
+                                if (item.gallery) {
+                                    setSelectedGallery(item.gallery);
+                                    setCurrentImageIndex(0);
+                                }
+                            }}
                             className={`${item.span} md:col-span-6 group relative h-[350px] md:h-[420px] rounded-2xl overflow-hidden cursor-pointer border transition-colors duration-500`}
                             style={{ borderColor: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.08)" }}
                         >
@@ -395,25 +415,63 @@ const CreativeShowcase = () => {
                         >
                             <button
                                 onClick={() => setSelectedGallery(null)}
-                                className="absolute top-10 right-10 text-white/60 hover:text-white transition-colors p-4"
+                                className="absolute top-10 right-10 text-white/60 hover:text-white transition-colors p-4 z-[210] bg-white/5 rounded-full backdrop-blur-md"
                             >
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                             </button>
 
-                            <div className="w-full max-w-6xl h-full flex items-center justify-center overflow-x-auto snap-x snap-mandatory gap-8 pb-10 custom-scrollbar">
-                                {selectedGallery.map((img, idx) => (
-                                    <div key={idx} className="relative min-w-full md:min-w-[80%] h-full snap-center flex-shrink-0">
+                            {/* Navigation Arrows */}
+                            <button
+                                onClick={() => setCurrentImageIndex((prev) => (prev === 0 ? selectedGallery.length - 1 : prev - 1))}
+                                className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-all p-4 z-[210] bg-white/5 hover:bg-white/10 rounded-full backdrop-blur-md border border-white/10"
+                            >
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            </button>
+
+                            <button
+                                onClick={() => setCurrentImageIndex((prev) => (prev === selectedGallery.length - 1 ? 0 : prev + 1))}
+                                className="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-all p-4 z-[210] bg-white/5 hover:bg-white/10 rounded-full backdrop-blur-md border border-white/10"
+                            >
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </button>
+
+                            <div className="w-full max-w-5xl h-[60vh] md:h-[70vh] flex items-center justify-center relative">
+                                <AnimatePresence mode="wait">
+                                    <motion.div
+                                        key={currentImageIndex}
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -20 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="relative w-full h-full flex items-center justify-center"
+                                    >
                                         <Image
-                                            src={img}
-                                            alt={`Gallery item ${idx + 1}`}
+                                            src={selectedGallery[currentImageIndex]}
+                                            alt={`Gallery item ${currentImageIndex + 1}`}
                                             fill
                                             className="object-contain"
+                                            priority
                                         />
-                                    </div>
-                                ))}
+                                    </motion.div>
+                                </AnimatePresence>
                             </div>
-                            <div className="text-white/40 text-sm font-light mt-4 tracking-widest uppercase">
-                                Sağa Kaydırarak Gezin • {selectedGallery.length} Görsel
+
+                            {/* Bottom Info / Counter */}
+                            <div className="mt-12 flex flex-col items-center gap-4">
+                                <div className="flex gap-2">
+                                    {selectedGallery.map((_, idx) => (
+                                        <div 
+                                            key={idx}
+                                            className={cn(
+                                                "w-2 h-2 rounded-full transition-all duration-300",
+                                                currentImageIndex === idx ? "bg-white w-6" : "bg-white/20"
+                                            )}
+                                        />
+                                    ))}
+                                </div>
+                                <div className="text-white/40 text-sm font-mono tracking-[0.3em] uppercase">
+                                    {currentImageIndex + 1} / {selectedGallery.length}
+                                </div>
                             </div>
                         </motion.div>
                     )}
