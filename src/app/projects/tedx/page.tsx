@@ -40,7 +40,7 @@ export default function TedxPage() {
                 trigger: sectionRef.current,
                 start: "top top",
                 end: isMobile ? "+=150%" : "+=200%", // Reduced scroll distance to eliminate dead zone
-                scrub: isMobile ? 2.5 : 1.5, // Increased scrub for smoother mobile scrubbing
+                scrub: isMobile ? 0.5 : 1.5, // Reduced scrub lag for more direct response
                 pin: true,
                 anticipatePin: 1,
             },
@@ -52,7 +52,7 @@ export default function TedxPage() {
             time: 1,
             onUpdate: () => {
                 if (video.duration) {
-                    // Smoother time update logic
+                    // Direct update for better feel
                     video.currentTime = video.duration * videoDuration.time;
                 }
             },
@@ -99,20 +99,22 @@ export default function TedxPage() {
                             muted
                             playsInline
                             preload="auto"
-                            className={`h-full w-full object-cover transition-opacity duration-1000 ${isVideoLoaded ? "opacity-100" : "opacity-0"}`}
+                            className={`h-full w-full object-cover transition-opacity duration-1000 will-change-transform ${isVideoLoaded ? "opacity-100" : "opacity-0"}`}
                             onLoadedData={() => {
                                 if (videoRef.current) {
-                                    videoRef.current.currentTime = 0.001; // Force first frame
+                                    videoRef.current.currentTime = 0.001;
+                                    // Performance optimization
+                                    videoRef.current.playbackRate = 1;
                                 }
                                 setIsVideoLoaded(true);
                             }}
                             onCanPlayThrough={() => setIsVideoLoaded(true)}
-                            style={{ filter: "brightness(0.6) contrast(1.1)" }}
+                            style={{ filter: "brightness(0.6) contrast(1.1)", transform: "translateZ(0)" }}
                         />
                     </div>
 
                     {/* Cinematic Gradient Overlays */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 pointer-events-none z-10" />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20 pointer-events-none" />
 
                     {/* Noise texture overlay */}
@@ -133,42 +135,34 @@ export default function TedxPage() {
                                 className="flex flex-col items-center gap-1"
                             >
                                 {isMobile ? (
-                                    /* Hand Swipe Animation for Mobile */
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <motion.path
-                                            d="M12 20V4M12 4L8 8M12 4L16 8"
-                                            stroke="white"
-                                            strokeWidth="2"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            animate={{ y: [4, -4, 4], opacity: [0.3, 1, 0.3] }}
-                                            transition={{ duration: 2, repeat: Infinity }}
-                                        />
-                                        <motion.path
-                                            d="M7 10C7 10 8.5 4 12 4C15.5 4 17 10 17 10"
-                                            stroke="white"
-                                            strokeWidth="1.5"
-                                            strokeLinecap="round"
-                                            opacity="0.5"
-                                        />
-                                    </svg>
+                                    /* Premium Hand Swipe Animation for Mobile */
+                                    <div className="relative w-10 h-10">
+                                        <motion.div
+                                            animate={{ 
+                                                y: [10, -10, 10],
+                                                opacity: [0, 1, 0]
+                                            }}
+                                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                                            className="absolute inset-0 flex items-center justify-center"
+                                        >
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="M12 20V4M12 4L8 8M12 4L16 8" />
+                                            </svg>
+                                        </motion.div>
+                                    </div>
                                 ) : (
-                                    /* Mouse SVG Icon for Desktop */
-                                    <svg width="28" height="42" viewBox="0 0 28 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="1" y="1" width="26" height="40" rx="13" stroke="white" strokeWidth="2" opacity="0.6" />
+                                    /* Elegant Mouse Icon for Desktop */
+                                    <svg width="24" height="38" viewBox="0 0 24 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0.75" y="0.75" width="22.5" height="36.5" rx="11.25" stroke="white" strokeOpacity="0.3" strokeWidth="1.5" />
                                         <motion.rect
-                                            x="12" y="8" width="4" height="10" rx="2" fill="white" opacity="0.8"
-                                            animate={{ y: [8, 16, 8] }}
-                                            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                                            x="10.5" y="7" width="3" height="6" rx="1.5" fill="white"
+                                            animate={{ y: [0, 10, 0], opacity: [0.3, 1, 0.3] }}
+                                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                                         />
                                     </svg>
                                 )}
-                                {/* Down Arrow */}
-                                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.5">
-                                    <path d="M1 1L7 7L13 1" stroke="white" strokeWidth="2" strokeLinecap="round" />
-                                </svg>
                             </motion.div>
-                            <span className="text-white/40 text-[10px] uppercase tracking-[0.2em] font-medium">Scroll</span>
+                            <span className="text-white/20 text-[9px] uppercase tracking-[0.4em] font-semibold mt-1">Görseli Kaydır</span>
                         </motion.div>
                     )}
 

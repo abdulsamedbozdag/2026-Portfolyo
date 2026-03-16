@@ -118,12 +118,18 @@ export default function EditorialHero() {
                                         }}
                                         className="origin-bottom-right inline-block"
                                     >
-                                        {/* Elegant minimalist hand icon */}
-                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400">
+                                        {/* Premium Minimalist Waving Hand */}
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400">
                                             <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v5" />
                                             <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v10" />
                                             <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8" />
                                             <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.82-2.82L7 15" />
+                                            {/* Sparkles around hand */}
+                                            <motion.path 
+                                                d="M21 2l1 1-1 1-1-1 1-1z" fill="currentColor" opacity="0.6"
+                                                animate={{ scale: [1, 1.5, 1], opacity: [0.6, 1, 0.6] }}
+                                                transition={{ duration: 1.5, repeat: Infinity }}
+                                            />
                                         </svg>
                                     </motion.div>
                                 </div>
