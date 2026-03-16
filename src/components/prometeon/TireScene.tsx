@@ -21,12 +21,13 @@ function PrometeonTire() {
         console.log(`Mesh: ${m.name}, Radius: ${m.geometry.boundingSphere.radius.toFixed(2)}`);
     });
 
-    // Filtreyi analiz sonuçlarına göre güncelliyoruz:
-    // Lastik parçaları (empty_150-161) yaklaşık 54-82 radyusunda.
-    // Devasa halka ve stüdyo (Mesh_160, Cylinder) 450+ radyusunda.
+    // Filtreyi teknik verilere göre optimize ediyoruz:
+    // Lastik gövdesi (empty_150-161): ~60 radius
+    // Lastik yanakları (Mesh_160, Mesh_161): ~450-560 radius
+    // Gereksiz stüdyo/arka plan (Cylinder): ~1312 radius
     const filteredMeshes = allMeshes.filter((node: any) => {
         const radius = node.geometry.boundingSphere.radius;
-        return radius < 120; // 100-120 aralığı lastiği kapsar, halkayı eler.
+        return radius < 1000; // Sadece devasa yardımcı geometrileri eler, lastiği tam bırakır.
     });
 
     if (filteredMeshes.length === 0) {
@@ -35,7 +36,7 @@ function PrometeonTire() {
     }
 
     return (
-        <group scale={0.1}>
+        <group scale={0.25}>
             {filteredMeshes.map((mesh: any, idx: number) => (
                 <mesh key={idx} geometry={mesh.geometry}>
                     <meshStandardMaterial

@@ -8,16 +8,6 @@ import { StickyBackButton } from "@/components/StickyBackButton";
 import { LightboxImage } from "@/components/ImageLightbox";
 import { cn } from "@/lib/utils";
 import GlobeToMap from "@/components/prometeon/GlobeToMap";
-import dynamic from 'next/dynamic';
-const TireScene = dynamic(() => import('@/components/prometeon/TireScene').then(mod => mod.TireScene), { 
-  ssr: false,
-  loading: () => (
-    <div className="flex items-center justify-center p-12">
-      <p className="text-sm font-light tracking-[0.2em] uppercase opacity-50">Yükleniyor...</p>
-    </div>
-  )
-});
-
 import { useLanguage } from "@/context/LanguageContext";
 import { Globe } from "lucide-react";
 
@@ -260,54 +250,6 @@ const EditorialShowcase = () => {
 // ---------------------------------------------------------------------------
 // Floating Tire Cross-Section (Dedicated Section)
 // ---------------------------------------------------------------------------
-const TireCrossSection = () => {
-    const { isDark } = useTheme();
-    const { t } = useLanguage();
-    return (
-        <section className="relative py-32 overflow-hidden transition-colors duration-500" style={{ background: isDark ? "#050505" : "#ffffff" }}>
-            <div className="max-w-[1400px] mx-auto px-6">
-                <div className="flex flex-col lg:flex-row items-center gap-16">
-                    {/* Text Side */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="flex-1 space-y-6"
-                    >
-                        <p className="text-[10px] font-light tracking-[0.4em] uppercase transition-colors duration-500" style={{ color: isDark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.3)" }}>
-                            Ürün Görselleştirme
-                        </p>
-                        <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase transition-colors duration-500" style={{ color: isDark ? "#ededed" : "#0f204b" }}>
-                            {t("prometeon.techTitle")}
-                        </h2>
-                        <p className="text-base max-w-md font-light leading-relaxed transition-colors duration-500" style={{ color: isDark ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.5)" }}>
-                            {t("prometeon.techDesc")}
-                        </p>
-                        <div className="flex gap-8 pt-4">
-                            {["Ar-Ge Render", "3D Varlık", "Teknik Özellik"].map((tag) => (
-                                <span key={tag} className="text-[9px] font-light tracking-widest uppercase px-3 py-1.5 rounded-full border transition-colors duration-500" style={{ borderColor: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.1)", color: isDark ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.4)" }}>
-                                    {tag}
-                                </span>
-                            ))}
-                        </div>
-                    </motion.div>
-
-                    {/* Tire Visual */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        className="relative flex-1 flex items-center justify-center min-h-[500px] md:min-h-[600px]"
-                    >
-                        <div className="relative w-full h-full">
-                            <TireScene />
-                        </div>
-                    </motion.div>
-                </div>
-            </div>
-        </section>
-    );
-};
 
 // ---------------------------------------------------------------------------
 // Creative Showcase (Replaces boring Bento Grid)
@@ -690,10 +632,6 @@ export default function PrometeonPage() {
                 <DraggableMarquee />
 
 
-                {/* ═══════════════════════════════════════════════════════ */}
-                {/* SECTION 3: Technical Details (3D Tire)                 */}
-                {/* ═══════════════════════════════════════════════════════ */}
-                <TireCrossSection />
 
                 {/* ═══════════════════════════════════════════════════════ */}
                 {/* SECTION 4: Creative Showcase Gallery                   */}
