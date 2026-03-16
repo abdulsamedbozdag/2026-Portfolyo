@@ -117,43 +117,24 @@ export default function EditorialHero() {
                         <p className="text-lg md:text-xl text-foreground/50 leading-relaxed font-normal max-w-lg transition-colors duration-500 px-0 md:px-0">
                             {t("hero.description")}
                         </p>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.5 }}
-                            className="mt-4 flex flex-wrap gap-4"
-                        >
-                            <a
-                                href="/CV_AbdulSamedBozdag.pdf"
-                                download="AbdulSamedBozdag_CV.pdf"
-                                className="px-8 py-3.5 rounded-full bg-foreground text-background font-semibold hover:bg-emerald-500 transition-all duration-300 no-underline inline-flex items-center gap-2"
-                            >
-                                <Download size={18} />
-                                {language === "tr" ? "CV'yi İndir" : "Download CV"}
-                            </a>
-                        </motion.div>
                     </motion.div>
                 </div>
-
-                {/* Subtle Indicator - Enhanced for better feedback */}
-                <div className="flex justify-start">
+               {/* Subtle Indicator - Moved to center for better visibility */}
+                <div className="flex justify-center w-full">
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1.2 }}
-                        className="flex flex-col items-start gap-4 text-[10px] uppercase tracking-[0.4em] text-foreground/40 transition-colors duration-500"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1.2, duration: 1 }}
+                        className="flex flex-col items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-foreground/30 transition-colors duration-500"
                     >
-                        <div className="flex items-center gap-3">
-                            <motion.div 
-                                animate={{ y: [0, 8, 0] }}
-                                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                                className="text-emerald-400"
-                            >
-                                <ArrowDown size={14} />
-                            </motion.div>
-                            <span className="font-bold">{t("common.scrollDown")}</span>
-                        </div>
+                        <span className="font-medium mb-1">{t("common.scrollDown")}</span>
+                        <motion.div 
+                            animate={{ y: [0, 8, 0] }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                            className="text-emerald-400"
+                        >
+                            <ArrowDown size={14} />
+                        </motion.div>
                     </motion.div>
                 </div>
             </div>
