@@ -70,7 +70,7 @@ export default function AboutPage() {
             </div>
 
             {/* Hero Section */}
-            <section className="relative pt-32 pb-20 px-6 max-w-7xl mx-auto">
+            <section className="relative pt-20 md:pt-32 pb-20 px-6 max-w-7xl mx-auto">
                 <motion.div
                     initial="hidden"
                     animate="visible"

@@ -47,10 +47,10 @@ export default function EditorialHero() {
     };
 
     return (
-        <section className="relative h-screen w-full overflow-hidden bg-background text-foreground font-friendly transition-colors duration-500">
+        <section className="relative h-screen md:h-screen min-h-[85dvh] w-full overflow-hidden bg-background text-foreground font-friendly transition-colors duration-500">
 
             {/* Main Layout - Tightened spacing */}
-            <div className="relative z-20 h-full flex flex-col justify-start px-6 md:px-12 pt-6 md:pt-4 pb-10 max-w-[1400px] mx-auto gap-8 md:gap-12">
+            <div className="relative z-20 h-full flex flex-col justify-start px-6 md:px-12 pt-2 md:pt-4 pb-10 max-w-[1400px] mx-auto gap-4 md:gap-12">
 
                 {/* Navigation Navbar */}
                 <nav className="relative z-50 w-full transition-all duration-500">
@@ -118,18 +118,12 @@ export default function EditorialHero() {
                                         }}
                                         className="origin-bottom-right inline-block"
                                     >
-                                        {/* Premium Minimalist Waving Hand */}
-                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400">
+                                        {/* Premium Minimalist Waving Hand - Resized to 37px */}
+                                        <svg width="37" height="37" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400">
                                             <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v5" />
                                             <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v10" />
                                             <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8" />
                                             <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.82-2.82L7 15" />
-                                            {/* Sparkles around hand */}
-                                            <motion.path 
-                                                d="M21 2l1 1-1 1-1-1 1-1z" fill="currentColor" opacity="0.6"
-                                                animate={{ scale: [1, 1.5, 1], opacity: [0.6, 1, 0.6] }}
-                                                transition={{ duration: 1.5, repeat: Infinity }}
-                                            />
                                         </svg>
                                     </motion.div>
                                 </div>

@@ -80,13 +80,13 @@ export default function Home() {
   ];
 
   return (
-    <main className="bg-background min-h-screen text-foreground selection:bg-neutral-500/20 pt-24 md:pt-0 overflow-hidden">
+    <main className="bg-background min-h-screen text-foreground selection:bg-neutral-500/20 pt-10 md:pt-0 overflow-hidden">
 
       {/* 1. HERO SECTION */}
       <EditorialHero />
 
       {/* 2. MINIMALIST FILTER */}
-      <div className="flex justify-center py-12 md:py-32">
+      <div className="flex justify-center py-8 md:py-32">
         <nav className="flex items-center gap-10 md:gap-16 overflow-x-auto no-scrollbar pb-4 max-w-full px-6">
           {categories.map((cat) => (
             <button
