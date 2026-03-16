@@ -86,7 +86,7 @@ export default function Home() {
       <EditorialHero />
 
       {/* 2. MINIMALIST FILTER */}
-      <div className="flex justify-center py-8 md:py-32">
+      <div className="flex justify-center py-8 md:py-16">
         <nav className="flex items-center gap-10 md:gap-16 overflow-x-auto no-scrollbar pb-4 max-w-full px-6">
           {categories.map((cat) => (
             <button

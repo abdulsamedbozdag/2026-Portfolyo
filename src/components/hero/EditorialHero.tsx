@@ -47,7 +47,7 @@ export default function EditorialHero() {
     };
 
     return (
-        <section className="relative h-screen md:h-screen min-h-[85dvh] w-full overflow-hidden bg-background text-foreground font-friendly transition-colors duration-500">
+        <section className="relative h-[85dvh] md:h-[80vh] w-full overflow-hidden bg-background text-foreground font-friendly transition-colors duration-500">
 
             {/* Main Layout - Tightened spacing */}
             <div className="relative z-20 h-full flex flex-col justify-start px-6 md:px-12 pt-2 md:pt-4 pb-10 max-w-[1400px] mx-auto gap-4 md:gap-12">
@@ -107,7 +107,6 @@ export default function EditorialHero() {
                         <h1 className="text-4xl md:text-6xl font-extrabold text-foreground leading-[1.3] md:leading-[1.15] tracking-tight transition-colors duration-500">
                             <FigmaInspectWrapper label="Span • 24px">
                                 <div className="flex items-center gap-3 mb-2">
-                                    <span className="opacity-60 font-normal italic">{t("common.hello")}</span>
                                     <motion.div
                                         animate={{ rotate: [0, 15, -10, 15, 0] }}
                                         transition={{ 
