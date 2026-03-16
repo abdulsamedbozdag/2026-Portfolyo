@@ -40,7 +40,7 @@ export default function TedxPage() {
                 trigger: sectionRef.current,
                 start: "top top",
                 end: isMobile ? "+=150%" : "+=200%", // Reduced scroll distance to eliminate dead zone
-                scrub: isMobile ? 1 : 1.5,
+                scrub: isMobile ? 2.5 : 1.5, // Increased scrub for smoother mobile scrubbing
                 pin: true,
                 anticipatePin: 1,
             },
@@ -52,6 +52,7 @@ export default function TedxPage() {
             time: 1,
             onUpdate: () => {
                 if (video.duration) {
+                    // Smoother time update logic
                     video.currentTime = video.duration * videoDuration.time;
                 }
             },
@@ -131,15 +132,37 @@ export default function TedxPage() {
                                 transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
                                 className="flex flex-col items-center gap-1"
                             >
-                                {/* Mouse SVG Icon */}
-                                <svg width="28" height="42" viewBox="0 0 28 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="1" y="1" width="26" height="40" rx="13" stroke="white" strokeWidth="2" opacity="0.6" />
-                                    <motion.rect
-                                        x="12" y="8" width="4" height="10" rx="2" fill="white" opacity="0.8"
-                                        animate={{ y: [8, 16, 8] }}
-                                        transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-                                    />
-                                </svg>
+                                {isMobile ? (
+                                    /* Hand Swipe Animation for Mobile */
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <motion.path
+                                            d="M12 20V4M12 4L8 8M12 4L16 8"
+                                            stroke="white"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            animate={{ y: [4, -4, 4], opacity: [0.3, 1, 0.3] }}
+                                            transition={{ duration: 2, repeat: Infinity }}
+                                        />
+                                        <motion.path
+                                            d="M7 10C7 10 8.5 4 12 4C15.5 4 17 10 17 10"
+                                            stroke="white"
+                                            strokeWidth="1.5"
+                                            strokeLinecap="round"
+                                            opacity="0.5"
+                                        />
+                                    </svg>
+                                ) : (
+                                    /* Mouse SVG Icon for Desktop */
+                                    <svg width="28" height="42" viewBox="0 0 28 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="1" y="1" width="26" height="40" rx="13" stroke="white" strokeWidth="2" opacity="0.6" />
+                                        <motion.rect
+                                            x="12" y="8" width="4" height="10" rx="2" fill="white" opacity="0.8"
+                                            animate={{ y: [8, 16, 8] }}
+                                            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                                        />
+                                    </svg>
+                                )}
                                 {/* Down Arrow */}
                                 <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.5">
                                     <path d="M1 1L7 7L13 1" stroke="white" strokeWidth="2" strokeLinecap="round" />
