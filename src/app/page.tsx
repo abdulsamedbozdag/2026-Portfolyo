@@ -136,22 +136,23 @@ export default function Home() {
                 customComponent={p.customComponent}
               />
 
-              {/* Optional: Add Spitfire Interlude only when appropriate, e.g. after TEDx if both visible or just as a stand-alone filtered section */}
-              {p.id === "tedx" && (activeCategory === "All" || activeCategory === "3D" || activeCategory === "Brand & Graphic") && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                >
-                  <SpitfireInterlude />
-                </motion.div>
-              )}
             </motion.div>
           ))}
         </AnimatePresence>
       </div>
 
-      {/* 4. ABOUT & FOOTER */}
+      {/* 4. SPITFIRE INTERLUDE (Now after all projects) */}
+      {(activeCategory === "All" || activeCategory === "3D" || activeCategory === "Brand & Graphic") && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <SpitfireInterlude />
+        </motion.div>
+      )}
+
+      {/* 5. ABOUT & FOOTER */}
       <About />
       <Footer />
     </main>

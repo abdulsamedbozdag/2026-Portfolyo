@@ -9,7 +9,11 @@ export function CustomCursor() {
     const mouseRef = useRef({ x: 0, y: 0 });
     const [isMobile, setIsMobile] = useState(() => {
         if (typeof window !== "undefined") {
-            return window.matchMedia("(pointer: coarse)").matches;
+            return (
+                window.matchMedia("(pointer: coarse)").matches ||
+                "ontouchstart" in window ||
+                navigator.maxTouchPoints > 0
+            );
         }
         return false;
     });

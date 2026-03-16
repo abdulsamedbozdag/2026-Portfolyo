@@ -253,22 +253,14 @@ export default function AboutPage() {
                             </div>
                             <h2 className="text-2xl font-black tracking-tight uppercase">{about.skills}</h2>
                         </div>
-                        <div className="space-y-6">
+                        <div className="flex flex-wrap gap-3">
                             {cv.skills.map((skill: Skill, i: number) => (
-                                <motion.div key={i} variants={itemVariants}>
-                                    <div className="flex justify-between items-center mb-2">
-                                        <span className="font-bold text-sm tracking-wide uppercase">{skill.name}</span>
-                                        <span className="text-xs text-muted-foreground">{skill.level}/10</span>
-                                    </div>
-                                    <div className="h-1.5 w-full bg-foreground/5 rounded-full overflow-hidden">
-                                        <motion.div
-                                            initial={{ width: 0 }}
-                                            whileInView={{ width: `${skill.level * 10}%` }}
-                                            viewport={{ once: true }}
-                                            transition={{ duration: 1, delay: 0.1 * i }}
-                                            className="h-full bg-primary"
-                                        />
-                                    </div>
+                                <motion.div
+                                    key={i}
+                                    variants={itemVariants}
+                                    className="px-4 py-2 rounded-xl bg-foreground/[0.03] border border-foreground/5 text-sm font-bold tracking-wide uppercase hover:bg-foreground/5 transition-colors duration-300"
+                                >
+                                    {skill.name}
                                 </motion.div>
                             ))}
                         </div>
