@@ -2,7 +2,12 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { TireScene } from "@/components/prometeon/TireScene";
+import dynamic from 'next/dynamic';
+const TireScene = dynamic(() => import('@/components/prometeon/TireScene').then(mod => mod.TireScene), { 
+  ssr: false,
+  loading: () => <p className="text-xs uppercase tracking-widest opacity-30">Yükleniyor...</p>
+});
+
 import Image from "next/image";
 
 export default function PrometeonInterlude() {

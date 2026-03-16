@@ -5,7 +5,12 @@ import { useState } from "react";
 import EditorialHero from "@/components/hero/EditorialHero";
 import ProjectShowcase from "@/components/editorial/ProjectShowcase";
 import SpitfireInterlude from "@/components/editorial/SpitfireInterlude";
-import { TireScene } from "@/components/prometeon/TireScene";
+import dynamic from 'next/dynamic';
+const TireScene = dynamic(() => import('@/components/prometeon/TireScene').then(mod => mod.TireScene), { 
+  ssr: false,
+  loading: () => <p className="text-xs uppercase tracking-widest opacity-30">Yükleniyor...</p>
+});
+
 import { About } from "@/components/About";
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/context/LanguageContext";

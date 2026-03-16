@@ -6,10 +6,26 @@ import { useGLTF, Stage, OrbitControls } from "@react-three/drei";
 import { motion } from "framer-motion";
 import { Loader3D } from "../3d/Loader3D";
 
-function PrometeonTire({ url }: { url: string }) {
-    const { scene } = useGLTF(url);
-    // Drastically reduced scale to ensure it's small relative to the background text
-    return <primitive object={scene} scale={0.25} />;
+function PrometeonTire() {
+    const { nodes } = useGLTF(
+        '/prometeon/lastikler/R02_PRO_TRAILER_M1_no_materials.glb',
+        'https://www.gstatic.com/draco/versioned/decoders/1.5.5/'
+    );
+    
+    // Model içindeki mesh adının 'Lastik_Objesi' veya 'Lastik' olduğunu varsayıyoruz
+    const tireNode = (nodes.Lastik_Objesi || nodes.Lastik) as any;
+
+    if (!tireNode) return null;
+
+    return (
+        <mesh geometry={tireNode.geometry} scale={0.25}>
+            <meshStandardMaterial
+                color="#121212"    // Çok koyu gri/siyah arası bir renk
+                roughness={0.7}    // Pürüzlülük (Kauçuk matlığı için)
+                metalness={0.1}    // Hafif bir ışık yansıması
+            />
+        </mesh>
+    );
 }
 
 export function TireScene() {
@@ -45,7 +61,7 @@ export function TireScene() {
                 <Suspense fallback={<Loader3D />}>
                     {/* Re-enabling adjustCamera to let Stage handle the base fit, matching scale for final size */}
                     <Stage environment="studio" intensity={1.5} shadows={{ type: 'contact', opacity: 0.8, blur: 2 } as any} adjustCamera={true}>
-                        <PrometeonTire url="/prometeon/lastikler/R02_PRO_TRAILER_M1_7MB.glb" />
+                        <PrometeonTire />
                     </Stage>
 
                     {/* Lighting for the sidewall - Focused on the right diagonal */}

@@ -8,7 +8,16 @@ import { StickyBackButton } from "@/components/StickyBackButton";
 import { LightboxImage } from "@/components/ImageLightbox";
 import { cn } from "@/lib/utils";
 import GlobeToMap from "@/components/prometeon/GlobeToMap";
-import { TireScene } from "@/components/prometeon/TireScene";
+import dynamic from 'next/dynamic';
+const TireScene = dynamic(() => import('@/components/prometeon/TireScene').then(mod => mod.TireScene), { 
+  ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center p-12">
+      <p className="text-sm font-light tracking-[0.2em] uppercase opacity-50">Yükleniyor...</p>
+    </div>
+  )
+});
+
 import { useLanguage } from "@/context/LanguageContext";
 import { Globe } from "lucide-react";
 
@@ -680,6 +689,11 @@ export default function PrometeonPage() {
                 {/* ═══════════════════════════════════════════════════════ */}
                 <DraggableMarquee />
 
+
+                {/* ═══════════════════════════════════════════════════════ */}
+                {/* SECTION 3: Technical Details (3D Tire)                 */}
+                {/* ═══════════════════════════════════════════════════════ */}
+                <TireCrossSection />
 
                 {/* ═══════════════════════════════════════════════════════ */}
                 {/* SECTION 4: Creative Showcase Gallery                   */}
