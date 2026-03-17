@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useAnimation, useMotionValue, AnimatePresence, useInView } from "framer-motion";
+import { motion, useAnimation, useMotionValue, AnimatePresence, useInView, animate } from "framer-motion";
 import { useState, useEffect, useRef, createContext, useContext } from "react";
 import Image from "next/image";
 import { ArrowDown, Sun, Moon, ChevronLeft, ChevronRight, Globe } from "lucide-react";
@@ -47,7 +47,7 @@ const ThemeToggle = () => {
                         <Moon size={18} className="text-[#0f204b]" />
                     </motion.div>
                 )}
-            </AnimatePresence>
+            </AnPresence>
         </motion.button>
     );
 };
@@ -99,34 +99,65 @@ const GallerySlider = () => {
         "/prometeon/yılbaşı_görsel_karsız_2 copy.gif",
     ];
 
-    const { isDark } = useTheme();
     const x = useMotionValue(0);
     const containerRef = useRef<HTMLDivElement>(null);
+    const isInView = useInView(containerRef, { amount: 0.1 });
+    const [isHovered, setIsHovered] = useState(false);
+    
     const itemWidth = 336; // 320px + 16px gap
-    const totalWidth = images.length * itemWidth;
+    const oneSetWidth = images.length * itemWidth;
+
+    // Auto-scroll effect (Marquee)
+    useEffect(() => {
+        let animationFrame: number;
+        let lastTime = performance.now();
+
+        const animateMarquee = (time: number) => {
+            if (!isInView || isHovered) {
+                lastTime = time;
+                animationFrame = requestAnimationFrame(animateMarquee);
+                return;
+            }
+
+            const delta = time - lastTime;
+            const speed = 0.04; 
+            const currentX = x.get();
+            let nextX = currentX - speed * delta;
+
+            if (nextX <= -oneSetWidth) {
+                nextX += oneSetWidth;
+            }
+
+            x.set(nextX);
+            lastTime = time;
+            animationFrame = requestAnimationFrame(animateMarquee);
+        };
+
+        animationFrame = requestAnimationFrame(animateMarquee);
+        return () => cancelAnimationFrame(animationFrame);
+    }, [isInView, isHovered, oneSetWidth, x]);
 
     const scroll = (direction: 'left' | 'right') => {
         const currentX = x.get();
         let targetX = direction === 'left' ? currentX + itemWidth : currentX - itemWidth;
 
-        // Loop logic
-        const maxScroll = -(totalWidth - itemWidth * 2); // Approximate safety
-        if (targetX > 0) targetX = -totalWidth + itemWidth * 3;
-        if (targetX < -totalWidth + itemWidth) targetX = 0;
-
-        motion.animate(x, targetX, {
+        animate(x, targetX, {
             type: "spring",
-            stiffness: 150,
+            stiffness: 100,
             damping: 20
         });
     };
 
     return (
-        <section className="relative w-full max-w-[1400px] mx-auto overflow-visible px-12 group/slider">
+        <section 
+            className="relative w-full max-w-[1400px] mx-auto overflow-visible px-12 group/slider"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
             {/* Left Button */}
             <button
                 onClick={() => scroll('left')}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-4 rounded-full bg-black/20 backdrop-blur-md border border-white/10 text-white opacity-0 group-hover/slider:opacity-100 transition-opacity hover:bg-black/40"
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-4 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white opacity-0 group-hover/slider:opacity-100 transition-all hover:bg-black/60 active:scale-95"
             >
                 <ChevronLeft size={24} />
             </button>
@@ -134,7 +165,7 @@ const GallerySlider = () => {
             {/* Right Button */}
             <button
                 onClick={() => scroll('right')}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-4 rounded-full bg-black/20 backdrop-blur-md border border-white/10 text-white opacity-0 group-hover/slider:opacity-100 transition-opacity hover:bg-black/40"
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-4 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white opacity-0 group-hover/slider:opacity-100 transition-all hover:bg-black/60 active:scale-95"
             >
                 <ChevronRight size={24} />
             </button>
@@ -147,12 +178,8 @@ const GallerySlider = () => {
                     style={{ x }}
                     className="flex gap-4"
                 >
-                    {images.map((src, i) => (
-                        <MarqueeItem key={i} src={src} alt={`Prometeon Asset ${i + 1}`} />
-                    ))}
-                    {/* Cloned set for loop feeling */}
-                    {images.slice(0, 4).map((src, i) => (
-                        <MarqueeItem key={`clone-${i}`} src={src} alt={`Prometeon Asset ${i + 1}`} />
+                    {[...images, ...images, ...images].map((src, i) => (
+                        <MarqueeItem key={i} src={src} alt={`Prometeon Asset ${(i % images.length) + 1}`} />
                     ))}
                 </motion.div>
             </div>
