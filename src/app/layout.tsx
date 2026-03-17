@@ -58,6 +58,7 @@ import { CustomCursor } from "@/components/CustomCursor";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Script from "next/script";
 
 export default function RootLayout({
   children,
@@ -66,6 +67,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" suppressHydrationWarning>
+      <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-C7KN24NENF"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-C7KN24NENF');
+          `}
+        </Script>
+      </head>
       <body className={`${outfit.variable} ${playfair.variable} ${jakarta.variable} ${rem.variable} font-sans antialiased`}>
         <LanguageProvider>
           <ThemeProvider
