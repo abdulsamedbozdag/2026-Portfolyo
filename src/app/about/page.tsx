@@ -13,7 +13,7 @@ interface Experience {
     role: string;
     date: string;
     logo?: string;
-    points: string[];
+    points?: string[];
 }
 
 interface Volunteer {
@@ -48,7 +48,7 @@ export default function AboutPage() {
     return (
         <main className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground font-inter pb-20">
             {/* Top Navigation Controls */}
-            <div className="fixed top-6 left-6 z-[50] flex items-center gap-3 pointer-events-auto">
+            <div className="fixed top-6 left-6 z-[50] pointer-events-auto">
                 <Link
                     href="/"
                     className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/60 backdrop-blur-md text-white text-sm font-medium hover:bg-black/80 transition-colors border border-white/10"
@@ -56,6 +56,9 @@ export default function AboutPage() {
                     <ArrowLeft className="w-4 h-4" />
                     {language === "tr" ? "Ana Sayfa" : "Home"}
                 </Link>
+            </div>
+
+            <div className="fixed top-6 right-6 z-[50] pointer-events-auto">
                 <div className="flex items-center gap-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 p-1 shadow-2xl">
                     <ThemeToggle className="text-white hover:bg-white/10" />
                     <div className="w-[1px] h-4 bg-white/10 mx-1" />
@@ -161,14 +164,16 @@ export default function AboutPage() {
                                             {exp.date}
                                         </span>
                                     </div>
-                                    <ul className="space-y-3">
-                                        {exp.points.map((point: string, j: number) => (
-                                            <li key={j} className="text-muted-foreground flex items-start gap-3">
-                                                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary/30 shrink-0" />
-                                                {point}
-                                            </li>
-                                        ))}
-                                    </ul>
+                                    {exp.points && exp.points.length > 0 && (
+                                        <ul className="space-y-3">
+                                            {exp.points.map((point: string, j: number) => (
+                                                <li key={j} className="text-muted-foreground flex items-start gap-3">
+                                                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary/30 shrink-0" />
+                                                    {point}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
                                 </motion.div>
                             ))}
                         </div>

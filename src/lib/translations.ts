@@ -66,35 +66,19 @@ export const translations = {
                     company: "PROMETEON",
                     role: "Marka ve İletişim Stajyeri",
                     date: "Ağustos 2024 - Halen",
-                    logo: "/logos/prometeon.png",
-                    points: [
-                        "Kurumsal Marka Yönetimi: Global CI standartlarına sadık kalarak yerel stratejilerin uygulanması.",
-                        "B2B Pazarlama İletişimi: Ürün lansman materyalleri ve dijital mailing tasarımları.",
-                        "Etkinlik ve Sponsorluk: A Milli Futbol Takımı, Toprak Razgatlıoğlu ve Dakar sponsorluk yönetimi.",
-                        "Görsel Tasarım: İK departmanı için stratejik görsel destek ve sunum tasarımları."
-                    ]
+                    logo: "/logos/prometeon.png"
                 },
                 {
                     company: "ISTCODE",
                     role: "Grafik Tasarım Stajyeri",
                     date: "Mayıs 2024 - Temmuz 2024",
-                    logo: "/logos/istcode.png",
-                    points: [
-                        "Sosyal Medya Tasarımı: Etkileşim odaklı post ve story setleri.",
-                        "Hızlı Üretim: Ajans temposunda yaratıcı çözümler ve revize yönetimi."
-                    ]
+                    logo: "/logos/istcode.png"
                 },
                 {
                     company: "CAR2GATHER",
                     role: "Kurucu Ortak ve Tasarımcı",
                     date: "Mart 2022 - Ağustos 2023",
-                    logo: "/logos/car2gather.png",
-                    points: [
-                        "Marka Kimliği İnşası: Logodan kurumsal renk paletine kadar tüm kimlik süreci.",
-                        "UI/UX Tasarımı: Mobil uygulama ve web platformu kullanıcı akışları ve arayüz kurgusu.",
-                        "Yatırımcı Sunumları: Pitch Deck tasarımları ve iş modeli görselleştirmesi.",
-                        "Ürün Stratejisi: Design Thinking metodolojisi ile ürün geliştirme."
-                    ]
+                    logo: "/logos/car2gather.png"
                 }
             ],
             volunteer: [
@@ -262,35 +246,19 @@ export const translations = {
                     company: "PROMETEON",
                     role: "Brand and Communication Intern",
                     date: "August 2024 - Present",
-                    logo: "/logos/prometeon.png",
-                    points: [
-                        "Corporate Brand Management: Executing visual strategies while adhering to global CI standards.",
-                        "B2B Marketing Communication: Producing launch materials and digital mailing designs.",
-                        "Events and Sponsorship: Creative management for Turkish National Football Team, Toprak Razgatlıoğlu, and Dakar.",
-                        "Visual Design: Strategic visual support and presentation designs for HR."
-                    ]
+                    logo: "/logos/prometeon.png"
                 },
                 {
                     company: "ISTCODE",
                     role: "Graphic Design Intern",
                     date: "May 2024 - July 2024",
-                    logo: "/logos/istcode.png",
-                    points: [
-                        "Social Media Design: Interaction-oriented post and story sets for various sectors.",
-                        "Rapid Production: Creative solutions and revision management in agency environment."
-                    ]
+                    logo: "/logos/istcode.png"
                 },
                 {
                     company: "CAR2GATHER",
                     role: "Co-Founder and Designer",
                     date: "March 2022 - August 2023",
-                    logo: "/logos/car2gather.png",
-                    points: [
-                        "Brand Identity Construction: Creating entire identity from logo to tone of voice.",
-                        "UI/UX Design: Designing user-friendly interfaces and architecting user flows.",
-                        "Pitch Deck Design: Visualizing strategic presentations and business models.",
-                        "Product Strategy: Playing an active role in determining features using Design Thinking."
-                    ]
+                    logo: "/logos/car2gather.png"
                 }
             ],
             volunteer: [
