@@ -96,6 +96,8 @@ const DraggableMarquee = () => {
         "/prometeon/kampanya/prometeon_axess_kampanyasi.jpeg",
         "/prometeon/kampanya/prometeon_maximum_kampanyasi.jpeg",
         "/prometeon/Lansman/toplufoto.jpeg",
+        "/prometeon/saha_led.jpg",
+        "/prometeon/yılbaşı_görsel_karsız_2 copy.gif",
     ];
 
     const x = useMotionValue(0);
@@ -142,6 +144,20 @@ const DraggableMarquee = () => {
         <div
             ref={containerRef}
             className="overflow-hidden select-none py-10 cursor-grab active:cursor-grabbing"
+            onWheel={(e) => {
+                const speed = 0.5;
+                const currentX = x.get();
+                let nextX = currentX - e.deltaY * speed;
+
+                const oneSetWidth = images.length * itemWidth;
+                if (nextX <= -oneSetWidth) {
+                    nextX += oneSetWidth;
+                } else if (nextX > 0) {
+                    nextX -= oneSetWidth;
+                }
+
+                x.set(nextX);
+            }}
         >
             <motion.div
                 drag="x"
