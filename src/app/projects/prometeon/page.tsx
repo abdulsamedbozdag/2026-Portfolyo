@@ -95,8 +95,8 @@ const GallerySlider = () => {
         "/prometeon/kampanya/prometeon_axess_kampanyasi.jpeg",
         "/prometeon/kampanya/prometeon_maximum_kampanyasi.jpeg",
         "/prometeon/Lansman/toplufoto.jpeg",
-        "/prometeon/saha_led.jpg",
-        "/prometeon/yılbaşı_görsel_karsız_2 copy.gif",
+        "/prometeon/saha-led.jpg",
+        "/prometeon/yilbasi-gorsel.gif",
     ];
 
     const x = useMotionValue(0);
