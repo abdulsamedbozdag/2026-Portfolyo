@@ -3,13 +3,12 @@
 import { motion, useAnimation, useMotionValue, AnimatePresence, useInView } from "framer-motion";
 import { useState, useEffect, useRef, createContext, useContext } from "react";
 import Image from "next/image";
-import { ArrowDown, Sun, Moon } from "lucide-react";
+import { ArrowDown, Sun, Moon, ChevronLeft, ChevronRight, Globe } from "lucide-react";
 import { StickyBackButton } from "@/components/StickyBackButton";
 import { LightboxImage } from "@/components/ImageLightbox";
 import { cn } from "@/lib/utils";
 import GlobeToMap from "@/components/prometeon/GlobeToMap";
 import { useLanguage } from "@/context/LanguageContext";
-import { Globe } from "lucide-react";
 
 // ---------------------------------------------------------------------------
 // TYPES & DATA
@@ -80,9 +79,9 @@ const MarqueeItem = ({ src, alt }: { src: string; alt: string }) => {
 };
 
 // ---------------------------------------------------------------------------
-// Draggable Marquee
+// Gallery Slider
 // ---------------------------------------------------------------------------
-const DraggableMarquee = () => {
+const GallerySlider = () => {
     const images = [
         "/prometeon/Lansman/lansman1.jpeg",
         "/prometeon/Lansman/lansman2.jpeg",
@@ -100,80 +99,64 @@ const DraggableMarquee = () => {
         "/prometeon/yılbaşı_görsel_karsız_2 copy.gif",
     ];
 
+    const { isDark } = useTheme();
     const x = useMotionValue(0);
-    const [isDragging, setIsDragging] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
-    const isInView = useInView(containerRef, { amount: 0.1 });
-
-    const allImages = [...images, ...images, ...images]; // Reduced clones from 4 transfer to 3
     const itemWidth = 336; // 320px + 16px gap
-    const trackWidth = allImages.length * itemWidth;
+    const totalWidth = images.length * itemWidth;
 
-    useEffect(() => {
-        let animationFrame: number;
-        let lastTime = performance.now();
+    const scroll = (direction: 'left' | 'right') => {
+        const currentX = x.get();
+        let targetX = direction === 'left' ? currentX + itemWidth : currentX - itemWidth;
 
-        const animate = (time: number) => {
-            if (!isInView) {
-                animationFrame = requestAnimationFrame(animate);
-                return;
-            }
+        // Loop logic
+        const maxScroll = -(totalWidth - itemWidth * 2); // Approximate safety
+        if (targetX > 0) targetX = -totalWidth + itemWidth * 3;
+        if (targetX < -totalWidth + itemWidth) targetX = 0;
 
-            if (!isDragging) {
-                const delta = time - lastTime;
-                const speed = 0.04; // Slightly slower for better perf/aesthetic
-                const currentX = x.get();
-                let nextX = currentX - speed * delta;
-
-                const oneSetWidth = images.length * itemWidth;
-                if (nextX <= -oneSetWidth) {
-                    nextX += oneSetWidth;
-                }
-
-                x.set(nextX);
-            }
-            lastTime = time;
-            animationFrame = requestAnimationFrame(animate);
-        };
-
-        animationFrame = requestAnimationFrame(animate);
-        return () => cancelAnimationFrame(animationFrame);
-    }, [isDragging, images.length, x, isInView]);
+        motion.animate(x, targetX, {
+            type: "spring",
+            stiffness: 150,
+            damping: 20
+        });
+    };
 
     return (
-        <div
-            ref={containerRef}
-            className="overflow-hidden select-none py-10 cursor-grab active:cursor-grabbing"
-            onWheel={(e) => {
-                const speed = 0.5;
-                const currentX = x.get();
-                let nextX = currentX - e.deltaY * speed;
-
-                const oneSetWidth = images.length * itemWidth;
-                if (nextX <= -oneSetWidth) {
-                    nextX += oneSetWidth;
-                } else if (nextX > 0) {
-                    nextX -= oneSetWidth;
-                }
-
-                x.set(nextX);
-            }}
-        >
-            <motion.div
-                drag="x"
-                style={{ x }}
-                dragConstraints={{ left: -trackWidth / 2, right: trackWidth / 2 }}
-                dragElastic={0.1}
-                dragMomentum={true}
-                onDragStart={() => setIsDragging(true)}
-                onDragEnd={() => setIsDragging(false)}
-                className="flex gap-4"
+        <section className="relative w-full max-w-[1400px] mx-auto overflow-visible px-12 group/slider">
+            {/* Left Button */}
+            <button
+                onClick={() => scroll('left')}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-4 rounded-full bg-black/20 backdrop-blur-md border border-white/10 text-white opacity-0 group-hover/slider:opacity-100 transition-opacity hover:bg-black/40"
             >
-                {allImages.map((src, i) => (
-                    <MarqueeItem key={i} src={src} alt={`Prometeon Asset ${(i % images.length) + 1}`} />
-                ))}
-            </motion.div>
-        </div >
+                <ChevronLeft size={24} />
+            </button>
+
+            {/* Right Button */}
+            <button
+                onClick={() => scroll('right')}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-4 rounded-full bg-black/20 backdrop-blur-md border border-white/10 text-white opacity-0 group-hover/slider:opacity-100 transition-opacity hover:bg-black/40"
+            >
+                <ChevronRight size={24} />
+            </button>
+
+            <div
+                ref={containerRef}
+                className="overflow-hidden select-none py-10"
+            >
+                <motion.div
+                    style={{ x }}
+                    className="flex gap-4"
+                >
+                    {images.map((src, i) => (
+                        <MarqueeItem key={i} src={src} alt={`Prometeon Asset ${i + 1}`} />
+                    ))}
+                    {/* Cloned set for loop feeling */}
+                    {images.slice(0, 4).map((src, i) => (
+                        <MarqueeItem key={`clone-${i}`} src={src} alt={`Prometeon Asset ${i + 1}`} />
+                    ))}
+                </motion.div>
+            </div>
+        </section>
     );
 };
 
@@ -643,9 +626,9 @@ export default function PrometeonPage() {
                 <EditorialShowcase />
 
                 {/* ═══════════════════════════════════════════════════════ */}
-                {/* SECTION 1.5: Draggable Marquee                       */}
+                {/* SECTION 1.5: Gallery Slider (Arrows)                 */}
                 {/* ═══════════════════════════════════════════════════════ */}
-                <DraggableMarquee />
+                <GallerySlider />
 
 
 
