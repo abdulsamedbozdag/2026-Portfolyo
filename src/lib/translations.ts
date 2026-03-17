@@ -65,7 +65,7 @@ export const translations = {
                 {
                     company: "PROMETEON",
                     role: "Marka ve İletişim Stajyeri",
-                    date: "Ağustos 2024 - Halen",
+                    date: "Ağustos 2024 - Şubat 2026",
                     logo: "/logos/prometeon.png"
                 },
                 {
@@ -245,7 +245,7 @@ export const translations = {
                 {
                     company: "PROMETEON",
                     role: "Brand and Communication Intern",
-                    date: "August 2024 - Present",
+                    date: "August 2024 - February 2026",
                     logo: "/logos/prometeon.png"
                 },
                 {
