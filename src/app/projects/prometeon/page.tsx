@@ -47,7 +47,7 @@ const ThemeToggle = () => {
                         <Moon size={18} className="text-[#0f204b]" />
                     </motion.div>
                 )}
-            </AnPresence>
+            </AnimatePresence>
         </motion.button>
     );
 };
