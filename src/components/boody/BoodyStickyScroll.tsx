@@ -53,8 +53,8 @@ export function BoodyStickyScroll() {
             image: "/Boody/boodyapp_ilanverme.jpeg"
         },
         {
-            title: "Boody App Hoşgeldiniz",
-            description: "Modern ve kullanıcı dostu arayüzü ile kampüs hayatına ilk adım. Öğrenciler için tasarlanmış özel karşılama ekranı.",
+            title: "Bilgiyi Paylaş, Kampüsü Hareketlendir",
+            description: "Boody AI ile çözdüğün zorlu soruları saniyeler içinde toplulukla paylaş. Çözümler üzerine tartışın, farklı perspektifler kazanın ve kampüsün kolektif zekasının bir parçası olun. Bilgi paylaştıkça çoğalır!",
             image: "/Boody/boodyai.jpeg"
         },
         {
