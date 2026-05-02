@@ -18,9 +18,9 @@ export function BoodyStickyScroll() {
 
     const features: Feature[] = [
         {
-            title: "Boody App Hoşgeldiniz",
-            description: "Modern ve kullanıcı dostu arayüzü ile kampüs hayatına ilk adım. Öğrenciler için tasarlanmış özel karşılama ekranı.",
-            image: "/Boody/boodyai.jpeg"
+            title: "İlan Keşfet",
+            description: "Ders çalışma, sosyalleşme, spor, sanat, kariyer Boody'si bulmanı sağlayan ilan verme sistemi",
+            image: "/Boody/boody_ilan_ara.jpeg"
         },
         {
             title: "AI Çalışma Asistanı",
@@ -38,9 +38,9 @@ export function BoodyStickyScroll() {
             image: "/Boody/boodyapp_chat.jpeg"
         },
         {
-            title: "İlan Keşfet",
-            description: "Ders çalışma, sosyalleşme, spor, sanat, kariyer Boody'si bulmanı sağlayan ilan verme sistemi",
-            image: "/Boody/boody_ilan_ara.jpeg"
+            title: "Kaydedilenler",
+            description: "Ders notlarınızı, önemli ilanları ve AI çözümlerini tek bir yerde düzenli şekilde saklayın.",
+            image: "/Boody/boodyai_kaydedilenler.jpeg"
         },
         {
             title: "İlan Detayları",
@@ -53,9 +53,9 @@ export function BoodyStickyScroll() {
             image: "/Boody/boodyapp_ilanverme.jpeg"
         },
         {
-            title: "Kaydedilenler",
-            description: "Ders notlarınızı, önemli ilanları ve AI çözümlerini tek bir yerde düzenli şekilde saklayın.",
-            image: "/Boody/boodyai_kaydedilenler.jpeg"
+            title: "Boody App Hoşgeldiniz",
+            description: "Modern ve kullanıcı dostu arayüzü ile kampüs hayatına ilk adım. Öğrenciler için tasarlanmış özel karşılama ekranı.",
+            image: "/Boody/boodyai.jpeg"
         },
         {
             title: "Kişisel Kitaplık",
