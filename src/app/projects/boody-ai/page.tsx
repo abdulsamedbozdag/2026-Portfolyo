@@ -31,15 +31,6 @@ export default function BoodyAppPage() {
                         transition={{ duration: 1, ease: "easeOut" }}
                         className="flex flex-col items-center"
                     >
-                        {/* Boody Logo Integration - Enlarged as requested */}
-                        <div className="w-56 h-56 mb-4 relative">
-                            <Image
-                                src="/Boody/__logo_boody_mor.svg"
-                                alt="Boody Logo"
-                                fill
-                                className="object-contain"
-                            />
-                        </div>
 
                         <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold uppercase tracking-[0.2em] border border-white/20 rounded-full backdrop-blur-md bg-white/5">
                             Mobil Uygulama
@@ -57,6 +48,23 @@ export default function BoodyAppPage() {
             {/* Project Overview */}
             <section className="relative z-10 bg-black">
                 <div className="max-w-4xl mx-auto py-24 px-6">
+                    {/* Boody Logo - Moved above details */}
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="flex justify-center mb-16"
+                    >
+                        <div className="w-40 h-40 relative">
+                            <Image
+                                src="/Boody/__logo_boody_mor.svg"
+                                alt="Boody Logo"
+                                fill
+                                className="object-contain"
+                            />
+                        </div>
+                    </motion.div>
+
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 border-y border-white/10 py-12">
                         <div>
                             <h3 className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">Rol</h3>
