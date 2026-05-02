@@ -47,15 +47,15 @@ export default function BoodyAppPage() {
 
             {/* Project Overview */}
             <section className="relative z-10 bg-black">
-                <div className="max-w-4xl mx-auto py-24 px-6">
+                <div className="max-w-4xl mx-auto pt-12 pb-20 px-6">
                     {/* Boody Logo - Moved above details */}
                     <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="flex justify-center mb-16"
+                        className="flex justify-center mb-8"
                     >
-                        <div className="w-40 h-40 relative">
+                        <div className="w-56 h-56 relative">
                             <Image
                                 src="/Boody/__logo_boody_mor.svg"
                                 alt="Boody Logo"
