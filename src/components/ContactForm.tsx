@@ -42,20 +42,20 @@ export function ContactForm() {
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="bg-neutral-900/50 backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-12 text-center max-w-xl mx-auto"
+                className="bg-foreground/[0.03] backdrop-blur-xl border border-foreground/10 rounded-[2.5rem] p-12 text-center max-w-xl mx-auto"
             >
                 <div className="flex justify-center mb-6">
                     <div className="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500">
                         <CheckCircle2 size={32} />
                     </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-white">Teşekkürler!</h3>
-                <p className="text-white/60 leading-relaxed">
+                <h3 className="text-2xl font-bold mb-4 text-foreground">Teşekkürler!</h3>
+                <p className="text-foreground/60 leading-relaxed">
                     Mesajınız başarıyla iletildi. En kısa sürede size geri dönüş yapacağım.
                 </p>
                 <button
                     onClick={() => setStatus("idle")}
-                    className="mt-8 text-sm text-white/40 hover:text-white transition-colors underline underline-offset-4"
+                    className="mt-8 text-sm text-foreground/50 hover:text-foreground transition-colors underline underline-offset-4"
                 >
                     Yeni bir mesaj gönder
                 </button>
@@ -73,7 +73,9 @@ export function ContactForm() {
                             name="name"
                             required
                             placeholder="Ad Soyad"
-                            className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 focus:bg-white/[0.05] transition-all"
+                            aria-label="Ad Soyad"
+                            autoComplete="name"
+                            className="w-full bg-foreground/[0.03] border border-foreground/15 rounded-2xl px-5 py-4 text-foreground placeholder:text-foreground/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus:border-foreground/40 focus:bg-foreground/[0.05] transition-all"
                         />
                     </div>
                     <div className="space-y-1">
@@ -82,7 +84,9 @@ export function ContactForm() {
                             name="email"
                             required
                             placeholder="E-posta Adresi"
-                            className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 focus:bg-white/[0.05] transition-all"
+                            aria-label="E-posta Adresi"
+                            autoComplete="email"
+                            className="w-full bg-foreground/[0.03] border border-foreground/15 rounded-2xl px-5 py-4 text-foreground placeholder:text-foreground/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus:border-foreground/40 focus:bg-foreground/[0.05] transition-all"
                         />
                     </div>
                 </div>
@@ -93,7 +97,8 @@ export function ContactForm() {
                         name="subject"
                         required
                         placeholder="Konu"
-                        className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 focus:bg-white/[0.05] transition-all"
+                        aria-label="Konu"
+                        className="w-full bg-foreground/[0.03] border border-foreground/15 rounded-2xl px-5 py-4 text-foreground placeholder:text-foreground/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus:border-foreground/40 focus:bg-foreground/[0.05] transition-all"
                     />
                 </div>
 
@@ -103,7 +108,8 @@ export function ContactForm() {
                         required
                         rows={5}
                         placeholder="Mesajınız..."
-                        className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 focus:bg-white/[0.05] transition-all resize-none"
+                        aria-label="Mesajınız"
+                        className="w-full bg-foreground/[0.03] border border-foreground/15 rounded-2xl px-5 py-4 text-foreground placeholder:text-foreground/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus:border-foreground/40 focus:bg-foreground/[0.05] transition-all resize-none"
                     />
                 </div>
 
@@ -124,7 +130,7 @@ export function ContactForm() {
                 <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="w-full relative group overflow-hidden bg-white text-black py-4 rounded-full font-bold transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
+                    className="w-full relative group overflow-hidden bg-foreground text-background focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background py-4 rounded-full font-bold transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
                 >
                     <div className="flex items-center justify-center gap-2">
                         {status === "loading" ? (
