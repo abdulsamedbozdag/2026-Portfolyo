@@ -5,6 +5,7 @@ import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { BoodyPhoneMockup } from "./BoodyPhoneMockup";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface Feature {
     title: string;
@@ -15,61 +16,62 @@ interface Feature {
 export function BoodyStickyScroll() {
     const [activeIndex, setActiveIndex] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
+    const { tx } = useLanguage();
 
     const features: Feature[] = [
         {
-            title: "İlan Keşfet",
-            description: "Ders çalışma, sosyalleşme, spor, sanat, kariyer Boody'si bulmanı sağlayan ilan verme sistemi",
+            title: tx("İlan Keşfet", "Discover Listings"),
+            description: tx("Ders çalışma, sosyalleşme, spor, sanat, kariyer Boody'si bulmanı sağlayan ilan verme sistemi", "A listing system that helps you find your Boody for studying, socialising, sports, art or career."),
             image: "/Boody/boody_ilan_ara.jpeg"
         },
         {
-            title: "AI Çalışma Asistanı",
-            description: "Zor soruları saniyeler içinde çözen, adım adım rehberlik sunan gelişmiş yapay zeka desteği.",
+            title: tx("AI Çalışma Asistanı", "AI Study Assistant"),
+            description: tx("Zor soruları saniyeler içinde çözen, adım adım rehberlik sunan gelişmiş yapay zeka desteği.", "Advanced AI support that solves difficult questions in seconds and guides you step by step."),
             image: "/Boody/boodyapp_ai_cozum.jpeg"
         },
         {
-            title: "Akıllı Kampüs Ağı",
-            description: "İlgi alanlarınıza ve bölümlerinize göre diğer öğrencilerle eşleşin, topluluklara katılın.",
+            title: tx("Akıllı Kampüs Ağı", "Smart Campus Network"),
+            description: tx("İlgi alanlarınıza ve bölümlerinize göre diğer öğrencilerle eşleşin, topluluklara katılın.", "Match with other students based on your interests and department, and join communities."),
             image: "/Boody/boodyapp_boodyekle.jpeg"
         },
         {
-            title: "Gerçek Zamanlı Sohbet",
-            description: "Güvenli ve hızlı uygulama içi mesajlaşma ile iş birliği ve iletişim her an elinizin altında.",
+            title: tx("Gerçek Zamanlı Sohbet", "Real-Time Chat"),
+            description: tx("Güvenli ve hızlı uygulama içi mesajlaşma ile iş birliği ve iletişim her an elinizin altında.", "Secure, fast in-app messaging keeps collaboration and communication at your fingertips."),
             image: "/Boody/boodyapp_chat.jpeg"
         },
         {
-            title: "Kaydedilenler",
-            description: "Ders notlarınızı, önemli ilanları ve AI çözümlerini tek bir yerde düzenli şekilde saklayın.",
+            title: tx("Kaydedilenler", "Saved Items"),
+            description: tx("Ders notlarınızı, önemli ilanları ve AI çözümlerini tek bir yerde düzenli şekilde saklayın.", "Keep your class notes, important listings and AI solutions organised in one place."),
             image: "/Boody/boodyai_kaydedilenler.jpeg"
         },
         {
-            title: "İlan Detayları",
-            description: "İlanlar hakkında detaylı bilgi, konum ve kullanıcı profili ile güvenli deneyim.",
+            title: tx("İlan Detayları", "Listing Details"),
+            description: tx("İlanlar hakkında detaylı bilgi, konum ve kullanıcı profili ile güvenli deneyim.", "Detailed listing information, location and user profiles for a safe experience."),
             image: "/Boody/boodyapp_ilandetay.jpeg"
         },
         {
-            title: "Hızlı İlan Verme",
-            description: "Birkaç adımda ilanınızı oluşturun ve binlerce öğrenciye anında ulaşın.",
+            title: tx("Hızlı İlan Verme", "Quick Posting"),
+            description: tx("Birkaç adımda ilanınızı oluşturun ve binlerce öğrenciye anında ulaşın.", "Create a listing in a few steps and reach thousands of students instantly."),
             image: "/Boody/boodyapp_ilanverme.jpeg"
         },
         {
-            title: "Bilgiyi Paylaş, Kampüsü Hareketlendir",
-            description: "Boody AI ile çözdüğün zorlu soruları saniyeler içinde toplulukla paylaş. Çözümler üzerine tartışın, farklı perspektifler kazanın ve kampüsün kolektif zekasının bir parçası olun. Bilgi paylaştıkça çoğalır!",
+            title: tx("Bilgiyi Paylaş, Kampüsü Hareketlendir", "Share Knowledge, Energise the Campus"),
+            description: tx("Boody AI ile çözdüğün zorlu soruları saniyeler içinde toplulukla paylaş. Çözümler üzerine tartışın, farklı perspektifler kazanın ve kampüsün kolektif zekasının bir parçası olun. Bilgi paylaştıkça çoğalır!", "Share the tough questions you solved with Boody AI with the community in seconds. Discuss solutions, gain new perspectives and become part of the campus's collective intelligence. Knowledge grows when shared!"),
             image: "/Boody/boodyai.jpeg"
         },
         {
-            title: "Kişisel Kitaplık",
-            description: "Akademik kaynaklarınıza ve favori içeriklerinize her an, her yerden erişin.",
+            title: tx("Kişisel Kitaplık", "Personal Library"),
+            description: tx("Akademik kaynaklarınıza ve favori içeriklerinize her an, her yerden erişin.", "Access your academic resources and favourite content anytime, anywhere."),
             image: "/Boody/boodyai_kaydedilenler_2.jpeg"
         },
         {
-            title: "Öğrenci Profili",
-            description: "Kendinizi tanıtın, ilgi alanlarınızı paylaşın ve kampüsteki dijital kimliğinizi oluşturun.",
+            title: tx("Öğrenci Profili", "Student Profile"),
+            description: tx("Kendinizi tanıtın, ilgi alanlarınızı paylaşın ve kampüsteki dijital kimliğinizi oluşturun.", "Introduce yourself, share your interests and build your digital identity on campus."),
             image: "/Boody/boodyapp_profil.jpeg"
         },
         {
             title: "Boodydoro (Pomodoro)",
-            description: "Odaklanma sürelerinizi yönetin, çalışma verimliliğinizi artırın ve başarıya ulaşın.",
+            description: tx("Odaklanma sürelerinizi yönetin, çalışma verimliliğinizi artırın ve başarıya ulaşın.", "Manage your focus sessions, boost your study productivity and reach your goals."),
             image: "/Boody/boodydoro.jpeg"
         }
     ];
@@ -87,6 +89,7 @@ export function BoodyStickyScroll() {
                                 description={feature.description}
                                 index={index}
                                 setActiveIndex={setActiveIndex}
+                                stepLabel={tx("Adım", "Step")}
                             />
                         ))}
                     </div>
@@ -140,7 +143,7 @@ export function BoodyStickyScroll() {
                                 </div>
                                 <div className="text-center px-4">
                                     <span className="text-purple-500 font-mono text-xs mb-2 block tracking-widest uppercase">
-                                        Step {index + 1 < 10 ? `0${index + 1}` : index + 1}
+                                        {tx("Adım", "Step")} {String(index + 1).padStart(2, "0")}
                                     </span>
                                     <h3 className="text-2xl font-bold mb-4 text-white tracking-tight">{feature.title}</h3>
                                     <p className="text-neutral-400 leading-relaxed text-sm">{feature.description}</p>
@@ -160,7 +163,7 @@ export function BoodyStickyScroll() {
     );
 }
 
-function FeatureLink({ title, description, index, setActiveIndex }: { title: string, description: string, index: number, setActiveIndex: (i: number) => void }) {
+function FeatureLink({ title, description, index, setActiveIndex, stepLabel }: { title: string, description: string, index: number, setActiveIndex: (i: number) => void, stepLabel: string }) {
     const ref = useRef(null);
     const isInView = useInView(ref, {
         margin: "-45% 0px -45% 0px",
@@ -182,7 +185,7 @@ function FeatureLink({ title, description, index, setActiveIndex }: { title: str
             )}
         >
             <span className="text-purple-500 font-mono text-sm mb-4 tracking-widest uppercase">
-                Step 0{index + 1}
+                {stepLabel} {String(index + 1).padStart(2, "0")}
             </span>
             <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white tracking-tight leading-[1.1] bg-gradient-to-br from-white to-white/60 bg-clip-text text-transparent">
                 {title}

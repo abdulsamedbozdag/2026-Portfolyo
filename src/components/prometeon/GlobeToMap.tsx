@@ -5,19 +5,22 @@ import * as d3 from 'd3-geo';
 import { feature } from 'topojson-client';
 import { motion, useSpring, useMotionValue, animate, useInView } from 'framer-motion';
 import { AlertCircle } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const PROMETEON_LOCATIONS = [
-    { lat: 45.46, lng: 9.19, label: "Küresel Merkez", city: "Milano", offset: [-170, -30] },
-    { lat: 40.85, lng: 29.88, label: "Fabrika & Ar-Ge", city: "Kocaeli", offset: [20, -30] },
-    { lat: -23.66, lng: -46.53, label: "Fabrika & Ar-Ge", city: "Santo André", offset: [-200, 0] },
-    { lat: 31.20, lng: 29.91, label: "Fabrika", city: "İskenderiye", offset: [20, 40] },
-    { lat: 35.86, lng: 104.19, label: "Sinochem Ortaklığı", city: "Çin", offset: [20, 0] },
+    { lat: 45.46, lng: 9.19, label: "Küresel Merkez", labelEn: "Global HQ", city: "Milano", cityEn: "Milan", offset: [-170, -30] },
+    { lat: 40.85, lng: 29.88, label: "Fabrika & Ar-Ge", labelEn: "Factory & R&D", city: "Kocaeli", cityEn: "Kocaeli", offset: [20, -30] },
+    { lat: -23.66, lng: -46.53, label: "Fabrika & Ar-Ge", labelEn: "Factory & R&D", city: "Santo André", cityEn: "Santo André", offset: [-200, 0] },
+    { lat: 31.20, lng: 29.91, label: "Fabrika", labelEn: "Factory", city: "İskenderiye", cityEn: "Alexandria", offset: [20, 40] },
+    { lat: 35.86, lng: 104.19, label: "Sinochem Ortaklığı", labelEn: "Sinochem Partnership", city: "Çin", cityEn: "China", offset: [20, 0] },
 ];
 
 export default function GlobeToMap({ isDark = true }: { isDark?: boolean }) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const isInView = useInView(containerRef, { amount: 0.1 });
+    const { language, tx } = useLanguage();
+    const isEn = language === "en";
     const [isUnrolled, setIsUnrolled] = useState(false);
     const [worldData, setWorldData] = useState<any>(null);
     const [error, setError] = useState<string | null>(null);
@@ -197,14 +200,14 @@ export default function GlobeToMap({ isDark = true }: { isDark?: boolean }) {
 
                 ctx.font = '14px sans-serif';
                 ctx.textAlign = 'left';
-                ctx.strokeText(loc.city.toUpperCase(), p[0] + offX, p[1] + offY - 6);
+                ctx.strokeText((isEn ? loc.cityEn : loc.city).toLocaleUpperCase(isEn ? "en" : "tr"), p[0] + offX, p[1] + offY - 6);
                 ctx.fillStyle = isDark ? `rgba(255, 255, 255, ${textAlpha * 0.5})` : `rgba(15, 32, 75, ${textAlpha * 0.6})`;
-                ctx.fillText(loc.city.toUpperCase(), p[0] + offX, p[1] + offY - 6);
+                ctx.fillText((isEn ? loc.cityEn : loc.city).toLocaleUpperCase(isEn ? "en" : "tr"), p[0] + offX, p[1] + offY - 6);
 
                 ctx.font = 'bold 16px sans-serif';
-                ctx.strokeText(loc.label, p[0] + offX, p[1] + offY + 12);
+                ctx.strokeText(isEn ? loc.labelEn : loc.label, p[0] + offX, p[1] + offY + 12);
                 ctx.fillStyle = isDark ? `rgba(255, 255, 255, ${textAlpha})` : `rgba(15, 32, 75, ${textAlpha})`;
-                ctx.fillText(loc.label, p[0] + offX, p[1] + offY + 12);
+                ctx.fillText(isEn ? loc.labelEn : loc.label, p[0] + offX, p[1] + offY + 12);
             });
 
             frameId = requestAnimationFrame(render);
@@ -212,7 +215,7 @@ export default function GlobeToMap({ isDark = true }: { isDark?: boolean }) {
 
         frameId = requestAnimationFrame(render);
         return () => cancelAnimationFrame(frameId);
-    }, [worldData, projectionGlobe, projectionMap, smoothT, smoothZoom, isDark, isInView]);
+    }, [worldData, projectionGlobe, projectionMap, smoothT, smoothZoom, isDark, isInView, isEn]);
 
     const toggleUnroll = () => {
         const nextState = !isUnrolled;
@@ -307,7 +310,7 @@ export default function GlobeToMap({ isDark = true }: { isDark?: boolean }) {
                         ? "bg-white/5 hover:bg-white/10 border-white/10 text-white"
                         : "bg-black/5 hover:bg-black/10 border-black/10 text-[#212b59]"}`}
                 >
-                    {isUnrolled ? "KÜRESEL GÖRÜNÜME DÖN" : "KÜRESEL AĞI AÇ"}
+                    {isUnrolled ? tx("KÜRESEL GÖRÜNÜME DÖN", "BACK TO GLOBE VIEW") : tx("KÜRESEL AĞI AÇ", "EXPLORE GLOBAL NETWORK")}
                 </motion.button>
             </div>
         </div>

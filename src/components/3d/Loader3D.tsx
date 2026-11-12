@@ -15,7 +15,7 @@ export function Loader3D() {
                     className="mb-4"
                 >
                     <span className="text-white/60 text-xs uppercase tracking-[0.3em] font-medium">
-                        3D Model Yükleniyor
+                        {typeof document !== "undefined" && document.documentElement.lang === "en" ? "Loading 3D Model" : "3D Model Yükleniyor"}
                     </span>
                     <div className="mt-2 text-2xl font-bold text-white tabular-nums">
                         {Math.round(progress)}%

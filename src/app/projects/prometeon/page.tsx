@@ -192,7 +192,7 @@ const GallerySlider = () => {
 // ---------------------------------------------------------------------------
 const EditorialShowcase = () => {
     const { isDark } = useTheme();
-    const { t } = useLanguage();
+    const { t, tx } = useLanguage();
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     const magazineImages = [
@@ -255,13 +255,13 @@ const EditorialShowcase = () => {
                         >
                             <Image
                                 src={magazineImages[i]}
-                                alt={`Prometeon Dergisi Sayı ${i + 6}`}
+                                alt={`${tx("Prometeon Dergisi Sayı", "Prometeon Magazine Issue")} ${i + 6}`}
                                 fill
                                 className={`object-cover transition-all duration-500 ${hoveredIndex !== null && hoveredIndex !== i ? "opacity-40 blur-[1px]" : "opacity-90"}`}
                             />
                             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/70 to-transparent p-4 flex flex-col justify-end">
                                 <span className="text-[9px] font-mono text-white/50 uppercase tracking-widest">
-                                    {i === 0 ? "8 Mart Özel" : `Sayı 0${i + 5}`}
+                                    {i === 0 ? tx("8 Mart Özel", "March 8 Special") : `${tx("Sayı", "Issue")} 0${i + 5}`}
                                 </span>
                             </div>
                         </motion.div>
@@ -282,7 +282,7 @@ const EditorialShowcase = () => {
 // ---------------------------------------------------------------------------
 const CreativeShowcase = () => {
     const { isDark } = useTheme();
-    const { t } = useLanguage();
+    const { t, tx } = useLanguage();
     const [selectedGallery, setSelectedGallery] = useState<string[] | null>(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -308,15 +308,15 @@ const CreativeShowcase = () => {
 
     const showcaseItems = [
         {
-            title: "Kurum İçi İletişim",
-            subtitle: "Sosyal Medya ve Markalama",
+            title: tx("Kurum İçi İletişim", "Internal Communication"),
+            subtitle: tx("Sosyal Medya ve Markalama", "Social Media and Branding"),
             image: "/prometeon/Kurum%20i%C3%A7i%20iletisim/ANNELERGUNU.png",
             span: "lg:col-span-6",
             gallery: internalCommImages
         },
         {
-            title: "Saha Uygulamaları",
-            subtitle: "Marka Görünürlüğü",
+            title: tx("Saha Uygulamaları", "Field Applications"),
+            subtitle: tx("Marka Görünürlüğü", "Brand Visibility"),
             image: "/prometeon/dagvelastik.jpeg",
             span: "lg:col-span-6",
             gallery: fieldAppsImages
@@ -462,23 +462,23 @@ const CreativeShowcase = () => {
 // ---------------------------------------------------------------------------
 const SponsorshipShowcase = () => {
     const { isDark } = useTheme();
-    const { t } = useLanguage();
+    const { t, tx } = useLanguage();
 
     const sponsors = [
         {
             title: t("prometeon.sponsorshipArda"),
             image: "/prometeon/Sponsorluk/ARDA TURAN_PROMETEON.jpg",
-            category: "Sponsorluk",
+            category: tx("Sponsorluk", "Sponsorship"),
         },
         {
             title: t("prometeon.sponsorshipTEGV"),
             image: "/prometeon/Sponsorluk/TEGV_ATMA_BAĞIŞLA_AFİŞ_2025.jpg",
-            category: "Sosyal Sorumluluk",
+            category: tx("Sosyal Sorumluluk", "Social Responsibility"),
         },
         {
             title: t("prometeon.sponsorshipToprak"),
             image: "/prometeon/Sponsorluk/toprak razgatlıoğlu kutlama post_R2.jpg",
-            category: "Sponsorluk",
+            category: tx("Sponsorluk", "Sponsorship"),
             hasSaltLogo: true
         },
     ];
@@ -552,7 +552,7 @@ const SponsorshipShowcase = () => {
 export default function PrometeonPage() {
     const [isDark, setIsDark] = useState(true);
     const toggle = () => setIsDark((p) => !p);
-    const { language, setLanguage, t } = useLanguage();
+    const { language, setLanguage, t, tx } = useLanguage();
 
     const toggleLanguage = () => {
         setLanguage(language === "tr" ? "en" : "tr");
@@ -609,16 +609,16 @@ export default function PrometeonPage() {
                         {/* TEDx Styled Info Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-center">
                             <div>
-                                <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500 mb-2">Rolüm</h3>
+                                <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500 mb-2">{tx("Rolüm", "My Role")}</h3>
                                 <p className="text-base font-medium">Visual Communication Designer</p>
                             </div>
                             <div>
-                                <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500 mb-2">Yıl</h3>
-                                <p className="text-base font-medium">Ağustos 2024 - Şubat 2026</p>
+                                <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500 mb-2">{tx("Yıl", "Year")}</h3>
+                                <p className="text-base font-medium">{tx("Ağustos 2024 - Şubat 2026", "August 2024 - February 2026")}</p>
                             </div>
                             <div>
-                                <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500 mb-2">Sektör</h3>
-                                <p className="text-base font-medium">Endüstriyel ve Ticari Araç Lastiği</p>
+                                <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500 mb-2">{tx("Sektör", "Industry")}</h3>
+                                <p className="text-base font-medium">{tx("Endüstriyel ve Ticari Araç Lastiği", "Industrial and Commercial Vehicle Tyres")}</p>
                             </div>
                         </div>
 
@@ -674,7 +674,7 @@ export default function PrometeonPage() {
                 {/* ═══════════════════════════════════════════════════════ */}
                 <section className="py-20 border-t text-center transition-colors duration-500" style={{ borderColor: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.08)" }}>
                     <p className="text-[10px] font-light tracking-[0.5em] uppercase transition-colors duration-500" style={{ color: isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.15)" }}>
-                        Prometeon Tire Group — Endüstriyel ve ticari Araç Lastiği
+                        Prometeon Tire Group — {tx("Endüstriyel ve Ticari Araç Lastiği", "Industrial and Commercial Vehicle Tyres")}
                     </p>
                 </section>
             </main>

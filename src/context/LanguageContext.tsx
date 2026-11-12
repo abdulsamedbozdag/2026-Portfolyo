@@ -9,6 +9,8 @@ interface LanguageContextType {
     language: Language;
     setLanguage: (lang: Language) => void;
     t: (key: string) => any;
+    /** Inline translation: returns `en` when English is active, otherwise `tr`. */
+    tx: <T,>(tr: T, en: T) => T;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -27,8 +29,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     });
 
     useEffect(() => {
-        // Language is already initialized via lazy initializer
-    }, []);
+        document.documentElement.lang = language;
+    }, [language]);
 
     const setLanguage = useCallback((lang: Language) => {
         setLanguageState(lang);
@@ -48,7 +50,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         return result;
     }, [language]);
 
-    const value = useMemo(() => ({ language, setLanguage, t }), [language, setLanguage, t]);
+    const tx = useCallback(<T,>(tr: T, en: T): T => (language === "en" ? en : tr), [language]);
+
+    const value = useMemo(() => ({ language, setLanguage, t, tx }), [language, setLanguage, t, tx]);
 
     return (
         <LanguageContext.Provider value={value}>

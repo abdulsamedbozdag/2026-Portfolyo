@@ -1,5 +1,6 @@
 "use client";
 
+import { useLanguage } from "@/context/LanguageContext";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,6 +14,7 @@ import { ArrowLeft } from "lucide-react";
    ───────────────────────────────────────────── */
 
 export function StickyBackButton({ noPortal = false }: { noPortal?: boolean }) {
+    const { tx } = useLanguage();
     const [visible, setVisible] = useState(false);
     const [mounted, setMounted] = useState(false);
 
@@ -38,7 +40,7 @@ export function StickyBackButton({ noPortal = false }: { noPortal?: boolean }) {
                         className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/60 backdrop-blur-md text-white text-sm font-medium hover:bg-black/80 transition-colors border border-white/10"
                     >
                         <ArrowLeft className="w-4 h-4" />
-                        Ana Sayfa
+                        {tx("Ana Sayfa", "Home")}
                     </Link>
                 </motion.div>
             )}

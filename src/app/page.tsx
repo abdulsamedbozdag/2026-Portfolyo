@@ -10,7 +10,7 @@ const TireScene = dynamic(() => import('@/components/prometeon/TireScene').then(
   ssr: false,
   loading: () => (
     <div className="h-[400px] w-full flex items-center justify-center bg-neutral-900/10 rounded-3xl animate-pulse text-xs uppercase tracking-widest opacity-30">
-      Yükleniyor...
+
     </div>
   )
 });
@@ -32,16 +32,16 @@ const categoryLabelKeys: Record<Category, string> = {
 };
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, tx } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<Category>("All");
 
   const projects = [
     {
       id: "prometeon",
-      category: "Marka ve İletişim",
+      category: t("common.brandComm"),
       mainCategory: ["3D", "Brand & Graphic"],
       title: "Prometeon",
-      tags: ["Görsel Tasarım", "Basılı Materyaller", "Fabrika Giydirmeleri"],
+      tags: tx(["Görsel Tasarım", "Basılı Materyaller", "Fabrika Giydirmeleri"], ["Visual Design", "Print Materials", "Factory Branding"]),
       image: "/prometeon/Logo/Prometeon_Slogan_Darkblue_NoBox_PNG-01.png",
       href: "/projects/prometeon",
       reverse: true,
@@ -54,7 +54,7 @@ export default function Home() {
       category: t("common.visualIdentity"),
       mainCategory: ["3D", "Brand & Graphic"],
       title: "TEDx YTU",
-      tags: ["3D Tasarım", "Blender", "Marka Kimliği", "Hareketli Grafik"],
+      tags: tx(["3D Tasarım", "Blender", "Marka Kimliği", "Hareketli Grafik"], ["3D Design", "Blender", "Brand Identity", "Motion Graphics"]),
       image: "/tedx/Behance-KAPAK.jpg",
       href: "/projects/tedx",
       reverse: false,
@@ -62,10 +62,10 @@ export default function Home() {
     },
     {
       id: "boody-ai",
-      category: "Mobil Uygulama",
+      category: t("common.mobileApp"),
       mainCategory: ["UI/UX Design"],
       title: "Boody App",
-      tags: ["UI/UX", "Mobil Tasarım"],
+      tags: tx(["UI/UX", "Mobil Tasarım"], ["UI/UX", "Mobile Design"]),
       image: "/Boody/Boody_Anasayfa_kapak_görseli.png",
       href: "/projects/boody-ai",
       reverse: true,
@@ -73,10 +73,10 @@ export default function Home() {
     },
     {
       id: "octagone",
-      category: "Oyun Tasarımı",
+      category: tx("Oyun Tasarımı", "Game Design"),
       mainCategory: ["UI/UX Design"],
       title: "OctaGone",
-      tags: ["Etkileşim Tasarımı", "Oyun Mekaniği", "Mekan Tasarımı"],
+      tags: tx(["Etkileşim Tasarımı", "Oyun Mekaniği", "Mekan Tasarımı"], ["Interaction Design", "Game Mechanics", "Spatial Design"]),
       image: "/octagone/octagonekapak.png",
       href: "/projects/octagone",
       reverse: false,
@@ -87,7 +87,7 @@ export default function Home() {
       category: t("common.webPlatform"),
       mainCategory: ["UI/UX Design"],
       title: "car2gather",
-      tags: ["Web Tasarım", "Kullanıcı Akışı", "SaaS"],
+      tags: tx(["Web Tasarım", "Kullanıcı Akışı", "SaaS"], ["Web Design", "User Flow", "SaaS"]),
       image: "/car2gather/AnasayfaKapakGörseli.png",
       href: "/projects/car2gather",
       reverse: true,
@@ -97,8 +97,8 @@ export default function Home() {
       id: "uni4society",
       category: t("cv.uni4society.category"),
       mainCategory: ["Brand & Graphic"],
-      title: "Uni4Society YTÜ",
-      tags: ["Sosyal Medya", "Görsel Kimlik", "Sticker Tasarımı"],
+      title: tx("Uni4Society YTÜ", "Uni4Society YTU"),
+      tags: tx(["Sosyal Medya", "Görsel Kimlik", "Sticker Tasarımı"], ["Social Media", "Visual Identity", "Sticker Design"]),
       image: "/Uni4Society/Sticker/İçerikler/Behance-KAPAK copy.jpg",
       href: "/projects/uni4society",
       reverse: false,

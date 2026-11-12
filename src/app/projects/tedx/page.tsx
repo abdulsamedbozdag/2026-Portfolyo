@@ -10,10 +10,12 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { useLanguage } from "@/context/LanguageContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function TedxPage() {
+    const { tx } = useLanguage();
     const sectionRef = useRef<HTMLDivElement>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -162,7 +164,7 @@ export default function TedxPage() {
                                     </svg>
                                 )}
                             </motion.div>
-                            <span className="text-white/20 text-[9px] uppercase tracking-[0.4em] font-semibold mt-1">Görseli Kaydır</span>
+                            <span className="text-white/20 text-[9px] uppercase tracking-[0.4em] font-semibold mt-1">{tx("Görseli Kaydır", "Scroll the Visual")}</span>
                         </motion.div>
                     )}
 
@@ -179,7 +181,7 @@ export default function TedxPage() {
                                 />
                             </div>
                             <div className="flex flex-col items-center gap-2">
-                                <span className="text-neutral-500 text-xs font-bold uppercase tracking-[0.2em] animate-pulse">Deneyim Hazırlanıyor</span>
+                                <span className="text-neutral-500 text-xs font-bold uppercase tracking-[0.2em] animate-pulse">{tx("Deneyim Hazırlanıyor", "Preparing the Experience")}</span>
                                 <span className="text-neutral-700 text-[10px] font-mono">{videoProgress}%</span>
                             </div>
                         </div>
@@ -194,15 +196,15 @@ export default function TedxPage() {
                 <div className="max-w-3xl mx-auto py-32 px-6 text-center">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-left md:text-center">
                         <div>
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2 transition-colors duration-500">Rolüm</h3>
-                            <p className="text-lg font-medium text-foreground transition-colors duration-500">Grafik Tasarımcı & 3D Artist</p>
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2 transition-colors duration-500">{tx("Rolüm", "My Role")}</h3>
+                            <p className="text-lg font-medium text-foreground transition-colors duration-500">{tx("Grafik Tasarımcı & 3D Artist", "Graphic Designer & 3D Artist")}</p>
                         </div>
                         <div>
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2 transition-colors duration-500">Yıl</h3>
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2 transition-colors duration-500">{tx("Yıl", "Year")}</h3>
                             <p className="text-lg font-medium text-foreground transition-colors duration-500">2023</p>
                         </div>
                         <div>
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2 transition-colors duration-500">Araçlar</h3>
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2 transition-colors duration-500">{tx("Araçlar", "Tools")}</h3>
                             <p className="text-lg font-medium text-foreground transition-colors duration-500">Blender, Photoshop</p>
                         </div>
                     </div>
@@ -211,21 +213,25 @@ export default function TedxPage() {
 
                 {/* Labirent Section */}
                 <div className="max-w-3xl mx-auto py-24 px-6 text-center">
-                    <h2 className="text-3xl font-bold mb-8 text-foreground transition-colors duration-500">ANA AFİŞ</h2>
+                    <h2 className="text-3xl font-bold mb-8 text-foreground transition-colors duration-500">{tx("ANA AFİŞ", "MAIN POSTER")}</h2>
                     <div className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed mb-12 space-y-6 transition-colors duration-500">
                         <p>
-                            Hayatın her alanından isimlerin &quot;The Game&quot; konseptiyle konuşma yaptığı
-                            etkinliğimizin tasarımı için &quot;Labirent&quot;ten ilham alındı.
+                            {tx(
+                                "Hayatın her alanından isimlerin \"The Game\" konseptiyle konuşma yaptığı etkinliğimizin tasarımı için \"Labirent\"ten ilham alındı.",
+                                "For our event, where speakers from all walks of life gave talks around the \"The Game\" concept, the design was inspired by the \"Labyrinth\"."
+                            )}
                         </p>
                         <p>
-                            Labirent felsefesi, genellikle hayatın karmaşıklığını,
-                            belirsizliğini ve yol ayrımlarını temsil etmek için
-                            kullanılan bir metafordur.
+                            {tx(
+                                "Labirent felsefesi, genellikle hayatın karmaşıklığını, belirsizliğini ve yol ayrımlarını temsil etmek için kullanılan bir metafordur.",
+                                "The labyrinth is a metaphor often used to represent the complexity, uncertainty and crossroads of life."
+                            )}
                         </p>
                         <p>
-                            Bu felsefi yaklaşım, insan deneyimini, bilgiyi ve seçimleri
-                            anlamaya çalışırken bazen karşılaşılan karmaşıklığı
-                            ve zorlukları ifade etmek için kullanılır.
+                            {tx(
+                                "Bu felsefi yaklaşım, insan deneyimini, bilgiyi ve seçimleri anlamaya çalışırken bazen karşılaşılan karmaşıklığı ve zorlukları ifade etmek için kullanılır.",
+                                "This philosophical approach expresses the complexity and difficulty we sometimes face when trying to make sense of human experience, knowledge and choices."
+                            )}
                         </p>
                     </div>
                 </div>
@@ -269,7 +275,7 @@ export default function TedxPage() {
                 {/* Sosyal Medya Section */}
                 <div className="max-w-7xl mx-auto py-32 px-6">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl font-bold text-foreground transition-colors duration-500">Sosyal Medya</h2>
+                        <h2 className="text-3xl font-bold text-foreground transition-colors duration-500">{tx("Sosyal Medya", "Social Media")}</h2>
                     </div>
 
                     {/* New Labirent Image Asset */}

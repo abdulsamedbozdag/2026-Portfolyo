@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { SpitfireScene } from "@/components/3d/SpitfireScene";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function SpitfireInterlude() {
+    const { tx } = useLanguage();
     return (
         <section className="relative h-[70vh] md:h-screen min-h-[400px] md:min-h-[600px] w-full flex items-center justify-center bg-background transition-colors duration-500 overflow-hidden -mt-8 md:mt-0">
             {/* Background Title (Behind the Plane) */}
@@ -19,7 +21,7 @@ export default function SpitfireInterlude() {
                         SPITFIRE MK.1
                     </h2>
                     <p className="mt-2 md:mt-4 text-[10px] md:text-lg uppercase tracking-[0.5em] text-foreground/40 font-medium transition-colors duration-500">
-                        İnteraktif 3D Deneyimi
+                        {tx("İnteraktif 3D Deneyimi", "Interactive 3D Experience")}
                     </p>
                 </motion.div>
             </div>
@@ -48,13 +50,13 @@ export default function SpitfireInterlude() {
                         href="/projects/spitfire"
                         className="group relative inline-flex items-center gap-3 px-6 py-3 md:px-8 md:py-4 rounded-full bg-card hover:bg-foreground/5 backdrop-blur-md border border-border text-foreground text-sm md:text-base font-medium tracking-wide transition-all hover:scale-105"
                     >
-                        <span>Projeyi İncele</span>
+                        <span>{tx("Projeyi İncele", "View Project")}</span>
                         <span className="group-hover:translate-x-1 transition-transform">→</span>
                     </Link>
                 </motion.div>
 
                 <span className="text-[8px] md:text-[10px] uppercase tracking-[0.3em] text-foreground/20 transition-colors duration-500 animate-pulse">
-                    İnteraktif 3D
+                    {tx("İnteraktif 3D", "Interactive 3D")}
                 </span>
             </div>
 
