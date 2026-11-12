@@ -59,6 +59,21 @@ export default function EditorialHero() {
                             <Link href="/" className="font-bold text-foreground/90 hover:opacity-70 transition-opacity">
                                 A. Samed Bozdağ
                             </Link>
+                            <div className="hidden md:flex items-center gap-6 text-foreground/60">
+                                {[
+                                    { href: "#projects", key: "common.navProjects" },
+                                    { href: "#about", key: "common.navAbout" },
+                                    { href: "#contact", key: "common.navContact" },
+                                ].map((item) => (
+                                    <a
+                                        key={item.href}
+                                        href={item.href}
+                                        className="hover:text-foreground transition-colors duration-300"
+                                    >
+                                        {t(item.key)}
+                                    </a>
+                                ))}
+                            </div>
                         </div>
 
                         <div className="flex items-center gap-3 md:gap-6">

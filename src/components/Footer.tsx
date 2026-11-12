@@ -13,10 +13,11 @@ export function Footer() {
             <div className="max-w-[1400px] mx-auto">
                 {/* CTA Section */}
                 <motion.div
+                    id="contact"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="text-center mb-16 scroll-mt-8"
                 >
                     <h3 className="text-3xl md:text-5xl font-bold mb-4 text-foreground transition-colors duration-500">
                         {t("common.workTogether")}

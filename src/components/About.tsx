@@ -13,7 +13,7 @@ interface Skill {
 export function About() {
     const { t } = useLanguage();
     return (
-        <section className="py-24 px-6 md:px-12 bg-card/50 transition-colors duration-500">
+        <section id="about" className="scroll-mt-8 py-24 px-6 md:px-12 bg-card/50 transition-colors duration-500">
             <div className="max-w-4xl mx-auto">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
@@ -43,7 +43,7 @@ export function About() {
                             <h3 className="text-xl font-semibold mb-4 text-foreground transition-colors duration-500">
                                 {t("common.journey")}
                             </h3>
-                            <p className="text-foreground/60 leading-relaxed mb-8 transition-colors duration-500 text-justify">
+                            <p className="text-foreground/60 leading-relaxed mb-8 transition-colors duration-500">
                                 {t("about.bio")}
                             </p>
                             <Link
@@ -77,6 +77,7 @@ export function About() {
                             {(t("cv.skills") as Skill[] || []).slice(0, 6).map((skill: Skill, index: number) => (
                                 <motion.div
                                     key={index}
+                                    lang="en"
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}

@@ -24,6 +24,13 @@ type Category = "All" | "UI/UX Design" | "3D" | "Brand & Graphic";
 
 const categories: Category[] = ["All", "UI/UX Design", "3D", "Brand & Graphic"];
 
+const categoryLabelKeys: Record<Category, string> = {
+  "All": "common.filterAll",
+  "UI/UX Design": "common.filterUiux",
+  "3D": "common.filter3d",
+  "Brand & Graphic": "common.filterBrand",
+};
+
 export default function Home() {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<Category>("All");
@@ -88,7 +95,7 @@ export default function Home() {
     },
     {
       id: "uni4society",
-      category: t("uni4society.category"),
+      category: t("cv.uni4society.category"),
       mainCategory: ["Brand & Graphic"],
       title: "Uni4Society YTÜ",
       tags: ["Sosyal Medya", "Görsel Kimlik", "Sticker Tasarımı"],
@@ -106,24 +113,25 @@ export default function Home() {
       <EditorialHero />
 
       {/* 2. MINIMALIST FILTER */}
-      <div className="flex justify-center py-8 md:py-16">
-        <nav className="flex items-center gap-10 md:gap-16 overflow-x-auto no-scrollbar pb-4 max-w-full px-6">
+      <div id="projects" className="flex justify-center py-8 md:py-16 scroll-mt-8">
+        <nav aria-label={t("common.navProjects")} className="flex items-center gap-10 md:gap-16 overflow-x-auto no-scrollbar pb-4 max-w-full px-6">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
+              aria-pressed={activeCategory === cat}
               className={cn(
                 "relative transition-all duration-300 whitespace-nowrap text-base md:text-lg tracking-tight",
                 activeCategory === cat
-                  ? "text-white font-medium"
-                  : "text-neutral-500 hover:text-neutral-300"
+                  ? "text-foreground font-medium"
+                  : "text-foreground/50 hover:text-foreground/80"
               )}
             >
-              <span>{cat}</span>
+              <span>{t(categoryLabelKeys[cat])}</span>
               {activeCategory === cat && (
                 <motion.div
                   layoutId="activeFilterDotZig"
-                  className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-white rounded-full"
+                  className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-foreground rounded-full"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
