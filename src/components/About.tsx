@@ -11,7 +11,7 @@ interface Skill {
 }
 
 export function About() {
-    const { t } = useLanguage();
+    const { t, tx } = useLanguage();
     return (
         <section id="about" className="scroll-mt-8 py-24 px-6 md:px-12 bg-card/50 transition-colors duration-500">
             <div className="max-w-4xl mx-auto">
@@ -51,7 +51,7 @@ export function About() {
                                 className="inline-flex items-center gap-2 text-primary font-bold group"
                             >
                                 <span className="border-b-2 border-primary/20 group-hover:border-primary transition-colors pb-1">
-                                    {t("common.projects") === "Projelerimi Gör" ? "Daha Fazlasını Öğren" : "Learn More About Me"}
+                                    {tx("Daha Fazlasını Öğren", "Learn More About Me")}
                                 </span>
                                 <motion.span
                                     animate={{ x: [0, 5, 0] }}

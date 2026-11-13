@@ -8,7 +8,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import Image from "next/image";
 
 export default function Uni4SocietyPage() {
-    const { t } = useLanguage();
+    const { t, tx } = useLanguage();
     const project = t("cv.uni4society");
 
     const stickers = [
@@ -74,15 +74,15 @@ export default function Uni4SocietyPage() {
                 <div className="max-w-3xl mx-auto py-24 px-6 text-center">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-left md:text-center">
                         <div>
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Rolüm</h3>
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">{tx("Rolüm", "My Role")}</h3>
                             <p className="text-lg font-medium">{project.role}</p>
                         </div>
                         <div>
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Yıl</h3>
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">{tx("Yıl", "Year")}</h3>
                             <p className="text-lg font-medium">{project.date}</p>
                         </div>
                         <div>
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Araçlar</h3>
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">{tx("Araçlar", "Tools")}</h3>
                             <p className="text-lg font-medium">{project.tools}</p>
                         </div>
                     </div>

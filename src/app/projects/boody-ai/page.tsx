@@ -5,8 +5,10 @@ import Image from "next/image";
 import { StickyBackButton } from "@/components/StickyBackButton";
 import { BoodyStickyScroll } from "@/components/boody/BoodyStickyScroll";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function BoodyAppPage() {
+    const { tx } = useLanguage();
     return (
         <main className="min-h-screen bg-black text-white selection:bg-purple-600/30">
             <StickyBackButton />
@@ -33,7 +35,7 @@ export default function BoodyAppPage() {
                     >
 
                         <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold uppercase tracking-[0.2em] border border-white/20 rounded-full backdrop-blur-md bg-white/5">
-                            Mobil Uygulama
+                            {tx("Mobil Uygulama", "Mobile App")}
                         </span>
                         <h1 className="text-6xl md:text-9xl font-black mb-6 tracking-tighter bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
                             BOODY APP
@@ -67,11 +69,11 @@ export default function BoodyAppPage() {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 border-y border-white/10 py-12">
                         <div>
-                            <h3 className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">Rol</h3>
+                            <h3 className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">{tx("Rol", "Role")}</h3>
                             <p className="text-sm font-medium">UI/UX Designer</p>
                         </div>
                         <div>
-                            <h3 className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">Yıl</h3>
+                            <h3 className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">{tx("Yıl", "Year")}</h3>
                             <p className="text-sm font-medium">2026</p>
                         </div>
                         <div>
@@ -79,7 +81,7 @@ export default function BoodyAppPage() {
                             <p className="text-sm font-medium">Flutter & iOS/Android</p>
                         </div>
                         <div>
-                            <h3 className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">Araçlar</h3>
+                            <h3 className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">{tx("Araçlar", "Tools")}</h3>
                             <p className="text-sm font-medium">Figma, Framer, Flutter</p>
                         </div>
                     </div>
@@ -91,12 +93,13 @@ export default function BoodyAppPage() {
                         className="space-y-8"
                     >
                         <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-                            Öğrenciler için tasarlanmış, yapay zeka destekli modern bir sosyal ağ deneyimi.
+                            {tx("Öğrenciler için tasarlanmış, yapay zeka destekli modern bir sosyal ağ deneyimi.", "A modern, AI-powered social network experience designed for students.")}
                         </h2>
                         <p className="text-lg md:text-xl text-neutral-400 leading-relaxed">
-                            Boody App, akademik başarıyı ve kampüs içi iletişimi tek bir platformda toplar.
-                            Karmaşık problemleri saniyeler içinde çözen yapay zeka asistanı ve ilgi alanlarına
-                            dayalı ağ kurma özellikleri ile öğrenci hayatını dijitalde yeniden kurgular.
+                            {tx(
+                                "Boody App, akademik başarıyı ve kampüs içi iletişimi tek bir platformda toplar. Karmaşık problemleri saniyeler içinde çözen yapay zeka asistanı ve ilgi alanlarına dayalı ağ kurma özellikleri ile öğrenci hayatını dijitalde yeniden kurgular.",
+                                "Boody App brings academic success and on-campus communication together in one platform. With an AI assistant that solves complex problems in seconds and interest-based networking, it reimagines student life in the digital world."
+                            )}
                         </p>
                     </motion.div>
                 </div>

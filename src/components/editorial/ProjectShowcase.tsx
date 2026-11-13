@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface ProjectShowcaseProps {
     number: string;
@@ -37,6 +38,7 @@ export default function ProjectShowcase({
     customComponent,
     imageClassName,
 }: ProjectShowcaseProps) {
+    const { tx } = useLanguage();
     return (
         <section className="min-h-fit flex items-center justify-center py-8 md:py-24 px-6 md:px-12 relative overflow-hidden bg-background text-foreground transition-colors duration-500">
             {/* Background radial glow */}
@@ -92,14 +94,15 @@ export default function ProjectShowcase({
                         {/* CTA Button */}
                         {comingSoon ? (
                             <span className="inline-flex items-center gap-3 text-foreground/30 cursor-not-allowed">
-                                <span className="text-lg">Çok Yakında</span>
+                                <span className="text-lg">{tx("Çok Yakında", "Coming Soon")}</span>
                             </span>
                         ) : (
                             <Link
                                 href={href}
+                                aria-label={`${title} — ${tx("Projeyi İncele", "View Project")}`}
                                 className="group inline-flex items-center gap-3 text-lg font-medium border-b border-border/60 pb-1 hover:border-foreground hover:text-foreground transition-all w-fit"
                             >
-                                Projeyi İncele
+                                {tx("Projeyi İncele", "View Project")}
                                 <ArrowUpRight
                                     className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
                                     size={20}
@@ -122,7 +125,7 @@ export default function ProjectShowcase({
                             {customComponent}
                         </div>
                     ) : (
-                        <Link href={comingSoon ? "#" : href} className={`block w-full h-full relative overflow-hidden rounded-2xl ${comingSoon ? "cursor-default" : "cursor-pointer"}`}>
+                        <Link href={comingSoon ? "#" : href} aria-label={title} className={`block w-full h-full relative overflow-hidden rounded-2xl ${comingSoon ? "cursor-default" : "cursor-pointer"}`}>
                             <div className="absolute inset-0 bg-neutral-900/50 z-10 opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
 
                             {video ? (

@@ -8,8 +8,10 @@ import { LightboxImage } from "@/components/ImageLightbox";
 import { StickyBackButton } from "@/components/StickyBackButton";
 import { SpitfireScene } from "@/components/3d/SpitfireScene";
 import { Footer } from "@/components/Footer";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function SpitfirePage() {
+    const { tx } = useLanguage();
     return (
         <main className="min-h-screen bg-white dark:bg-neutral-950 selection:bg-amber-500 selection:text-white">
             <StickyBackButton />
@@ -29,7 +31,7 @@ export default function SpitfirePage() {
 
                         {/* Zoom hint inside frame */}
                         <div className="absolute bottom-4 right-4 z-10 bg-white/5 backdrop-blur-md px-3 py-1.5 rounded-full text-[11px] font-medium text-white/50 border border-white/10 pointer-events-none">
-                            Yakınlaşmak için scroll • Çevirmek için sürükleyin
+                            {tx("Yakınlaşmak için scroll • Çevirmek için sürükleyin", "Scroll to zoom • Drag to rotate")}
                         </div>
                     </div>
 
@@ -49,7 +51,7 @@ export default function SpitfirePage() {
                             transition={{ delay: 0.7 }}
                             className="text-neutral-400 text-lg md:text-xl font-light tracking-wide"
                         >
-                            Digital Preservation • Interactive 3D Experience
+                            {tx("Dijital Koruma • İnteraktif 3D Deneyim", "Digital Preservation • Interactive 3D Experience")}
                         </motion.p>
                     </div>
 
@@ -71,27 +73,27 @@ export default function SpitfirePage() {
                     <div className="max-w-3xl mx-auto py-24 px-6 text-center">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-left md:text-center">
                             <div>
-                                <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Rolüm</h3>
+                                <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">{tx("Rolüm", "My Role")}</h3>
                                 <p className="text-lg font-medium dark:text-white">3D Artist & Developer</p>
                             </div>
                             <div>
-                                <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Yıl</h3>
+                                <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">{tx("Yıl", "Year")}</h3>
                                 <p className="text-lg font-medium dark:text-white">2024</p>
                             </div>
                             <div>
-                                <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">Araçlar</h3>
+                                <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-2">{tx("Araçlar", "Tools")}</h3>
                                 <p className="text-lg font-medium dark:text-white">Blender, Three.js, R3F</p>
                             </div>
                         </div>
 
                         <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight dark:text-white">
-                            Havacılık tarihinin efsanesi, tarayıcıda yeniden hayat buluyor.
+                            {tx("Havacılık tarihinin efsanesi, tarayıcıda yeniden hayat buluyor.", "A legend of aviation history, brought back to life in the browser.")}
                         </h2>
                         <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                            Spitfire MK.1 sadece bir uçak değil, bir tasarım ikonudur. Bu projede, bu efsanevi
-                            uçağın her detayını 3D ortamda modelledim ve web teknolojileriyle interaktif bir
-                            deneyime dönüştürdüm. Stüdyo ışıklandırması ve yüksek çözünürlüklü kaplamalarla
-                            gerçekçi bir atmosfer hedeflendi.
+                            {tx(
+                                "Spitfire MK.1 sadece bir uçak değil, bir tasarım ikonudur. Bu projede, bu efsanevi uçağın her detayını 3D ortamda modelledim ve web teknolojileriyle interaktif bir deneyime dönüştürdüm. Stüdyo ışıklandırması ve yüksek çözünürlüklü kaplamalarla gerçekçi bir atmosfer hedeflendi.",
+                                "The Spitfire MK.1 is not just an aircraft, it is a design icon. In this project I modelled every detail of this legendary plane in 3D and turned it into an interactive experience with web technologies. Studio lighting and high-resolution textures were used to create a realistic atmosphere."
+                            )}
                         </p>
                     </div>
 

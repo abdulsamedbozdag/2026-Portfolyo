@@ -5,6 +5,7 @@ import { Users, Target, Zap, Clock, ExternalLink, Calendar, Map, Layers, PlayCir
 import { StickyBackButton } from "@/components/StickyBackButton";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 // ---------------------------------------------------------------------------
 // COMPONENTS
@@ -40,6 +41,7 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => (
 // ---------------------------------------------------------------------------
 
 export default function OctaGonePage() {
+    const { tx } = useLanguage();
     return (
         <main className="min-h-screen bg-neutral-950 text-white selection:bg-red-600/30 font-sans overflow-x-hidden">
             <StickyBackButton />
@@ -66,26 +68,26 @@ export default function OctaGonePage() {
                     >
                         <div className="flex flex-col items-center gap-4 mb-20 text-center">
                             <span className="px-6 py-2.5 bg-red-600 text-sm font-bold tracking-[0.3em] uppercase rounded shadow-[0_15px_50px_rgba(232,0,29,0.4)] block mx-auto">
-                                YTÜ İLETİŞİM VE TASARIMI — PROJE 4 FİNAL
+                                {tx("YTÜ İLETİŞİM VE TASARIMI — PROJE 4 FİNAL", "YTU COMMUNICATION AND DESIGN — PROJECT 4 FINAL")}
                             </span>
                         </div>
 
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 pt-12 border-t border-white/10">
                             <div>
-                                <h3 className="text-[10px] uppercase tracking-[0.4em] text-neutral-500 mb-4 font-black">Ders</h3>
-                                <p className="text-2xl font-bold text-white tracking-tighter">Proje 4</p>
+                                <h3 className="text-[10px] uppercase tracking-[0.4em] text-neutral-500 mb-4 font-black">{tx("Ders", "Course")}</h3>
+                                <p className="text-2xl font-bold text-white tracking-tighter">{tx("Proje 4", "Project 4")}</p>
                             </div>
                             <div>
-                                <h3 className="text-[10px] uppercase tracking-[0.4em] text-neutral-500 mb-4 font-black">Konu</h3>
-                                <p className="text-2xl font-bold text-white tracking-tighter">Oyun Tasarımı</p>
+                                <h3 className="text-[10px] uppercase tracking-[0.4em] text-neutral-500 mb-4 font-black">{tx("Konu", "Subject")}</h3>
+                                <p className="text-2xl font-bold text-white tracking-tighter">{tx("Oyun Tasarımı", "Game Design")}</p>
                             </div>
                             <div>
-                                <h3 className="text-[10px] uppercase tracking-[0.4em] text-neutral-500 mb-4 font-black">Yıl</h3>
+                                <h3 className="text-[10px] uppercase tracking-[0.4em] text-neutral-500 mb-4 font-black">{tx("Yıl", "Year")}</h3>
                                 <p className="text-2xl font-bold text-white tracking-tighter">2025</p>
                             </div>
                             <div>
                                 <h3 className="text-[10px] uppercase tracking-[0.4em] text-neutral-500 mb-4 font-black">Platform</h3>
-                                <p className="text-2xl font-bold text-white tracking-tighter uppercase">Mekan</p>
+                                <p className="text-2xl font-bold text-white tracking-tighter uppercase">{tx("Mekan", "Space")}</p>
                             </div>
                         </div>
                     </motion.div>
@@ -94,16 +96,16 @@ export default function OctaGonePage() {
 
             {/* TIMELINE SECTION */}
             <section className="pt-20 pb-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/5 bg-neutral-950/50">
-                <SectionLabel>Zaman Çizelgesi</SectionLabel>
-                <SectionTitle>Gelişim Süreci</SectionTitle>
+                <SectionLabel>{tx("Zaman Çizelgesi", "Timeline")}</SectionLabel>
+                <SectionTitle>{tx("Gelişim Süreci", "Development Process")}</SectionTitle>
 
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-px bg-white/5 border border-white/5 rounded-3xl overflow-hidden shadow-2xl">
                     {[
-                        { date: "18 Aralık 2024", title: "Fikir ve İlk Eskiz" },
-                        { date: "19 Aralık 2024", title: "İlk Taslak 3D Model" },
-                        { date: "25 Aralık 2024", title: "R&D / Ray & Menteşe" },
-                        { date: "8 Ocak 2025", title: "Platform Sistemi" },
-                        { date: "20 Ocak 2025", title: "Dijital Prototip" }
+                        { date: tx("18 Aralık 2024", "18 December 2024"), title: tx("Fikir ve İlk Eskiz", "Idea & First Sketch") },
+                        { date: tx("19 Aralık 2024", "19 December 2024"), title: tx("İlk Taslak 3D Model", "First Draft 3D Model") },
+                        { date: tx("25 Aralık 2024", "25 December 2024"), title: tx("Ar-Ge / Ray & Menteşe", "R&D / Rail & Hinge") },
+                        { date: tx("8 Ocak 2025", "8 January 2025"), title: tx("Platform Sistemi", "Platform System") },
+                        { date: tx("20 Ocak 2025", "20 January 2025"), title: tx("Dijital Prototip", "Digital Prototype") }
                     ].map((step, i) => (
                         <motion.div 
                             key={i}
@@ -122,26 +124,32 @@ export default function OctaGonePage() {
 
             {/* OYUN TANIMI SECTION */}
             <section className="py-32 px-6 md:px-12 max-w-5xl mx-auto">
-                <SectionLabel>Konsept</SectionLabel>
-                <SectionTitle>OctaGone Nedir?</SectionTitle>
+                <SectionLabel>{tx("Konsept", "Concept")}</SectionLabel>
+                <SectionTitle>{tx("OctaGone Nedir?", "What is OctaGone?")}</SectionTitle>
                 <div className="space-y-12">
                     <p className="text-2xl md:text-4xl font-light leading-relaxed text-neutral-200">
-                        OctaGone, sekizgen bir platform üzerinde, oyuncuların <span className="font-bold text-red-600">reflekslerini ve stratejik düşünme</span> yeteneklerini sınayan bir hayatta kalma oyunudur.
+                        {tx(
+                            <>OctaGone, sekizgen bir platform üzerinde, oyuncuların <span className="font-bold text-red-600">reflekslerini ve stratejik düşünme</span> yeteneklerini sınayan bir hayatta kalma oyunudur.</>,
+                            <>OctaGone is a survival game played on an octagonal platform that tests players&apos; <span className="font-bold text-red-600">reflexes and strategic thinking</span>.</>
+                        )}
                     </p>
                     <p className="text-lg text-neutral-400 leading-relaxed max-w-3xl">
-                        Oyuncular, kendi renklerini <span className="text-green-500 font-bold">sabit yeşil ışıkla</span> hizalayarak platformda kalmaya çalışır. Zamanla zorlaşan dinamikler, oyuncuları hızlı karar vermeye ve doğru zamanda hareket etmeye zorlar. Oyunun amacı, son kalan oyuncu olmaktır.
+                        {tx(
+                            <>Oyuncular, kendi renklerini <span className="text-green-500 font-bold">sabit yeşil ışıkla</span> hizalayarak platformda kalmaya çalışır. Zamanla zorlaşan dinamikler, oyuncuları hızlı karar vermeye ve doğru zamanda hareket etmeye zorlar. Oyunun amacı, son kalan oyuncu olmaktır.</>,
+                            <>Players try to stay on the platform by aligning their own colour with the <span className="text-green-500 font-bold">fixed green light</span>. Dynamics that get harder over time force players to decide quickly and move at the right moment. The goal is to be the last player standing.</>
+                        )}
                     </p>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12">
                         <div className="p-8 rounded-2xl bg-neutral-900/50 border border-white/5">
-                            <h4 className="text-red-600 font-bold mb-4 uppercase tracking-wider text-sm">Hedef & Zorluk</h4>
-                            <p className="text-sm text-neutral-400 mb-6">Oyuncular, hareket eden ışık ile kendi renklerini hizalayarak platformda hayatta kalmaya çalışır.</p>
-                            <p className="text-xs text-neutral-500 italic">"Platformların dinamik yapısı ve oyuncunun doğru zamanda hızlı tepki verme gerekliliği ana zorluktur."</p>
+                            <h4 className="text-red-600 font-bold mb-4 uppercase tracking-wider text-sm">{tx("Hedef & Zorluk", "Goal & Challenge")}</h4>
+                            <p className="text-sm text-neutral-400 mb-6">{tx("Oyuncular, hareket eden ışık ile kendi renklerini hizalayarak platformda hayatta kalmaya çalışır.", "Players try to survive on the platform by aligning their colour with the moving light.")}</p>
+                            <p className="text-xs text-neutral-500 italic">&ldquo;{tx("Platformların dinamik yapısı ve oyuncunun doğru zamanda hızlı tepki verme gerekliliği ana zorluktur.", "The main challenge is the dynamic platforms and the need to react quickly at exactly the right moment.")}&rdquo;</p>
                         </div>
                         <div className="p-8 rounded-2xl bg-neutral-900/50 border border-white/5">
-                            <h4 className="text-red-600 font-bold mb-4 uppercase tracking-wider text-sm">Risk & Ödül</h4>
-                            <p className="text-sm text-neutral-400 mb-6">Yanlış zamanlama bir basamak kaybına neden olurken, doğru hizalama oyuncuyu hayatta tutar.</p>
-                            <p className="text-xs text-neutral-500 italic">"Görüntülenen yeşil ışık sabittir, ancak oyuncu ışığı giderek hızlanır."</p>
+                            <h4 className="text-red-600 font-bold mb-4 uppercase tracking-wider text-sm">{tx("Risk & Ödül", "Risk & Reward")}</h4>
+                            <p className="text-sm text-neutral-400 mb-6">{tx("Yanlış zamanlama bir basamak kaybına neden olurken, doğru hizalama oyuncuyu hayatta tutar.", "Bad timing costs a step, while correct alignment keeps the player alive.")}</p>
+                            <p className="text-xs text-neutral-500 italic">&ldquo;{tx("Görüntülenen yeşil ışık sabittir, ancak oyuncu ışığı giderek hızlanır.", "The green light stays fixed, but the player's light keeps getting faster.")}&rdquo;</p>
                         </div>
                     </div>
                 </div>
@@ -166,8 +174,8 @@ export default function OctaGonePage() {
 
             {/* TECHNICAL ANALYSIS (MIND MAP & FLOWCHART) */}
             <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
-                <SectionLabel>Teknik Analiz</SectionLabel>
-                <SectionTitle>Zihin Haritası ve Süreç</SectionTitle>
+                <SectionLabel>{tx("Teknik Analiz", "Technical Analysis")}</SectionLabel>
+                <SectionTitle>{tx("Zihin Haritası ve Süreç", "Mind Map and Process")}</SectionTitle>
                 
                 <div className="space-y-24">
                    <MindMap />
@@ -179,16 +187,16 @@ export default function OctaGonePage() {
             <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
                     <div>
-                        <SectionLabel>Teknik Detaylar</SectionLabel>
-                        <SectionTitle>İç ve Dış Mekan<br />Özellikleri</SectionTitle>
+                        <SectionLabel>{tx("Teknik Detaylar", "Technical Details")}</SectionLabel>
+                        <SectionTitle>{tx(<>İç ve Dış Mekan<br />Özellikleri</>, <>Indoor and Outdoor<br />Specifications</>)}</SectionTitle>
                         <div className="grid grid-cols-2 gap-8">
                             {[
-                                { k: "Yapı Yüksekliği", v: "15 m" },
-                                { k: "Platform Yüksekliği", v: "6 m" },
-                                { k: "İç Mekan Alanı", v: "695 m²" },
-                                { k: "Dış Mekan Alanı", v: "1931 m²" },
-                                { k: "Basamak Kolonu", v: "5 m" },
-                                { k: "Ekran Uzaklığı", v: "10 m" }
+                                { k: tx("Yapı Yüksekliği", "Structure Height"), v: "15 m" },
+                                { k: tx("Platform Yüksekliği", "Platform Height"), v: "6 m" },
+                                { k: tx("İç Mekan Alanı", "Indoor Area"), v: "695 m²" },
+                                { k: tx("Dış Mekan Alanı", "Outdoor Area"), v: "1931 m²" },
+                                { k: tx("Basamak Kolonu", "Step Column"), v: "5 m" },
+                                { k: tx("Ekran Uzaklığı", "Screen Distance"), v: "10 m" }
                             ].map((d, i) => (
                                 <div key={i} className="border-l border-red-900 pl-4 py-2">
                                     <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">{d.k}</div>
@@ -200,7 +208,7 @@ export default function OctaGonePage() {
                     <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/5">
                         <Image 
                             src="/octagone/dış_mekan_görünüm.jpg"
-                            alt="OctaGone Dış Mekan"
+                            alt={tx("OctaGone Dış Mekan", "OctaGone Exterior")}
                             fill
                             className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                         />
@@ -210,30 +218,38 @@ export default function OctaGonePage() {
 
             {/* PERSONAS */}
             <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto bg-neutral-900/30 rounded-[4rem]">
-                <SectionLabel>Kullanıcı Grubu</SectionLabel>
-                <SectionTitle>Kullanıcı Personaları</SectionTitle>
+                <SectionLabel>{tx("Kullanıcı Grubu", "User Group")}</SectionLabel>
+                <SectionTitle>{tx("Kullanıcı Personaları", "User Personas")}</SectionTitle>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5 rounded-3xl overflow-hidden">
                     <PersonaCard 
-                        name="BÜNYAMİN DEDE"
-                        role="65 YAŞ · ÇİFTÇİ · TORUNUYLA FUARI ZİYARET EDİYOR"
-                        traits={[
+                        name={tx("BÜNYAMİN DEDE", "GRANDPA BÜNYAMİN")}
+                        role={tx("65 YAŞ · ÇİFTÇİ · TORUNUYLA FUARI ZİYARET EDİYOR", "AGE 65 · FARMER · VISITING THE FAIR WITH HIS GRANDSON")}
+                        traits={tx([
                             "Teknolojiyle arası kısıtlı; geleneksel yöntemlere alışkın.",
                             "Torunuyla kaliteli bağ kurmak ve ilgisini anlamak istiyor.",
                             "Refleks gerektiren hızlı hareketlerde zorlanabilir ancak meraklı."
-                        ]}
-                        motivation="Oyun kurallarını torunundan öğrenerek onunla bir başarı hissi yaşamak."
+                        ], [
+                            "Limited experience with technology; used to traditional ways.",
+                            "Wants to bond with his grandson and understand his interests.",
+                            "May struggle with fast, reflex-based movements but is curious."
+                        ])}
+                        motivation={tx("Oyun kurallarını torunundan öğrenerek onunla bir başarı hissi yaşamak.", "To learn the rules from his grandson and share a sense of achievement with him.")}
                         color="red"
                     />
                     <PersonaCard 
                         name="BULUT"
-                        role="8 YAŞ · İLKOKUL ÖĞRENCİSİ · ENERJİK"
-                        traits={[
+                        role={tx("8 YAŞ · İLKOKUL ÖĞRENCİSİ · ENERJİK", "AGE 8 · PRIMARY SCHOOL STUDENT · ENERGETIC")}
+                        traits={tx([
                             "Keşfetmeyi seven, enerjik ve teknolojiye aşina.",
                             "Tablet ve konsol oyunlarını seviyor, renkli detaylara ilgili.",
                             "Strateji yerine deneme-yanılma ile hızlı hareket etmeyi seçiyor."
-                        ]}
-                        motivation="Rakiplerini (ve dedesini) yenerek oyunda başarı kazanmak."
+                        ], [
+                            "Loves exploring, energetic and comfortable with technology.",
+                            "Enjoys tablet and console games and is drawn to colourful details.",
+                            "Prefers moving fast by trial and error rather than strategy."
+                        ])}
+                        motivation={tx("Rakiplerini (ve dedesini) yenerek oyunda başarı kazanmak.", "To win the game by beating his rivals (and his grandpa).")}
                         color="red"
                     />
                 </div>
@@ -241,8 +257,8 @@ export default function OctaGonePage() {
 
             {/* BRANDING SECTION */}
             <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
-                <SectionLabel>Marka Kimliği</SectionLabel>
-                <SectionTitle>OctaGone Kimliği</SectionTitle>
+                <SectionLabel>{tx("Marka Kimliği", "Brand Identity")}</SectionLabel>
+                <SectionTitle>{tx("OctaGone Kimliği", "OctaGone Identity")}</SectionTitle>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5 rounded-3xl overflow-hidden">
                     <div className="p-16 bg-black flex items-center justify-center min-h-[400px]">
@@ -250,9 +266,9 @@ export default function OctaGonePage() {
                     </div>
                     <div className="p-16 bg-neutral-900/50 flex flex-col justify-center space-y-12">
                         <div>
-                            <h4 className="text-[10px] uppercase tracking-widest text-red-600 mb-4 font-bold">TASARIM İLHAMI</h4>
+                            <h4 className="text-[10px] uppercase tracking-widest text-red-600 mb-4 font-bold">{tx("TASARIM İLHAMI", "DESIGN INSPIRATION")}</h4>
                             <p className="text-neutral-400 text-sm leading-relaxed italic">
-                                "Logo, oyunun sekizgen platformunun üstten görünümünden ilham almıştır. Elenen oyuncunun yüksekten düşüşü, aşağıda kullanılan haç sembolü ile metaforik bir şekilde mezarlık simgesiyle ilişkilendirilir."
+                                &ldquo;{tx("Logo, oyunun sekizgen platformunun üstten görünümünden ilham almıştır. Elenen oyuncunun yüksekten düşüşü, aşağıda kullanılan haç sembolü ile metaforik bir şekilde mezarlık simgesiyle ilişkilendirilir.", "The logo is inspired by the top view of the game's octagonal platform. The fall of an eliminated player is metaphorically linked to a graveyard through the cross symbol at the bottom.")}&rdquo;
                             </p>
                         </div>
                         <div className="grid grid-cols-2 gap-8">
@@ -261,7 +277,7 @@ export default function OctaGonePage() {
                                 <p className="text-xl font-bold">Microgramma</p>
                             </div>
                             <div>
-                                <h4 className="text-[10px] uppercase tracking-widest text-red-600 mb-4 font-bold">ANA RENK</h4>
+                                <h4 className="text-[10px] uppercase tracking-widest text-red-600 mb-4 font-bold">{tx("ANA RENK", "PRIMARY COLOUR")}</h4>
                                 <div className="flex items-center gap-3">
                                     <div className="w-8 h-8 rounded bg-[#E8001D] border border-white/10" />
                                     <span className="text-sm font-mono tracking-tighter text-neutral-400">#E8001D</span>
@@ -275,7 +291,7 @@ export default function OctaGonePage() {
             {/* FINAL QUOTE */}
             <section className="py-32 text-center border-t border-white/5">
                 <p className="text-xs uppercase tracking-[0.5em] text-neutral-600">
-                    YTÜ İLETİŞİM TASARIMI — PROJE 4 FINAL
+                    {tx("YTÜ İLETİŞİM TASARIMI — PROJE 4 FİNAL", "YTU COMMUNICATION DESIGN — PROJECT 4 FINAL")}
                 </p>
             </section>
         </main>
@@ -287,56 +303,60 @@ export default function OctaGonePage() {
 // ---------------------------------------------------------------------------
 
 function Flowchart() {
+    const { tx } = useLanguage();
     return (
         <section className="mb-20 max-w-4xl mx-auto w-full">
-            <h2 className="text-3xl font-bold mb-10 text-center border-b pb-4 border-neutral-800 uppercase tracking-tight">Oyun Akışı (Flowchart)</h2>
+            <h2 className="text-3xl font-bold mb-10 text-center border-b pb-4 border-neutral-800 uppercase tracking-tight">{tx("Oyun Akışı (Flowchart)", "Game Flow (Flowchart)")}</h2>
 
             <div className="flex flex-col items-center space-y-4">
                 {/* Başlangıç */}
                 <div className="bg-green-600 text-white font-bold py-3 px-10 rounded-full shadow-[0_0_15px_rgba(22,163,74,0.5)] text-sm uppercase tracking-widest">
-                    BAŞLA
+                    {tx("BAŞLA", "START")}
                 </div>
                 <div className="w-px h-8 bg-neutral-700"></div>
                 {/* Adım 1 */}
                 <div className="bg-neutral-900 border border-neutral-800 p-5 rounded-xl text-center w-full max-w-md text-neutral-300 text-sm">
-                    Oyuncu elinde tuş olan kumandayla platforma çıkar.
+                    {tx("Oyuncu elinde tuş olan kumandayla platforma çıkar.", "The player steps onto the platform holding a one-button controller.")}
                 </div>
                 <div className="w-px h-8 bg-neutral-700"></div>
                 {/* Adım 2 */}
                 <div className="bg-neutral-900 border border-neutral-800 p-5 rounded-xl text-center w-full max-w-md text-neutral-300 text-sm">
-                    Sekizgen sütun üzerinde ışıklar belirir. <span className="text-green-500 font-bold uppercase">Yeşil ışık sabittir</span>, oyuncunun renkli ışığı aşağı-yukarı hareket eder.
+                    {tx(
+                        <>Sekizgen sütun üzerinde ışıklar belirir. <span className="text-green-500 font-bold uppercase">Yeşil ışık sabittir</span>, oyuncunun renkli ışığı aşağı-yukarı hareket eder.</>,
+                        <>Lights appear on the octagonal column. <span className="text-green-500 font-bold uppercase">The green light is fixed</span>, while the player&apos;s coloured light moves up and down.</>
+                    )}
                 </div>
                 <div className="w-px h-8 bg-neutral-700"></div>
                 {/* Adım 3 */}
                 <div className="bg-blue-900/20 border border-blue-800 p-5 rounded-xl text-center w-full max-w-md text-blue-200 text-sm">
-                    Oyuncunun rengi yeşil ışık ile aynı konuma geldiğinde oyuncu düğmeye basar.
+                    {tx("Oyuncunun rengi yeşil ışık ile aynı konuma geldiğinde oyuncu düğmeye basar.", "When the player's colour lines up with the green light, the player presses the button.")}
                 </div>
                 <div className="w-px h-8 bg-neutral-700"></div>
                 {/* Karar Mekanizması 1 */}
                 <div className="bg-neutral-900/50 border border-neutral-800 p-8 rounded-2xl text-center w-full max-w-2xl backdrop-blur-sm">
-                    <strong className="text-yellow-500 block mb-6 uppercase tracking-wider text-xs">Soru: Renkler aynı konuma geldiğinde oyuncu tuşa bastı mı?</strong>
+                    <strong className="text-yellow-500 block mb-6 uppercase tracking-wider text-xs">{tx("Soru: Renkler aynı konuma geldiğinde oyuncu tuşa bastı mı?", "Question: Did the player press the button when the colours lined up?")}</strong>
                     <div className="grid grid-cols-2 gap-8 mt-4">
 
                         {/* HAYIR Dalı */}
                         <div className="flex flex-col items-center">
-                            <div className="bg-red-600/10 text-red-500 py-1 px-4 rounded font-black mb-4 text-xs tracking-widest">HAYIR</div>
-                            <div className="bg-neutral-800/50 p-4 rounded-lg text-xs w-full text-neutral-400">Oyuncu 1 basamak ilerler.</div>
+                            <div className="bg-red-600/10 text-red-500 py-1 px-4 rounded font-black mb-4 text-xs tracking-widest">{tx("HAYIR", "NO")}</div>
+                            <div className="bg-neutral-800/50 p-4 rounded-lg text-xs w-full text-neutral-400">{tx("Oyuncu 1 basamak ilerler.", "The player moves 1 step.")}</div>
                             <div className="w-px h-6 bg-neutral-700 my-2"></div>
-                            <div className="bg-neutral-800/50 p-4 rounded-lg text-xs w-full text-neutral-400 font-medium italic">3 basamakta da başaramadı mı?</div>
+                            <div className="bg-neutral-800/50 p-4 rounded-lg text-xs w-full text-neutral-400 font-medium italic">{tx("3 basamakta da başaramadı mı?", "Failed on all 3 steps?")}</div>
                             <div className="w-px h-6 bg-neutral-700 my-2"></div>
                             <div className="bg-red-600 text-white font-bold py-3 px-4 rounded-lg w-full shadow-[0_4px_20px_rgba(220,38,38,0.3)] text-xs uppercase tracking-tighter">
-                                OYUNCU ELENDİ
+                                {tx("OYUNCU ELENDİ", "PLAYER ELIMINATED")}
                             </div>
                         </div>
                         {/* EVET Dalı */}
                         <div className="flex flex-col items-center">
-                            <div className="bg-green-600/10 text-green-500 py-1 px-4 rounded font-black mb-4 text-xs tracking-widest">EVET</div>
-                            <div className="bg-neutral-800/50 p-4 rounded-lg text-xs w-full text-neutral-400 uppercase">Oyuncu sabittir.</div>
+                            <div className="bg-green-600/10 text-green-500 py-1 px-4 rounded font-black mb-4 text-xs tracking-widest">{tx("EVET", "YES")}</div>
+                            <div className="bg-neutral-800/50 p-4 rounded-lg text-xs w-full text-neutral-400 uppercase">{tx("Oyuncu sabittir.", "The player stays in place.")}</div>
                             <div className="w-px h-6 bg-neutral-700 my-2"></div>
-                            <div className="bg-neutral-800/50 p-4 rounded-lg text-xs w-full text-neutral-400 font-medium italic">Renkler aynı konumdayken oyuncu tuşa basmaya devam etti mi?</div>
+                            <div className="bg-neutral-800/50 p-4 rounded-lg text-xs w-full text-neutral-400 font-medium italic">{tx("Renkler aynı konumdayken oyuncu tuşa basmaya devam etti mi?", "Did the player keep pressing while the colours were aligned?")}</div>
                             <div className="w-px h-6 bg-neutral-700 my-2"></div>
                             <div className="bg-green-600 text-white font-bold py-3 px-4 rounded-lg w-full shadow-[0_4px_20px_rgba(22,163,74,0.3)] text-xs uppercase tracking-tighter">
-                                OYUNCU KAZANDI
+                                {tx("OYUNCU KAZANDI", "PLAYER WINS")}
                             </div>
                         </div>
                     </div>
@@ -347,6 +367,7 @@ function Flowchart() {
 }
 
 function MindMap() {
+    const { tx } = useLanguage();
     return (
         <div className="octagone-mindmap-wrap relative overflow-hidden bg-neutral-900/20 border border-white/5 rounded-3xl p-8 md:p-14">
             <style jsx>{`
@@ -425,35 +446,35 @@ function MindMap() {
             <div className="flex flex-col mb-12">
                 <div className="flex items-center gap-3 mb-2">
                     <div className="w-5 h-px bg-red-600" />
-                    <span className="text-[10px] font-bold tracking-[0.4em] text-red-600 uppercase">Kavramsal Harita</span>
+                    <span className="text-[10px] font-bold tracking-[0.4em] text-red-600 uppercase">{tx("Kavramsal Harita", "Concept Map")}</span>
                 </div>
-                <h3 className="text-2xl font-bold text-neutral-100 uppercase tracking-tight">Mind Map — Oyunun Temel Yapısı</h3>
+                <h3 className="text-2xl font-bold text-neutral-100 uppercase tracking-tight">{tx("Mind Map — Oyunun Temel Yapısı", "Mind Map — Core Structure of the Game")}</h3>
             </div>
 
             <div className="mm-layout grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-0 items-center relative transition-all duration-700">
                 {/* LEFT */}
                 <div className="mm-col flex flex-col gap-6 lg:pr-12">
                     <div className="mm-card group hover:border-red-600/30 transition-colors">
-                        <div className="text-[9px] font-bold tracking-[0.3em] text-red-600 uppercase mb-2">01 — Mekan</div>
-                        <div className="text-base font-bold text-neutral-200 mb-3 uppercase tracking-tight">Sekizgen Arena</div>
+                        <div className="text-[9px] font-bold tracking-[0.3em] text-red-600 uppercase mb-2">{tx("01 — Mekan", "01 — Space")}</div>
+                        <div className="text-base font-bold text-neutral-200 mb-3 uppercase tracking-tight">{tx("Sekizgen Arena", "Octagonal Arena")}</div>
                         <div className="space-y-2">
-                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800">Sekizgen bir kapalı mekanda oynanacak.</p>
-                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800">Ortada platformu taşıyan sütun; ışıklar bu sütunda belirecek.</p>
-                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800 italic">Atmosfer gerginlik hissi için kasıtlı karamsar tutulacak.</p>
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800">{tx("Sekizgen bir kapalı mekanda oynanacak.", "Played in an enclosed octagonal space.")}</p>
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800">{tx("Ortada platformu taşıyan sütun; ışıklar bu sütunda belirecek.", "A central column carries the platform; the lights appear on this column.")}</p>
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800 italic">{tx("Atmosfer gerginlik hissi için kasıtlı karamsar tutulacak.", "The atmosphere is deliberately dark to build tension.")}</p>
                         </div>
                     </div>
 
                     <div className="mm-card group hover:border-red-600/30 transition-colors">
                         <div className="text-[9px] font-bold tracking-[0.3em] text-red-600 uppercase mb-2">02 — Platform</div>
-                        <div className="text-base font-bold text-neutral-200 mb-3 uppercase tracking-tight">Ray & Menteşe Sistemi</div>
+                        <div className="text-base font-bold text-neutral-200 mb-3 uppercase tracking-tight">{tx("Ray & Menteşe Sistemi", "Rail & Hinge System")}</div>
                         <div className="space-y-2 mb-4">
-                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800">Her oyuncu için 3'er basamaktan oluşan raylı platform.</p>
-                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800">8 oyuncuya kadar ölçeklenir; solo da oynanabilir.</p>
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800">{tx("Her oyuncu için 3'er basamaktan oluşan raylı platform.", "A rail platform with 3 steps for each player.")}</p>
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800">{tx("8 oyuncuya kadar ölçeklenir; solo da oynanabilir.", "Scales up to 8 players; can also be played solo.")}</p>
                         </div>
                         <div className="flex flex-wrap gap-2">
-                            <span className="mm-pill red uppercase tracking-tighter">Maks 8 kişi</span>
-                            <span className="mm-pill tracking-tighter">Min 1 kişi</span>
-                            <span className="mm-pill tracking-tighter font-black">3 basamak</span>
+                            <span className="mm-pill red uppercase tracking-tighter">{tx("Maks 8 kişi", "Max 8 players")}</span>
+                            <span className="mm-pill tracking-tighter">{tx("Min 1 kişi", "Min 1 player")}</span>
+                            <span className="mm-pill tracking-tighter font-black">{tx("3 basamak", "3 steps")}</span>
                         </div>
                     </div>
                 </div>
@@ -475,28 +496,28 @@ function MindMap() {
                 {/* RIGHT */}
                 <div className="mm-col flex flex-col gap-6 lg:pl-12">
                     <div className="mm-card group hover:border-red-600/30 transition-colors">
-                        <div className="text-[9px] font-bold tracking-[0.3em] text-red-600 uppercase mb-2">03 — Oynanış</div>
-                        <div className="text-base font-bold text-neutral-200 mb-3 uppercase tracking-tight">Refleks Mekaniği</div>
+                        <div className="text-[9px] font-bold tracking-[0.3em] text-red-600 uppercase mb-2">{tx("03 — Oynanış", "03 — Gameplay")}</div>
+                        <div className="text-base font-bold text-neutral-200 mb-3 uppercase tracking-tight">{tx("Refleks Mekaniği", "Reflex Mechanic")}</div>
                         <div className="space-y-2">
-                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800">Oyuncular renk atanmış tek tuşlu kumandayla platforma çıkar.</p>
-                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800">Renkli ışık sütunda aşağı-yukarı hareket eder.</p>
-                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800"><span className="text-neutral-300 font-bold uppercase">Hedef:</span> kendi rengini sabit yeşil ışıkla hizalamak.</p>
-                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800 font-medium">Doğru zamanda bas → sabit kal. Hata → bir basamak kaybet.</p>
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800">{tx("Oyuncular renk atanmış tek tuşlu kumandayla platforma çıkar.", "Players step onto the platform with a colour-coded one-button controller.")}</p>
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800">{tx("Renkli ışık sütunda aşağı-yukarı hareket eder.", "The coloured light moves up and down the column.")}</p>
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800"><span className="text-neutral-300 font-bold uppercase">{tx("Hedef:", "Goal:")}</span> {tx("kendi rengini sabit yeşil ışıkla hizalamak.", "align your own colour with the fixed green light.")}</p>
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800 font-medium">{tx("Doğru zamanda bas → sabit kal. Hata → bir basamak kaybet.", "Press at the right time → stay put. Miss → lose a step.")}</p>
                         </div>
                     </div>
 
                     <div className="mm-card group hover:border-red-600/30 transition-colors">
-                        <div className="text-[9px] font-bold tracking-[0.3em] text-red-600 uppercase mb-2">04 — Amaç</div>
-                        <div className="text-base font-bold text-neutral-200 mb-3 uppercase tracking-tight">Hayatta Kalma</div>
+                        <div className="text-[9px] font-bold tracking-[0.3em] text-red-600 uppercase mb-2">{tx("04 — Amaç", "04 — Objective")}</div>
+                        <div className="text-base font-bold text-neutral-200 mb-3 uppercase tracking-tight">{tx("Hayatta Kalma", "Survival")}</div>
                         <div className="space-y-2 mb-4">
-                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800 font-black">3 basamak kaybeden oyuncu platformdan düşerek elenir.</p>
-                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800 uppercase italic">Son ayakta kalan oyuncu kazanır.</p>
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800 font-black">{tx("3 basamak kaybeden oyuncu platformdan düşerek elenir.", "A player who loses 3 steps falls off the platform and is eliminated.")}</p>
+                            <p className="text-xs text-neutral-500 leading-relaxed pl-3 border-l border-neutral-800 uppercase italic">{tx("Son ayakta kalan oyuncu kazanır.", "The last player standing wins.")}</p>
                         </div>
                         <div className="flex flex-wrap gap-2">
                             <span className="mm-pill red uppercase font-bold text-[10px]">Adrenalin</span>
-                            <span className="mm-pill red uppercase font-bold text-[10px]">Gerilim</span>
-                            <span className="mm-pill uppercase text-[10px]">Refleks</span>
-                            <span className="mm-pill uppercase text-[10px]">Strateji</span>
+                            <span className="mm-pill red uppercase font-bold text-[10px]">{tx("Gerilim", "Tension")}</span>
+                            <span className="mm-pill uppercase text-[10px]">{tx("Refleks", "Reflex")}</span>
+                            <span className="mm-pill uppercase text-[10px]">{tx("Strateji", "Strategy")}</span>
                         </div>
                     </div>
                 </div>
@@ -514,6 +535,7 @@ function Arrow({ className }: { className?: string }) {
 }
 
 function PersonaCard({ name, role, traits, motivation, color }: any) {
+    const { tx } = useLanguage();
     return (
         <div className="p-16 bg-neutral-900/40 hover:bg-neutral-900 transition-all duration-500">
             <div className="flex items-center gap-6 mb-12">
@@ -534,8 +556,8 @@ function PersonaCard({ name, role, traits, motivation, color }: any) {
                 ))}
             </div>
             <div className="pt-8 border-t border-white/5">
-                <h4 className="text-[9px] uppercase tracking-widest text-neutral-600 mb-3 font-bold">MOTİVASYON</h4>
-                <p className="text-sm text-neutral-300 italic">"{motivation}"</p>
+                <h4 className="text-[9px] uppercase tracking-widest text-neutral-600 mb-3 font-bold">{tx("MOTİVASYON", "MOTIVATION")}</h4>
+                <p className="text-sm text-neutral-300 italic">&ldquo;{motivation}&rdquo;</p>
             </div>
         </div>
     );
